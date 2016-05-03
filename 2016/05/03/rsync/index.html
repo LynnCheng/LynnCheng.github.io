@@ -3,18 +3,18 @@
 <head>
   <meta charset="utf-8">
   
-  <title>ios开发过程中遇到的一些小坑 | LynnCheng</title>
+  <title>rsync命令参数 | LynnCheng</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="1.systemFontiPhone手机可以设置字体为粗体，所以开发过程中使用了系统字体（eg：UIFont.systemFontOfSize(10)），布局的时候，需要考虑预留足够的空间">
+  <meta name="description" content="参数说明-v, –verbose  详细模式输出-q, –quiet 精简输出模式-c, –checksum 打开校验开关，强制对文件传输进行校验-a, –archive 归档模式，表示以递归方式传输文件，并保持所有文件属性，等于-rlptgoD-r, –recursive 对子目录以递归模式处理">
 <meta property="og:type" content="article">
-<meta property="og:title" content="ios开发过程中遇到的一些小坑">
-<meta property="og:url" content="http://lynncheng.github.io/2016/04/29/my-new-post/index.html">
+<meta property="og:title" content="rsync命令参数">
+<meta property="og:url" content="http://lynncheng.github.io/2016/05/03/rsync/index.html">
 <meta property="og:site_name" content="LynnCheng">
-<meta property="og:description" content="1.systemFontiPhone手机可以设置字体为粗体，所以开发过程中使用了系统字体（eg：UIFont.systemFontOfSize(10)），布局的时候，需要考虑预留足够的空间">
-<meta property="og:updated_time" content="2016-05-03T10:43:56.000Z">
+<meta property="og:description" content="参数说明-v, –verbose  详细模式输出-q, –quiet 精简输出模式-c, –checksum 打开校验开关，强制对文件传输进行校验-a, –archive 归档模式，表示以递归方式传输文件，并保持所有文件属性，等于-rlptgoD-r, –recursive 对子目录以递归模式处理">
+<meta property="og:updated_time" content="2016-05-03T09:45:40.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="ios开发过程中遇到的一些小坑">
-<meta name="twitter:description" content="1.systemFontiPhone手机可以设置字体为粗体，所以开发过程中使用了系统字体（eg：UIFont.systemFontOfSize(10)），布局的时候，需要考虑预留足够的空间">
+<meta name="twitter:title" content="rsync命令参数">
+<meta name="twitter:description" content="参数说明-v, –verbose  详细模式输出-q, –quiet 精简输出模式-c, –checksum 打开校验开关，强制对文件传输进行校验-a, –archive 归档模式，表示以递归方式传输文件，并保持所有文件属性，等于-rlptgoD-r, –recursive 对子目录以递归模式处理">
   
     <link rel="alternative" href="/atom.xml" title="LynnCheng" type="application/atom+xml">
   
@@ -227,11 +227,11 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
-      <div class="body-wrap"><article id="post-my-new-post" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-rsync" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/04/29/my-new-post/" class="article-date">
-      <time datetime="2016-04-29T03:26:00.000Z" itemprop="datePublished">2016-04-29</time>
+      <a href="/2016/05/03/rsync/" class="article-date">
+      <time datetime="2016-05-03T09:43:00.000Z" itemprop="datePublished">2016-05-03</time>
 </a>
     </div>
   
@@ -244,7 +244,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      ios开发过程中遇到的一些小坑
+      rsync命令参数
     </h1>
   
 
@@ -254,10 +254,6 @@
         
 
         
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ios/">ios</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/swift/">swift</a></li></ul>
-    </div>
-
         <div class="clearfix"></div>
       </div>
       
@@ -265,7 +261,7 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>1.systemFont<br>iPhone手机可以设置字体为粗体，所以开发过程中使用了系统字体（eg：UIFont.systemFontOfSize(10)），布局的时候，需要考虑预留足够的空间</p>
+        <p>参数说明<br>-v, –verbose  详细模式输出<br>-q, –quiet 精简输出模式<br>-c, –checksum 打开校验开关，强制对文件传输进行校验<br>-a, –archive 归档模式，表示以递归方式传输文件，并保持所有文件属性，等于-rlptgoD<br>-r, –recursive 对子目录以递归模式处理<br><a id="more"></a><br>-R, –relative 使用相对路径信息<br>-b, –backup 创建备份，也就是对于目的已经存在有同样的文件名时，将老的文件重新命名为~filename。可以使用–suffix选项来指定不同的备份文件前缀。<br>–backup-dir 将备份文件(如~filename)存放在在目录下。<br>-suffix=SUFFIX 定义备份文件前缀<br>-u, –update 仅仅进行更新，也就是跳过所有已经存在于DST，并且文件时间晚于要备份的文件。(不覆盖更新的文件)<br>-l, –links 保留软链结<br>-L, –copy-links 想对待常规文件一样处理软链结<br>–copy-unsafe-links 仅仅拷贝指向SRC路径目录树以外的链结<br>–safe-links 忽略指向SRC路径目录树以外的链结<br>-H, –hard-links 保留硬链结     -p, –perms 保持文件权限<br>-o, –owner 保持文件属主信息     -g, –group 保持文件属组信息<br>-D, –devices 保持设备文件信息    -t, –times 保持文件时间信息<br>-S, –sparse 对稀疏文件进行特殊处理以节省DST的空间<br>-n, –dry-run现实哪些文件将被传输<br>-W, –whole-file 拷贝文件，不进行增量检测<br>-x, –one-file-system 不要跨越文件系统边界<br>-B, –block-size=SIZE 检验算法使用的块尺寸，默认是700字节<br>-e, –rsh=COMMAND 指定使用rsh、ssh方式进行数据同步<br>–rsync-path=PATH 指定远程服务器上的rsync命令所在路径信息<br>-C, –cvs-exclude 使用和CVS一样的方法自动忽略文件，用来排除那些不希望传输的文件<br>–existing 仅仅更新那些已经存在于DST的文件，而不备份那些新创建的文件<br>–delete 删除那些DST中SRC没有的文件<br>–delete-excluded 同样删除接收端那些被该选项指定排除的文件<br>–delete-after 传输结束以后再删除<br>–ignore-errors 及时出现IO错误也进行删除<br>–max-delete=NUM 最多删除NUM个文件<br>–partial 保留那些因故没有完全传输的文件，以是加快随后的再次传输<br>–force 强制删除目录，即使不为空<br>–numeric-ids 不将数字的用户和组ID匹配为用户名和组名<br>–timeout=TIME IP超时时间，单位为秒<br>-I, –ignore-times 不跳过那些有同样的时间和长度的文件<br>–size-only 当决定是否要备份文件时，仅仅察看文件大小而不考虑文件时间<br>–modify-window=NUM 决定文件是否时间相同时使用的时间戳窗口，默认为0<br>-T –temp-dir=DIR 在DIR中创建临时文件<br>–compare-dest=DIR 同样比较DIR中的文件来决定是否需要备份<br>-P 等同于 –partial<br>–progress 显示备份过程<br>-z, –compress 对备份的文件在传输时进行压缩处理<br>–exclude=PATTERN 指定排除不需要传输的文件模式<br>–include=PATTERN 指定不排除而需要传输的文件模式<br>–exclude-from=FILE 排除FILE中指定模式的文件<br>–include-from=FILE 不排除FILE指定模式匹配的文件<br>–version 打印版本信息<br>–address 绑定到特定的地址<br>–config=FILE 指定其他的配置文件，不使用默认的rsyncd.conf文件<br>–port=PORT 指定其他的rsync服务端口<br>–blocking-io 对远程shell使用阻塞IO<br>-stats 给出某些文件的传输状态<br>–progress 在传输时现实传输过程<br>–log-format=formAT 指定日志文件格式<br>–password-file=FILE 从FILE中得到密码<br>–bwlimit=KBPS 限制I/O带宽，KBytes per second      -h, –help 显示帮助信息</p>
 
       
     </div>
@@ -274,13 +270,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2016/04/29/my-new-post/">ios开发过程中遇到的一些小坑</a></p>
+        <p><span>本文标题:</span><a href="/2016/05/03/rsync/">rsync命令参数</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">Lynn Cheng</a></p>
-        <p><span>发布时间:</span>2016-04-29, 11:26:00</p>
-        <p><span>最后更新:</span>2016-05-03, 18:43:56</p>
+        <p><span>发布时间:</span>2016-05-03, 17:43:00</p>
+        <p><span>最后更新:</span>2016-05-03, 17:45:40</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2016/04/29/my-new-post/" title="ios开发过程中遇到的一些小坑">http://lynncheng.github.io/2016/04/29/my-new-post/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://lynncheng.github.io/2016/04/29/my-new-post/　　作者: Lynn Cheng" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2016/05/03/rsync/" title="rsync命令参数">http://lynncheng.github.io/2016/05/03/rsync/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://lynncheng.github.io/2016/05/03/rsync/　　作者: Lynn Cheng" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
@@ -292,16 +288,10 @@
 
     <nav id="article-nav">
         
-            <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2016/04/29/测试在线编辑/">
-                    ssl交互handshake failure故障一则
-                </a>
-            </div>
-        
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2016/04/29/hello-world/">
-                    使用hexo撰写博客
+                <a href="/2016/04/29/测试在线编辑/">
+                    ssl交互handshake failure故障一则
                 </a>
             </div>
         
@@ -369,7 +359,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"ios开发过程中遇到的一些小坑　| LynnCheng　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"rsync命令参数　| LynnCheng　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -385,7 +375,7 @@
     
       <div class="duoshuo" id="comments">
     <!-- 多说评论框 start -->
-    <div class="ds-thread" data-thread-key="2016/04/29/my-new-post/" data-title="ios开发过程中遇到的一些小坑" data-url="http://lynncheng.github.io/2016/04/29/my-new-post/"></div>
+    <div class="ds-thread" data-thread-key="2016/05/03/rsync/" data-title="rsync命令参数" data-url="http://lynncheng.github.io/2016/05/03/rsync/"></div>
     <!-- 多说评论框 end -->
     <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
     <script type="text/javascript">
@@ -409,15 +399,13 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2016/04/29/测试在线编辑/" title="上一篇: ssl交互handshake failure故障一则">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
 
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2016/04/29/hello-world/" title="下一篇: 使用hexo撰写博客">
+            <a href="/2016/04/29/测试在线编辑/" title="下一篇: ssl交互handshake failure故障一则">
                 <i class="fa fa-angle-right"></i>
             </a>
         

@@ -158,7 +158,7 @@
                 
                 <section class="switch-part switch-part2">
                     <div class="widget tagcloud" id="js-tagcloud">
-                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/ios-swift/">ios swift</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/test1/">test1</a></li></ul>
+                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/ios/">ios</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ssl/">ssl</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/swift/">swift</a></li></ul>
                     </div>
                 </section>
                 
@@ -233,6 +233,64 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-rsync" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/05/03/rsync/" class="article-date">
+      <time datetime="2016-05-03T09:43:00.000Z" itemprop="datePublished">2016-05-03</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/05/03/rsync/">rsync命令参数</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+              <p>参数说明<br>-v, –verbose  详细模式输出<br>-q, –quiet 精简输出模式<br>-c, –checksum 打开校验开关，强制对文件传输进行校验<br>-a, –archive 归档模式，表示以递归方式传输文件，并保持所有文件属性，等于-rlptgoD<br>-r, –recursive 对子目录以递归模式处理<br>
+          
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+        <p class="article-more-link">
+          <a href="/2016/05/03/rsync/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-测试在线编辑" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -250,7 +308,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/04/29/测试在线编辑/">测试在线编辑</a>
+      <a class="article-title" href="/2016/04/29/测试在线编辑/">ssl交互handshake failure故障一则</a>
     </h1>
   
 
@@ -260,7 +318,12 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h2 id="无聊的人干无聊的事？"><a href="#无聊的人干无聊的事？" class="headerlink" title="无聊的人干无聊的事？"></a>无聊的人干无聊的事？</h2><p>详细信息在这</p>
+        <blockquote>
+<p>现网运行正常的设备，突然有一天连不上服务器。设备维护人员和服务器维护人员都声称近段时间没做任何修改，不应该是自己引入的。 因为设备侧的功能是两年前我开发的，所以项目负责人把交互报文发给我，让我协助分析一下。<br>问题分析：从抓包的结果看，服务器报“handshake failure”错误，导致ssl连接建立失败，还没到应用层交互；所以关注ssl交互就行了，不用关心上层应用。</p>
+<blockquote>
+<p>首先检查证书是否有效－－ 正常<br>其次，因为在网设备都在用户家，改动的机会不大；所以推测是服务器维护的时候，有意无意中改动了相关配置。于是我提醒服务器维护员检查服务器支持的ssl版本列表，结果找到原因了<br>解决方案：修改服务器关于ssl的设置，增加对sslv3的支持，然后一切正常了。至于产生这个问题的原因……</p>
+</blockquote>
+</blockquote>
 
       
     </div>
@@ -268,10 +331,14 @@
     <div class="article-info article-info-index">
       
       
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/bugfix/">bugfix</a>
+    </div>
+
 
       
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/test1/">test1</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ssl/">ssl</a></li></ul>
     </div>
 
       
@@ -295,7 +362,7 @@
   
     <div class="article-meta">
       <a href="/2016/04/29/my-new-post/" class="article-date">
-      <time datetime="2016-04-29T03:26:35.000Z" itemprop="datePublished">2016-04-29</time>
+      <time datetime="2016-04-29T03:26:00.000Z" itemprop="datePublished">2016-04-29</time>
 </a>
     </div>
   
@@ -318,7 +385,7 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h3 id="1-systemFont"><a href="#1-systemFont" class="headerlink" title="1.systemFont"></a>1.systemFont</h3><p>iPhone手机可以设置字体为粗体，所以开发过程中使用了系统字体（eg：UIFont.systemFontOfSize(10)），布局的时候，需要考虑预留足够的空间</p>
+        <p>1.systemFont<br>iPhone手机可以设置字体为粗体，所以开发过程中使用了系统字体（eg：UIFont.systemFontOfSize(10)），布局的时候，需要考虑预留足够的空间</p>
 
       
     </div>
@@ -329,7 +396,7 @@
 
       
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ios-swift/">ios swift</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ios/">ios</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/swift/">swift</a></li></ul>
     </div>
 
       
@@ -353,7 +420,7 @@
   
     <div class="article-meta">
       <a href="/2016/04/29/hello-world/" class="article-date">
-      <time datetime="2016-04-29T02:55:55.000Z" itemprop="datePublished">2016-04-29</time>
+      <time datetime="2016-04-29T02:55:00.000Z" itemprop="datePublished">2016-04-29</time>
 </a>
     </div>
   
@@ -376,15 +443,10 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h2 id="hexo入门"><a href="#hexo入门" class="headerlink" title="hexo入门"></a>hexo入门</h2><h3 id="发布新博客"><a href="#发布新博客" class="headerlink" title="发布新博客"></a>发布新博客</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="本地运行hexo查看结果"><a href="#本地运行hexo查看结果" class="headerlink" title="本地运行hexo查看结果"></a>本地运行hexo查看结果</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="生成静态页面"><a href="#生成静态页面" class="headerlink" title="生成静态页面"></a>生成静态页面</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="发布博客"><a href="#发布博客" class="headerlink" title="发布博客"></a>发布博客</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
-
+              <p>发布新博客:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure></p>
+<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
+<p>本地运行hexo查看结果:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure></p>
+          
       
     </div>
     
@@ -393,6 +455,10 @@
       
 
       
+      
+        <p class="article-more-link">
+          <a href="/2016/04/29/hello-world/#more">more >></a>
+        </p>
       
       <div class="clearfix"></div>
     </div>

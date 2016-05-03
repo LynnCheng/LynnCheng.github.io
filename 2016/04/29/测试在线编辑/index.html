@@ -3,18 +3,24 @@
 <head>
   <meta charset="utf-8">
   
-  <title>测试在线编辑 | LynnCheng</title>
+  <title>ssl交互handshake failure故障一则 | LynnCheng</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="无聊的人干无聊的事？详细信息在这">
+  <meta name="description" content="现网运行正常的设备，突然有一天连不上服务器。设备维护人员和服务器维护人员都声称近段时间没做任何修改，不应该是自己引入的。 因为设备侧的功能是两年前我开发的，所以项目负责人把交互报文发给我，让我协助分析一下。问题分析：从抓包的结果看，服务器报“handshake failure”错误，导致ssl连接建立失败，还没到应用层交互；所以关注ssl交互就行了，不用关心上层应用。
+
+首先检查证书是否有效－－">
 <meta property="og:type" content="article">
-<meta property="og:title" content="测试在线编辑">
+<meta property="og:title" content="ssl交互handshake failure故障一则">
 <meta property="og:url" content="http://lynncheng.github.io/2016/04/29/测试在线编辑/index.html">
 <meta property="og:site_name" content="LynnCheng">
-<meta property="og:description" content="无聊的人干无聊的事？详细信息在这">
-<meta property="og:updated_time" content="2016-04-29T10:41:52.000Z">
+<meta property="og:description" content="现网运行正常的设备，突然有一天连不上服务器。设备维护人员和服务器维护人员都声称近段时间没做任何修改，不应该是自己引入的。 因为设备侧的功能是两年前我开发的，所以项目负责人把交互报文发给我，让我协助分析一下。问题分析：从抓包的结果看，服务器报“handshake failure”错误，导致ssl连接建立失败，还没到应用层交互；所以关注ssl交互就行了，不用关心上层应用。
+
+首先检查证书是否有效－－">
+<meta property="og:updated_time" content="2016-05-03T10:59:04.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="测试在线编辑">
-<meta name="twitter:description" content="无聊的人干无聊的事？详细信息在这">
+<meta name="twitter:title" content="ssl交互handshake failure故障一则">
+<meta name="twitter:description" content="现网运行正常的设备，突然有一天连不上服务器。设备维护人员和服务器维护人员都声称近段时间没做任何修改，不应该是自己引入的。 因为设备侧的功能是两年前我开发的，所以项目负责人把交互报文发给我，让我协助分析一下。问题分析：从抓包的结果看，服务器报“handshake failure”错误，导致ssl连接建立失败，还没到应用层交互；所以关注ssl交互就行了，不用关心上层应用。
+
+首先检查证书是否有效－－">
   
     <link rel="alternative" href="/atom.xml" title="LynnCheng" type="application/atom+xml">
   
@@ -154,7 +160,7 @@
                 
                 <section class="switch-part switch-part2">
                     <div class="widget tagcloud" id="js-tagcloud">
-                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/ios-swift/">ios swift</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/test1/">test1</a></li></ul>
+                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/ios/">ios</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ssl/">ssl</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/swift/">swift</a></li></ul>
                     </div>
                 </section>
                 
@@ -244,7 +250,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      测试在线编辑
+      ssl交互handshake failure故障一则
     </h1>
   
 
@@ -252,10 +258,14 @@
       
       <div class="article-info article-info-post">
         
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/bugfix/">bugfix</a>
+    </div>
+
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/test1/">test1</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ssl/">ssl</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -265,7 +275,12 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h2 id="无聊的人干无聊的事？"><a href="#无聊的人干无聊的事？" class="headerlink" title="无聊的人干无聊的事？"></a>无聊的人干无聊的事？</h2><p>详细信息在这</p>
+        <blockquote>
+<p>现网运行正常的设备，突然有一天连不上服务器。设备维护人员和服务器维护人员都声称近段时间没做任何修改，不应该是自己引入的。 因为设备侧的功能是两年前我开发的，所以项目负责人把交互报文发给我，让我协助分析一下。<br>问题分析：从抓包的结果看，服务器报“handshake failure”错误，导致ssl连接建立失败，还没到应用层交互；所以关注ssl交互就行了，不用关心上层应用。</p>
+<blockquote>
+<p>首先检查证书是否有效－－ 正常<br>其次，因为在网设备都在用户家，改动的机会不大；所以推测是服务器维护的时候，有意无意中改动了相关配置。于是我提醒服务器维护员检查服务器支持的ssl版本列表，结果找到原因了<br>解决方案：修改服务器关于ssl的设置，增加对sslv3的支持，然后一切正常了。至于产生这个问题的原因……</p>
+</blockquote>
+</blockquote>
 
       
     </div>
@@ -274,12 +289,12 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2016/04/29/测试在线编辑/">测试在线编辑</a></p>
+        <p><span>本文标题:</span><a href="/2016/04/29/测试在线编辑/">ssl交互handshake failure故障一则</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">Lynn Cheng</a></p>
         <p><span>发布时间:</span>2016-04-29, 18:38:00</p>
-        <p><span>最后更新:</span>2016-04-29, 18:41:52</p>
+        <p><span>最后更新:</span>2016-05-03, 18:59:04</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2016/04/29/测试在线编辑/" title="测试在线编辑">http://lynncheng.github.io/2016/04/29/测试在线编辑/</a>
+            <span>原始链接:</span><a class="post-url" href="/2016/04/29/测试在线编辑/" title="ssl交互handshake failure故障一则">http://lynncheng.github.io/2016/04/29/测试在线编辑/</a>
             <span class="copy-path" data-clipboard-text="原文: http://lynncheng.github.io/2016/04/29/测试在线编辑/　　作者: Lynn Cheng" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
@@ -291,6 +306,12 @@
 
 
     <nav id="article-nav">
+        
+            <div id="article-nav-newer" class="article-nav-title">
+                <a href="/2016/05/03/rsync/">
+                    rsync命令参数
+                </a>
+            </div>
         
         
             <div id="article-nav-older" class="article-nav-title">
@@ -306,7 +327,7 @@
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#无聊的人干无聊的事？"><span class="toc-number">1.</span> <span class="toc-text">无聊的人干无聊的事？</span></a></li></ol>
+    
 </div>
 <style>
     .left-col .switch-btn {
@@ -363,7 +384,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"测试在线编辑　| LynnCheng　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"ssl交互handshake failure故障一则　| LynnCheng　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -379,7 +400,7 @@
     
       <div class="duoshuo" id="comments">
     <!-- 多说评论框 start -->
-    <div class="ds-thread" data-thread-key="2016/04/29/测试在线编辑/" data-title="测试在线编辑" data-url="http://lynncheng.github.io/2016/04/29/测试在线编辑/"></div>
+    <div class="ds-thread" data-thread-key="2016/04/29/测试在线编辑/" data-title="ssl交互handshake failure故障一则" data-url="http://lynncheng.github.io/2016/04/29/测试在线编辑/"></div>
     <!-- 多说评论框 end -->
     <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
     <script type="text/javascript">
@@ -403,7 +424,9 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
+            <a href="/2016/05/03/rsync/" title="上一篇: rsync命令参数">
+                <i class="fa fa-angle-left"></i>
+            </a>
         
 
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
@@ -415,7 +438,7 @@
         
     </div>
 
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2016/04/29/测试在线编辑/">测试在线编辑</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/29/my-new-post/">ios开发过程中遇到的一些小坑</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/29/hello-world/">使用hexo撰写博客</a></li></ul>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2016/05/03/rsync/">rsync命令参数</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/29/测试在线编辑/">ssl交互handshake failure故障一则</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/29/my-new-post/">ios开发过程中遇到的一些小坑</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/29/hello-world/">使用hexo撰写博客</a></li></ul>
 
 
 
