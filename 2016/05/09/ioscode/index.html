@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="utf-8">
+  
+  <title>ios开发过程中的代码块 | LynnCheng</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="1.判断邮箱格式是否正确的代码：
+// 利用正则表达式验证 -( BOOL )isValidateEmail:( NSString  )email{NSString  emailRegex =  @”[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}” ;NSPredicate  *emailTest = [ NSPredicate   predicat">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ios开发过程中的代码块">
+<meta property="og:url" content="http://lynncheng.github.io/2016/05/09/ioscode/index.html">
+<meta property="og:site_name" content="LynnCheng">
+<meta property="og:description" content="1.判断邮箱格式是否正确的代码：
+// 利用正则表达式验证 -( BOOL )isValidateEmail:( NSString  )email{NSString  emailRegex =  @”[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}” ;NSPredicate  *emailTest = [ NSPredicate   predicat">
+<meta property="og:updated_time" content="2016-05-10T12:58:01.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="ios开发过程中的代码块">
+<meta name="twitter:description" content="1.判断邮箱格式是否正确的代码：
+// 利用正则表达式验证 -( BOOL )isValidateEmail:( NSString  )email{NSString  emailRegex =  @”[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}” ;NSPredicate  *emailTest = [ NSPredicate   predicat">
+  
+    <link rel="alternative" href="/atom.xml" title="LynnCheng" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+      <link href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css" rel="stylesheet">
+  
+  
+  
+      <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+      <link href="//cdn.bootcss.com/pace/1.0.2/themes/blue/pace-theme-minimal.css" rel="stylesheet">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+  <link href="//cdn.bootcss.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  
+  
+      <link href="//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.css" rel="stylesheet">
+  
+  <script src="//cdn.bootcss.com/jquery/1.9.1/jquery.min.js"></script>
+  <script src="//cdn.bootcss.com/clipboard.js/1.5.9/clipboard.min.js"></script>
+  <script>
+      var yiliaConfig = {
+          fancybox: true,
+          animate: true,
+          isHome: false,
+          isPost: true,
+          isArchive: false,
+          isTag: false,
+          isCategory: false,
+          open_in_new: false,
+          fancybox_js: "//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.js",
+          scrollreveal: "//cdn.bootcss.com/scrollReveal.js/3.0.9/scrollreveal.min.js"
+      }
+  </script>
+
+  
+      <script>
+          yiliaConfig.rootUrl = "/";
+      </script>
+  
+
+  
+  
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            <img src="/img/avatar.png" class="animated zoomIn">
+        </a>
+        <hgroup>
+          <h1 class="header-author"><a href="/">Lynn Cheng</a></h1>
+        </hgroup>
+
+        
+                
+
+
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        <li>友情链接</li>
+                        
+                        
+                        <li>关于我</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/">主页</a></li>
+                        
+                            <li><a href="/archives/">所有文章</a></li>
+                        
+                            <li><a href="/tags/">标签云</a></li>
+                        
+                            <li><a href="/about/">关于我</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa Email" target="_blank" href="mailto:77708550@qq.com" title="Email"></a>
+                            
+                                <a class="fa GitHub" target="_blank" href="#" title="GitHub"></a>
+                            
+                                <a class="fa RSS" target="_blank" href="/atom.xml" title="RSS"></a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/ios/">ios</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ssl/">ssl</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/swift/">swift</a></li></ul>
+                    </div>
+                </section>
+                
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="https://hexo.io">Hexo</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="https://pages.github.com/">GitHub</a>
+                    
+                    </div>
+                </section>
+                
+
+                
+                
+                <section class="switch-part switch-part4">
+                
+                    <div id="js-aboutme">程序猿一枚</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">Lynn Cheng</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                <img src="/img/avatar.png" class="animated zoomIn">
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="回到主页">Lynn Cheng</a></h1>
+            </hgroup>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/">主页</a></li>
+                
+                    <li><a href="/archives/">所有文章</a></li>
+                
+                    <li><a href="/tags/">标签云</a></li>
+                
+                    <li><a href="/about/">关于我</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa Email" target="_blank" href="mailto:77708550@qq.com" title="Email"></a>
+                            
+                                <a class="fa GitHub" target="_blank" href="#" title="GitHub"></a>
+                            
+                                <a class="fa RSS" target="_blank" href="/atom.xml" title="RSS"></a>
+                            
+                        </ul>
+            </nav>
+        </header>                
+    </div>
+    <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
+</nav>
+      <div class="body-wrap"><article id="post-ioscode" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/05/09/ioscode/" class="article-date">
+      <time datetime="2016-05-09T00:48:00.000Z" itemprop="datePublished">2016-05-09</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      ios开发过程中的代码块
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+
+        
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>1.判断邮箱格式是否正确的代码：</p>
+<p>// 利用正则表达式验证 -( BOOL )isValidateEmail:( NSString  <em>)email<br>{<br>NSString  </em>emailRegex =  @”[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}” ;<br>NSPredicate  *emailTest = [ NSPredicate   predicateWithFormat : @”SELF MATCHES%@” ,emailRegex];<br>return  [emailTest  evaluateWithObject :email];<br>}  <a id="more"></a><br>2.图片压缩</p>
+<p>用法： UIImage <em>yourImage= [self imageWithImageSimple:image scaledToSize:CGSizeMake(210.0, 210.0)]; // 压缩图片 - ( UIImage </em>)imageWithImageSimple:( UIImage <em>)image scaledToSize:( CGSize )newSize<br>{<br>// Create a graphics image context UIGraphicsBeginImageContext (newSize);<br>// Tell the old image to draw in this newcontext, with the desired // new size [image  drawInRect : CGRectMake ( 0 , 0 ,newSize. width ,newSize. height )];<br>// Get the new image from the context UIImage </em> newImage =  UIGraphicsGetImageFromCurrentImageContext ();<br>// End the context UIGraphicsEndImageContext ();<br>// Return the new image. return  newImage;<br>}  </p>
+<p>3.亲测可用的图片上传代码</p>
+<ul>
+<li>( IBAction )uploadButton:( id )sender {<br>UIImage  <em>image = [ UIImage   imageNamed : @”1.jpg” ]; // 图片名 NSData  </em>imageData =  UIImageJPEGRepresentation (image, 0.5 );// 压缩比例 NSLog ( @” 字节数 :%i” ,[imageData length]);<br>// post url NSString  <em>urlString =  @”<a href="http://192.168.1.113:8090/text/UploadServlet" target="_blank" rel="external">http://192.168.1.113:8090/text/UploadServlet</a>“ ;<br>// 服务器地址 // setting up the request object now NSMutableURLRequest  </em>request = [[ NSMutableURLRequest   alloc ]  init ] ;<br>[request  setURL :[ NSURL   URLWithString :urlString]];<br>[request  setHTTPMethod : @”POST” ];<br>// NSString  <em>boundary = [ NSString   stringWithString : @”—————————14737809831466499882746641449” ];<br>NSString  </em>contentType = [ NSString   stringWithFormat : @”multipart/form-data;boundary=%@” ,boundary];<br>[request  addValue :contentType  forHTTPHeaderField :  @”Content-Type” ];<br>// NSMutableData  <em>body = [ NSMutableData   data ];<br>[body  appendData :[[ NSString   stringWithFormat : @”\r\n–%@\r\n” ,boundary]  dataUsingEncoding : NSUTF8StringEncoding ]];<br>[body  appendData :[[ NSString   stringWithString : @”Content-Disposition:form-data; name=\”userfile\”; filename=\”2.png\”\r\n” ]  dataUsingEncoding : NSUTF8StringEncoding ]]; // 上传上去的图片名字 [body  appendData :[[ NSString   stringWithString : @”Content-Type: application/octet-stream\r\n\r\n” ]  dataUsingEncoding : NSUTF8StringEncoding ]];<br>[body  appendData :[ NSData   dataWithData :imageData]];<br>[body  appendData :[[ NSString   stringWithFormat : @”\r\n–%@–\r\n” ,boundary]  dataUsingEncoding : NSUTF8StringEncoding ]];<br>[request  setHTTPBody :body];<br>// NSLog(@”1-body:%@”,body); NSLog ( @”2-request:%@” ,request);<br>NSData  </em>returnData = [ NSURLConnection   sendSynchronousRequest :request  returningResponse : nil   error : nil ];<br>NSString  *returnString = [[ NSString   alloc ]  initWithData :returnData  encoding : NSUTF8StringEncoding ];<br>NSLog ( @”3- 测试输出： %@” ,returnString );<br>4.给imageView加载图片</li>
+</ul>
+<p>UIImage  *myImage = [ UIImage   imageNamed : @”1.jpg” ];<br>   [ imageView   setImage :myImage];<br>   [ self . view   addSubview : imageView ];<br>5.对图库的操作</p>
+<p>选择相册： UIImagePickerControllerSourceTypesourceType=UIImagePickerControllerSourceTypeCamera;<br>   if (![UIImagePickerControllerisSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {<br>       sourceType=UIImagePickerControllerSourceTypePhotoLibrary;<br>   }<br>   UIImagePickerController <em> picker = [[UIImagePickerControlleralloc]init];<br>   picker.delegate = self;<br>   picker.allowsEditing=YES;<br>   picker.sourceType=sourceType;<br>   [self presentModalViewController:picker animated:YES];<br>选择完毕：  -(void)imagePickerController:(UIImagePickerController</em>)pickerdidFinishPickingMediaWithInfo:(NSDictionary <em>)info<br>{<br>   [picker dismissModalViewControllerAnimated:YES];<br>   UIImage </em> image=[info objectForKey:UIImagePickerControllerEditedImage];<br>   [self performSelector:@selector(selectPic:) withObject:imageafterDelay:0.1];<br>}<br> -(void)selectPic:(UIImage<em>)image<br>{<br>   NSLog(@”image%@”,image);<br>   imageView = [[UIImageView alloc] initWithImage:image];<br>   imageView.frame = CGRectMake(0, 0, image.size.width, image.size.height);<br>[self.viewaddSubview:imageView];<br>   [self performSelectorInBackground:@selector(detect:) withObject:nil];<br>}<br>detect 为自己定义的方法，编辑选取照片后要实现的效果 取消选择：  -(void)imagePickerControllerDIdCancel:(UIImagePickerController</em>)picker  </p>
+<p>{<br>   [picker dismissModalViewControllerAnimated:YES];<br>}<br>6.跳到下个View</p>
+<p>nextWebView  = [[ WEBViewController   alloc ]  initWithNibName : @”WEBViewController”   bundle : nil ];<br>[ self   presentModalViewController : nextWebView   animated : YES ];<br>7.创建一个UIBarButton右边按钮</p>
+<p>UIBarButtonItem  *rightButton = [[ UIBarButtonItem   alloc ]  initWithTitle : @” 右边 “   style : UIBarButtonItemStyleDone   target : self   action : @selector (clickRightButton)];<br>[  self . navigationItem   setRightBarButtonItem :rightButton];<br>8.设置navigationBar隐藏</p>
+<p>self . navigationController . navigationBarHidden  =  YES ;//  </p>
+<p>9.UIlabel多行文字自动换行 （自动折行）</p>
+<p>UIView <em>footerView = [[UIView alloc]initWithFrame:CGRectMake(10, 100, 300, 180)]; UILabel </em>label = [[UILabel alloc]initWithFrame:CGRectMake(10, 100, 300, 150)]; label.text = @”Hello world! Hello world!Hello world! Hello world! Hello world! Hello world! Hello world! Hello world!Hello world! Hello world! Hello world! Hello world! Hello world! Helloworld!”; // 背景颜色为红色 label.backgroundColor = [UIColor redColor]; // 设置字体颜色为白色 label.textColor = [UIColor whiteColor]; // 文字居中显示 label.textAlignment = UITextAlignmentCenter; // 自动折行设置 label.lineBreakMode = UILineBreakModeWordWrap; label.numberOfLines = 0;<br>10.代码生成Button</p>
+<p>CGRect  frame =  CGRectMake ( 0 ,  400 ,  72.0 ,  37.0 );<br>UIButton  *button = [ UIButton   buttonWithType : UIButtonTypeRoundedRect ];<br>button. frame  = frame;<br>[button  setTitle : @” 新添加的按钮 “  forState:  UIControlStateNormal ];<br>button. backgroundColor  = [ UIColor   clearColor ];<br>button. tag  =  2000 ;<br>[button  addTarget : self   action : @selector (buttonClicked:)  forControlEvents : UIControlEventTouchUpInside ];<br>[ self . view   addSubview :button];<br>10.2在xib文件中已经创建好Button，通过tag获取按钮 </p>
+<p>UIButton <em>testButton= (UIButton</em>)[self.view viewWithTag:100];<br>    [testButton addTarget:self action:@selector(test:) forControlEvents:UIControlEventTouchUpInside];<br>//按钮事件</p>
+<p>-(void) test: (id) sender{<br>    UIAlertView *av = [[[UIAlertView alloc] initWithTitle:@”ceshi” message:@”test11111” delegate:nil cancelButtonTitle:@”OK”otherButtonTitles:nil] autorelease];<br>    [av show];<br>}<br>11.让某个控件在View的中心位置显示：</p>
+<p>（某个控件，比如 label ， View ） label . center  =  self . view . center；</p>
+<p>12.自定义text各种效果：</p>
+<p>cell.backgroundColor = [UIColorscrollViewTexturedBackgroundColor];<br>// 设置文字的字体<br>cell.textLabel.font = [UIFont fontWithName:@”AmericanTypewriter” size:100.0f];<br>// 设置文字的颜色<br>cell.textLabel.textColor = [UIColor orangeColor];<br>// 设置文字的背景颜色<br>cell.textLabel.shadowColor = [UIColor whiteColor];<br>// 设置文字的显示位置<br>cell.textLabel.textAlignment = UITextAlignmentCenter;<br>13.隐藏statusBar：<br>在程序的 viewDidLoad 中加入</p>
+<p>[[UIApplication sharedApplication]setStatusBarHidden:YES animated:NO];<br>14.更改AlertView背景：</p>
+<p>UIAlertView <em>theAlert = [[[UIAlertViewalloc] initWithTitle:@”Atention”<br>                                                     message: @”I’m a Chinese!”<br>                                                    delegate:nil<br>                                            cancelButtonTitle:@”Cancel”<br>                                            otherButtonTitles:@”Okay”,nil] autorelease];<br>   [theAlert show];<br>   UIImage </em>theImage = [UIImageimageNamed:@”loveChina.png”];<br>   theImage = [theImage stretchableImageWithLeftCapWidth:0topCapHeight:0];<br>   CGSize theSize = [theAlert frame].size;<br>    UIGraphicsBeginImageContext(theSize);<br>   [theImage drawInRect:CGRectMake(5, 5, theSize.width-10, theSize.height-20)];// 这个地方的大小要自己调整，以适应 alertview 的背景颜色的大小。<br>   theImage = UIGraphicsGetImageFromCurrentImageContext();<br>UIGraphicsEndImageContext();<br>   theAlert.layer.contents = (id)[theImage CGImage];<br>15.键盘透明： </p>
+<p>textField.keyboardAppearance = UIKeyboardAppearanceAlert;<br>16.状态栏的网络活动风火轮是否旋转：</p>
+<p>[UIApplication sharedApplication].networkActivityIndicatorVisible ， 默认值是 NO 。<br>17.截取屏幕图片：</p>
+<p>// 创建一个基于位 图的图形上下文并指定大小为CGSizeMake(200,400)<br>UIGraphicsBeginImageContext(CGSizeMake(200,400));  </p>
+<p>//renderInContext  呈现接受者及其子范围到 指定的上下文<br>[self.view.layer renderInContext:UIGraphicsGetCurrentContext()];<br>    // 返回 一个基于当前图形上下文的图片<br> UIImage *aImage = UIGraphicsGetImageFromCurrentImageContext();<br>  // 移除栈顶 的基于当前位图的图形上下文<br>UIGraphicsEndImageContext();<br>// 以 png 格式 返回指定图片的数据<br>imageData = UIImagePNGR epresentation(aImage);<br>18.更改cell选中的背景： </p>
+<p>UIView *myview = [[UIView alloc] init];<br>   myview.frame = CGRectMake(0, 0, 320, 47);<br>   myview.backgroundColor = [UIColorcolorWithPatternImage:[UIImage imageNamed:@”0006.png”]];<br>   cell.selectedBackgroundView = myview;:<br>19.显示图片：</p>
+<p>CGRect myImageRect = CGRectMake(0.0f, 0.0f, 320.0f, 109.0f);<br>UIImageView *myImage = [[UIImageView alloc] initWithFrame:myImageRect];<br>[myImage setImage:[UIImage imageNamed:@”myImage.png”]];<br>myImage.opaque = YES; //opaque 是否透明<br>[self.view addSubview:myImage];<br>20.能让图片适应框的大小（beta）</p>
+<p>NSString<em>imagePath = [[NSBundle mainBundle] pathForResource:@”XcodeCrash”ofType:@”png”];<br>    UIImage </em>image = [[UIImage alloc]initWithContentsOfFile:imagePath];<br>        UIImage <em>newImage= [image transformWidth:80.f height:240.f];<br>    UIImageView </em>imageView = [[UIImageView alloc]initWithImage: newImage];<br>         [newImagerelease];<br>    [image release];<br>    [self.view addSubview:imageView];  </p>
+<ol>
+<li>实现点击图片进行跳转的代码：（生成一个带有背景图片的button，给button绑定想要的事件）</li>
+</ol>
+<p>UIButton <em>imgButton=[[UIButton alloc]initWithFrame:CGRectMake(0, 0, 120, 120)];<br>[imgButton setBackgroundImage:(UIImage </em>)[self.imgArray objectAtIndex:indexPath.row] forState:UIControlStateNormal];<br>imgButton.tag=[indexPath row];<br>[imgButton addTarget:self action:@selector(buttonClick:) forControlEvents:UIControlEventTouchUpInside];<br>22.键盘回收：</p>
+<p>1).增加一个button，相应touch down事件，隐藏键盘。这种方法，太山寨了。为了相应一个事件增加一个button太不值得的。</p>
+<p>.h  </p>
+<ul>
+<li>(IBAction)dismissKeyBoard:(id)sender;  </li>
+</ul>
+<p>.m  </p>
+<ul>
+<li><p>(IBAction)dismissKeyBoard:(id)sender {  </p>
+<p>  [testText resignFirstResponder];  </p>
+</li>
+</ul>
+<p>}<br>2).第二种方法：在背景图片上添加Tap事件，相应单击处理。这种方法，很好代替了button方式，但是如果UI上没有背景图片，这种方法又回到到第一种山寨的方法行列中。</p>
+<p>// 添加带有处理时间的背景图片</p>
+<p>UIImageView *backView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height)];  </p>
+<pre><code>backView.image = [UIImage imageNamed:@&quot;small3.png&quot;];  
+
+
+
+backView.userInteractionEnabled = YES;  
+
+UITapGestureRecognizer *singleTouch = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissKeyboard:)];  
+
+[backView addGestureRecognizer:singleTouch];  
+
+
+
+backView.tag = 110;  
+
+[self.view addSubview:backView];  
+</code></pre><p>-(void)dismissKeyboard:(id)sender{  </p>
+<pre><code>[text resignFirstResponder];  
+</code></pre><p>}<br>3).在xib文件中，修改xib文件的objects属性，默认是view属性，我们可以修改为UIControl属性，从而是xib文件相应touch down事件。这种方法，缺点就是没有xib就悲剧了。</p>
+<p>.h  </p>
+<ul>
+<li>(IBAction)dimissKeyboard:(id)sender;  </li>
+</ul>
+<p>.m  </p>
+<ul>
+<li><p>(IBAction)dimissKeyboard:(id)sender {  </p>
+<p>  [text resignFirstResponder];  </p>
+</li>
+</ul>
+<p>}  </p>
+<p>23、Gif图片的解析</p>
+<p>//加载gif   </p>
+<p>02     </p>
+<p>03   NSString *filePath = [[NSBundle mainBundle]pathForResource:@”bai3” ofType:@”gif”];   </p>
+<p>04     </p>
+<p>05     NSData *data = [NSData dataWithContentsOfFile:filePath];   </p>
+<p>06     </p>
+<p>07     CGImageSourceRef gif = CGImageSourceCreateWithData((CFDataRef)data, nil);   </p>
+<p>08     </p>
+<p>09  //获取gif的各种属性   </p>
+<p>10     </p>
+<p>11     CFDictionaryRef gifprops =(CGImageSourceCopyPropertiesAtIndex(gif,0,NULL));   </p>
+<p>12     </p>
+<p>13     NSLog(@”<strong>___</strong>%@”,gifprops);   </p>
+<p>14     </p>
+<p>15     </p>
+<p>16     NSInteger count =CGImageSourceGetCount(gif);   </p>
+<p>17     </p>
+<p>18     NSLog(@”<strong><em>__</em></strong>%d”,count);   </p>
+<p>19     </p>
+<p>20     </p>
+<p>21    CFDictionaryRef gifDic = CFDictionaryGetValue(gifprops, kCGImagePropertyGIFDictionary);   </p>
+<p>22     </p>
+<p>23  CFDictionaryRef delay = CFDictionaryGetValue(gifDic, kCGImagePropertyGIFDelayTime);   </p>
+<p>24     </p>
+<p>25     NSLog(@”<strong>___</strong>%@”,delay);    </p>
+<p>26     </p>
+<p>27     </p>
+<p>28  //[gifDic objectForKey:(NSString *)kCGImagePropertyGIFDelayTime];   </p>
+<p>29     </p>
+<p>30     //    NSNumber * w = CFDictionaryGetValue(gifprops, @”PixelWidth”);   </p>
+<p>31     </p>
+<p>32     //    NSNumber * h =CFDictionaryGetValue(gifprops, @”PixelHeight”);   </p>
+<p>33     </p>
+<p>34     //    float totalDuration = delay.doubleValue * count;   </p>
+<p>35     </p>
+<p>36     //    float pixelWidth = w.intValue;   </p>
+<p>37     </p>
+<p>38     //    float pixelHeight = h.intValue;   </p>
+<p>39     </p>
+<p>40   //将gif解析成UIImage类型对象，并加进images数组中     </p>
+<p>41     </p>
+<p>42     </p>
+<p>43     NSMutableArray *images = [NSMutableArray arrayWithCapacity:count];   </p>
+<p>44     </p>
+<p>45     for(int index=0;index&lt;count;index++)   </p>
+<p>46     </p>
+<p>47     {   </p>
+<p>48     </p>
+<p>49         CGImageRef ref = CGImageSourceCreateImageAtIndex(gif, index, nil);   </p>
+<p>50     </p>
+<p>51         UIImage *img = [UIImage imageWithCGImage:ref];   </p>
+<p>52     </p>
+<p>53         [images addObject:img];   </p>
+<p>54     </p>
+<p>55         CFRelease(ref);   </p>
+<p>56     </p>
+<p>57     }   </p>
+<p>58     </p>
+<p>59     CFRelease(gifprops);   </p>
+<p>60     </p>
+<p>61     CFRelease(gif);  </p>
+<p>Gif的合成</p>
+<ul>
+<li>(void)exportAnimatedGif:(CGImageSourceRef )gif :(NSMutableArray *)images   </li>
+</ul>
+<p>02     </p>
+<p>03 {   </p>
+<p>04     </p>
+<p>05        NSString *path = [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject] stringByAppendingPathComponent:@”animated.gif”];   </p>
+<p>06     </p>
+<p>07     CGImageDestinationRef destination = CGImageDestinationCreateWithURL(( CFURLRef)[NSURL fileURLWithPath:path],   </p>
+<p>08     </p>
+<p>09                                                                         kUTTypeGIF,   </p>
+<p>10     </p>
+<p>11                                                                         images.count,   </p>
+<p>12     </p>
+<p>13                                                                         NULL);   </p>
+<p>14     </p>
+<p>15     UIImage *image;   </p>
+<p>16     </p>
+<p>17     for (int i = 0; i&lt;images.count; i++)   </p>
+<p>18     </p>
+<p>19     {   </p>
+<p>20     </p>
+<p>21         image = images[i];   </p>
+<p>22     </p>
+<p>23         CFDictionaryRef gifprops =(CGImageSourceCopyPropertiesAtIndex(gif,i,NULL));   </p>
+<p>24     </p>
+<p>25         CFDictionaryRef gifDic = CFDictionaryGetValue(gifprops, kCGImagePropertyGIFDictionary);   </p>
+<p>26     </p>
+<p>27         NSNumber *delay = CFDictionaryGetValue(gifDic, kCGImagePropertyGIFDelayTime);   </p>
+<p>28     </p>
+<p>29         NSDictionary <em>gifDelay = [NSDictionary dictionaryWithObject:[NSDictionary dictionaryWithObject:delay forKey:(NSString </em>)kCGImagePropertyGIFDelayTime]   </p>
+<p>30     </p>
+<p>31                                                              forKey:(NSString *)kCGImagePropertyGIFDictionary];   </p>
+<p>32     </p>
+<p>33             </p>
+<p>34     </p>
+<p>35         CGImageDestinationAddImage(destination,image.CGImage, (CFDictionaryRef)gifDelay);   </p>
+<p>36     </p>
+<p>37         CGImageDestinationSetProperties(destination, ( CFDictionaryRef)gifprops);   </p>
+<p>38     </p>
+<p>39     }   </p>
+<p>40     </p>
+<p>41         </p>
+<p>42     </p>
+<p>43 //    CGImageDestinationSetProperties(destination, ( CFDictionaryRef)gifprops);   </p>
+<p>44     </p>
+<p>45     CGImageDestinationFinalize(destination);   </p>
+<p>46     </p>
+<p>47     CFRelease(destination);   </p>
+<p>48     </p>
+<p>49     NSLog(@”animated GIF file created at %@”, path);   </p>
+<p>50     </p>
+<p>51     </p>
+<p>52 }<br>24.将一个UIView对象的内容保存为UIImage</p>
+<ul>
+<li>(UIImage<em>)imageFromView:(UIView</em>)view{   </li>
+</ul>
+<p>02     </p>
+<p>03 UIGraphicsBeginImageContextWithOptions(view.bounds.size, YES, view.layer.contentsScale);   </p>
+<p>04     </p>
+<p>05 [view.layer renderInContext:UIGraphicsGetCurrentContext()];   </p>
+<p>06     </p>
+<p>07 UIImage *image = UIGraphicsGetImageFromCurrentImageContext();   </p>
+<p>08     </p>
+<p>09 UIGraphicsEndImageContext();   </p>
+<p>10     </p>
+<p>11 return image;   </p>
+<p>12     </p>
+<p>13 }<br>注意：生成的图片的scale和view的scale一致，这样才可以保证图片的效果和view显示的完全一致，使用renderInContext方法可以让subviews的内容也显示的图片里。</p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/2016/05/09/ioscode/">ios开发过程中的代码块</a></p>
+        <p><span>文章作者:</span><a href="/" title="回到主页">Lynn Cheng</a></p>
+        <p><span>发布时间:</span>2016-05-09, 08:48:00</p>
+        <p><span>最后更新:</span>2016-05-10, 20:58:01</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2016/05/09/ioscode/" title="ios开发过程中的代码块">http://lynncheng.github.io/2016/05/09/ioscode/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://lynncheng.github.io/2016/05/09/ioscode/　　作者: Lynn Cheng" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+    <nav id="article-nav">
+        
+        
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="/2016/05/05/push/">
+                    iOS消息推送：如何在调试阶段获取到正式服务器推送的消息
+                </a>
+            </div>
+        
+    </nav>
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    
+</div>
+<style>
+    .left-col .switch-btn {
+        display: none;
+    }
+    .left-col .switch-area {
+        display: none;
+    }
+</style>
+
+<input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+<script>
+    var valueHide = "隐藏目录";
+    var valueShow = "显示目录";
+
+    if ($(".left-col").is(":hidden")) {
+        $("#tocButton").attr("value", valueShow);
+    }
+
+    $("#tocButton").click(function() {
+        if ($("#toc").is(":hidden")) {
+            $("#tocButton").attr("value", valueHide);
+            $("#toc").slideDown(320);
+            $(".switch-btn, .switch-area").fadeOut(300);
+        }
+        else {
+            $("#tocButton").attr("value", valueShow);
+            $("#toc").slideUp(350);
+            $(".switch-btn, .switch-area").fadeIn(500);
+        }
+    })
+
+    if ($(".toc").length < 1) {
+        $("#toc, #tocButton").hide();
+        $(".switch-btn, .switch-area").show();
+    }
+</script>
+
+
+
+
+
+    
+<div class="share">
+    
+        <div class="bdsharebuttonbox">
+            <a href="#" class="fa fa-twitter bds_twi" data-cmd="twi" title="分享到推特"></a>
+            <a href="#" class="fa fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+            <a href="#" class="fa fa-qq bds_sqq" data-cmd="sqq" title="分享给 QQ 好友"></a>
+            <a href="#" class="fa fa-files-o bds_copy" data-cmd="copy" title="复制网址"></a>
+            <a href="#" class="fa fa fa-envelope-o bds_mail" data-cmd="mail" title="通过邮件分享"></a>
+            <a href="#" class="fa fa-weixin bds_weixin" data-cmd="weixin" title="生成文章二维码"></a>
+            <a href="#" class="fa fa-share-alt bds_more" data-cmd="more"></i></a>
+        </div>
+        <script>
+            window._bd_share_config={
+                "common":{"bdSnsKey":{},"bdText":"ios开发过程中的代码块　| LynnCheng　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+        </script>
+    
+
+    
+</div>
+
+
+
+
+
+
+
+    
+      <div class="duoshuo" id="comments">
+    <!-- 多说评论框 start -->
+    <div class="ds-thread" data-thread-key="2016/05/09/ioscode/" data-title="ios开发过程中的代码块" data-url="http://lynncheng.github.io/2016/05/09/ioscode/"></div>
+    <!-- 多说评论框 end -->
+    <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+    <script type="text/javascript">
+    var duoshuoQuery = {short_name:"lynncheng"};
+    (function() {
+        var ds = document.createElement('script');
+        ds.type = 'text/javascript';ds.async = true;
+        ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+        ds.charset = 'UTF-8';
+        (document.getElementsByTagName('head')[0] 
+         || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+    </script>
+    <!-- 多说公共JS代码 end -->
+</div>
+
+    
+
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
+        
+
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+
+        
+            <a href="/2016/05/05/push/" title="下一篇: iOS消息推送：如何在调试阶段获取到正式服务器推送的消息">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2016/05/09/ioscode/">ios开发过程中的代码块</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/05/push/">iOS消息推送：如何在调试阶段获取到正式服务器推送的消息</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/04/capturepackage/">iOS APP抓包方法介绍之tcpdump</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/03/rsync/">rsync命令参数</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/29/测试在线编辑/">ssl交互handshake failure故障一则</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/29/my-new-post/">ios开发过程中遇到的一些小坑</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/29/hello-world/">使用hexo撰写博客</a></li></ul>
+
+
+
+
+    <script>
+        
+    </script>
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                <i class="fa fa-copyright"></i> 
+                2016 Lynn Cheng
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的博客框架">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="简而不减 Hexo 双栏博客主题">Yelee</a> by MOxFIVE <i class="fa fa-heart animated infinite pulse"></i>
+            </div>
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style='display:none'>
+                        <span id="site-visit" >本站到访数: 
+                            <span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>, </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style='display:none'>
+                        <span id="page-visit">本页阅读量: 
+                            <span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
+    </div>
+</footer>
+    </div>
+    
+<script data-main="/js/main.js" src="//cdn.bootcss.com/require.js/2.1.22/require.min.js"></script>
+
+
+
+
+<div class="scroll" id="scroll">
+    <a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments" title="查看评论"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
+</div>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+  </div>
+</body>
+</html>
