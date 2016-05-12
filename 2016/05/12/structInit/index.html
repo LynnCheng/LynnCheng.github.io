@@ -3,30 +3,18 @@
 <head>
   <meta charset="utf-8">
   
-  <title>iOS消息推送：如何在调试阶段获取到正式服务器推送的消息 | LynnCheng</title>
+  <title>swift 引用c语言结构体时的初始化问题 | LynnCheng</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="iOS消息推送需要对应发布证书和调试证书，正常情况下调试阶段只能通过沙盒测试。如果希望在调试阶段就对正式服务器进行测试，就需要曲线救国了：
-
-从app store上下载安装app的正式版本
-开发时，编译一个同样bundleid的app来覆盖已经安装的正式app
-等待奇迹的发生……">
+  <meta name="description" content="问题场景：swift引用c语言写的静态库，接口文件中有一个结构体，类似：">
 <meta property="og:type" content="article">
-<meta property="og:title" content="iOS消息推送：如何在调试阶段获取到正式服务器推送的消息">
-<meta property="og:url" content="http://lynncheng.github.io/2016/05/05/push/index.html">
+<meta property="og:title" content="swift 引用c语言结构体时的初始化问题">
+<meta property="og:url" content="http://lynncheng.github.io/2016/05/12/structInit/index.html">
 <meta property="og:site_name" content="LynnCheng">
-<meta property="og:description" content="iOS消息推送需要对应发布证书和调试证书，正常情况下调试阶段只能通过沙盒测试。如果希望在调试阶段就对正式服务器进行测试，就需要曲线救国了：
-
-从app store上下载安装app的正式版本
-开发时，编译一个同样bundleid的app来覆盖已经安装的正式app
-等待奇迹的发生……">
-<meta property="og:updated_time" content="2016-05-05T06:20:21.000Z">
+<meta property="og:description" content="问题场景：swift引用c语言写的静态库，接口文件中有一个结构体，类似：">
+<meta property="og:updated_time" content="2016-05-12T13:17:57.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="iOS消息推送：如何在调试阶段获取到正式服务器推送的消息">
-<meta name="twitter:description" content="iOS消息推送需要对应发布证书和调试证书，正常情况下调试阶段只能通过沙盒测试。如果希望在调试阶段就对正式服务器进行测试，就需要曲线救国了：
-
-从app store上下载安装app的正式版本
-开发时，编译一个同样bundleid的app来覆盖已经安装的正式app
-等待奇迹的发生……">
+<meta name="twitter:title" content="swift 引用c语言结构体时的初始化问题">
+<meta name="twitter:description" content="问题场景：swift引用c语言写的静态库，接口文件中有一个结构体，类似：">
   
     <link rel="alternative" href="/atom.xml" title="LynnCheng" type="application/atom+xml">
   
@@ -239,11 +227,11 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
-      <div class="body-wrap"><article id="post-push" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-structInit" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/05/05/push/" class="article-date">
-      <time datetime="2016-05-05T06:13:00.000Z" itemprop="datePublished">2016-05-05</time>
+      <a href="/2016/05/12/structInit/" class="article-date">
+      <time datetime="2016-05-12T13:05:19.000Z" itemprop="datePublished">2016-05-12</time>
 </a>
     </div>
   
@@ -256,7 +244,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      iOS消息推送：如何在调试阶段获取到正式服务器推送的消息
+      swift 引用c语言结构体时的初始化问题
     </h1>
   
 
@@ -273,12 +261,9 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>iOS消息推送需要对应发布证书和调试证书，正常情况下调试阶段只能通过沙盒测试。如果希望在调试阶段就对正式服务器进行测试，就需要曲线救国了：</p>
-<ol>
-<li>从app store上下载安装app的正式版本</li>
-<li>开发时，编译一个同样bundleid的app来覆盖已经安装的正式app</li>
-<li>等待奇迹的发生……</li>
-</ol>
+        <p>问题场景：<br>swift引用c语言写的静态库，接口文件中有一个结构体，类似：   <a id="more"></a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">struct ServerInfo &#123;</span><br><span class="line">    char *laddr;</span><br><span class="line">    char *lport;</span><br><span class="line">    char *raddr;</span><br><span class="line">    char *rport;</span><br><span class="line">    int  closeFlag;</span><br><span class="line">    int  state;</span><br><span class="line">    BOOL a;</span><br><span class="line">    BOOL b;</span><br><span class="line">    int  c;</span><br><span class="line">    int  d;</span><br><span class="line">    int  e;</span><br><span class="line">    int  f;</span><br><span class="line">    ......</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+<p>我引用的时候想偷懒，希望只对closeFlag字段初始化，其它的用默认值。</p>
+<p>实现方式：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">extension ServerInfo &#123;</span><br><span class="line">    init (closeFlag: Int32) &#123;</span><br><span class="line">        self = ServerInfo()</span><br><span class="line">        self.closeFlag = closeFlag</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class eagle &#123;</span><br><span class="line">	static var server = ServerInfo(closeFlag: 2)</span><br><span class="line">    ......</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -287,13 +272,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2016/05/05/push/">iOS消息推送：如何在调试阶段获取到正式服务器推送的消息</a></p>
+        <p><span>本文标题:</span><a href="/2016/05/12/structInit/">swift 引用c语言结构体时的初始化问题</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">Lynn Cheng</a></p>
-        <p><span>发布时间:</span>2016-05-05, 14:13:00</p>
-        <p><span>最后更新:</span>2016-05-05, 14:20:21</p>
+        <p><span>发布时间:</span>2016-05-12, 21:05:19</p>
+        <p><span>最后更新:</span>2016-05-12, 21:17:57</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2016/05/05/push/" title="iOS消息推送：如何在调试阶段获取到正式服务器推送的消息">http://lynncheng.github.io/2016/05/05/push/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://lynncheng.github.io/2016/05/05/push/　　作者: Lynn Cheng" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2016/05/12/structInit/" title="swift 引用c语言结构体时的初始化问题">http://lynncheng.github.io/2016/05/12/structInit/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://lynncheng.github.io/2016/05/12/structInit/　　作者: Lynn Cheng" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
@@ -305,16 +290,10 @@
 
     <nav id="article-nav">
         
-            <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2016/05/09/ioscode/">
-                    ios开发过程中的代码块
-                </a>
-            </div>
-        
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2016/05/04/capturepackage/">
-                    iOS APP抓包方法介绍之tcpdump
+                <a href="/2016/05/09/ioscode/">
+                    ios开发过程中的代码块
                 </a>
             </div>
         
@@ -382,7 +361,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"iOS消息推送：如何在调试阶段获取到正式服务器推送的消息　| LynnCheng　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"swift 引用c语言结构体时的初始化问题　| LynnCheng　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -398,7 +377,7 @@
     
       <div class="duoshuo" id="comments">
     <!-- 多说评论框 start -->
-    <div class="ds-thread" data-thread-key="2016/05/05/push/" data-title="iOS消息推送：如何在调试阶段获取到正式服务器推送的消息" data-url="http://lynncheng.github.io/2016/05/05/push/"></div>
+    <div class="ds-thread" data-thread-key="2016/05/12/structInit/" data-title="swift 引用c语言结构体时的初始化问题" data-url="http://lynncheng.github.io/2016/05/12/structInit/"></div>
     <!-- 多说评论框 end -->
     <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
     <script type="text/javascript">
@@ -422,15 +401,13 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2016/05/09/ioscode/" title="上一篇: ios开发过程中的代码块">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
 
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2016/05/04/capturepackage/" title="下一篇: iOS APP抓包方法介绍之tcpdump">
+            <a href="/2016/05/09/ioscode/" title="下一篇: ios开发过程中的代码块">
                 <i class="fa fa-angle-right"></i>
             </a>
         
