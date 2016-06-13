@@ -3,30 +3,21 @@
 <head>
   <meta charset="utf-8">
   
-  <title>iOS消息推送：如何在调试阶段获取到正式服务器推送的消息 | LynnCheng</title>
+  <title>Swift学习笔记－本地化 | LynnCheng</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="iOS消息推送需要对应发布证书和调试证书，正常情况下调试阶段只能通过沙盒测试。如果希望在调试阶段就对正式服务器进行测试，就需要曲线救国了：
-
-从app store上下载安装app的正式版本
-开发时，编译一个同样bundleid的app来覆盖已经安装的正式app
-等待奇迹的发生……">
+  <meta name="description" content="123按网上的教程实现的时候，开始的时候一直没成功，原因是文件名必须正确1.app名称的本地化：InfoPlist.strings2.其它词条的本地化：Localizable.strings
+本地化处理的内容包括：（1）应用程序名称（2）出现在代码中的字符串（3）本地化图片（4）XIB文件（5）其他文件">
 <meta property="og:type" content="article">
-<meta property="og:title" content="iOS消息推送：如何在调试阶段获取到正式服务器推送的消息">
-<meta property="og:url" content="http://lynncheng.github.io/2016/05/05/push/index.html">
+<meta property="og:title" content="Swift学习笔记－本地化">
+<meta property="og:url" content="http://lynncheng.github.io/2016/05/18/SwiftStudy1/index.html">
 <meta property="og:site_name" content="LynnCheng">
-<meta property="og:description" content="iOS消息推送需要对应发布证书和调试证书，正常情况下调试阶段只能通过沙盒测试。如果希望在调试阶段就对正式服务器进行测试，就需要曲线救国了：
-
-从app store上下载安装app的正式版本
-开发时，编译一个同样bundleid的app来覆盖已经安装的正式app
-等待奇迹的发生……">
-<meta property="og:updated_time" content="2016-05-05T06:20:21.000Z">
+<meta property="og:description" content="123按网上的教程实现的时候，开始的时候一直没成功，原因是文件名必须正确1.app名称的本地化：InfoPlist.strings2.其它词条的本地化：Localizable.strings
+本地化处理的内容包括：（1）应用程序名称（2）出现在代码中的字符串（3）本地化图片（4）XIB文件（5）其他文件">
+<meta property="og:updated_time" content="2016-05-18T06:28:41.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="iOS消息推送：如何在调试阶段获取到正式服务器推送的消息">
-<meta name="twitter:description" content="iOS消息推送需要对应发布证书和调试证书，正常情况下调试阶段只能通过沙盒测试。如果希望在调试阶段就对正式服务器进行测试，就需要曲线救国了：
-
-从app store上下载安装app的正式版本
-开发时，编译一个同样bundleid的app来覆盖已经安装的正式app
-等待奇迹的发生……">
+<meta name="twitter:title" content="Swift学习笔记－本地化">
+<meta name="twitter:description" content="123按网上的教程实现的时候，开始的时候一直没成功，原因是文件名必须正确1.app名称的本地化：InfoPlist.strings2.其它词条的本地化：Localizable.strings
+本地化处理的内容包括：（1）应用程序名称（2）出现在代码中的字符串（3）本地化图片（4）XIB文件（5）其他文件">
   
     <link rel="alternative" href="/atom.xml" title="LynnCheng" type="application/atom+xml">
   
@@ -239,11 +230,11 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
-      <div class="body-wrap"><article id="post-push" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-SwiftStudy1" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/05/05/push/" class="article-date">
-      <time datetime="2016-05-05T06:13:00.000Z" itemprop="datePublished">2016-05-05</time>
+      <a href="/2016/05/18/SwiftStudy1/" class="article-date">
+      <time datetime="2016-05-18T06:12:48.000Z" itemprop="datePublished">2016-05-18</time>
 </a>
     </div>
   
@@ -256,7 +247,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      iOS消息推送：如何在调试阶段获取到正式服务器推送的消息
+      Swift学习笔记－本地化
     </h1>
   
 
@@ -273,12 +264,8 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>iOS消息推送需要对应发布证书和调试证书，正常情况下调试阶段只能通过沙盒测试。如果希望在调试阶段就对正式服务器进行测试，就需要曲线救国了：</p>
-<ol>
-<li>从app store上下载安装app的正式版本</li>
-<li>开发时，编译一个同样bundleid的app来覆盖已经安装的正式app</li>
-<li>等待奇迹的发生……</li>
-</ol>
+        <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">按网上的教程实现的时候，开始的时候一直没成功，原因是文件名必须正确</span><br><span class="line">1.app名称的本地化：InfoPlist.strings</span><br><span class="line">2.其它词条的本地化：Localizable.strings</span><br></pre></td></tr></table></figure>
+<p>本地化处理的内容包括：<br>（1）应用程序名称<br>（2）出现在代码中的字符串<br>（3）本地化图片<br>（4）XIB文件<br>（5）其他文件</p>
 
       
     </div>
@@ -287,13 +274,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2016/05/05/push/">iOS消息推送：如何在调试阶段获取到正式服务器推送的消息</a></p>
+        <p><span>本文标题:</span><a href="/2016/05/18/SwiftStudy1/">Swift学习笔记－本地化</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">Lynn Cheng</a></p>
-        <p><span>发布时间:</span>2016-05-05, 14:13:00</p>
-        <p><span>最后更新:</span>2016-05-05, 14:20:21</p>
+        <p><span>发布时间:</span>2016-05-18, 14:12:48</p>
+        <p><span>最后更新:</span>2016-05-18, 14:28:41</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2016/05/05/push/" title="iOS消息推送：如何在调试阶段获取到正式服务器推送的消息">http://lynncheng.github.io/2016/05/05/push/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://lynncheng.github.io/2016/05/05/push/　　作者: Lynn Cheng" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2016/05/18/SwiftStudy1/" title="Swift学习笔记－本地化">http://lynncheng.github.io/2016/05/18/SwiftStudy1/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://lynncheng.github.io/2016/05/18/SwiftStudy1/　　作者: Lynn Cheng" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
@@ -306,15 +293,15 @@
     <nav id="article-nav">
         
             <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2016/05/09/ioscode/">
-                    ios开发过程中的代码块
+                <a href="/2016/05/20/Swift开发点滴/">
+                    Swift开发点滴
                 </a>
             </div>
         
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2016/05/04/capturepackage/">
-                    iOS APP抓包方法介绍之tcpdump
+                <a href="/2016/05/12/structInit/">
+                    swift 引用c语言结构体时的初始化问题
                 </a>
             </div>
         
@@ -382,7 +369,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"iOS消息推送：如何在调试阶段获取到正式服务器推送的消息　| LynnCheng　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"Swift学习笔记－本地化　| LynnCheng　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -398,7 +385,7 @@
     
       <div class="duoshuo" id="comments">
     <!-- 多说评论框 start -->
-    <div class="ds-thread" data-thread-key="2016/05/05/push/" data-title="iOS消息推送：如何在调试阶段获取到正式服务器推送的消息" data-url="http://lynncheng.github.io/2016/05/05/push/"></div>
+    <div class="ds-thread" data-thread-key="2016/05/18/SwiftStudy1/" data-title="Swift学习笔记－本地化" data-url="http://lynncheng.github.io/2016/05/18/SwiftStudy1/"></div>
     <!-- 多说评论框 end -->
     <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
     <script type="text/javascript">
@@ -422,7 +409,7 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2016/05/09/ioscode/" title="上一篇: ios开发过程中的代码块">
+            <a href="/2016/05/20/Swift开发点滴/" title="上一篇: Swift开发点滴">
                 <i class="fa fa-angle-left"></i>
             </a>
         
@@ -430,7 +417,7 @@
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2016/05/04/capturepackage/" title="下一篇: iOS APP抓包方法介绍之tcpdump">
+            <a href="/2016/05/12/structInit/" title="下一篇: swift 引用c语言结构体时的初始化问题">
                 <i class="fa fa-angle-right"></i>
             </a>
         
