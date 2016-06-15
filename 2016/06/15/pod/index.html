@@ -3,17 +3,21 @@
 <head>
   <meta charset="utf-8">
   
-  <title>LynnCheng</title>
+  <title>CocoaPods的一些常用操作 | LynnCheng</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description">
-<meta property="og:type" content="website">
-<meta property="og:title" content="LynnCheng">
-<meta property="og:url" content="http://lynncheng.github.io/page/2/index.html">
+  <meta name="description" content="cocoapods版本升级
+123456789$ sudo gem update --system // 先更新gem，国内需要切换源$ gem sources --remove https://rubygems.org/$ gem sources -a https://ruby.taobao.org/$ gem sources -l\*\*\* CURRENT SOURCES \*\*\*ht">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CocoaPods的一些常用操作">
+<meta property="og:url" content="http://lynncheng.github.io/2016/06/15/pod/index.html">
 <meta property="og:site_name" content="LynnCheng">
-<meta property="og:description">
+<meta property="og:description" content="cocoapods版本升级
+123456789$ sudo gem update --system // 先更新gem，国内需要切换源$ gem sources --remove https://rubygems.org/$ gem sources -a https://ruby.taobao.org/$ gem sources -l\*\*\* CURRENT SOURCES \*\*\*ht">
+<meta property="og:updated_time" content="2016-06-15T07:54:55.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="LynnCheng">
-<meta name="twitter:description">
+<meta name="twitter:title" content="CocoaPods的一些常用操作">
+<meta name="twitter:description" content="cocoapods版本升级
+123456789$ sudo gem update --system // 先更新gem，国内需要切换源$ gem sources --remove https://rubygems.org/$ gem sources -a https://ruby.taobao.org/$ gem sources -l\*\*\* CURRENT SOURCES \*\*\*ht">
   
     <link rel="alternative" href="/atom.xml" title="LynnCheng" type="application/atom+xml">
   
@@ -30,13 +34,8 @@
   
   <link rel="stylesheet" href="/css/style.css">
   
-      <style> .article { opacity: 0;} </style>
-  
   <link href="//cdn.bootcss.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-  
-    
-    
   
   
       <link href="//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.css" rel="stylesheet">
@@ -47,8 +46,8 @@
       var yiliaConfig = {
           fancybox: true,
           animate: true,
-          isHome: true,
-          isPost: false,
+          isHome: false,
+          isPost: true,
           isArchive: false,
           isTag: false,
           isCategory: false,
@@ -231,13 +230,11 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
-      <div class="body-wrap">
-  
-    <article id="post-测试在线编辑" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-pod" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/04/29/测试在线编辑/" class="article-date">
-      <time datetime="2016-04-29T10:38:00.000Z" itemprop="datePublished">2016-04-29</time>
+      <a href="/2016/06/15/pod/" class="article-date">
+      <time datetime="2016-06-15T07:46:11.000Z" itemprop="datePublished">2016-06-15</time>
 </a>
     </div>
   
@@ -249,166 +246,138 @@
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/04/29/测试在线编辑/">ssl交互handshake failure故障一则</a>
+    <h1 class="article-title" itemprop="name">
+      CocoaPods的一些常用操作
     </h1>
   
 
       </header>
       
+      <div class="article-info article-info-post">
+        
+
+        
+        <div class="clearfix"></div>
+      </div>
+      
     
     <div class="article-entry" itemprop="articleBody">
       
           
-        <blockquote>
-<p>现网运行正常的设备，突然有一天连不上服务器。设备维护人员和服务器维护人员都声称近段时间没做任何修改，不应该是自己引入的。 因为设备侧的功能是两年前我开发的，所以项目负责人把交互报文发给我，让我协助分析一下。<br>问题分析：从抓包的结果看，服务器报“handshake failure”错误，导致ssl连接建立失败，还没到应用层交互；所以关注ssl交互就行了，不用关心上层应用。</p>
-<blockquote>
-<p>首先检查证书是否有效－－ 正常<br>其次，因为在网设备都在用户家，改动的机会不大；所以推测是服务器维护的时候，有意无意中改动了相关配置。于是我提醒服务器维护员检查服务器支持的ssl版本列表，结果找到原因了<br>解决方案：修改服务器关于ssl的设置，增加对sslv3的支持，然后一切正常了。至于产生这个问题的原因……</p>
-</blockquote>
-</blockquote>
+        <ol>
+<li><p>cocoapods版本升级</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">$ sudo gem update --system // 先更新gem，国内需要切换源</span><br><span class="line">$ gem sources --remove https://rubygems.org/</span><br><span class="line">$ gem sources -a https://ruby.taobao.org/</span><br><span class="line">$ gem sources -l</span><br><span class="line">\*\*\* CURRENT SOURCES \*\*\*</span><br><span class="line">https://ruby.taobao.org/</span><br><span class="line">$ sudo gem install cocoapods // 安装cocoapods</span><br><span class="line">$ pod setup</span><br><span class="line">$ pod --version</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>安装第三方类库：pod install</p>
+</li>
+<li><p>安装第三方类库，并自动更新至最新版本 pod update</p>
+</li>
+<li><p>执行pod install/update的时候会升级CocoaPods的spec仓库，加一个参数可以省略这一步，然后速度就会提升不少。加参数的命令如下：<br>pod install –verbose –no-repo-update<br>pod update –verbose –no-repo-update</p>
+</li>
+</ol>
 
       
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/bugfix/">bugfix</a>
-    </div>
-
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ssl/">ssl</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
     </div>
     
   </div>
   
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-my-new-post" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/04/29/my-new-post/" class="article-date">
-      <time datetime="2016-04-29T03:26:00.000Z" itemprop="datePublished">2016-04-29</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
     
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/04/29/my-new-post/">ios开发过程中遇到的一些小坑</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p>1.systemFont<br>iPhone手机可以设置字体为粗体，所以开发过程中使用了系统字体（eg：UIFont.systemFontOfSize(10)），布局的时候，需要考虑预留足够的空间</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ios/">ios</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/swift/">swift</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/04/29/hello-world/" class="article-date">
-      <time datetime="2016-04-29T02:55:00.000Z" itemprop="datePublished">2016-04-29</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/04/29/hello-world/">使用hexo撰写博客</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              <p>发布新博客:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure></p>
-<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
-<p>本地运行hexo查看结果:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure></p>
-          
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-      
-        <p class="article-more-link">
-          <a href="/2016/04/29/hello-world/#more">more >></a>
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/2016/06/15/pod/">CocoaPods的一些常用操作</a></p>
+        <p><span>文章作者:</span><a href="/" title="回到主页">Lynn Cheng</a></p>
+        <p><span>发布时间:</span>2016-06-15, 15:46:11</p>
+        <p><span>最后更新:</span>2016-06-15, 15:54:55</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2016/06/15/pod/" title="CocoaPods的一些常用操作">http://lynncheng.github.io/2016/06/15/pod/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://lynncheng.github.io/2016/06/15/pod/　　作者: Lynn Cheng" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
-      
-      <div class="clearfix"></div>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+        </p>
     </div>
-    
-  </div>
+
+
+
+    <nav id="article-nav">
+        
+        
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="/2016/06/13/upnp/">
+                    在局域网内，无法通过upnp协议发现其它设备
+                </a>
+            </div>
+        
+    </nav>
+
   
 </article>
 
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    
+</div>
+<style>
+    .left-col .switch-btn {
+        display: none;
+    }
+    .left-col .switch-area {
+        display: none;
+    }
+</style>
+
+<input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+<script>
+    var valueHide = "隐藏目录";
+    var valueShow = "显示目录";
+
+    if ($(".left-col").is(":hidden")) {
+        $("#tocButton").attr("value", valueShow);
+    }
+
+    $("#tocButton").click(function() {
+        if ($("#toc").is(":hidden")) {
+            $("#tocButton").attr("value", valueHide);
+            $("#toc").slideDown(320);
+            $(".switch-btn, .switch-area").fadeOut(300);
+        }
+        else {
+            $("#tocButton").attr("value", valueShow);
+            $("#toc").slideUp(350);
+            $(".switch-btn, .switch-area").fadeIn(500);
+        }
+    })
+
+    if ($(".toc").length < 1) {
+        $("#toc, #tocButton").hide();
+        $(".switch-btn, .switch-area").show();
+    }
+</script>
+
+
+
+
+
+    
+<div class="share">
+    
+        <div class="bdsharebuttonbox">
+            <a href="#" class="fa fa-twitter bds_twi" data-cmd="twi" title="分享到推特"></a>
+            <a href="#" class="fa fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+            <a href="#" class="fa fa-qq bds_sqq" data-cmd="sqq" title="分享给 QQ 好友"></a>
+            <a href="#" class="fa fa-files-o bds_copy" data-cmd="copy" title="复制网址"></a>
+            <a href="#" class="fa fa fa-envelope-o bds_mail" data-cmd="mail" title="通过邮件分享"></a>
+            <a href="#" class="fa fa-weixin bds_weixin" data-cmd="weixin" title="生成文章二维码"></a>
+            <a href="#" class="fa fa-share-alt bds_more" data-cmd="more"></i></a>
+        </div>
+        <script>
+            window._bd_share_config={
+                "common":{"bdSnsKey":{},"bdText":"CocoaPods的一些常用操作　| LynnCheng　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+        </script>
+    
+
+    
+</div>
 
 
 
@@ -416,13 +385,53 @@
 
 
 
+    
+      <div class="duoshuo" id="comments">
+    <!-- 多说评论框 start -->
+    <div class="ds-thread" data-thread-key="2016/06/15/pod/" data-title="CocoaPods的一些常用操作" data-url="http://lynncheng.github.io/2016/06/15/pod/"></div>
+    <!-- 多说评论框 end -->
+    <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+    <script type="text/javascript">
+    var duoshuoQuery = {short_name:"lynncheng"};
+    (function() {
+        var ds = document.createElement('script');
+        ds.type = 'text/javascript';ds.async = true;
+        ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+        ds.charset = 'UTF-8';
+        (document.getElementsByTagName('head')[0] 
+         || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+    </script>
+    <!-- 多说公共JS代码 end -->
+</div>
 
-  
-  
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
-    </nav>
-  
+    
+
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
+        
+
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+
+        
+            <a href="/2016/06/13/upnp/" title="下一篇: 在局域网内，无法通过upnp协议发现其它设备">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2016/06/15/pod/">CocoaPods的一些常用操作</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/13/upnp/">在局域网内，无法通过upnp协议发现其它设备</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/06/vlctab/">升级vlc后，播放器的单击事件失效</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/20/Swift开发点滴/">Swift开发点滴</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/18/SwiftStudy1/">Swift学习笔记－本地化</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/12/structInit/">swift 引用c语言结构体时的初始化问题</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/09/ioscode/">ios开发过程中的代码块</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/05/push/">iOS消息推送：如何在调试阶段获取到正式服务器推送的消息</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/04/capturepackage/">iOS APP抓包方法介绍之tcpdump</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/03/rsync/">rsync命令参数</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/29/测试在线编辑/">ssl交互handshake failure故障一则</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/29/my-new-post/">ios开发过程中遇到的一些小坑</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/29/hello-world/">使用hexo撰写博客</a></li></ul>
+
+
+
+
+    <script>
+        
+    </script>
 </div>
       <footer id="footer">
     <div class="outer">
