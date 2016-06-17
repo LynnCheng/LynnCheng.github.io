@@ -233,6 +233,67 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-buildError" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/06/17/buildError/" class="article-date">
+      <time datetime="2016-06-17T00:53:31.000Z" itemprop="datePublished">2016-06-17</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/06/17/buildError/">Undefined symbols for architecture armv7的处理</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>问题描述：</p>
+<ol>
+<li>使用iphone6p真机调试，编译正常</li>
+<li>换成iPhone5真机调试，编译出现一堆错误：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">ld: warning: ld: warning: ignoring file /Users/lynn/Library/Developer/Xcode/DerivedData/Homecare-bcfxxolnwbuzthdgksefvehktwzf/Build/Products/Debug-iphoneos/libAFNetworking.a, file was built for archive which is not the architecture being linked (armv7): /Users/lynn/Library/Developer/Xcode/DerivedData/Homecare-bcfxxolnwbuzthdgksefvehktwzf/Build/Products/Debug-iphoneos/libAFNetworking.aignoring file /Users/lynn/Library/Developer/Xcode/DerivedData/Homecare-bcfxxolnwbuzthdgksefvehktwzf/Build/Products/Debug-iphoneos/libCocoaAsyncSocket.a, file was built for archive which is not the architecture being linked (armv7): /Users/lynn/Library/Developer/Xcode/DerivedData/Homecare-bcfxxolnwbuzthdgksefvehktwzf/Build/Products/Debug-iphoneos/libCocoaAsyncSocket.a</span><br><span class="line">......</span><br><span class="line">Undefined symbols for architecture armv7:</span><br><span class="line">  &quot;_OBJC_CLASS_$_JTHorizontalCalendarView&quot;, referenced from:</span><br><span class="line">      type metadata accessor for __ObjC.JTHorizontalCalendarView in CalendarViewController.o</span><br><span class="line">  &quot;_OBJC_CLASS_$_JTCalendarDayView&quot;, referenced from:</span><br><span class="line">      ZTE.CalendarViewController.calendar (__ObjC.JTCalendarManager!, prepareDayView : __ObjC.UIView!) -&gt; () in CalendarViewController.o</span><br><span class="line">      ZTE.CalendarViewController.calendar (__ObjC.JTCalendarManager!, didTouchDayView : __ObjC.UIView!) -&gt; () in CalendarViewController.o</span><br><span class="line">  &quot;_OBJC_CLASS_$_MGSwipeTableCell&quot;, referenced from:</span><br><span class="line">      _OBJC_CLASS_$__TtC3ZTE15MessageItemView in MessageItemView.o</span><br><span class="line">  &quot;_OBJC_CLASS_$_QNZone&quot;, referenced from:</span><br><span class="line">      type metadata accessor for __ObjC.QNZone in HCUploadManager.o</span><br><span class="line">  &quot;_OBJC_CLASS_$_QNConfiguration&quot;, referenced from:</span><br><span class="line">      type metadata accessor for __ObjC.QNConfiguration in HCUploadManager.o</span><br><span class="line">  &quot;_OBJC_CLASS_$_MJRefreshHeader&quot;, referenced from:</span><br><span class="line">      _OBJC_CLASS_$_HCRefresh in HCRefresh.o</span><br><span class="line">  &quot;_OBJC_METACLASS_$_MJRefreshHeader&quot;, referenced from:</span><br><span class="line">      _OBJC_METACLASS_$_HCRefresh in HCRefresh.o</span><br><span class="line">  &quot;_OBJC_CLASS_$_AFNetworkReachabilityManager&quot;, referenced from:</span><br><span class="line">  ......</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>问题分析：<br>从日志上看，出问题的都是实用cocoapods安装的第三方库；从日志看，应该是没有编译armv7对应的内容，修改pods工程的配置：<br>buildsettings-&gt;build active architecture only属性，debug－&gt;NO, release-&gt;NO</p>
+<p>我这样改后，还是报同样的错误；折腾了好久，最后进入pods编译出的静态库存在的目录，把所有第三方静态库全删了，重编一下就好了。</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-pod" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -739,64 +800,6 @@
       
 
       
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-rsync" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/05/03/rsync/" class="article-date">
-      <time datetime="2016-05-03T09:43:00.000Z" itemprop="datePublished">2016-05-03</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/05/03/rsync/">rsync命令参数</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              <p>参数说明<br>-v, –verbose  详细模式输出<br>-q, –quiet 精简输出模式<br>-c, –checksum 打开校验开关，强制对文件传输进行校验<br>-a, –archive 归档模式，表示以递归方式传输文件，并保持所有文件属性，等于-rlptgoD<br>-r, –recursive 对子目录以递归模式处理
-          
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-      
-        <p class="article-more-link">
-          <a href="/2016/05/03/rsync/#more">more >></a>
-        </p>
       
       <div class="clearfix"></div>
     </div>

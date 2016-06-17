@@ -3,18 +3,27 @@
 <head>
   <meta charset="utf-8">
   
-  <title>在局域网内，无法通过upnp协议发现其它设备 | LynnCheng</title>
+  <title>Undefined symbols for architecture armv7的处理 | LynnCheng</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="问题现象：app无法发现局域网内的dms故障原因：部分路由器默认不在局域网内转发无线侧的组播报文，导致upnp无法发现其它设备解决方案：a. 将upnp组播改成单播        b.修改upnp设备的实现，显式加入组播组">
+  <meta name="description" content="问题描述：
+
+使用iphone6p真机调试，编译正常
+换成iPhone5真机调试，编译出现一堆错误：1234567891011121314151617181920ld: warning: ld: warning: ignoring file /Users/lynn/Library/Developer/Xcode/DerivedData/Homecare-bcfxxolnwbuzthdgksefve">
 <meta property="og:type" content="article">
-<meta property="og:title" content="在局域网内，无法通过upnp协议发现其它设备">
-<meta property="og:url" content="http://lynncheng.github.io/2016/06/13/upnp/index.html">
+<meta property="og:title" content="Undefined symbols for architecture armv7的处理">
+<meta property="og:url" content="http://lynncheng.github.io/2016/06/17/buildError/index.html">
 <meta property="og:site_name" content="LynnCheng">
-<meta property="og:description" content="问题现象：app无法发现局域网内的dms故障原因：部分路由器默认不在局域网内转发无线侧的组播报文，导致upnp无法发现其它设备解决方案：a. 将upnp组播改成单播        b.修改upnp设备的实现，显式加入组播组">
-<meta property="og:updated_time" content="2016-06-13T01:09:56.000Z">
+<meta property="og:description" content="问题描述：
+
+使用iphone6p真机调试，编译正常
+换成iPhone5真机调试，编译出现一堆错误：1234567891011121314151617181920ld: warning: ld: warning: ignoring file /Users/lynn/Library/Developer/Xcode/DerivedData/Homecare-bcfxxolnwbuzthdgksefve">
+<meta property="og:updated_time" content="2016-06-17T01:44:19.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="在局域网内，无法通过upnp协议发现其它设备">
-<meta name="twitter:description" content="问题现象：app无法发现局域网内的dms故障原因：部分路由器默认不在局域网内转发无线侧的组播报文，导致upnp无法发现其它设备解决方案：a. 将upnp组播改成单播        b.修改upnp设备的实现，显式加入组播组">
+<meta name="twitter:title" content="Undefined symbols for architecture armv7的处理">
+<meta name="twitter:description" content="问题描述：
+
+使用iphone6p真机调试，编译正常
+换成iPhone5真机调试，编译出现一堆错误：1234567891011121314151617181920ld: warning: ld: warning: ignoring file /Users/lynn/Library/Developer/Xcode/DerivedData/Homecare-bcfxxolnwbuzthdgksefve">
   
     <link rel="alternative" href="/atom.xml" title="LynnCheng" type="application/atom+xml">
   
@@ -227,11 +236,11 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
-      <div class="body-wrap"><article id="post-upnp" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-buildError" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/06/13/upnp/" class="article-date">
-      <time datetime="2016-06-13T01:02:48.000Z" itemprop="datePublished">2016-06-13</time>
+      <a href="/2016/06/17/buildError/" class="article-date">
+      <time datetime="2016-06-17T00:53:31.000Z" itemprop="datePublished">2016-06-17</time>
 </a>
     </div>
   
@@ -244,7 +253,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      在局域网内，无法通过upnp协议发现其它设备
+      Undefined symbols for architecture armv7的处理
     </h1>
   
 
@@ -261,7 +270,14 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>问题现象：app无法发现局域网内的dms<br>故障原因：部分路由器默认不在局域网内转发无线侧的组播报文，导致upnp无法发现其它设备<br>解决方案：a. 将upnp组播改成单播<br>        b.修改upnp设备的实现，显式加入组播组</p>
+        <p>问题描述：</p>
+<ol>
+<li>使用iphone6p真机调试，编译正常</li>
+<li>换成iPhone5真机调试，编译出现一堆错误：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">ld: warning: ld: warning: ignoring file /Users/lynn/Library/Developer/Xcode/DerivedData/Homecare-bcfxxolnwbuzthdgksefvehktwzf/Build/Products/Debug-iphoneos/libAFNetworking.a, file was built for archive which is not the architecture being linked (armv7): /Users/lynn/Library/Developer/Xcode/DerivedData/Homecare-bcfxxolnwbuzthdgksefvehktwzf/Build/Products/Debug-iphoneos/libAFNetworking.aignoring file /Users/lynn/Library/Developer/Xcode/DerivedData/Homecare-bcfxxolnwbuzthdgksefvehktwzf/Build/Products/Debug-iphoneos/libCocoaAsyncSocket.a, file was built for archive which is not the architecture being linked (armv7): /Users/lynn/Library/Developer/Xcode/DerivedData/Homecare-bcfxxolnwbuzthdgksefvehktwzf/Build/Products/Debug-iphoneos/libCocoaAsyncSocket.a</span><br><span class="line">......</span><br><span class="line">Undefined symbols for architecture armv7:</span><br><span class="line">  &quot;_OBJC_CLASS_$_JTHorizontalCalendarView&quot;, referenced from:</span><br><span class="line">      type metadata accessor for __ObjC.JTHorizontalCalendarView in CalendarViewController.o</span><br><span class="line">  &quot;_OBJC_CLASS_$_JTCalendarDayView&quot;, referenced from:</span><br><span class="line">      ZTE.CalendarViewController.calendar (__ObjC.JTCalendarManager!, prepareDayView : __ObjC.UIView!) -&gt; () in CalendarViewController.o</span><br><span class="line">      ZTE.CalendarViewController.calendar (__ObjC.JTCalendarManager!, didTouchDayView : __ObjC.UIView!) -&gt; () in CalendarViewController.o</span><br><span class="line">  &quot;_OBJC_CLASS_$_MGSwipeTableCell&quot;, referenced from:</span><br><span class="line">      _OBJC_CLASS_$__TtC3ZTE15MessageItemView in MessageItemView.o</span><br><span class="line">  &quot;_OBJC_CLASS_$_QNZone&quot;, referenced from:</span><br><span class="line">      type metadata accessor for __ObjC.QNZone in HCUploadManager.o</span><br><span class="line">  &quot;_OBJC_CLASS_$_QNConfiguration&quot;, referenced from:</span><br><span class="line">      type metadata accessor for __ObjC.QNConfiguration in HCUploadManager.o</span><br><span class="line">  &quot;_OBJC_CLASS_$_MJRefreshHeader&quot;, referenced from:</span><br><span class="line">      _OBJC_CLASS_$_HCRefresh in HCRefresh.o</span><br><span class="line">  &quot;_OBJC_METACLASS_$_MJRefreshHeader&quot;, referenced from:</span><br><span class="line">      _OBJC_METACLASS_$_HCRefresh in HCRefresh.o</span><br><span class="line">  &quot;_OBJC_CLASS_$_AFNetworkReachabilityManager&quot;, referenced from:</span><br><span class="line">  ......</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>问题分析：<br>从日志上看，出问题的都是实用cocoapods安装的第三方库；从日志看，应该是没有编译armv7对应的内容，修改pods工程的配置：<br>buildsettings-&gt;build active architecture only属性，debug－&gt;NO, release-&gt;NO</p>
+<p>我这样改后，还是报同样的错误；折腾了好久，最后进入pods编译出的静态库存在的目录，把所有第三方静态库全删了，重编一下就好了。</p>
 
       
     </div>
@@ -270,13 +286,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2016/06/13/upnp/">在局域网内，无法通过upnp协议发现其它设备</a></p>
+        <p><span>本文标题:</span><a href="/2016/06/17/buildError/">Undefined symbols for architecture armv7的处理</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">Lynn Cheng</a></p>
-        <p><span>发布时间:</span>2016-06-13, 09:02:48</p>
-        <p><span>最后更新:</span>2016-06-13, 09:09:56</p>
+        <p><span>发布时间:</span>2016-06-17, 08:53:31</p>
+        <p><span>最后更新:</span>2016-06-17, 09:44:19</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2016/06/13/upnp/" title="在局域网内，无法通过upnp协议发现其它设备">http://lynncheng.github.io/2016/06/13/upnp/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://lynncheng.github.io/2016/06/13/upnp/　　作者: Lynn Cheng" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2016/06/17/buildError/" title="Undefined symbols for architecture armv7的处理">http://lynncheng.github.io/2016/06/17/buildError/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://lynncheng.github.io/2016/06/17/buildError/　　作者: Lynn Cheng" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
@@ -288,16 +304,10 @@
 
     <nav id="article-nav">
         
-            <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2016/06/15/pod/">
-                    CocoaPods的一些常用操作
-                </a>
-            </div>
-        
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2016/06/06/vlctab/">
-                    升级vlc后，播放器的单击事件失效
+                <a href="/2016/06/15/pod/">
+                    CocoaPods的一些常用操作
                 </a>
             </div>
         
@@ -365,7 +375,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"在局域网内，无法通过upnp协议发现其它设备　| LynnCheng　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"Undefined symbols for architecture armv7的处理　| LynnCheng　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -381,7 +391,7 @@
     
       <div class="duoshuo" id="comments">
     <!-- 多说评论框 start -->
-    <div class="ds-thread" data-thread-key="2016/06/13/upnp/" data-title="在局域网内，无法通过upnp协议发现其它设备" data-url="http://lynncheng.github.io/2016/06/13/upnp/"></div>
+    <div class="ds-thread" data-thread-key="2016/06/17/buildError/" data-title="Undefined symbols for architecture armv7的处理" data-url="http://lynncheng.github.io/2016/06/17/buildError/"></div>
     <!-- 多说评论框 end -->
     <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
     <script type="text/javascript">
@@ -405,15 +415,13 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2016/06/15/pod/" title="上一篇: CocoaPods的一些常用操作">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
 
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2016/06/06/vlctab/" title="下一篇: 升级vlc后，播放器的单击事件失效">
+            <a href="/2016/06/15/pod/" title="下一篇: CocoaPods的一些常用操作">
                 <i class="fa fa-angle-right"></i>
             </a>
         
