@@ -233,6 +233,61 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-tableview" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/06/18/tableview/" class="article-date">
+      <time datetime="2016-06-18T01:39:00.000Z" itemprop="datePublished">2016-06-18</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/06/18/tableview/">tableview中增加了头视图后，初始位置显示不正常</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>当为tableview插入头视图后，为了让tableview的起始位置显示正常，需要通过setContentOffset设置tableview的偏移位置：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">    override func viewDidLoad() &#123;</span><br><span class="line">        super.viewDidLoad()</span><br><span class="line">        </span><br><span class="line">        self.view.backgroundColor = UIColor(rgb: 0xeeeeee)</span><br><span class="line">        </span><br><span class="line">        self.navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: &quot;back_bt_7&quot;), style: .Plain, target: self, action: #selector(AppSettingViewController.popPrevious))</span><br><span class="line">        </span><br><span class="line">        tableview.delegate = self</span><br><span class="line">        tableview.dataSource = self</span><br><span class="line">        self.view.addSubview(tableview)</span><br><span class="line">//        tableview.separatorStyle = .None</span><br><span class="line">        </span><br><span class="line">        tableview.snp_makeConstraints &#123; (make) -&gt; Void in</span><br><span class="line">            make.edges.equalTo(self.view)</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        self.automaticallyAdjustsScrollViewInsets = false</span><br><span class="line"></span><br><span class="line">        let headImage = UIImage(named: &quot;user_background&quot;)</span><br><span class="line">        headHeight = headImage!.size.height</span><br><span class="line">        tableview.contentInset = UIEdgeInsetsMake(headHeight, 0, 0, 0)</span><br><span class="line">        </span><br><span class="line">        </span><br><span class="line">        tableview.registerClass(YSettingCell.self, forCellReuseIdentifier: YSettingCell.CellIdentifier)</span><br><span class="line">        tableview.registerClass(UITableViewCell.self, forCellReuseIdentifier: &quot;logoutIdentifier&quot;)</span><br><span class="line">        tableview.setContentOffset(CGPoint(x: 0, y: -headHeight), animated: true)</span><br><span class="line"></span><br><span class="line">        self.setupHeadView()</span><br><span class="line"></span><br><span class="line">        self.setupData()</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></p>
+<p><img src="./tableview1.PNG" alt="image"><br><img src="./tableview2.PNG" alt="image"></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-buildError" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -726,71 +781,6 @@
 <li>开发时，编译一个同样bundleid的app来覆盖已经安装的正式app</li>
 <li>等待奇迹的发生……</li>
 </ol>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-capturepackage" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/05/04/capturepackage/" class="article-date">
-      <time datetime="2016-05-04T00:56:37.000Z" itemprop="datePublished">2016-05-04</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/05/04/capturepackage/">iOS APP抓包方法介绍之tcpdump</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <ol>
-<li>将手机通过usb口连在mac电脑上</li>
-<li>通过xcode查看手机的uuid,如 rvictl -s f7f41359d97aa34487f574a4db2e028dfd4f7aa</li>
-<li><p>打开终端，开启虚拟网口</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$rvictl</span> <span class="_">-s</span> f7f41359d97aa34487f574a4db2e028dfd4f7aa</span><br><span class="line">Starting device f7f41359d97aa34487f574a4db2e028dfd4f7aa [SUCCEEDED] with interface rvi0 (rvi0就是虚拟网口的名字，抓包的时候需要使用)</span><br><span class="line"><span class="variable">$sudo</span> tcpdump -i rvi0 -w trace.pcap</span><br><span class="line">tcpdump: WARNING: rvi0: That device doesn<span class="string">'t support promiscuous mode</span><br><span class="line">(BIOCPROMISC: Operation not supported on socket)</span><br><span class="line">tcpdump: listening on rvi0, link-type PKTAP (Packet Tap), capture size 262144 bytes</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>然后就可以在手机上运行app，执行你想要的操作了。所有报文会存储在trace.pcap文件上</p>
-</li>
-<li>抓包结束后，记得删除虚拟接口<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ rvictl -x f7f41359d97aa34487f574a4db2e028dfd4f7aa</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<p>参考资料：<br><a href="https://developer.apple.com/library/mac/qa/qa1176/_index.html" target="_blank" rel="external">app developer: Getting a Packet Trace</a></p>
 
       
     </div>
