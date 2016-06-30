@@ -3,18 +3,18 @@
 <head>
   <meta charset="utf-8">
   
-  <title>tags | LynnCheng</title>
+  <title>iOS的自动布局问题 | LynnCheng</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description">
-<meta property="og:type" content="website">
-<meta property="og:title" content="tags">
-<meta property="og:url" content="http://lynncheng.github.io/tags/index.html">
+  <meta name="description" content="相关代码：123456789let deButton = UIButton(frame: CGRect(x: 0, y: 0 , width: 160, height: 100))      deButton.setTitle(&amp;quot;TL&amp;quot;, forState: .Normal)      deButton.backgroundColor = UIColor.greenColor(">
+<meta property="og:type" content="article">
+<meta property="og:title" content="iOS的自动布局问题">
+<meta property="og:url" content="http://lynncheng.github.io/2016/06/28/autolayout/index.html">
 <meta property="og:site_name" content="LynnCheng">
-<meta property="og:description">
-<meta property="og:updated_time" content="2016-04-29T03:43:51.000Z">
+<meta property="og:description" content="相关代码：123456789let deButton = UIButton(frame: CGRect(x: 0, y: 0 , width: 160, height: 100))      deButton.setTitle(&amp;quot;TL&amp;quot;, forState: .Normal)      deButton.backgroundColor = UIColor.greenColor(">
+<meta property="og:updated_time" content="2016-06-28T09:13:11.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="tags">
-<meta name="twitter:description">
+<meta name="twitter:title" content="iOS的自动布局问题">
+<meta name="twitter:description" content="相关代码：123456789let deButton = UIButton(frame: CGRect(x: 0, y: 0 , width: 160, height: 100))      deButton.setTitle(&amp;quot;TL&amp;quot;, forState: .Normal)      deButton.backgroundColor = UIColor.greenColor(">
   
     <link rel="alternative" href="/atom.xml" title="LynnCheng" type="application/atom+xml">
   
@@ -44,7 +44,7 @@
           fancybox: true,
           animate: true,
           isHome: false,
-          isPost: false,
+          isPost: true,
           isArchive: false,
           isTag: false,
           isCategory: false,
@@ -227,11 +227,11 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
-      <div class="body-wrap"><article id="page-undefined" class="article article-type-page" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-autolayout" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/tags/index.html" class="article-date">
-      <time datetime="2016-04-29T03:43:51.000Z" itemprop="datePublished">2016-04-29</time>
+      <a href="/2016/06/28/autolayout/" class="article-date">
+      <time datetime="2016-06-28T09:07:15.000Z" itemprop="datePublished">2016-06-28</time>
 </a>
     </div>
   
@@ -244,7 +244,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      tags
+      iOS的自动布局问题
     </h1>
   
 
@@ -261,96 +261,95 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-              <style>
-    .article-meta { display: none; }
-    #container .article .article-title { padding-right: 0; }
-    .article-header {
-        padding: 0;
-        padding-top: 26px;
-        border-left: none;
-        text-align: center;
-    }
-    .article-header:hover { border-left: none; }
-    .article-title { font-size: 1.6em }
-    .article-entry hr { margin: 0;}
-    .article-meta,
-    #container .article-info-post.article-info { display: none;}
-    #container .article .article-title { padding: 0; }
-</style>
+        <p>相关代码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">let deButton = UIButton(frame: CGRect(x: 0, y: 0 , width: 160, height: 100))</span><br><span class="line">      deButton.setTitle(&quot;TL&quot;, forState: .Normal)</span><br><span class="line">      deButton.backgroundColor = UIColor.greenColor()</span><br><span class="line">      self.view.addSubview(deButton)</span><br><span class="line">      </span><br><span class="line">      deButton.snp_makeConstraints &#123; (make) -&gt; Void in</span><br><span class="line">          make.left.equalTo(self.view).offset(20)</span><br><span class="line">          make.top.equalTo(self.view).offset(70)</span><br><span class="line">      &#125;</span><br></pre></td></tr></table></figure></p>
+<p>疑问：这段代码执行后，deButton的长和宽根据title的内容自动调节，而不是预先定义的160x100</p>
+<p>原因：使用autolayout实现自动布局的时候，控件的frame设置将被忽略，所以要在自动布局的时候，把长宽也一同设置。</p>
 
-
-    <!-- Tag Cloud Page -->
-    <hr>
-<br>
-<ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/bugfix/">bugfix</a><span class="category-list-count">1</span></li></ul>
-
-<p class="count"></p>
-
-<div class="tags">
-    <a href="/tags/ios/" style="font-size: 16px; color: #808080">ios</a> <a href="/tags/ssl/" style="font-size: 16px; color: #808080">ssl</a> <a href="/tags/swift/" style="font-size: 16px; color: #808080">swift</a>
-</div>
-<style>
-    .category-list li{
-        display: inline-block;
-        margin: 0 1em .5em 0;
-        padding: 4px;
-        border: 1px solid lightgray;
-        font-size: 1.2rem;
-    }
-    .category-list a { color: gray; }
-    .category-list-item:hover a {
-        color: gray;
-        text-decoration: none;
-    }
-    .category-list-count {
-        margin-left: 2px;
-        font-size: .9rem;
-    }
-    .article-entry ul li:before{ display: none; }
-    .article-inner { text-align: center; }
-    .tags {
-        max-width: 42em;
-        margin: 2em auto;
-        margin-top: 0em;
-    }
-    .tags a {
-        margin-right: 1em;
-        line-height: 65px;
-        border-bottom: 1px solid gray;
-        white-space: nowrap;
-        transition: border-bottom .5s;
-    }
-    .tags a:hover {
-        border-bottom: 3px dotted gray;
-        text-decoration: none;
-    }
-    #count > span {
-        margin: auto .2em;
-        font-weight: bold;
-    }
-</style>
-
-<!-- Count tags and categories -->
-<p id="count">
-        已有<span><script>document.write($(".category-list-item").length)</script></span>个分类，
-        共计<span><script>document.write($(".tags > a").length)</script></span>个标签
-</p>
-<script>
-    $('#count').appendTo('.count');
-</script>
-
-          
-        
       
     </div>
     
   </div>
   
     
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/2016/06/28/autolayout/">iOS的自动布局问题</a></p>
+        <p><span>文章作者:</span><a href="/" title="回到主页">Lynn Cheng</a></p>
+        <p><span>发布时间:</span>2016-06-28, 17:07:15</p>
+        <p><span>最后更新:</span>2016-06-28, 17:13:11</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2016/06/28/autolayout/" title="iOS的自动布局问题">http://lynncheng.github.io/2016/06/28/autolayout/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://lynncheng.github.io/2016/06/28/autolayout/　　作者: Lynn Cheng" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
 
+
+
+    <nav id="article-nav">
+        
+            <div id="article-nav-newer" class="article-nav-title">
+                <a href="/2016/06/28/Mac/">
+                    提取MAC地址OUI对应的厂商信息
+                </a>
+            </div>
+        
+        
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="/2016/06/18/tableview/">
+                    tableview中增加了头视图后，初始位置显示不正常
+                </a>
+            </div>
+        
+    </nav>
 
   
 </article>
+
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    
+</div>
+<style>
+    .left-col .switch-btn {
+        display: none;
+    }
+    .left-col .switch-area {
+        display: none;
+    }
+</style>
+
+<input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+<script>
+    var valueHide = "隐藏目录";
+    var valueShow = "显示目录";
+
+    if ($(".left-col").is(":hidden")) {
+        $("#tocButton").attr("value", valueShow);
+    }
+
+    $("#tocButton").click(function() {
+        if ($("#toc").is(":hidden")) {
+            $("#tocButton").attr("value", valueHide);
+            $("#toc").slideDown(320);
+            $(".switch-btn, .switch-area").fadeOut(300);
+        }
+        else {
+            $("#tocButton").attr("value", valueShow);
+            $("#toc").slideUp(350);
+            $(".switch-btn, .switch-area").fadeIn(500);
+        }
+    })
+
+    if ($(".toc").length < 1) {
+        $("#toc, #tocButton").hide();
+        $(".switch-btn, .switch-area").show();
+    }
+</script>
+
+
 
 
 
@@ -368,7 +367,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"tags　| LynnCheng　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"iOS的自动布局问题　| LynnCheng　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -384,7 +383,7 @@
     
       <div class="duoshuo" id="comments">
     <!-- 多说评论框 start -->
-    <div class="ds-thread" data-thread-key="tags/index.html" data-title="tags" data-url="http://lynncheng.github.io/tags/index.html"></div>
+    <div class="ds-thread" data-thread-key="2016/06/28/autolayout/" data-title="iOS的自动布局问题" data-url="http://lynncheng.github.io/2016/06/28/autolayout/"></div>
     <!-- 多说评论框 end -->
     <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
     <script type="text/javascript">
@@ -403,6 +402,26 @@
 
     
 
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/2016/06/28/Mac/" title="上一篇: 提取MAC地址OUI对应的厂商信息">
+                <i class="fa fa-angle-left"></i>
+            </a>
+        
+
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+
+        
+            <a href="/2016/06/18/tableview/" title="下一篇: tableview中增加了头视图后，初始位置显示不正常">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2016/06/28/Mac/">提取MAC地址OUI对应的厂商信息</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/28/autolayout/">iOS的自动布局问题</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/18/tableview/">tableview中增加了头视图后，初始位置显示不正常</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/17/buildError/">Undefined symbols for architecture armv7的处理</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/15/pod/">CocoaPods的一些常用操作</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/13/upnp/">在局域网内，无法通过upnp协议发现其它设备</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/06/vlctab/">升级vlc后，播放器的单击事件失效</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/20/Swift开发点滴/">Swift开发点滴</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/18/SwiftStudy1/">Swift学习笔记－本地化</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/12/structInit/">swift 引用c语言结构体时的初始化问题</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/09/ioscode/">ios开发过程中的代码块</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/05/push/">iOS消息推送：如何在调试阶段获取到正式服务器推送的消息</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/04/capturepackage/">iOS APP抓包方法介绍之tcpdump</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/03/rsync/">rsync命令参数</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/29/测试在线编辑/">ssl交互handshake failure故障一则</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/29/my-new-post/">ios开发过程中遇到的一些小坑</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/29/hello-world/">使用hexo撰写博客</a></li></ul>
 
 
 
