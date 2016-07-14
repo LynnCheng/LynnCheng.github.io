@@ -113,13 +113,13 @@
                 <div class="tips-box hide">
                     <div class="tips-arrow"></div>
                     <ul class="tips-inner">
-                        <li>菜单</li>
-                        <li>标签</li>
+                        <li>菜單</li>
+                        <li>標籤</li>
                         
-                        <li>友情链接</li>
+                        <li>友情鏈接</li>
                         
                         
-                        <li>关于我</li>
+                        <li>關於我</li>
                         
                     </ul>
                 </div>
@@ -229,9 +229,120 @@
             </nav>
         </header>                
     </div>
-    <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
+    <link class="menu-list" tags="標籤" friends="友情鏈接" about="關於我"/>
 </nav>
       <div class="body-wrap">
+  
+    <article id="post-apns-sound" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/07/14/apns-sound/" class="article-date">
+      <time datetime="2016-07-14T03:07:38.000Z" itemprop="datePublished">2016-07-14</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/07/14/apns-sound/">iOS 关于推送消息的设置</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>app：app只需要放一个声音文件就行，没别的设置<br>服务器：服务器向苹果APNs服务器发送消息的时候，需要设置sound字段：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  aps =</span><br><span class="line">  &#123;</span><br><span class="line">    alert = &quot;message&quot;;</span><br><span class="line">    sound = &quot;sound file name.extension&quot;;</span><br><span class="line">    badge = 1;</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>参考文档：<a href="https://developer.apple.com/library/ios/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/IPhoneOSClientImp.html#//apple_ref/doc/uid/TP40008194-CH103-SW6" target="_blank" rel="external">https://developer.apple.com/library/ios/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/IPhoneOSClientImp.html#//apple_ref/doc/uid/TP40008194-CH103-SW6</a></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-uitextfield" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/07/14/uitextfield/" class="article-date">
+      <time datetime="2016-07-14T03:01:09.000Z" itemprop="datePublished">2016-07-14</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/07/14/uitextfield/">uitextfield输入文字的时候忽隐忽现</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>故障现象：<br>    往uitextfield输入文字的时候，输入一个字母，字串消失；再输入一个，字串出现；再输入，字串消失…</p>
+<p>故障原因：<br>    uitextfield继承了scrollview的属性</p>
+<p>解决方案：<br>   uitextfield所在的uiview加入语句：<br>   self.automaticallyAdjustsScrollViewInsets = false</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
   
     <article id="post-常用framework" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -273,7 +384,7 @@
       
       
         <p class="article-more-link">
-          <a href="/2016/07/09/常用framework/#more">more >></a>
+          <a href="/2016/07/09/常用framework/#more">查看全文 >></a>
         </p>
       
       <div class="clearfix"></div>
@@ -331,7 +442,7 @@
       
       
         <p class="article-more-link">
-          <a href="/2016/07/09/iosTree/#more">more >></a>
+          <a href="/2016/07/09/iosTree/#more">查看全文 >></a>
         </p>
       
       <div class="clearfix"></div>
@@ -432,63 +543,8 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>As you work through this tutorial, you’ll:<br>Build a basic static library project in Xcode<br>Build an app with a dependency on this library project<br>Discover how to convert the static library project into a fully-fledged framework<br>Finally, at the end, you’ll see how to package an image file to go along with your framework in a resource bundle<br>Getting Started<br>The main purpose of this tutorial is to explain how to create a framework for use in your iOS projects, so unlike other tutorials on the site, there will only be a small amount of Objective-C code used throughout the tutorial, and this is mainly just to demonstrate the concepts we’ll cover.<br>Start by downloading the source files for the RWKnobControl available here. As you go through the process of creating the first project in the section Creating a Static Library Project, you’ll see how to use them.<br>All of the code, and project files you’ll create whilst making this project are available on Github, with a separate commit for each build-stage of the tutorial.<br>What is a Framework?<br>A framework is a collection of resources; it collects a static library and its header files into a single structure that Xcode can easily incorporate into your projects.<br>On OS X, it’s possible to create a Dynamically Linked framework. Through dynamic linking, frameworks can be updated transparently without requiring applications to relink to them. At runtime, a single copy of the library’s code is shared among all the processes using it, thus reducing memory usage and improving system performance. As you see, it’s powerful stuff.<br>On iOS, you cannot add custom frameworks to the system in this manner, so the only dynamically linked frameworks are those that Apple provides.<br>However, this doesn’t mean frameworks are irrelevant to iOS. Statically Linked frameworks are still a convenient way to package up a code-base for re-use in different apps.<br>Since a framework is essentially a one-stop shop for a static library, the first thing you’ll do in this tutorial is learn how to create and use a static library. When the tutorial moves on to building a framework, you’ll know what’s going on, and it won’t seem like smoke and mirrors.<br>Creating a Static Library Project<br>Open Xcode and create a new static library project by clicking File\New\Project and selecting iOS\Framework and Library\Cocoa Touch Static Library.<br>ios_framework_creating_static_lib<br>Name the product RWUIControls and save the project to an empty directory.<br>ios_framework_options_for_static_lib<br>A static library project is made up of header files and implementation files, which are compiled to make the library itself.<br>To make life easier for developers that use your library and framework, you’re going to make it so they only need to import a single header file to access all the classes you wish to make public.<br>When creating the static library project, Xcode added RWUIControls.h and RWUIControls.m. You don’t need the implementation file, so right click on RWUIControls.m and select delete; move it to the trash if prompted.<br>Open up RWUIControls.h and replace the contents with the following:</p>
-<p>#import <uikit uikit.h=""><br>This imports the umbrella header of UIKit, which the library itself needs. As you create the different component classes, you’ll add them to this file, which ensures they’ll be accessible to the libraries users.<br>The project you’re building relies on UIKit, but Xcode’s static library project doesn’t link against it by default. To fix this, add UIKit as a dependency. Select the project in the navigator, and in the central pane, choose the RWUIControls target.<br>Click on Build Phases and then expand the Link Binary with Libraries section. Click the + to add a new framework and navigate to find UIKit.framework, before clicking add.<br>ios_framework_add_uikit_dependency<br>A static library is of no use unless it’s combined with header files. These compile a manifest of what classes and methods exist within the binary. Some of the classes you create in your library will be publicly accessible, and some will be for internal use only.<br>Next, you need to add a new phase in the build, which will collect the public header files and put them somewhere accessible to the compiler. Later, you’ll copy these into the framework.<br>While still looking at the Build Phases screen in Xcode, choose Editor\Add Build Phase\Add Copy Headers Build Phase.<br>Note: If you find the option is grayed out, try clicking in the white area directly below the existing build phases to shift the focus, and then try again.<br>ios_framework_add_copy_headers_build_phase<br>Drag RWUIControls.h from the navigator to the Public part of the panel to place it in the public section under Copy Headers. This ensures the header file is available to anybody who uses your library.<br>ios_framework_add_header_to_public<br>Note: It might seem obvious, but it’s important to note that all header files included in any of your public headers must also be made public. Otherwise, developers will get compiler errors while attempting to use the library. It’s no fun for anybody when Xcode reads the public headers and then cannot read the headers you forgot to make public.<br>Creating a UI Control<br>Now that you’ve set up your project, it’s time to add some functionality to the library. Since the point of this tutorial is to describe how to build a framework, not how to build a UI control, you’ll borrow the code from the last tutorial. In the zip file you downloaded earlier you’ll find the directory RWKnobControl. Drag it from the finder into the RWUIControls group in Xcode.<br>ios_framework_drop_rwuiknobcontrol_from_finder<br>Choose to Copy items into destination group’s folder and ensure the new files go to the RWUIControls static library target by ticking the appropriate box.<br>ios_framework_import_settings_for_rwknobcontrol<br>This will add the implementation files to the compilation list and, by default, the header files to the Project group. This means that they will be private.<br>ios_framework_default_header_membership<br>Note: The three section names can be somewhat confusing until you break them down. Public is just as you’d expect. Private headers are still exposed, which is a little misleading. And Project headers are those specific to your project which are, somewhat ironically, private. Therefore, you’ll find more often than not that you’ll want your headers in either the Public or Project groups.<br>Now you need to share the main control header, RWKnobControl.h, and there are several ways you can do this. The first is to drag the file from the Project group to the Public group in the Copy Headers panel.<br>ios_framework_drag_header_to_public<br>Alternatively, you might find it easier to change the membership in the Target Membership panel when editing the file. This option is a bit more convenient as you can continue to add and develop the library.<br>ios_framework_header_membership<br>Note: As you continue to add new classes to your library, remember to keep their membership up-to-date. Make as few headers public as possible, and ensure the remainder are in the Project group.<br>The other thing to do with your control’s header file is add it to the library’s main header file, RWUIControls.h. With such a main header file, a developer using your library only needs to include one file like you see below, instead of having to sort out which pieces they need:</uikit></p>
-<p>#import <rwuicontrols rwuicontrols.h=""><br>Therefore, add the following to RWUIControls.h:<br>// Knob Control</rwuicontrols></p>
-<p>#import <rwuicontrols rwknobcontrol.h=""><br>Configuring Build Settings<br>You are now very close to building this project and creating a static library. However, there are a few settings to configure to make the library as user-friendly as possible.<br>First, you need to provide a directory name for where you’ll copy public headers. This ensures you can locate the relevant headers when you use the static library.<br>Click on the project in the Project Navigator, and then select the RWUIControls static library target. Select the Build Settings tab, then search for public header. Double click on the Public Headers Folder Path setting and enter the following in the popup:<br>include/$(PROJECT_NAME)<br>ios_framework_public_headers_path<br>You’ll see this directory later.<br>Now you need to change some other settings, specifically those that remain in the binary library. The compiler gives you the option of removing dead code; code which is never accessed. And you can also remove debug symbols i.e. function names and other debugging related details.<br>Since you’re creating a framework for others to use, it’s best to disable both and let the user choose what’s best for their project. To do this, using the same search field as before, update the following settings:<br>Dead Code Stripping – Set this to NO<br>Strip Debug Symbols During Copy – Set this to NO for all configurations<br>Strip Style – Set this to Non-Global Symbols<br>Build and run. There’s not a lot to see yet, but it’s still good to confirm the project builds successfully and without warnings or errors.<br>To build, select the target as iOS Device and press cmd+B to perform the build. Once completed, the libRWUIControls.a product in the Products group of the Project Navigator will turn from red to black, signaling that it now exists. Right click on libRWUIControls.a and select Show in Finder.<br>ios_framework_successful_first_build<br>In this directory you’ll see the static library itself, libRWUIControls.a, and the directory you specified for the public headers, include/RWUIControls. Notice the headers you made public can be found in this folder, just as you might expect.<br>Creating a Dependent Development Project<br>Developing a UI controls library for iOS is extremely difficult when you can’t actually see what you’re doing, and that seems to be the case now.<br>Nobody wants you to work blindly, so in this section you’re going to create a new Xcode project that will have a dependency on the library you just created. This will allow you to develop the framework using an example app. Naturally, the code for this app will be kept completely separate from the library itself, as this makes for a much cleaner structure.<br>Close the static library project by choosing File/Close Project. Then create a new project using File/New/Project. Select iOS/Application/Single View Application, and call the new project UIControlDevApp. Set the class prefixes to RW and specify that it should be iPhone only. Finally save the project in the same directory you used for RWUIControls.<br>To add the RWUIControls library as a dependency, drag RWUIControls.xcodeproj from the finder into the UIControlDevApp group in Xcode.<br>ios_framework_import_library_into_dev_app<br>You can now navigate around the library project, from inside the app’s project. This is perfect because it means that you can edit code inside the library and run the example app to test the changes.<br>Note: You can’t have the same project open in two different Xcode windows. If you find that you’re unable to navigate around the library project, check that you don’t have it open in another Xcode window.<br>Rather than recreate the app from the last tutorial, you can simply copy the code. First, select Main.storyboard, RWViewController.h and RWViewController.m and delete them by right clicking and selecting Delete, choosing to move them to the trash. Then copy the DevApp folder from the zip file you downloaded earlier right into the UIControlDevApp group in Xcode.<br>ios_framework_adding_files_to_dev_app<br>Now you’re going to add the static library as a build dependency of the example app:<br>Select the UIControlDevApp project in the Project Navigator.<br>Navigate to the Build Phases tab of the UIControlDevApp target.<br>Open the Target Dependencies panel and click the + to show the picker.<br>Find the RWUIControls static library, select and click Add. This action means that when building the dev app, Xcode will check to see whether the static library needs rebuilding or not.<br>In order to link against the static library itself, expand the Link Binary With Libraries panel and again click the +. Select libRWUIControls.a from the Workspace group and click Add.<br>This action makes it so that Xcode will link it against the static library, just as it links against system frameworks like UIKit.<br>ios_framework_add_dependencies_to_dev_app<br>Build and run to see it in action. If you followed the previous tutorial on building a knob control, you’ll recognize the simple app before your eyes.<br>ios_framework_dev_app_buildrun1<br>The beauty of using nested projects like this is that you can continue to work on the library itself, without ever leaving the example app project, even as you maintain the code in different places. Each time you build the project, you’re also checking that you have the public/project header membership set correctly. The example app won’t build if it’s missing any required headers.<br>Building a Framework<br>By now, you’re probably impatiently tapping your toes and wondering where the framework comes into play. Understandable, because so far you’ve done a lot of work and yet there is no framework in sight.<br>Well, things are about to change, and quickly too. The reason that you’ve not created a framework is because it’s pretty much a static library and a collection of headers – exactly what you’ve built so far.<br>There are a couple of things that make a framework distinct:<br>The directory structure. Frameworks have a special directory structure that is recognized by Xcode. You’ll create a build task, which will create this structure for you.<br>The Slices. Currently, when you build the library, it’s only for the currently required architecture, i.e. i386, arm7, etc. In order for a framework to be useful, it needs to include builds for all the architectures on which it needs to run. You’ll create a new product which will build the required architectures and place them in the framework.<br>There is a quite a lot of scripting magic in this section, but we’ll work through it slowly; it’s not nearly as complicated as it appears.<br>Framework Structure<br>As mentioned previously, a framework has a special directory structure which looks like this:<br>ios_framework_directory_structure<br>Now you’ll add a script to create this during the static library build process. Select the RWUIControls project in the Project Navigator, and select the RWUIControls static library target. Choose the Build Phases tab and add a new script by selecting Editor/Add Build Phase/Add Run Script Build Phase.<br>ios_framework_framework_add_run_script_build_phase<br>This creates a new panel in the build phases section, which allows you to run an arbitrary Bash script at some point during the build. Drag the panel around in the list if you want to change the point at which the script runs in the build process. For the framework project, run the script last, so you can leave it where it’s placed by default.<br>ios_framework_new_run_script_build_phase<br>Rename the script by double clicking on the panel title Run Script and replace it with Build Framework.<br>ios_framework_rename_script<br>Paste the following Bash script into the script field:<br>set -e</rwuicontrols></p>
-<p>export FRAMEWORK_LOCN=”${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.framework”</p>
-<h1 id="Create-the-path-to-the-real-Headers-die"><a href="#Create-the-path-to-the-real-Headers-die" class="headerlink" title="Create the path to the real Headers die"></a>Create the path to the real Headers die</h1><p>mkdir -p “${FRAMEWORK_LOCN}/Versions/A/Headers”</p>
-<h1 id="Create-the-required-symlinks"><a href="#Create-the-required-symlinks" class="headerlink" title="Create the required symlinks"></a>Create the required symlinks</h1><p>/bin/ln -sfh A “${FRAMEWORK_LOCN}/Versions/Current”<br>/bin/ln -sfh Versions/Current/Headers “${FRAMEWORK_LOCN}/Headers”<br>/bin/ln -sfh “Versions/Current/${PRODUCT_NAME}” \<br>             “${FRAMEWORK_LOCN}/${PRODUCT_NAME}”</p>
-<h1 id="Copy-the-public-headers-into-the-framework"><a href="#Copy-the-public-headers-into-the-framework" class="headerlink" title="Copy the public headers into the framework"></a>Copy the public headers into the framework</h1><p>/bin/cp -a “${TARGET_BUILD_DIR}/${PUBLIC_HEADERS_FOLDER_PATH}/“ \<br>           “${FRAMEWORK_LOCN}/Versions/A/Headers”<br>This script first creates the RWUIControls.framework/Versions/A/Headers directory before then creating the three symbolic links required for a framework:<br>Versions/Current =&gt; A<br>Headers =&gt; Versions/Current/Headers<br>RWUIControls =&gt; Versions/Current/RWUIControls<br>Finally, the public header files copy into the Versions/A/Headers directory from the public headers path you specified before. The -a argument ensures the modified times don’t change as part of the copy, thereby preventing unnecessary rebuilds.<br>Now, select the RWUIControls static library scheme and the iOS Device build target, then build using cmd+B.<br>ios_framework_build_target_static_lib<br>Right click on the libRWUIControls.a static library in the Products group of the RWUIControls project, and once again select Show In Finder.<br>ios_framework_static_lib_view_in_finder<br>Within this build directory you can access the RWUIControls.framework, and confirm the correct directory structure is present and populated:<br>ios_framework_created_framework_directory_structure<br>This is a leap forward on the path of completing your framework, but you’ll notice that there isn’t a static lib in there yet. That’s what you’re going to sort out next.<br>Multi-Architecture Build<br>iOS apps need to run on many different architectures:<br>arm7: Used in the oldest iOS 7-supporting devices<br>arm7s: As used in iPhone 5 and 5C<br>arm64: For the 64-bit ARM processor in iPhone 5S<br>i386: For the 32-bit simulator<br>x86_64: Used in 64-bit simulator<br>Every architecture requires a different binary, and when you build an app Xcode will build the correct architecture for whatever you’re currently working with. For instance, if you’ve asked it to run in the simulator, then it’ll only build the i386 version (or x86_64 for 64-bit).<br>This means that builds are as fast as they can be. When you archive an app or build in release mode, then Xcode will build for all three ARM architectures, thus allowing the app to run on most devices. What about the other builds though?<br>Naturally, when you build your framework, you’ll want developers to be able to use it for all possible architectures, right? Of course you do since that’ll mean you can earn the respect and admiration of your peers.<br>Therefore you need to make Xcode build for all five architectures. This process creates a so-called fat binary, which contains a slice for each of the architectures. Ah-ha!<br>Note: This actually highlights another reason to create an example app which has a dependency on the static library: the library only builds for the architecture required by the example app, and will only rebuild if something changes. Why should this excite you? It means the development cycle is as quick as possible.<br>The framework will be created using a new target in the RWUIControls project. To create it, select the RWUIControls project in the Project Navigator and then click the Add Target button shown below the existing targets.<br>ios_framework_add_target_button<br>Navigate to iOS/Other/Aggregate, click Next and name the target Framework.<br>ios_framework_select_aggregate_target<br>Note: Why use an Aggregate target to build a Framework? Why so indirect? Because Frameworks enjoy better support on OS X, as reflected by the fact that Xcode offers a straightforward Cocoa Framework build target for OS X apps. To work around this, you’ll use the aggregate build target as a hook for bash scripts that build the magic framework directory structure. Are you starting to see the method to the madness here?<br>To ensure the static library builds whenever this new framework target is created, you need to add a dependency on the static library target. Select the Framework target in the library project and add a dependency in the Build Phases tab. Expand the Target Dependencies panel, click the + and choose the RWUIControls static library.<br>ios_framework_add_dependency_to_framework_target<br>The main build part of this target is the multi-platform building, which you’ll perform using a script. As you did before, create a new Run Script build phase by selecting the Build Phases tab of the Framework target, and clicking Editor/Add Build Phase/Add Run Script Build Phase.<br>ios_framework_framework_add_run_script_build_phase<br>Change the name of the script by double clicking on Run Script. This time name it MultiPlatform Build.<br>Paste the following Bash script into the script text box:<br>set -e</p>
-<h1 id="If-we’re-already-inside-this-script-then-die"><a href="#If-we’re-already-inside-this-script-then-die" class="headerlink" title="If we’re already inside this script then die"></a>If we’re already inside this script then die</h1><p>if [ -n “$RW_MULTIPLATFORM_BUILD_IN_PROGRESS” ]; then<br>  exit 0<br>fi<br>export RW_MULTIPLATFORM_BUILD_IN_PROGRESS=1</p>
-<p>RW_FRAMEWORK_NAME=${PROJECT_NAME}<br>RW_INPUT_STATIC_LIB=”lib${PROJECT_NAME}.a”<br>RW_FRAMEWORK_LOCATION=”${BUILT_PRODUCTS_DIR}/${RW_FRAMEWORK_NAME}.framework”<br>set -e ensures that if any part of the script should fail then the entire script will fail. This helps you avoid a partially-built framework.<br>Next, the RW_MULTIPLATFORM_BUILD_IN_PROGRESS variable determines whether the script was called recursively. If it has, then quit.<br>Then set up some variables. The framework name will be the same as the project i.e. RWUIControls, and the static lib is libRWUIControls.a.<br>The next part of the script sets up some functions that the project will use later on. Add the following to the very bottom of the script:<br>function build_static_library {</p>
-<pre><code># Will rebuild the static library as specified
-#     build_static_library sdk
-xcrun xcodebuild -project &quot;${PROJECT_FILE_PATH}&quot; \
-                 -target &quot;${TARGET_NAME}&quot; \
-                 -configuration &quot;${CONFIGURATION}&quot; \
-                 -sdk &quot;${1}&quot; \
-                 ONLY_ACTIVE_ARCH=NO \
-                 BUILD_DIR=&quot;${BUILD_DIR}&quot; \
-                 OBJROOT=&quot;${OBJROOT}&quot; \
-                 BUILD_ROOT=&quot;${BUILD_ROOT}&quot; \
-                 SYMROOT=&quot;${SYMROOT}&quot; $ACTION
-</code></pre><p>}</p>
-<p>function make_fat_library {</p>
-<pre><code># Will smash 2 static libs together
-#     make_fat_library in1 in2 out
-xcrun lipo -create &quot;${1}&quot; &quot;${2}&quot; -output &quot;${3}&quot;
-</code></pre><p>}<br>build_static_library takes an SDK as an argument, for example iphoneos7.0, and will build the static lib. Most of the arguments pass directly from the current build job, the difference being that ONLY_ACTIVE_ARCH is set to ensure all architectures build for the current SDK.<br>make_fat_library uses lipo to join two static libraries into one. Its arguments are two input libraries followed by the desired output location. Read more about lipo here<br>The next section of the script determines some more variables which you’ll need in order to use the two methods. You need to know what the other SDK is, for example iphoneos7.0 should go to iphonesimulator7.0 and vice versa, and to locate the build directory for that SDK.<br>Add the following to the very end of the script:</p>
-<h1 id="1-Extract-the-platform-iphoneos-iphonesimulator-from-the-SDK-name"><a href="#1-Extract-the-platform-iphoneos-iphonesimulator-from-the-SDK-name" class="headerlink" title="1 - Extract the platform (iphoneos/iphonesimulator) from the SDK name"></a>1 - Extract the platform (iphoneos/iphonesimulator) from the SDK name</h1><p>if [[ “$SDK_NAME” =~ ([A-Za-z]+) ]]; then<br>  RW_SDK_PLATFORM=${BASH_REMATCH[1]}<br>else<br>  echo “Could not find platform name from SDK_NAME: $SDK_NAME”<br>  exit 1<br>fi</p>
-<h1 id="2-Extract-the-version-from-the-SDK"><a href="#2-Extract-the-version-from-the-SDK" class="headerlink" title="2 - Extract the version from the SDK"></a>2 - Extract the version from the SDK</h1><p>if [[ “$SDK_NAME” =~ ([0-9]+.*$) ]]; then<br>  RW_SDK_VERSION=${BASH_REMATCH[1]}<br>else<br>  echo “Could not find sdk version from SDK_NAME: $SDK_NAME”<br>  exit 1<br>fi</p>
-<h1 id="3-Determine-the-other-platform"><a href="#3-Determine-the-other-platform" class="headerlink" title="3 - Determine the other platform"></a>3 - Determine the other platform</h1><p>if [ “$RW_SDK_PLATFORM” == “iphoneos” ]; then<br>  RW_OTHER_PLATFORM=iphonesimulator<br>else<br>  RW_OTHER_PLATFORM=iphoneos<br>fi</p>
-<h1 id="4-Find-the-build-directory"><a href="#4-Find-the-build-directory" class="headerlink" title="4 - Find the build directory"></a>4 - Find the build directory</h1><p>if [[ “$BUILT_PRODUCTS_DIR” =~ (.*)$RW_SDK_PLATFORM$ ]]; then<br>  RW_OTHER_BUILT_PRODUCTS_DIR=”${BASH_REMATCH[1]}${RW_OTHER_PLATFORM}”<br>else<br>  echo “Could not find other platform build directory.”<br>  exit 1<br>fi<br>All four of these statements are very similar, they use string comparison and regular expressions to determine RW_OTHER_PLATFORM and RW_OTHER_BUILT_PRODUCTS_DIR.<br>The four if statements in more detail:<br>SDK_NAME will be of the form iphoneos7.0 or iphonesimulator6.1. This regex extracts the non-numeric characters at the beginning of this string. Hence, it results in iphoneos or iphonesimulator.<br>This regex pulls the numeric version number from the end of the SDK_NAME variable, 7.0 or 6.1 etc.<br>Here a simple string comparison switches iphonesimulator for iphoneos and vice versa.<br>Take the platform name from the end of the build products directory path and replace it with the other platform. This ensures the build directory for the other platform can be found. This will be critical when joining the two static libraries.<br>Now you can trigger the build for the other platform, and then join the resulting static libraries.<br>Add the following to the end of the script:</p>
-<h1 id="Build-the-other-platform"><a href="#Build-the-other-platform" class="headerlink" title="Build the other platform."></a>Build the other platform.</h1><p>build_static_library “${RW_OTHER_PLATFORM}${RW_SDK_VERSION}”</p>
-<h1 id="If-we’re-currently-building-for-iphonesimulator-then-need-to-rebuild"><a href="#If-we’re-currently-building-for-iphonesimulator-then-need-to-rebuild" class="headerlink" title="If we’re currently building for iphonesimulator, then need to rebuild"></a>If we’re currently building for iphonesimulator, then need to rebuild</h1><h1 id="to-ensure-that-we-get-both-i386-and-x86-64"><a href="#to-ensure-that-we-get-both-i386-and-x86-64" class="headerlink" title="to ensure that we get both i386 and x86_64"></a>to ensure that we get both i386 and x86_64</h1><p>if [ “$RW_SDK_PLATFORM” == “iphonesimulator” ]; then<br>    build_static_library “${SDK_NAME}”<br>fi</p>
-<h1 id="Join-the-2-static-libs-into-1-and-push-into-the-framework"><a href="#Join-the-2-static-libs-into-1-and-push-into-the-framework" class="headerlink" title="Join the 2 static libs into 1 and push into the .framework"></a>Join the 2 static libs into 1 and push into the .framework</h1><p>make_fat_library “${BUILT_PRODUCTS_DIR}/${RW_INPUT_STATIC_LIB}” \<br>                 “${RW_OTHER_BUILT_PRODUCTS_DIR}/${RW_INPUT_STATIC_LIB}” \<br>                 “${RW_FRAMEWORK_LOCATION}/Versions/A/${RW_FRAMEWORK_NAME}”<br>First there’s a call to build the other platform using the function you defined beforehand<br>If you’re currently building for the simulator, then by default Xcode will only build the architecture for that system, e.g. i386 or x86_64. In order to build both architectures, this second call to build_static_library rebuilds with the iphonesimulator SDK, and ensures that both architectures build.<br>Finally a call to make_fat_library joins the static lib in the current build directory with that in the other build directory to make the multi-architecture fat static library. This is placed inside the framework.<br>The final commands of the script are simple copy commands. Add the following to the end of the script:</p>
-<h1 id="Ensure-that-the-framework-is-present-in-both-platform’s-build-directories"><a href="#Ensure-that-the-framework-is-present-in-both-platform’s-build-directories" class="headerlink" title="Ensure that the framework is present in both platform’s build directories"></a>Ensure that the framework is present in both platform’s build directories</h1><p>cp -a “${RW_FRAMEWORK_LOCATION}/Versions/A/${RW_FRAMEWORK_NAME}” \<br>      “${RW_OTHER_BUILT_PRODUCTS_DIR}/${RW_FRAMEWORK_NAME}.framework/Versions/A/${RW_FRAMEWORK_NAME}”</p>
-<h1 id="Copy-the-framework-to-the-user’s-desktop"><a href="#Copy-the-framework-to-the-user’s-desktop" class="headerlink" title="Copy the framework to the user’s desktop"></a>Copy the framework to the user’s desktop</h1><p>ditto “${RW_FRAMEWORK_LOCATION}” “${HOME}/Desktop/${RW_FRAMEWORK_NAME}.framework”<br>The first command ensures that the framework is present in both platform’s build directories.<br>The second copies the completed framework to the user’s desktop. This is an optional step, but I find that it’s a lot easier to place the framework somewhere that is easily accessible.<br>Select the Framework aggregate scheme, and press cmd+B to build the framework.<br>ios_framework_select_framework_aggregate_scheme<br>This will build and place a RWUIControls.framework on your desktop.<br>ios_framework_built_framework_on_desktop<br>In order to check that the multi-platform build worked, fire up a terminal and navigate to the framework on the desktop, as follows:<br>$ cd ~/Desktop/RWUIControls.framework<br>$ RWUIControls.framework  xcrun lipo -info RWUIControls<br>The first command navigates into the framework itself, and the second line uses the lipo command to get the required information on theRWUIControls static library. This will list the slices that are present in the library.<br>ios_framework_architectures_in_fat_library<br>You can see here that there are five slices: i386, x86_64, arm7, arm7s and arm64, which is exactly what you set out to build. Had you run the lipo -info command beforehand, you would have seen a subset of these slices.<br>How to Use a Framework<br>Okay, you have a framework, you have libraries and they’re elegant solutions for problems you’ve not yet encountered. But what’s the point of all this?<br>One of the primary advantages in using a framework is its simplicity in use. Now you’re going to create a simple iOS app that uses the RWUIControls.framework that you’ve just built.<br>Start by creating a new project in Xcode. Choose File/New/Project and select iOS/Application/Single View Application. Call your new app ImageViewer; set it for iPhone only and save it in the same directory you’ve used for the previous two projects. This app will display an image and allow the user to change its rotation using a RWKnobControl.<br>Look in the ImageViewer directory of the zip file you downloaded earlier for a sample image. Drag sampleImage.jpg from the finder into the ImageViewer group in Xcode.<br>ios_framework_drag_sample_image_into_xcode<br>Check the Copy items into destination group’s folder box, and click Finish to complete the import.<br>Importing a framework follows a nearly identical process. Drag RWUIControls.framework from the desktop into the Frameworks group in Xcode. Again, ensure that you’ve checked the box before Copy items into destination group’s folder.<br>ios_framework_import_framework<br>Open up RWViewController.m and replace the code with the following:</p>
-<p>#import “RWViewController.h”</p>
-<p>#import <rwuicontrols rwuicontrols.h=""></rwuicontrols></p>
-<p>@interface RWViewController ()<br>@property (nonatomic, strong) UIImageView <em>imageView;<br>@property (nonatomic, strong) RWKnobControl </em>rotationKnob;<br>@end</p>
-<p>@implementation RWViewController</p>
-<ul>
-<li><p>(void)viewDidLoad<br>{<br>  [super viewDidLoad];<br>  // Create UIImageView<br>  CGRect frame = self.view.bounds;<br>  frame.size.height *= 2/3.0;<br>  self.imageView = [[UIImageView alloc] initWithFrame:CGRectInset(frame, 0, 20)];<br>  self.imageView.image = [UIImage imageNamed:@”sampleImage.jpg”];<br>  self.imageView.contentMode = UIViewContentModeScaleAspectFit;<br>  [self.view addSubview:self.imageView];</p>
-<p>  // Create RWKnobControl<br>  frame.origin.y += frame.size.height;<br>  frame.size.height /= 2;<br>  frame.size.width  = frame.size.height;<br>  self.rotationKnob = [[RWKnobControl alloc] initWithFrame:CGRectInset(frame, 10, 10)];<br>  CGPoint center = self.rotationKnob.center;<br>  center.x = CGRectGetMidX(self.view.bounds);<br>  self.rotationKnob.center = center;<br>  [self.view addSubview:self.rotationKnob];</p>
-<p>  // Set up config on RWKnobControl<br>  self.rotationKnob.minimumValue = -M_PI_4;<br>  self.rotationKnob.maximumValue = M_PI_4;<br>  [self.rotationKnob addTarget:self</p>
-<pre><code>          action:@selector(rotationAngleChanged:)
-forControlEvents:UIControlEventValueChanged];
-</code></pre><p>}</p>
-</li>
-<li><p>(void)rotationAngleChanged:(id)sender<br>{<br>  self.imageView.transform = CGAffineTransformMakeRotation(self.rotationKnob.value);<br>}</p>
-</li>
-<li><p>(NSUInteger)supportedInterfaceOrientations<br>{<br>  return UIInterfaceOrientationMaskPortrait;<br>}</p>
-</li>
-</ul>
-<p>@end<br>This is a simple view controller that does the following:<br>Import the framework’s header with #import <rwuicontrols rwuicontrols.h="">.<br>Set up a couple of private properties to hold the UIImageView and the RWKnobControl.<br>Create a UIImageView, and use the sample image that you added to the project a few steps back.<br>Create a RWKnobControl and position it appropriately.<br>Set some properties on the knob control, including setting the change event handler to be the rotationAngleChanged: method.<br>The rotationAngleChanged: method simply updates the transform property of the UIImageView so the image rotates as the knob control is moves.<br>For further details on how to use the RWKnobControl check out the previous tutorial, which explains how to create it.<br>Build and run. You’ll see a simple app, which as you change the value of the knob control the image rotates.<br>ios_framework_image_viewer_rotating<br>Using a Bundle for Resources<br>Did you notice that the RWUIControls framework only consists of code and headers? For example, you haven’t used any other assets, such as images. This is a basic limitation on iOS, where a framework can only contain header files and a static library.<br>Now buckle up, this tutorial is about to take off. In this section you’ll learn how to work around this limitation by using a bundle to collect assets, which can then be distributed alongside the framework itself.<br>You’re going to create a new UI control to be part of the RWUIControls library; a ribbon control. This will place an image of a ribbon on the top right hand corner of a UIView.<br>Creating a bundle<br>The resources will be added to a bundle, which takes the form of an additional target on the RWUIControls project.<br>Open the UIControlDevApp project, and select the RWUIControls sub-project. Click the Add Target button, then navigate to OS X/Framework and Library/Bundle. Call the bundle RWUIControlsResources and select Core Foundation from the framework selection box.<br>ios_framework_add_bundle_target<br>There are a couple of build settings to configure since you’re building a bundle for use in iOS as opposed to the default of OSX. Select the RWUIControlsResources target and then the Build Settings tab. Search for base sdk, select the Base SDK line and press delete. This will switch from OSX to iOS.<br>ios_framework_bundle_set_base_sdk<br>You also need to change the product name to RWUIControls. Search for product name and double-click to edit. Replace ${TARGET_NAME} with RWUIControls.<br>ios_framework_bundle_set_product_name<br>By default, images which have two resolutions can produce some interesting results; for instance when you include a retina @2x version. They’ll combine into a multi-resolution TIFF, and that’s not a good thing. Search for hidpi and change the COMBINE_HIDPI_IMAGES setting to NO.<br>ios_framework_bundle_hidpi_images<br>Now you’ll make sure that when you build the framework, the bundle will also build and add the framework as a dependency to the aggregate target. Select the Framework target, and then the Build Phases tab. Expand the Target Dependencies panel, click the +, and then select the RWUIControlsResources target to add it as a dependency.<br>ios_framework_add_bundle_as_framework_dependency<br>Now, within the Framework target’s Build Phases, open the MultiPlatform Build panel, and add the following to the end of the script:</rwuicontrols></p>
-<h1 id="Copy-the-resources-bundle-to-the-user’s-desktop"><a href="#Copy-the-resources-bundle-to-the-user’s-desktop" class="headerlink" title="Copy the resources bundle to the user’s desktop"></a>Copy the resources bundle to the user’s desktop</h1><p>ditto “${BUILT_PRODUCTS_DIR}/${RW_FRAMEWORK_NAME}.bundle” \<br>      “${HOME}/Desktop/${RW_FRAMEWORK_NAME}.bundle”<br>This command will copy the built bundle to the user’s desktop. Build the framework scheme now so you can see the bundle appear on the desktop.<br>ios_framework_bundle_on_desktop<br>Importing the Bundle<br>In order to develop against this new bundle, you’ll need to be able to use it in the example app. This means you must add it as both a dependency, and an object to copy across to the app.<br>In the Project Navigator, select the UIControlDevApp project, then click on the UIControlDevApp target. Expand the Products group of the RWUIControls project and drag RWUIControls.bundle to the Copy Bundle Resources panel inside the Build Phases tab.<br>In the Target Dependencies panel, click the + to add a new dependency, and then select RWUIControlsResources.<br>ios_framework_add_bundle_for_dev_project<br>Building a Ribbon View<br>That’s all the setup required. Drag the RWRibbon directory from inside the zip file you downloaded earlier into the RWUIControls group within the RWUIControls project.<br>ios_framework_drag_rwribbon<br>Choose Copy the items into the destination group’s folder, making sure they are part of the RWUIControls static lib target by ticking the appropriate box.<br>ios_framework_rwribbon_membership<br>An important part of the source code is how you reference images. If you take a look at addRibbonView inside the RWRibbonView.m file you’ll see the relevant line:<br>UIImage *image = [UIImage imageNamed:@”RWUIControls.bundle/RWRibbon”];<br>The bundle behaves just like a directory, so it’s really simple to reference an image inside a bundle.<br>To add the images to bundle, choose them in turn, and then, in the right hand panel, select that they should belong to theRWUIControlsResources target.<br>ios_framework_rwribbon_image_membership<br>Remember the discussion about making sure the framework is accessible to the public? Well, now you need to export the RWRibbon.h header file, select the file, then choose Public from the drop down menu in the Target Membership panel.<br>ios_framework_rwribbon_header_membership<br>Finally, you need to add the header to the framework’s header file. Open RWUIControls.h and add the following lines:<br>// RWRibbon</p>
-<p>#import <rwuicontrols rwribbonview.h=""><br>Add the Ribbon to the Example App<br>Open RWViewController.m in the UIControlDevApp project, and add the following instance variable between the curly braces in the @interface section:<br>RWRibbonView  <em>_ribbonView;<br>To create a ribbon view, add the following at the end of viewDidLoad:<br>// Creates a sample ribbon view<br>_ribbonView = [[RWRibbonView alloc] initWithFrame:self.ribbonViewContainer.bounds];<br>[self.ribbonViewContainer addSubview:_ribbonView];<br>// Need to check that it actually works :)<br>UIView </em>sampleView = [[UIView alloc] initWithFrame:_ribbonView.bounds];<br>sampleView.backgroundColor = [UIColor lightGrayColor];<br>[_ribbonView addSubview:sampleView];<br>Build and run the UIControlDevApp scheme and you’ll see the new ribbon control at the bottom of the app:<br>ios_framework_dev_app_with_ribbon<br>Using the Bundle in ImageViewer<br>The last thing to share with you is how to use this new bundle inside another app, the ImageViewer app you created earlier.<br>To start, make sure your framework and bundle are up to date. Select the Framework scheme and then press cmd+B to build it.<br>Open up the ImageViewer project, find the RWUIControls.framework item inside the Frameworks group and delete it, choosing Move to Trash if you’re prompted. Then drag the RWUIControls.framework from your desktop to the Frameworks group. This is necessary because the framework is much different than it was when you first imported it.<br>ios_framework_delete_framework<br>Note: If Xcode refuses to let you add the framework, then it might not have properly moved it to the trash. If this is the case then delete the framework from the ImageViewer directory in Finder and retry.<br>To import the bundle, simply drag it from the desktop to the ImageViewer group. Choose to Copy items into destination group’s folder and ensure that it’s added to the ImageViewer target by ticking the necessary box.<br>ios_framework_import_bundle<br>You’re going to add the ribbon to the image, which rotates, so there are a few simple changes to make to the code inRWViewController.m.<br>Open it up and change the type of the imageView property from UIImageView to RWRibbonView:<br>@property (nonatomic, strong) RWRibbonView <em>imageView;<br>Replace the first part of the viewDidLoad method which was responsible for creating and configuring the UIImageView, with the following:<br>[super viewDidLoad];<br>// Create UIImageView<br>CGRect frame = self.view.bounds;<br>frame.size.height </em>= 2/3.0;<br>self.imageView = [[RWRibbonView alloc] initWithFrame:CGRectInset(frame, 0, 20)];<br>UIImageView *iv = [[UIImageView alloc] initWithFrame:self.imageView.bounds];<br>iv.image = [UIImage imageNamed:@”sampleImage.jpg”];<br>iv.contentMode = UIViewContentModeScaleAspectFit;<br>[self.imageView addSubview:iv];<br>[self.view addSubview:self.imageView];<br>Build and run the app. You’ll see you’re now using both the RWKnobControl and the RWRibbonView from theRWUIControls framework.<br>ios_framework_image_viewer_with_ribbon<br>Where To Go From Here?<br>In this tutorial, you’ve learned everything you need to know about building a framework for use in your iOS projects, including the best way to develop frameworks and how to use bundles to share assets.<br>Do you have a favored functionality that you use in lots of different apps? The concepts you’ve learned can make your life easier by creating a library you can access over and over again. A framework offers an elegant way to procure a library of code, and gives you the flexibility to access whatever you need for your next series of awesome apps.<br>The source code for the completed project is available on Github, with a commit for each build step, or as a downloadable zip file.</rwuicontrols></p>
-
+              <p>As you work through this tutorial, you’ll:<br>Build a basic static library project in Xcode<br>Build an app with a dependency on this library project<br>Discover how to convert the static library project into a fully-fledged framework<br>Finally, at the end, you’ll see how to package an image file to go along with your framework in a resource bundle
+          
       
     </div>
     
@@ -497,6 +553,10 @@ forControlEvents:UIControlEventValueChanged];
       
 
       
+      
+        <p class="article-more-link">
+          <a href="/2016/07/08/framework/#more">查看全文 >></a>
+        </p>
       
       <div class="clearfix"></div>
     </div>
@@ -723,133 +783,8 @@ forControlEvents:UIControlEventValueChanged];
       
       
         <p class="article-more-link">
-          <a href="/2016/06/18/tableview/#more">more >></a>
+          <a href="/2016/06/18/tableview/#more">查看全文 >></a>
         </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-buildError" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/06/17/buildError/" class="article-date">
-      <time datetime="2016-06-17T00:53:31.000Z" itemprop="datePublished">2016-06-17</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/06/17/buildError/">Undefined symbols for architecture armv7的处理</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p>问题描述：</p>
-<ol>
-<li>使用iphone6p真机调试，编译正常</li>
-<li>换成iPhone5真机调试，编译出现一堆错误：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">ld: warning: ld: warning: ignoring file /Users/lynn/Library/Developer/Xcode/DerivedData/Homecare-bcfxxolnwbuzthdgksefvehktwzf/Build/Products/Debug-iphoneos/libAFNetworking.a, file was built for archive which is not the architecture being linked (armv7): /Users/lynn/Library/Developer/Xcode/DerivedData/Homecare-bcfxxolnwbuzthdgksefvehktwzf/Build/Products/Debug-iphoneos/libAFNetworking.aignoring file /Users/lynn/Library/Developer/Xcode/DerivedData/Homecare-bcfxxolnwbuzthdgksefvehktwzf/Build/Products/Debug-iphoneos/libCocoaAsyncSocket.a, file was built for archive which is not the architecture being linked (armv7): /Users/lynn/Library/Developer/Xcode/DerivedData/Homecare-bcfxxolnwbuzthdgksefvehktwzf/Build/Products/Debug-iphoneos/libCocoaAsyncSocket.a</span><br><span class="line">......</span><br><span class="line">Undefined symbols for architecture armv7:</span><br><span class="line">  &quot;_OBJC_CLASS_$_JTHorizontalCalendarView&quot;, referenced from:</span><br><span class="line">      type metadata accessor for __ObjC.JTHorizontalCalendarView in CalendarViewController.o</span><br><span class="line">  &quot;_OBJC_CLASS_$_JTCalendarDayView&quot;, referenced from:</span><br><span class="line">      ZTE.CalendarViewController.calendar (__ObjC.JTCalendarManager!, prepareDayView : __ObjC.UIView!) -&gt; () in CalendarViewController.o</span><br><span class="line">      ZTE.CalendarViewController.calendar (__ObjC.JTCalendarManager!, didTouchDayView : __ObjC.UIView!) -&gt; () in CalendarViewController.o</span><br><span class="line">  &quot;_OBJC_CLASS_$_MGSwipeTableCell&quot;, referenced from:</span><br><span class="line">      _OBJC_CLASS_$__TtC3ZTE15MessageItemView in MessageItemView.o</span><br><span class="line">  &quot;_OBJC_CLASS_$_QNZone&quot;, referenced from:</span><br><span class="line">      type metadata accessor for __ObjC.QNZone in HCUploadManager.o</span><br><span class="line">  &quot;_OBJC_CLASS_$_QNConfiguration&quot;, referenced from:</span><br><span class="line">      type metadata accessor for __ObjC.QNConfiguration in HCUploadManager.o</span><br><span class="line">  &quot;_OBJC_CLASS_$_MJRefreshHeader&quot;, referenced from:</span><br><span class="line">      _OBJC_CLASS_$_HCRefresh in HCRefresh.o</span><br><span class="line">  &quot;_OBJC_METACLASS_$_MJRefreshHeader&quot;, referenced from:</span><br><span class="line">      _OBJC_METACLASS_$_HCRefresh in HCRefresh.o</span><br><span class="line">  &quot;_OBJC_CLASS_$_AFNetworkReachabilityManager&quot;, referenced from:</span><br><span class="line">  ......</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<p>问题分析：<br>从日志上看，出问题的都是实用cocoapods安装的第三方库；从日志看，应该是没有编译armv7对应的内容，修改pods工程的配置：<br>buildsettings-&gt;build active architecture only属性，debug－&gt;NO, release-&gt;NO</p>
-<p>我这样改后，还是报同样的错误；折腾了好久，最后进入pods编译出的静态库存在的目录，把所有第三方静态库全删了，重编一下就好了。</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-pod" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/06/15/pod/" class="article-date">
-      <time datetime="2016-06-15T07:46:11.000Z" itemprop="datePublished">2016-06-15</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/06/15/pod/">CocoaPods的一些常用操作</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <ol>
-<li><p>cocoapods版本升级</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">$ sudo gem update --system // 先更新gem，国内需要切换源</span><br><span class="line">$ gem sources --remove https://rubygems.org/</span><br><span class="line">$ gem sources -a https://ruby.taobao.org/</span><br><span class="line">$ gem sources -l</span><br><span class="line">\*\*\* CURRENT SOURCES \*\*\*</span><br><span class="line">https://ruby.taobao.org/</span><br><span class="line">$ sudo gem install cocoapods // 安装cocoapods</span><br><span class="line">$ pod setup</span><br><span class="line">$ pod --version</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>安装第三方类库：pod install</p>
-</li>
-<li><p>安装第三方类库，并自动更新至最新版本 pod update</p>
-</li>
-<li><p>执行pod install/update的时候会升级CocoaPods的spec仓库，加一个参数可以省略这一步，然后速度就会提升不少。加参数的命令如下：<br>pod install –verbose –no-repo-update<br>pod update –verbose –no-repo-update</p>
-</li>
-</ol>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
       
       <div class="clearfix"></div>
     </div>
@@ -881,14 +816,14 @@ forControlEvents:UIControlEventValueChanged];
                 2016 Lynn Cheng
             </div>
             <div class="footer-right">
-                <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的博客框架">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="简而不减 Hexo 双栏博客主题">Yelee</a> by MOxFIVE <i class="fa fa-heart animated infinite pulse"></i>
+                <a href="http://hexo.io/" target="_blank" title="快速、簡潔且高效的博客框架">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="簡而不減 Hexo 雙欄博客主題">Yelee</a> by MOxFIVE <i class="fa fa-heart animated infinite pulse"></i>
             </div>
         </div>
         
             <div class="visit">
                 
                     <span id="busuanzi_container_site_pv" style='display:none'>
-                        <span id="site-visit" >本站到访数: 
+                        <span id="site-visit" >本站到訪數: 
                             <span id="busuanzi_value_site_uv"></span>
                         </span>
                     </span>
@@ -898,7 +833,7 @@ forControlEvents:UIControlEventValueChanged];
                 
                 
                     <span id="busuanzi_container_page_pv" style='display:none'>
-                        <span id="page-visit">本页阅读量: 
+                        <span id="page-visit">本頁閱讀量: 
                             <span id="busuanzi_value_page_pv"></span>
                         </span>
                     </span>
@@ -915,9 +850,9 @@ forControlEvents:UIControlEventValueChanged];
 
 
 <div class="scroll" id="scroll">
-    <a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
-    <a href="#comments" title="查看评论"><i class="fa fa-comments-o"></i></a>
-    <a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
+    <a href="#" title="返回頂部"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments" title="查看評論"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="轉到底部"><i class="fa fa-arrow-down"></i></a>
 </div>
 
 <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">

@@ -3,18 +3,24 @@
 <head>
   <meta charset="utf-8">
   
-  <title>iOS 技能图谱 | LynnCheng</title>
+  <title>uitextfield输入文字的时候忽隐忽现 | LynnCheng</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="编程语言SwiftObjective-CC++/CJavaScript">
+  <meta name="description" content="故障现象：    往uitextfield输入文字的时候，输入一个字母，字串消失；再输入一个，字串出现；再输入，字串消失…
+故障原因：    uitextfield继承了scrollview的属性
+解决方案：   uitextfield所在的uiview加入语句：   self.automaticallyAdjustsScrollViewInsets = false">
 <meta property="og:type" content="article">
-<meta property="og:title" content="iOS 技能图谱">
-<meta property="og:url" content="http://lynncheng.github.io/2016/07/09/iosTree/index.html">
+<meta property="og:title" content="uitextfield输入文字的时候忽隐忽现">
+<meta property="og:url" content="http://lynncheng.github.io/2016/07/14/uitextfield/index.html">
 <meta property="og:site_name" content="LynnCheng">
-<meta property="og:description" content="编程语言SwiftObjective-CC++/CJavaScript">
-<meta property="og:updated_time" content="2016-07-09T10:36:47.000Z">
+<meta property="og:description" content="故障现象：    往uitextfield输入文字的时候，输入一个字母，字串消失；再输入一个，字串出现；再输入，字串消失…
+故障原因：    uitextfield继承了scrollview的属性
+解决方案：   uitextfield所在的uiview加入语句：   self.automaticallyAdjustsScrollViewInsets = false">
+<meta property="og:updated_time" content="2016-07-14T03:06:59.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="iOS 技能图谱">
-<meta name="twitter:description" content="编程语言SwiftObjective-CC++/CJavaScript">
+<meta name="twitter:title" content="uitextfield输入文字的时候忽隐忽现">
+<meta name="twitter:description" content="故障现象：    往uitextfield输入文字的时候，输入一个字母，字串消失；再输入一个，字串出现；再输入，字串消失…
+故障原因：    uitextfield继承了scrollview的属性
+解决方案：   uitextfield所在的uiview加入语句：   self.automaticallyAdjustsScrollViewInsets = false">
   
     <link rel="alternative" href="/atom.xml" title="LynnCheng" type="application/atom+xml">
   
@@ -227,11 +233,11 @@
     </div>
     <link class="menu-list" tags="標籤" friends="友情鏈接" about="關於我"/>
 </nav>
-      <div class="body-wrap"><article id="post-iosTree" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-uitextfield" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/07/09/iosTree/" class="article-date">
-      <time datetime="2016-07-09T10:17:17.000Z" itemprop="datePublished">2016-07-09</time>
+      <a href="/2016/07/14/uitextfield/" class="article-date">
+      <time datetime="2016-07-14T03:01:09.000Z" itemprop="datePublished">2016-07-14</time>
 </a>
     </div>
   
@@ -244,7 +250,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      iOS 技能图谱
+      uitextfield输入文字的时候忽隐忽现
     </h1>
   
 
@@ -261,17 +267,9 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h2 id="编程语言"><a href="#编程语言" class="headerlink" title="编程语言"></a>编程语言</h2><p>Swift<br>Objective-C<br>C++/C<br>JavaScript<a id="more"></a></p>
-<h2 id="操作系统"><a href="#操作系统" class="headerlink" title="操作系统"></a>操作系统</h2><p>Mac OSX<br>iOS<br>watchOS<br>tvOS<br>Linux 常用命令</p>
-<h2 id="开发基础"><a href="#开发基础" class="headerlink" title="开发基础"></a>开发基础</h2><p>UI 控件<br>Storyboard &amp; Xib<br>Core Data &amp; Sqlite<br>Core Graphics<br>Animation<br>Block &amp; GCD<br>Test Case 编写<br>Framework<br>Autolayout<br>手势识别，重力感应</p>
-<h2 id="开发进阶"><a href="#开发进阶" class="headerlink" title="开发进阶"></a>开发进阶</h2><p>引用计数<br>Runtime<br>Runloop<br>对象模型<br>Hybrid<br>沙盒机制<br>AVFoundation<br>Core Text<br>逆向与安全<br>class dump<br>IDA Pro<br>Hopper<br>iOS Class Guard</p>
-<h2 id="设计模式"><a href="#设计模式" class="headerlink" title="设计模式"></a>设计模式</h2><p>MVC<br>MVVM<br>通知<br>代理<br>KVO<br>工厂模式<br>命令模式</p>
-<h2 id="函数式编程"><a href="#函数式编程" class="headerlink" title="函数式编程"></a>函数式编程</h2><p>ReactiveCocoa<br>RxSwift</p>
-<h2 id="开发工具"><a href="#开发工具" class="headerlink" title="开发工具"></a>开发工具</h2><p>IDE<br>. Xcode<br>. AppCode<br>调试工具<br>. Charles、Wireshark<br>. Reveal<br>. Instruments<br>插件<br>. Alcatraz<br>. VVDocument<br>. XVim<br>. FuzzyAutocompletePlugin<br>. KSImageNamed-Xcode<br>辅助工具<br>. xScope<br>. ImageOptim<br>. 马克鳗<br>. Dash<br>. Deploymate<br>. FauxPas<br>. PaintCode<br>命令行工具<br>. xcodebuild、xcode-select<br>. nomad<br>. xctool<br>. fastlane<br>持续集成<br>. Jenkins<br>. Travis CI<br>. Bot</p>
-<h2 id="开源项目"><a href="#开源项目" class="headerlink" title="开源项目"></a>开源项目</h2><p>AFNetworking &amp; Alamofire<br>Masonry<br>SDWebImage<br>SwiftyJSON<br>JSPatch<br>React Native</p>
-<h2 id="包管理"><a href="#包管理" class="headerlink" title="包管理"></a>包管理</h2><p>CocoaPods<br>Carthage<br>Swift Package Manager</p>
-<h2 id="App-打包上传与审核"><a href="#App-打包上传与审核" class="headerlink" title="App 打包上传与审核"></a>App 打包上传与审核</h2><p>Apple Developer 网站<br>iTunes Connect 网站<br>IAP<br>加急审核申请<br>打包脚本</p>
-<h2 id="第三方服务"><a href="#第三方服务" class="headerlink" title="第三方服务"></a>第三方服务</h2><p>崩溃收集<br>. Bugly<br>. Crashlytics<br>. BugHD<br>数据统计<br>. Google Analytics<br>. 友盟<br>. MTA<br>. Flurry<br>. App Annie<br>应用分发<br>. TestFlight<br>. 蒲公英<br>. FIR</p>
+        <p>故障现象：<br>    往uitextfield输入文字的时候，输入一个字母，字串消失；再输入一个，字串出现；再输入，字串消失…</p>
+<p>故障原因：<br>    uitextfield继承了scrollview的属性</p>
+<p>解决方案：<br>   uitextfield所在的uiview加入语句：<br>   self.automaticallyAdjustsScrollViewInsets = false</p>
 
       
     </div>
@@ -280,13 +278,13 @@
   
     
     <div class="copyright">
-        <p><span>本文標題:</span><a href="/2016/07/09/iosTree/">iOS 技能图谱</a></p>
+        <p><span>本文標題:</span><a href="/2016/07/14/uitextfield/">uitextfield输入文字的时候忽隐忽现</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主頁">Lynn Cheng</a></p>
-        <p><span>發布時間:</span>2016-07-09, 18:17:17</p>
-        <p><span>最後更新:</span>2016-07-09, 18:36:47</p>
+        <p><span>發布時間:</span>2016-07-14, 11:01:09</p>
+        <p><span>最後更新:</span>2016-07-14, 11:06:59</p>
         <p>
-            <span>原始鏈接:</span><a class="post-url" href="/2016/07/09/iosTree/" title="iOS 技能图谱">http://lynncheng.github.io/2016/07/09/iosTree/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://lynncheng.github.io/2016/07/09/iosTree/　　作者: Lynn Cheng" title="點擊複製文章鏈接"><i class="fa fa-clipboard"></i></span>
+            <span>原始鏈接:</span><a class="post-url" href="/2016/07/14/uitextfield/" title="uitextfield输入文字的时候忽隐忽现">http://lynncheng.github.io/2016/07/14/uitextfield/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://lynncheng.github.io/2016/07/14/uitextfield/　　作者: Lynn Cheng" title="點擊複製文章鏈接"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
@@ -299,15 +297,15 @@
     <nav id="article-nav">
         
             <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2016/07/09/常用framework/">
-                    常用framework
+                <a href="/2016/07/14/apns-sound/">
+                    iOS 关于推送消息的设置
                 </a>
             </div>
         
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2016/07/08/runerror/">
-                    dyld: Library not loaded as image not found
+                <a href="/2016/07/09/常用framework/">
+                    常用framework
                 </a>
             </div>
         
@@ -318,7 +316,7 @@
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目錄</strong>
-    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#编程语言"><span class="toc-number">1.</span> <span class="toc-text">编程语言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#操作系统"><span class="toc-number">2.</span> <span class="toc-text">操作系统</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#开发基础"><span class="toc-number">3.</span> <span class="toc-text">开发基础</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#开发进阶"><span class="toc-number">4.</span> <span class="toc-text">开发进阶</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#设计模式"><span class="toc-number">5.</span> <span class="toc-text">设计模式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#函数式编程"><span class="toc-number">6.</span> <span class="toc-text">函数式编程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#开发工具"><span class="toc-number">7.</span> <span class="toc-text">开发工具</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#开源项目"><span class="toc-number">8.</span> <span class="toc-text">开源项目</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#包管理"><span class="toc-number">9.</span> <span class="toc-text">包管理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#App-打包上传与审核"><span class="toc-number">10.</span> <span class="toc-text">App 打包上传与审核</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#第三方服务"><span class="toc-number">11.</span> <span class="toc-text">第三方服务</span></a></li></ol>
+    
 </div>
 <style>
     .left-col .switch-btn {
@@ -375,7 +373,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"iOS 技能图谱　| LynnCheng　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"uitextfield输入文字的时候忽隐忽现　| LynnCheng　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -391,7 +389,7 @@
     
       <div class="duoshuo" id="comments">
     <!-- 多说评论框 start -->
-    <div class="ds-thread" data-thread-key="2016/07/09/iosTree/" data-title="iOS 技能图谱" data-url="http://lynncheng.github.io/2016/07/09/iosTree/"></div>
+    <div class="ds-thread" data-thread-key="2016/07/14/uitextfield/" data-title="uitextfield输入文字的时候忽隐忽现" data-url="http://lynncheng.github.io/2016/07/14/uitextfield/"></div>
     <!-- 多说评论框 end -->
     <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
     <script type="text/javascript">
@@ -415,7 +413,7 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2016/07/09/常用framework/" title="上一篇: 常用framework">
+            <a href="/2016/07/14/apns-sound/" title="上一篇: iOS 关于推送消息的设置">
                 <i class="fa fa-angle-left"></i>
             </a>
         
@@ -423,7 +421,7 @@
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2016/07/08/runerror/" title="下一篇: dyld: Library not loaded as image not found">
+            <a href="/2016/07/09/常用framework/" title="下一篇: 常用framework">
                 <i class="fa fa-angle-right"></i>
             </a>
         
