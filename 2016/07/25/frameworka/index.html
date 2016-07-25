@@ -3,27 +3,21 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Undefined symbols for architecture armv7的处理 | LynnCheng</title>
+  <title>iOS库 .a与.framework区别 | LynnCheng</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="问题描述：
-
-使用iphone6p真机调试，编译正常
-换成iPhone5真机调试，编译出现一堆错误：1234567891011121314151617181920ld: warning: ld: warning: ignoring file /Users/lynn/Library/Developer/Xcode/DerivedData/Homecare-bcfxxolnwbuzthdgksefve">
+  <meta name="description" content="一、什么是库？
+库是共享程序代码的方式，一般分为静态库和动态库。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Undefined symbols for architecture armv7的处理">
-<meta property="og:url" content="http://lynncheng.github.io/2016/06/17/buildError/index.html">
+<meta property="og:title" content="iOS库 .a与.framework区别">
+<meta property="og:url" content="http://lynncheng.github.io/2016/07/25/frameworka/index.html">
 <meta property="og:site_name" content="LynnCheng">
-<meta property="og:description" content="问题描述：
-
-使用iphone6p真机调试，编译正常
-换成iPhone5真机调试，编译出现一堆错误：1234567891011121314151617181920ld: warning: ld: warning: ignoring file /Users/lynn/Library/Developer/Xcode/DerivedData/Homecare-bcfxxolnwbuzthdgksefve">
-<meta property="og:updated_time" content="2016-06-17T01:44:19.000Z">
+<meta property="og:description" content="一、什么是库？
+库是共享程序代码的方式，一般分为静态库和动态库。">
+<meta property="og:updated_time" content="2016-07-25T11:48:08.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Undefined symbols for architecture armv7的处理">
-<meta name="twitter:description" content="问题描述：
-
-使用iphone6p真机调试，编译正常
-换成iPhone5真机调试，编译出现一堆错误：1234567891011121314151617181920ld: warning: ld: warning: ignoring file /Users/lynn/Library/Developer/Xcode/DerivedData/Homecare-bcfxxolnwbuzthdgksefve">
+<meta name="twitter:title" content="iOS库 .a与.framework区别">
+<meta name="twitter:description" content="一、什么是库？
+库是共享程序代码的方式，一般分为静态库和动态库。">
   
     <link rel="alternative" href="/atom.xml" title="LynnCheng" type="application/atom+xml">
   
@@ -236,11 +230,11 @@
     </div>
     <link class="menu-list" tags="Tags" friends="Friends" about="About Me"/>
 </nav>
-      <div class="body-wrap"><article id="post-buildError" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-frameworka" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/06/17/buildError/" class="article-date">
-      <time datetime="2016-06-17T00:53:31.000Z" itemprop="datePublished">2016-06-17</time>
+      <a href="/2016/07/25/frameworka/" class="article-date">
+      <time datetime="2016-07-25T11:46:00.000Z" itemprop="datePublished">2016-07-25</time>
 </a>
     </div>
   
@@ -253,7 +247,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Undefined symbols for architecture armv7的处理
+      iOS库 .a与.framework区别
     </h1>
   
 
@@ -261,6 +255,10 @@
       
       <div class="article-info article-info-post">
         
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/ios/">ios</a>
+    </div>
+
 
         
         <div class="clearfix"></div>
@@ -270,14 +268,32 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>问题描述：</p>
-<ol>
-<li>使用iphone6p真机调试，编译正常</li>
-<li>换成iPhone5真机调试，编译出现一堆错误：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">ld: warning: ld: warning: ignoring file /Users/lynn/Library/Developer/Xcode/DerivedData/Homecare-bcfxxolnwbuzthdgksefvehktwzf/Build/Products/Debug-iphoneos/libAFNetworking.a, file was built for archive which is not the architecture being linked (armv7): /Users/lynn/Library/Developer/Xcode/DerivedData/Homecare-bcfxxolnwbuzthdgksefvehktwzf/Build/Products/Debug-iphoneos/libAFNetworking.aignoring file /Users/lynn/Library/Developer/Xcode/DerivedData/Homecare-bcfxxolnwbuzthdgksefvehktwzf/Build/Products/Debug-iphoneos/libCocoaAsyncSocket.a, file was built for archive which is not the architecture being linked (armv7): /Users/lynn/Library/Developer/Xcode/DerivedData/Homecare-bcfxxolnwbuzthdgksefvehktwzf/Build/Products/Debug-iphoneos/libCocoaAsyncSocket.a</span><br><span class="line">......</span><br><span class="line">Undefined symbols for architecture armv7:</span><br><span class="line">  &quot;_OBJC_CLASS_$_JTHorizontalCalendarView&quot;, referenced from:</span><br><span class="line">      type metadata accessor for __ObjC.JTHorizontalCalendarView in CalendarViewController.o</span><br><span class="line">  &quot;_OBJC_CLASS_$_JTCalendarDayView&quot;, referenced from:</span><br><span class="line">      ZTE.CalendarViewController.calendar (__ObjC.JTCalendarManager!, prepareDayView : __ObjC.UIView!) -&gt; () in CalendarViewController.o</span><br><span class="line">      ZTE.CalendarViewController.calendar (__ObjC.JTCalendarManager!, didTouchDayView : __ObjC.UIView!) -&gt; () in CalendarViewController.o</span><br><span class="line">  &quot;_OBJC_CLASS_$_MGSwipeTableCell&quot;, referenced from:</span><br><span class="line">      _OBJC_CLASS_$__TtC3ZTE15MessageItemView in MessageItemView.o</span><br><span class="line">  &quot;_OBJC_CLASS_$_QNZone&quot;, referenced from:</span><br><span class="line">      type metadata accessor for __ObjC.QNZone in HCUploadManager.o</span><br><span class="line">  &quot;_OBJC_CLASS_$_QNConfiguration&quot;, referenced from:</span><br><span class="line">      type metadata accessor for __ObjC.QNConfiguration in HCUploadManager.o</span><br><span class="line">  &quot;_OBJC_CLASS_$_MJRefreshHeader&quot;, referenced from:</span><br><span class="line">      _OBJC_CLASS_$_HCRefresh in HCRefresh.o</span><br><span class="line">  &quot;_OBJC_METACLASS_$_MJRefreshHeader&quot;, referenced from:</span><br><span class="line">      _OBJC_METACLASS_$_HCRefresh in HCRefresh.o</span><br><span class="line">  &quot;_OBJC_CLASS_$_AFNetworkReachabilityManager&quot;, referenced from:</span><br><span class="line">  ......</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<p>问题分析：<br>从日志上看，出问题的都是实用cocoapods安装的第三方库；从日志看，应该是没有编译armv7对应的内容，修改pods工程的配置：<br>buildsettings-&gt;build active architecture only属性，debug－&gt;NO, release-&gt;NO</p>
-<p>我这样改后，还是报同样的错误；折腾了好久，最后进入pods编译出的静态库存在的目录，把所有第三方静态库全删了，重编一下就好了。</p>
+        <p>一、什么是库？</p>
+<p>库是共享程序代码的方式，一般分为静态库和动态库。 <a id="more"></a></p>
+<p>二、静态库与动态库的区别？</p>
+<p>静态库：链接时完整地拷贝至可执行文件中，被多次使用就有多份冗余拷贝。</p>
+<p>动态库：链接时不复制，程序运行时由系统动态加载到内存，供程序调用，系统只加载一次，多个程序共用，节省内存。</p>
+<p>三、iOS里静态库形式？</p>
+<p>.a和.framework</p>
+<p>四、iOS里动态库形式？</p>
+<p>.dylib和.framework</p>
+<p>五、framework为什么既是静态库又是动态库？</p>
+<p>系统的.framework是动态库，我们自己建立的.framework是静态库。</p>
+<p>六、a与.framework有什么区别？</p>
+<p>.a是一个纯二进制文件，.framework中除了有二进制文件之外还有资源文件。</p>
+<p>.a文件不能直接使用，至少要有.h文件配合，.framework文件可以直接使用。</p>
+<p>.a + .h + sourceFile = .framework。</p>
+<p>建议用.framework.</p>
+<p>七、为什么要使用静态库？</p>
+<p>方便共享代码，便于合理使用。</p>
+<p>实现iOS程序的模块化。可以把固定的业务模块化成静态库。</p>
+<p>和别人分享你的代码库，但不想让别人看到你代码的实现。</p>
+<p>开发第三方sdk的需要。</p>
+<p>八、制作静态库时的几点注意：</p>
+<p>1 注意理解：无论是.a静态库还.framework静态库，我们需要的都是二进制文件+.h+其它资源文件的形式，不同的是，.a本身就是二进制文件，需要我们自己配上.h和其它文件才能使用，而.framework本身已经包含了.h和其它文件，可以直接使用。</p>
+<p>2 图片资源的处理：两种静态库，一般都是把图片文件单独的放在一个.bundle文件中，一般.bundle的名字和.a或.framework的名字相同。.bundle文件很好弄，新建一个文件夹，把它改名为.bundle就可以了，右键，显示包内容可以向其中添加图片资源。</p>
+<p>3 category是我们实际开发项目中经常用到的，把category打成静态库是没有问题的，但是在用这个静态库的工程中，调用category中的方法时会有找不到该方法的运行时错误（selector not recognized），解决办法是：在使用静态库的工程中配置other linker flags的值为-ObjC。</p>
+<p>4 如果一个静态库很复杂，需要暴露的.h比较多的话，就可以在静态库的内部创建一个.h文件（一般这个.h文件的名字和静态库的名字相同），然后把所有需要暴露出来的.h文件都集中放在这个.h文件中，而那些原本需要暴露的.h都不需要再暴露了，只需要把.h暴露出来就可以了。</p>
 
       
     </div>
@@ -286,13 +302,13 @@
   
     
     <div class="copyright">
-        <p><span>Title:</span><a href="/2016/06/17/buildError/">Undefined symbols for architecture armv7的处理</a></p>
+        <p><span>Title:</span><a href="/2016/07/25/frameworka/">iOS库 .a与.framework区别</a></p>
         <p><span>Author:</span><a href="/" title="Back to Homepage">Lynn Cheng</a></p>
-        <p><span>Created:</span>2016-06-17, 08:53:31</p>
-        <p><span>Updated:</span>2016-06-17, 09:44:19</p>
+        <p><span>Created:</span>2016-07-25, 19:46:00</p>
+        <p><span>Updated:</span>2016-07-25, 19:48:08</p>
         <p>
-            <span>Full URL:</span><a class="post-url" href="/2016/06/17/buildError/" title="Undefined symbols for architecture armv7的处理">http://lynncheng.github.io/2016/06/17/buildError/</a>
-            <span class="copy-path" data-clipboard-text="From http://lynncheng.github.io/2016/06/17/buildError/　　By Lynn Cheng" title="Copy Article&#39;s Link &amp; Author"><i class="fa fa-clipboard"></i></span>
+            <span>Full URL:</span><a class="post-url" href="/2016/07/25/frameworka/" title="iOS库 .a与.framework区别">http://lynncheng.github.io/2016/07/25/frameworka/</a>
+            <span class="copy-path" data-clipboard-text="From http://lynncheng.github.io/2016/07/25/frameworka/　　By Lynn Cheng" title="Copy Article&#39;s Link &amp; Author"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
@@ -304,16 +320,10 @@
 
     <nav id="article-nav">
         
-            <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2016/06/18/tableview/">
-                    tableview中增加了头视图后，初始位置显示不正常
-                </a>
-            </div>
-        
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2016/06/15/pod/">
-                    CocoaPods的一些常用操作
+                <a href="/2016/07/20/页面字体变小/">
+                    页面字体变小
                 </a>
             </div>
         
@@ -381,7 +391,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"Undefined symbols for architecture armv7的处理　| LynnCheng　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"iOS库 .a与.framework区别　| LynnCheng　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -397,7 +407,7 @@
     
       <div class="duoshuo" id="comments">
     <!-- 多说评论框 start -->
-    <div class="ds-thread" data-thread-key="2016/06/17/buildError/" data-title="Undefined symbols for architecture armv7的处理" data-url="http://lynncheng.github.io/2016/06/17/buildError/"></div>
+    <div class="ds-thread" data-thread-key="2016/07/25/frameworka/" data-title="iOS库 .a与.framework区别" data-url="http://lynncheng.github.io/2016/07/25/frameworka/"></div>
     <!-- 多说评论框 end -->
     <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
     <script type="text/javascript">
@@ -421,15 +431,13 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2016/06/18/tableview/" title="Pre: tableview中增加了头视图后，初始位置显示不正常">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="Back to Homepage"><i class="fa fa-home"></i></a>
         
 
         <a title="Mini Archives"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2016/06/15/pod/" title="Next: CocoaPods的一些常用操作">
+            <a href="/2016/07/20/页面字体变小/" title="Next: 页面字体变小">
                 <i class="fa fa-angle-right"></i>
             </a>
         

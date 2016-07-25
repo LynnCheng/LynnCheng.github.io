@@ -3,27 +3,18 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Undefined symbols for architecture armv7的处理 | LynnCheng</title>
+  <title>ios 引用编译出现duplicate symbol错误的处理 | LynnCheng</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="问题描述：
-
-使用iphone6p真机调试，编译正常
-换成iPhone5真机调试，编译出现一堆错误：1234567891011121314151617181920ld: warning: ld: warning: ignoring file /Users/lynn/Library/Developer/Xcode/DerivedData/Homecare-bcfxxolnwbuzthdgksefve">
+  <meta name="description" content="1 头文件中定义了全局变量，因为多个文件引用了该头文件，导致重复定义。错误信息：123duplicate symbol _kMediaCmdParamVideFileName in:    /Users/lynn/Library/Developer/Xcode/DerivedData/xxx-dekysmkcblreiyesflewliynaudf/Build/Intermediates/xxx.">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Undefined symbols for architecture armv7的处理">
-<meta property="og:url" content="http://lynncheng.github.io/2016/06/17/buildError/index.html">
+<meta property="og:title" content="ios 引用编译出现duplicate symbol错误的处理">
+<meta property="og:url" content="http://lynncheng.github.io/2016/07/20/duplicateds/index.html">
 <meta property="og:site_name" content="LynnCheng">
-<meta property="og:description" content="问题描述：
-
-使用iphone6p真机调试，编译正常
-换成iPhone5真机调试，编译出现一堆错误：1234567891011121314151617181920ld: warning: ld: warning: ignoring file /Users/lynn/Library/Developer/Xcode/DerivedData/Homecare-bcfxxolnwbuzthdgksefve">
-<meta property="og:updated_time" content="2016-06-17T01:44:19.000Z">
+<meta property="og:description" content="1 头文件中定义了全局变量，因为多个文件引用了该头文件，导致重复定义。错误信息：123duplicate symbol _kMediaCmdParamVideFileName in:    /Users/lynn/Library/Developer/Xcode/DerivedData/xxx-dekysmkcblreiyesflewliynaudf/Build/Intermediates/xxx.">
+<meta property="og:updated_time" content="2016-07-20T02:00:14.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Undefined symbols for architecture armv7的处理">
-<meta name="twitter:description" content="问题描述：
-
-使用iphone6p真机调试，编译正常
-换成iPhone5真机调试，编译出现一堆错误：1234567891011121314151617181920ld: warning: ld: warning: ignoring file /Users/lynn/Library/Developer/Xcode/DerivedData/Homecare-bcfxxolnwbuzthdgksefve">
+<meta name="twitter:title" content="ios 引用编译出现duplicate symbol错误的处理">
+<meta name="twitter:description" content="1 头文件中定义了全局变量，因为多个文件引用了该头文件，导致重复定义。错误信息：123duplicate symbol _kMediaCmdParamVideFileName in:    /Users/lynn/Library/Developer/Xcode/DerivedData/xxx-dekysmkcblreiyesflewliynaudf/Build/Intermediates/xxx.">
   
     <link rel="alternative" href="/atom.xml" title="LynnCheng" type="application/atom+xml">
   
@@ -236,11 +227,11 @@
     </div>
     <link class="menu-list" tags="Tags" friends="Friends" about="About Me"/>
 </nav>
-      <div class="body-wrap"><article id="post-buildError" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-duplicateds" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/06/17/buildError/" class="article-date">
-      <time datetime="2016-06-17T00:53:31.000Z" itemprop="datePublished">2016-06-17</time>
+      <a href="/2016/07/20/duplicateds/" class="article-date">
+      <time datetime="2016-07-20T01:10:30.000Z" itemprop="datePublished">2016-07-20</time>
 </a>
     </div>
   
@@ -253,7 +244,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Undefined symbols for architecture armv7的处理
+      ios 引用编译出现duplicate symbol错误的处理
     </h1>
   
 
@@ -270,14 +261,10 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>问题描述：</p>
-<ol>
-<li>使用iphone6p真机调试，编译正常</li>
-<li>换成iPhone5真机调试，编译出现一堆错误：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">ld: warning: ld: warning: ignoring file /Users/lynn/Library/Developer/Xcode/DerivedData/Homecare-bcfxxolnwbuzthdgksefvehktwzf/Build/Products/Debug-iphoneos/libAFNetworking.a, file was built for archive which is not the architecture being linked (armv7): /Users/lynn/Library/Developer/Xcode/DerivedData/Homecare-bcfxxolnwbuzthdgksefvehktwzf/Build/Products/Debug-iphoneos/libAFNetworking.aignoring file /Users/lynn/Library/Developer/Xcode/DerivedData/Homecare-bcfxxolnwbuzthdgksefvehktwzf/Build/Products/Debug-iphoneos/libCocoaAsyncSocket.a, file was built for archive which is not the architecture being linked (armv7): /Users/lynn/Library/Developer/Xcode/DerivedData/Homecare-bcfxxolnwbuzthdgksefvehktwzf/Build/Products/Debug-iphoneos/libCocoaAsyncSocket.a</span><br><span class="line">......</span><br><span class="line">Undefined symbols for architecture armv7:</span><br><span class="line">  &quot;_OBJC_CLASS_$_JTHorizontalCalendarView&quot;, referenced from:</span><br><span class="line">      type metadata accessor for __ObjC.JTHorizontalCalendarView in CalendarViewController.o</span><br><span class="line">  &quot;_OBJC_CLASS_$_JTCalendarDayView&quot;, referenced from:</span><br><span class="line">      ZTE.CalendarViewController.calendar (__ObjC.JTCalendarManager!, prepareDayView : __ObjC.UIView!) -&gt; () in CalendarViewController.o</span><br><span class="line">      ZTE.CalendarViewController.calendar (__ObjC.JTCalendarManager!, didTouchDayView : __ObjC.UIView!) -&gt; () in CalendarViewController.o</span><br><span class="line">  &quot;_OBJC_CLASS_$_MGSwipeTableCell&quot;, referenced from:</span><br><span class="line">      _OBJC_CLASS_$__TtC3ZTE15MessageItemView in MessageItemView.o</span><br><span class="line">  &quot;_OBJC_CLASS_$_QNZone&quot;, referenced from:</span><br><span class="line">      type metadata accessor for __ObjC.QNZone in HCUploadManager.o</span><br><span class="line">  &quot;_OBJC_CLASS_$_QNConfiguration&quot;, referenced from:</span><br><span class="line">      type metadata accessor for __ObjC.QNConfiguration in HCUploadManager.o</span><br><span class="line">  &quot;_OBJC_CLASS_$_MJRefreshHeader&quot;, referenced from:</span><br><span class="line">      _OBJC_CLASS_$_HCRefresh in HCRefresh.o</span><br><span class="line">  &quot;_OBJC_METACLASS_$_MJRefreshHeader&quot;, referenced from:</span><br><span class="line">      _OBJC_METACLASS_$_HCRefresh in HCRefresh.o</span><br><span class="line">  &quot;_OBJC_CLASS_$_AFNetworkReachabilityManager&quot;, referenced from:</span><br><span class="line">  ......</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<p>问题分析：<br>从日志上看，出问题的都是实用cocoapods安装的第三方库；从日志看，应该是没有编译armv7对应的内容，修改pods工程的配置：<br>buildsettings-&gt;build active architecture only属性，debug－&gt;NO, release-&gt;NO</p>
-<p>我这样改后，还是报同样的错误；折腾了好久，最后进入pods编译出的静态库存在的目录，把所有第三方静态库全删了，重编一下就好了。</p>
+        <p>1 头文件中定义了全局变量，因为多个文件引用了该头文件，导致重复定义。错误信息：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">duplicate symbol _kMediaCmdParamVideFileName in:</span><br><span class="line">    /Users/lynn/Library/Developer/Xcode/DerivedData/xxx-dekysmkcblreiyesflewliynaudf/Build/Intermediates/xxx.build/Debug-iphoneos/xxx.build/Objects-normal/arm64/LeftViewController.o</span><br><span class="line">    /Users/lynn/Development/xxx/Framework/RvsViewerUI.framework/RvsViewerUI(UIImageView+YaMaXunCache.o)</span><br></pre></td></tr></table></figure></p>
+<p>问题原因：<br>在a.h中有如下定义<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">NSString *const kMediaCmdParamVideFileName   = @&quot;AVSCIDNumber&quot;;</span><br></pre></td></tr></table></figure></p>
+<p>修改方案：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">static NSString *const kMediaCmdParamVideFileName   = @&quot;AVSCIDNumber&quot;;</span><br></pre></td></tr></table></figure></p>
+<p>2 workspace的多个工程之间，或者引用的framework都引用了同一个第三方库，导致类和方法多次实现。<br>解决方案：如果能拿到源码，只在主工程保留完整的源码，其他工程或者framework直接删掉.m、.swift文件，只留下头文件就可以了</p>
 
       
     </div>
@@ -286,13 +273,13 @@
   
     
     <div class="copyright">
-        <p><span>Title:</span><a href="/2016/06/17/buildError/">Undefined symbols for architecture armv7的处理</a></p>
+        <p><span>Title:</span><a href="/2016/07/20/duplicateds/">ios 引用编译出现duplicate symbol错误的处理</a></p>
         <p><span>Author:</span><a href="/" title="Back to Homepage">Lynn Cheng</a></p>
-        <p><span>Created:</span>2016-06-17, 08:53:31</p>
-        <p><span>Updated:</span>2016-06-17, 09:44:19</p>
+        <p><span>Created:</span>2016-07-20, 09:10:30</p>
+        <p><span>Updated:</span>2016-07-20, 10:00:14</p>
         <p>
-            <span>Full URL:</span><a class="post-url" href="/2016/06/17/buildError/" title="Undefined symbols for architecture armv7的处理">http://lynncheng.github.io/2016/06/17/buildError/</a>
-            <span class="copy-path" data-clipboard-text="From http://lynncheng.github.io/2016/06/17/buildError/　　By Lynn Cheng" title="Copy Article&#39;s Link &amp; Author"><i class="fa fa-clipboard"></i></span>
+            <span>Full URL:</span><a class="post-url" href="/2016/07/20/duplicateds/" title="ios 引用编译出现duplicate symbol错误的处理">http://lynncheng.github.io/2016/07/20/duplicateds/</a>
+            <span class="copy-path" data-clipboard-text="From http://lynncheng.github.io/2016/07/20/duplicateds/　　By Lynn Cheng" title="Copy Article&#39;s Link &amp; Author"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
@@ -305,15 +292,15 @@
     <nav id="article-nav">
         
             <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2016/06/18/tableview/">
-                    tableview中增加了头视图后，初始位置显示不正常
+                <a href="/2016/07/20/页面字体变小/">
+                    页面字体变小
                 </a>
             </div>
         
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2016/06/15/pod/">
-                    CocoaPods的一些常用操作
+                <a href="/2016/07/19/duplicate/">
+                    How to fix a &quot;Duplicated Symbols&quot; error on binary files
                 </a>
             </div>
         
@@ -381,7 +368,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"Undefined symbols for architecture armv7的处理　| LynnCheng　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"ios 引用编译出现duplicate symbol错误的处理　| LynnCheng　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -397,7 +384,7 @@
     
       <div class="duoshuo" id="comments">
     <!-- 多说评论框 start -->
-    <div class="ds-thread" data-thread-key="2016/06/17/buildError/" data-title="Undefined symbols for architecture armv7的处理" data-url="http://lynncheng.github.io/2016/06/17/buildError/"></div>
+    <div class="ds-thread" data-thread-key="2016/07/20/duplicateds/" data-title="ios 引用编译出现duplicate symbol错误的处理" data-url="http://lynncheng.github.io/2016/07/20/duplicateds/"></div>
     <!-- 多说评论框 end -->
     <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
     <script type="text/javascript">
@@ -421,7 +408,7 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2016/06/18/tableview/" title="Pre: tableview中增加了头视图后，初始位置显示不正常">
+            <a href="/2016/07/20/页面字体变小/" title="Pre: 页面字体变小">
                 <i class="fa fa-angle-left"></i>
             </a>
         
@@ -429,7 +416,7 @@
         <a title="Mini Archives"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2016/06/15/pod/" title="Next: CocoaPods的一些常用操作">
+            <a href="/2016/07/19/duplicate/" title="Next: How to fix a &quot;Duplicated Symbols&quot; error on binary files">
                 <i class="fa fa-angle-right"></i>
             </a>
         

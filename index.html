@@ -113,13 +113,13 @@
                 <div class="tips-box hide">
                     <div class="tips-arrow"></div>
                     <ul class="tips-inner">
-                        <li>菜單</li>
-                        <li>標籤</li>
+                        <li>Menu</li>
+                        <li>Tags</li>
                         
-                        <li>友情鏈接</li>
+                        <li>Friends</li>
                         
                         
-                        <li>關於我</li>
+                        <li>About Me</li>
                         
                     </ul>
                 </div>
@@ -229,9 +229,305 @@
             </nav>
         </header>                
     </div>
-    <link class="menu-list" tags="標籤" friends="友情鏈接" about="關於我"/>
+    <link class="menu-list" tags="Tags" friends="Friends" about="About Me"/>
 </nav>
       <div class="body-wrap">
+  
+    <article id="post-frameworka" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/07/25/frameworka/" class="article-date">
+      <time datetime="2016-07-25T11:46:00.000Z" itemprop="datePublished">2016-07-25</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/07/25/frameworka/">iOS库 .a与.framework区别</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+              <p>一、什么是库？</p>
+<p>库是共享程序代码的方式，一般分为静态库和动态库。
+          
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/ios/">ios</a>
+    </div>
+
+
+      
+      
+        <p class="article-more-link">
+          <a href="/2016/07/25/frameworka/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-页面字体变小" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/07/20/页面字体变小/" class="article-date">
+      <time datetime="2016-07-20T05:23:43.000Z" itemprop="datePublished">2016-07-20</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/07/20/页面字体变小/">页面字体变小</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>现象：<br>ios 页面整体的字体莫名其妙的变小了</p>
+<p>诱因：<br>设置了启动页</p>
+<p>原因：待查…(启动页格式不对?)</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-duplicateds" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/07/20/duplicateds/" class="article-date">
+      <time datetime="2016-07-20T01:10:30.000Z" itemprop="datePublished">2016-07-20</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/07/20/duplicateds/">ios 引用编译出现duplicate symbol错误的处理</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>1 头文件中定义了全局变量，因为多个文件引用了该头文件，导致重复定义。错误信息：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">duplicate symbol _kMediaCmdParamVideFileName in:</span><br><span class="line">    /Users/lynn/Library/Developer/Xcode/DerivedData/xxx-dekysmkcblreiyesflewliynaudf/Build/Intermediates/xxx.build/Debug-iphoneos/xxx.build/Objects-normal/arm64/LeftViewController.o</span><br><span class="line">    /Users/lynn/Development/xxx/Framework/RvsViewerUI.framework/RvsViewerUI(UIImageView+YaMaXunCache.o)</span><br></pre></td></tr></table></figure></p>
+<p>问题原因：<br>在a.h中有如下定义<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">NSString *const kMediaCmdParamVideFileName   = @&quot;AVSCIDNumber&quot;;</span><br></pre></td></tr></table></figure></p>
+<p>修改方案：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">static NSString *const kMediaCmdParamVideFileName   = @&quot;AVSCIDNumber&quot;;</span><br></pre></td></tr></table></figure></p>
+<p>2 workspace的多个工程之间，或者引用的framework都引用了同一个第三方库，导致类和方法多次实现。<br>解决方案：如果能拿到源码，只在主工程保留完整的源码，其他工程或者framework直接删掉.m、.swift文件，只留下头文件就可以了</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-duplicate" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/07/19/duplicate/" class="article-date">
+      <time datetime="2016-07-19T12:17:09.000Z" itemprop="datePublished">2016-07-19</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/07/19/duplicate/">How to fix a &quot;Duplicated Symbols&quot; error on binary files</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+              <p>Come From:<a href="http://angelolloqui.com/blog/31-How-to-fix-a-Duplicated-Symbols-error-on-binary-files">http://angelolloqui.com/blog/31-How-to-fix-a-Duplicated-Symbols-error-on-binary-files</a></p>
+<p>Introduction
+          
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+        <p class="article-more-link">
+          <a href="/2016/07/19/duplicate/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-ios-app" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/07/14/ios-app/" class="article-date">
+      <time datetime="2016-07-14T11:13:54.000Z" itemprop="datePublished">2016-07-14</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/07/14/ios-app/">ios app 发布时需要的图片资源</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <ol>
+<li><p>APP应用中的 icon 图片：icon29@2x, icon29@3x, icon40@2x, icon40@3x, icon60@2x, icon60@3x</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">iPhone 6s Plus, iPhone 6 Plus	120px by 120px	87px by 87px</span><br><span class="line">iPhone 6s, iPhone 6, iPhone SE	80px by 80px	58px by 58px</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>itunesconnect上需要的icon图片：1024x1024<br>itunesconnect上需要的屏幕截图：<br>5.5  2208 x 1242 pixels for hi-res landscape<br>4.7 1334 x 750 pixels for hi-res landscape<br>4 1136 x 640 pixels for landscape (full screen) minimum<br>3.5 960 x 640 pixels for hi-res landscape (full screen) maximum<br>（要求都是 72 dpi, RGB, flattened, no transparency<br>  High-quality JPEG or PNG image file format）</p>
+</li>
+</ol>
+<p>参考：<br><a href="https://developer.apple.com/ios/human-interface-guidelines/graphics/app-icon/#//apple_ref/doc/uid/TP40006556-CH27-SW1" target="_blank" rel="external">https://developer.apple.com/ios/human-interface-guidelines/graphics/app-icon/#//apple_ref/doc/uid/TP40006556-CH27-SW1</a></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
   
     <article id="post-apns-sound" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -384,7 +680,7 @@
       
       
         <p class="article-more-link">
-          <a href="/2016/07/09/常用framework/#more">查看全文 >></a>
+          <a href="/2016/07/09/常用framework/#more">more >></a>
         </p>
       
       <div class="clearfix"></div>
@@ -442,7 +738,7 @@
       
       
         <p class="article-more-link">
-          <a href="/2016/07/09/iosTree/#more">查看全文 >></a>
+          <a href="/2016/07/09/iosTree/#more">more >></a>
         </p>
       
       <div class="clearfix"></div>
@@ -516,292 +812,6 @@
 
 
   
-    <article id="post-framework" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/07/08/framework/" class="article-date">
-      <time datetime="2016-07-08T02:23:10.000Z" itemprop="datePublished">2016-07-08</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/07/08/framework/">framework</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              <p>As you work through this tutorial, you’ll:<br>Build a basic static library project in Xcode<br>Build an app with a dependency on this library project<br>Discover how to convert the static library project into a fully-fledged framework<br>Finally, at the end, you’ll see how to package an image file to go along with your framework in a resource bundle
-          
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-      
-        <p class="article-more-link">
-          <a href="/2016/07/08/framework/#more">查看全文 >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-makeerror" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/07/07/makeerror/" class="article-date">
-      <time datetime="2016-07-07T11:21:46.000Z" itemprop="datePublished">2016-07-07</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/07/07/makeerror/">&quot;Undefined symbols for architecture armv7&quot;错误</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p>xcode编译swift源码的时候，提示” Undefined symbols for architecture armv7 ….”<br>一般是因为某些c库未被引用，入libz等等</p>
-<p>可以在general-&gt;linked framework and static library</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-Mac" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/06/28/Mac/" class="article-date">
-      <time datetime="2016-06-28T12:56:13.000Z" itemprop="datePublished">2016-06-28</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/06/28/Mac/">提取MAC地址OUI对应的厂商信息</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <ol>
-<li><p>到ieee的官网下载oui.txt文件<br><a href="http://standards.ieee.org/develop/regauth/oui/oui.txt" target="_blank" rel="external">http://standards.ieee.org/develop/regauth/oui/oui.txt</a></p>
-</li>
-<li><p>从文件中grep hex 提取 00-00-00 对应的厂商信息</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat oui.txt |grep hex &gt; MAC_original.file</span><br></pre></td></tr></table></figure></li>
-</ol>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-autolayout" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/06/28/autolayout/" class="article-date">
-      <time datetime="2016-06-28T09:07:15.000Z" itemprop="datePublished">2016-06-28</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/06/28/autolayout/">iOS的自动布局问题</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p>相关代码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">let deButton = UIButton(frame: CGRect(x: 0, y: 0 , width: 160, height: 100))</span><br><span class="line">      deButton.setTitle(&quot;TL&quot;, forState: .Normal)</span><br><span class="line">      deButton.backgroundColor = UIColor.greenColor()</span><br><span class="line">      self.view.addSubview(deButton)</span><br><span class="line">      </span><br><span class="line">      deButton.snp_makeConstraints &#123; (make) -&gt; Void in</span><br><span class="line">          make.left.equalTo(self.view).offset(20)</span><br><span class="line">          make.top.equalTo(self.view).offset(70)</span><br><span class="line">      &#125;</span><br></pre></td></tr></table></figure></p>
-<p>疑问：这段代码执行后，deButton的长和宽根据title的内容自动调节，而不是预先定义的160x100</p>
-<p>原因：使用autolayout实现自动布局的时候，控件的frame设置将被忽略，所以要在自动布局的时候，把长宽也一同设置。</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-tableview" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/06/18/tableview/" class="article-date">
-      <time datetime="2016-06-18T01:39:00.000Z" itemprop="datePublished">2016-06-18</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/06/18/tableview/">tableview中增加了头视图后，初始位置显示不正常</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              <p>当为tableview插入头视图后，为了让tableview的起始位置显示正常，需要通过setContentOffset设置tableview的偏移位置：
-          
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-      
-        <p class="article-more-link">
-          <a href="/2016/06/18/tableview/#more">查看全文 >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -816,14 +826,14 @@
                 2016 Lynn Cheng
             </div>
             <div class="footer-right">
-                <a href="http://hexo.io/" target="_blank" title="快速、簡潔且高效的博客框架">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="簡而不減 Hexo 雙欄博客主題">Yelee</a> by MOxFIVE <i class="fa fa-heart animated infinite pulse"></i>
+                <a href="http://hexo.io/" target="_blank" title="A fast, simple &amp; powerful blog framework">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="Another simple and elegant theme for Hexo">Yelee</a> by MOxFIVE <i class="fa fa-heart animated infinite pulse"></i>
             </div>
         </div>
         
             <div class="visit">
                 
                     <span id="busuanzi_container_site_pv" style='display:none'>
-                        <span id="site-visit" >本站到訪數: 
+                        <span id="site-visit" >Site Visitors: 
                             <span id="busuanzi_value_site_uv"></span>
                         </span>
                     </span>
@@ -833,7 +843,7 @@
                 
                 
                     <span id="busuanzi_container_page_pv" style='display:none'>
-                        <span id="page-visit">本頁閱讀量: 
+                        <span id="page-visit">Page Hits: 
                             <span id="busuanzi_value_page_pv"></span>
                         </span>
                     </span>
@@ -850,9 +860,9 @@
 
 
 <div class="scroll" id="scroll">
-    <a href="#" title="返回頂部"><i class="fa fa-arrow-up"></i></a>
-    <a href="#comments" title="查看評論"><i class="fa fa-comments-o"></i></a>
-    <a href="#footer" title="轉到底部"><i class="fa fa-arrow-down"></i></a>
+    <a href="#" title="Back to Top"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments" title="Comments"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="Go to Bottom"><i class="fa fa-arrow-down"></i></a>
 </div>
 
 <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">

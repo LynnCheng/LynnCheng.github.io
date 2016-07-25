@@ -113,13 +113,13 @@
                 <div class="tips-box hide">
                     <div class="tips-arrow"></div>
                     <ul class="tips-inner">
-                        <li>菜單</li>
-                        <li>標籤</li>
+                        <li>Menu</li>
+                        <li>Tags</li>
                         
-                        <li>友情鏈接</li>
+                        <li>Friends</li>
                         
                         
-                        <li>關於我</li>
+                        <li>About Me</li>
                         
                     </ul>
                 </div>
@@ -229,9 +229,305 @@
             </nav>
         </header>                
     </div>
-    <link class="menu-list" tags="標籤" friends="友情鏈接" about="關於我"/>
+    <link class="menu-list" tags="Tags" friends="Friends" about="About Me"/>
 </nav>
       <div class="body-wrap">
+  
+    <article id="post-SwiftStudy1" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/05/18/SwiftStudy1/" class="article-date">
+      <time datetime="2016-05-18T06:12:48.000Z" itemprop="datePublished">2016-05-18</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/05/18/SwiftStudy1/">Swift学习笔记－本地化</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">按网上的教程实现的时候，开始的时候一直没成功，原因是文件名必须正确</span><br><span class="line">1.app名称的本地化：InfoPlist.strings</span><br><span class="line">2.其它词条的本地化：Localizable.strings</span><br></pre></td></tr></table></figure>
+<p>本地化处理的内容包括：<br>（1）应用程序名称<br>（2）出现在代码中的字符串<br>（3）本地化图片<br>（4）XIB文件<br>（5）其他文件</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-structInit" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/05/12/structInit/" class="article-date">
+      <time datetime="2016-05-12T13:05:19.000Z" itemprop="datePublished">2016-05-12</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/05/12/structInit/">swift 引用c语言结构体时的初始化问题</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+              <p>问题场景：<br>swift引用c语言写的静态库，接口文件中有一个结构体，类似：
+          
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+        <p class="article-more-link">
+          <a href="/2016/05/12/structInit/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-ioscode" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/05/09/ioscode/" class="article-date">
+      <time datetime="2016-05-09T00:48:00.000Z" itemprop="datePublished">2016-05-09</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/05/09/ioscode/">ios开发过程中的代码块</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+              <p>1.判断邮箱格式是否正确的代码：</p>
+<p>// 利用正则表达式验证 -( BOOL )isValidateEmail:( NSString  <em>)email<br>{<br>NSString  </em>emailRegex =  @”[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}” ;<br>NSPredicate  *emailTest = [ NSPredicate   predicateWithFormat : @”SELF MATCHES%@” ,emailRegex];<br>return  [emailTest  evaluateWithObject :email];<br>}
+          
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+        <p class="article-more-link">
+          <a href="/2016/05/09/ioscode/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-push" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/05/05/push/" class="article-date">
+      <time datetime="2016-05-05T06:13:00.000Z" itemprop="datePublished">2016-05-05</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/05/05/push/">iOS消息推送：如何在调试阶段获取到正式服务器推送的消息</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>iOS消息推送需要对应发布证书和调试证书，正常情况下调试阶段只能通过沙盒测试。如果希望在调试阶段就对正式服务器进行测试，就需要曲线救国了：</p>
+<ol>
+<li>从app store上下载安装app的正式版本</li>
+<li>开发时，编译一个同样bundleid的app来覆盖已经安装的正式app</li>
+<li>等待奇迹的发生……</li>
+</ol>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-capturepackage" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/05/04/capturepackage/" class="article-date">
+      <time datetime="2016-05-04T00:56:37.000Z" itemprop="datePublished">2016-05-04</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/05/04/capturepackage/">iOS APP抓包方法介绍之tcpdump</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <ol>
+<li>将手机通过usb口连在mac电脑上</li>
+<li>通过xcode查看手机的uuid,如 rvictl -s f7f41359d97aa34487f574a4db2e028dfd4f7aa</li>
+<li><p>打开终端，开启虚拟网口</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$rvictl</span> <span class="_">-s</span> f7f41359d97aa34487f574a4db2e028dfd4f7aa</span><br><span class="line">Starting device f7f41359d97aa34487f574a4db2e028dfd4f7aa [SUCCEEDED] with interface rvi0 (rvi0就是虚拟网口的名字，抓包的时候需要使用)</span><br><span class="line"><span class="variable">$sudo</span> tcpdump -i rvi0 -w trace.pcap</span><br><span class="line">tcpdump: WARNING: rvi0: That device doesn<span class="string">'t support promiscuous mode</span><br><span class="line">(BIOCPROMISC: Operation not supported on socket)</span><br><span class="line">tcpdump: listening on rvi0, link-type PKTAP (Packet Tap), capture size 262144 bytes</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>然后就可以在手机上运行app，执行你想要的操作了。所有报文会存储在trace.pcap文件上</p>
+</li>
+<li>抓包结束后，记得删除虚拟接口<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ rvictl -x f7f41359d97aa34487f574a4db2e028dfd4f7aa</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>参考资料：<br><a href="https://developer.apple.com/library/mac/qa/qa1176/_index.html" target="_blank" rel="external">app developer: Getting a Packet Trace</a></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
   
     <article id="post-rsync" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -272,7 +568,7 @@
       
       
         <p class="article-more-link">
-          <a href="/2016/05/03/rsync/#more">查看全文 >></a>
+          <a href="/2016/05/03/rsync/#more">more >></a>
         </p>
       
       <div class="clearfix"></div>
@@ -457,7 +753,7 @@
       
       
         <p class="article-more-link">
-          <a href="/2016/04/29/hello-world/#more">查看全文 >></a>
+          <a href="/2016/04/29/hello-world/#more">more >></a>
         </p>
       
       <div class="clearfix"></div>
@@ -490,14 +786,14 @@
                 2016 Lynn Cheng
             </div>
             <div class="footer-right">
-                <a href="http://hexo.io/" target="_blank" title="快速、簡潔且高效的博客框架">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="簡而不減 Hexo 雙欄博客主題">Yelee</a> by MOxFIVE <i class="fa fa-heart animated infinite pulse"></i>
+                <a href="http://hexo.io/" target="_blank" title="A fast, simple &amp; powerful blog framework">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="Another simple and elegant theme for Hexo">Yelee</a> by MOxFIVE <i class="fa fa-heart animated infinite pulse"></i>
             </div>
         </div>
         
             <div class="visit">
                 
                     <span id="busuanzi_container_site_pv" style='display:none'>
-                        <span id="site-visit" >本站到訪數: 
+                        <span id="site-visit" >Site Visitors: 
                             <span id="busuanzi_value_site_uv"></span>
                         </span>
                     </span>
@@ -507,7 +803,7 @@
                 
                 
                     <span id="busuanzi_container_page_pv" style='display:none'>
-                        <span id="page-visit">本頁閱讀量: 
+                        <span id="page-visit">Page Hits: 
                             <span id="busuanzi_value_page_pv"></span>
                         </span>
                     </span>
@@ -524,9 +820,9 @@
 
 
 <div class="scroll" id="scroll">
-    <a href="#" title="返回頂部"><i class="fa fa-arrow-up"></i></a>
-    <a href="#comments" title="查看評論"><i class="fa fa-comments-o"></i></a>
-    <a href="#footer" title="轉到底部"><i class="fa fa-arrow-down"></i></a>
+    <a href="#" title="Back to Top"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments" title="Comments"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="Go to Bottom"><i class="fa fa-arrow-down"></i></a>
 </div>
 
 <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">

@@ -3,27 +3,21 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Undefined symbols for architecture armv7的处理 | LynnCheng</title>
+  <title>How to fix a &quot;Duplicated Symbols&quot; error on binary files | LynnCheng</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="问题描述：
-
-使用iphone6p真机调试，编译正常
-换成iPhone5真机调试，编译出现一堆错误：1234567891011121314151617181920ld: warning: ld: warning: ignoring file /Users/lynn/Library/Developer/Xcode/DerivedData/Homecare-bcfxxolnwbuzthdgksefve">
+  <meta name="description" content="Come From:http://angelolloqui.com/blog/31-How-to-fix-a-Duplicated-Symbols-error-on-binary-files
+Introduction">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Undefined symbols for architecture armv7的处理">
-<meta property="og:url" content="http://lynncheng.github.io/2016/06/17/buildError/index.html">
+<meta property="og:title" content="How to fix a "Duplicated Symbols" error on binary files">
+<meta property="og:url" content="http://lynncheng.github.io/2016/07/19/duplicate/index.html">
 <meta property="og:site_name" content="LynnCheng">
-<meta property="og:description" content="问题描述：
-
-使用iphone6p真机调试，编译正常
-换成iPhone5真机调试，编译出现一堆错误：1234567891011121314151617181920ld: warning: ld: warning: ignoring file /Users/lynn/Library/Developer/Xcode/DerivedData/Homecare-bcfxxolnwbuzthdgksefve">
-<meta property="og:updated_time" content="2016-06-17T01:44:19.000Z">
+<meta property="og:description" content="Come From:http://angelolloqui.com/blog/31-How-to-fix-a-Duplicated-Symbols-error-on-binary-files
+Introduction">
+<meta property="og:updated_time" content="2016-07-19T12:18:26.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Undefined symbols for architecture armv7的处理">
-<meta name="twitter:description" content="问题描述：
-
-使用iphone6p真机调试，编译正常
-换成iPhone5真机调试，编译出现一堆错误：1234567891011121314151617181920ld: warning: ld: warning: ignoring file /Users/lynn/Library/Developer/Xcode/DerivedData/Homecare-bcfxxolnwbuzthdgksefve">
+<meta name="twitter:title" content="How to fix a "Duplicated Symbols" error on binary files">
+<meta name="twitter:description" content="Come From:http://angelolloqui.com/blog/31-How-to-fix-a-Duplicated-Symbols-error-on-binary-files
+Introduction">
   
     <link rel="alternative" href="/atom.xml" title="LynnCheng" type="application/atom+xml">
   
@@ -236,11 +230,11 @@
     </div>
     <link class="menu-list" tags="Tags" friends="Friends" about="About Me"/>
 </nav>
-      <div class="body-wrap"><article id="post-buildError" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-duplicate" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/06/17/buildError/" class="article-date">
-      <time datetime="2016-06-17T00:53:31.000Z" itemprop="datePublished">2016-06-17</time>
+      <a href="/2016/07/19/duplicate/" class="article-date">
+      <time datetime="2016-07-19T12:17:09.000Z" itemprop="datePublished">2016-07-19</time>
 </a>
     </div>
   
@@ -253,7 +247,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Undefined symbols for architecture armv7的处理
+      How to fix a &quot;Duplicated Symbols&quot; error on binary files
     </h1>
   
 
@@ -270,14 +264,17 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>问题描述：</p>
-<ol>
-<li>使用iphone6p真机调试，编译正常</li>
-<li>换成iPhone5真机调试，编译出现一堆错误：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">ld: warning: ld: warning: ignoring file /Users/lynn/Library/Developer/Xcode/DerivedData/Homecare-bcfxxolnwbuzthdgksefvehktwzf/Build/Products/Debug-iphoneos/libAFNetworking.a, file was built for archive which is not the architecture being linked (armv7): /Users/lynn/Library/Developer/Xcode/DerivedData/Homecare-bcfxxolnwbuzthdgksefvehktwzf/Build/Products/Debug-iphoneos/libAFNetworking.aignoring file /Users/lynn/Library/Developer/Xcode/DerivedData/Homecare-bcfxxolnwbuzthdgksefvehktwzf/Build/Products/Debug-iphoneos/libCocoaAsyncSocket.a, file was built for archive which is not the architecture being linked (armv7): /Users/lynn/Library/Developer/Xcode/DerivedData/Homecare-bcfxxolnwbuzthdgksefvehktwzf/Build/Products/Debug-iphoneos/libCocoaAsyncSocket.a</span><br><span class="line">......</span><br><span class="line">Undefined symbols for architecture armv7:</span><br><span class="line">  &quot;_OBJC_CLASS_$_JTHorizontalCalendarView&quot;, referenced from:</span><br><span class="line">      type metadata accessor for __ObjC.JTHorizontalCalendarView in CalendarViewController.o</span><br><span class="line">  &quot;_OBJC_CLASS_$_JTCalendarDayView&quot;, referenced from:</span><br><span class="line">      ZTE.CalendarViewController.calendar (__ObjC.JTCalendarManager!, prepareDayView : __ObjC.UIView!) -&gt; () in CalendarViewController.o</span><br><span class="line">      ZTE.CalendarViewController.calendar (__ObjC.JTCalendarManager!, didTouchDayView : __ObjC.UIView!) -&gt; () in CalendarViewController.o</span><br><span class="line">  &quot;_OBJC_CLASS_$_MGSwipeTableCell&quot;, referenced from:</span><br><span class="line">      _OBJC_CLASS_$__TtC3ZTE15MessageItemView in MessageItemView.o</span><br><span class="line">  &quot;_OBJC_CLASS_$_QNZone&quot;, referenced from:</span><br><span class="line">      type metadata accessor for __ObjC.QNZone in HCUploadManager.o</span><br><span class="line">  &quot;_OBJC_CLASS_$_QNConfiguration&quot;, referenced from:</span><br><span class="line">      type metadata accessor for __ObjC.QNConfiguration in HCUploadManager.o</span><br><span class="line">  &quot;_OBJC_CLASS_$_MJRefreshHeader&quot;, referenced from:</span><br><span class="line">      _OBJC_CLASS_$_HCRefresh in HCRefresh.o</span><br><span class="line">  &quot;_OBJC_METACLASS_$_MJRefreshHeader&quot;, referenced from:</span><br><span class="line">      _OBJC_METACLASS_$_HCRefresh in HCRefresh.o</span><br><span class="line">  &quot;_OBJC_CLASS_$_AFNetworkReachabilityManager&quot;, referenced from:</span><br><span class="line">  ......</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<p>问题分析：<br>从日志上看，出问题的都是实用cocoapods安装的第三方库；从日志看，应该是没有编译armv7对应的内容，修改pods工程的配置：<br>buildsettings-&gt;build active architecture only属性，debug－&gt;NO, release-&gt;NO</p>
-<p>我这样改后，还是报同样的错误；折腾了好久，最后进入pods编译出的静态库存在的目录，把所有第三方静态库全删了，重编一下就好了。</p>
+        <p>Come From:<a href="http://angelolloqui.com/blog/31-How-to-fix-a-Duplicated-Symbols-error-on-binary-files" target="_blank" rel="external">http://angelolloqui.com/blog/31-How-to-fix-a-Duplicated-Symbols-error-on-binary-files</a></p>
+<p>Introduction  <a id="more"></a></p>
+<p>When including third party libraries into your project, you can run into a “Duplicated Symbols” error on the linking process. This annoying error is due to a name collision between one or more of your classes, usually caused by either:<br>You do not use a prefix as namespace and you use a generic name such as Session, User or similar. This has an easy solution, as all you need to do is rename your classes to use a prefix. For example, User could be renamed into AGUser. Using prefixes is a good practice that you should always follow in programming languages without namespaces like C or Objective-C.<br>One or more of your libraries are including the same third party library. This is quite common on static frameworks and libraries built with little care. Usually, the creator of the library includes generic utilities such as SBJON, Reachability and similars inside the compiled binary. Then, your project or some other library also making use of it tries to include it again, resulting in the duplicated symbols error. If you have access to the source code, it could be solved easily by leaving the duplicated one out of your target. Unfortunately, when this problem occurs, many times comes from compiled libraries or frameworks that do not give us control on the source code files but just a binary instead. Solving this issue may not seem easy or even possible, but as we are going to see in this post it is not so difficult as it may look.<br>Special consideration</p>
+<p>The whole post assumes that both duplicated libraries are the same version, or at least fully backwards compatible. Besides, we also assume that both duplicated libraries have not been modified, as any modification could break the commented compatibility. If the libraries are not compatible then you will need to analyze the differences and see if you can come with a “mixed” library that provides the desired compatibility or move one of your components to use the other incompatible version. In any case, the solution is very bound to your application and exceeds the purpose of this post.<br>Example</p>
+<p>For improving readability we are going to fix a real project.  In this example project we have a static framework called Serenity that contains the SBJSON library inside. The duplicated symbols appears when using CocoaPods with the “unoffical-twitter-sdk”, which also has a dependency to SBJON. In this case, the duplicated symbols are therefore contained in Serenity and Pods.a binaries.</p>
+<p>We could fix it by playing with the Podspecs to leave out the SBJSON from the “unoffical-twitter-sdk”, but we have decided to remove the SBJSON from Serenity instead as it should not have been added in the first instance and anyway it contains an older version of SBJSON that the one in CocoaPods.<br>You should be able to follow the same process on your conflicting libraries in your project. Just check and decide which version you want to keep and which one you want to remove (usually keep the newer one).<br>Slimming down the fat binary</p>
+<p>Most of the libraries are actually fat binaries. This means that you can find the compiled binary code for more than one architecture within the same file. For example, in our example project, the Serenity framework contains three architectures: i386 (Simulator), armv7 (iPhone 3GS+ compatible) and armv7s (iPhone 5). Note that armv7s at the moment of writing this post is not recognized by the lipo tool as a valid architecture (it is displayed as “cputype (12) cpusubtype (11)”) so we will need to make a small trick to support it. Hopefully Apple will update the tools soon to support it. You can check the architectures of your library by running:<br>$ lipo Serenity -info<br>Architectures in the fat file: Serenity are: armv7 (cputype (12) cpusubtype (11)) i386<br>In order to proceed with the whole process, we need to extract each architecture on its own file. We can do it by running:<br>$ lipo Serenity -thin armv7 -output Serenity.armv7<br>$ lipo Serenity -thin i386 -output Serenity.i386<br>$ xcrun -sdk iphoneos lipo Serenity -thin armv7s -output Serenity.armv7s<br>Note the use of the xcrun in the last case due to the lack of support for armv7s. The rest of the steps explained in the post are equally valid for armv7, armv7s and i386.<br>Removing duplicated symbols</p>
+<p>Now that we have the two different architectures in thin files, we can proceed to remove the duplicated symbols on each file. Lets first take a look to the symbols included in Serenity:<br>$ ar -t Serenity.armv7<br>__.SYMDEF<br>MainView.o<br>PushRequest.o<br>PaymentViewController.o<br>SBJsonBase.o<br>SBJsonParser.o<br>SBJsonWriter.o<br>NSObject+SBJSON.o<br>NSString+SBJSON.o<br>FileManager.o<br>Barcode.o<br>qr_draw_png.o<br>QR_Encode.o<br>png.o<br>pngerror.o<br>pngget.o<br>pngmem.o<br>pngpread.o<br>pngread.o<br>pngrio.o<br>pngrtran.o<br>pngrutil.o<br>pngset.o<br>pngtrans.o<br>pngwio.o<br>pngwrite.o<br>pngwtran.o<br>pngwutil.o<br>We picked the armv7 version, but the i386 and armv7s should be identical.<br>As we suspected, the library contains five symbols that are duplicated:<br>SBJsonBase.o<br>SBJsonParser.o<br>SBJsonWriter.o<br>NSObject+SBJSON.o<br>NSString+SBJSON.o</p>
+<p>We just have to remove them by running:<br>$ ar -d -sv Serenity.armv7 SBJsonBase.o<br>d - SBJsonBase.o<br>Run the command with the other 4 symbols also. Then, repeat everything with the other architectures (i386 and armv7s in our case). If you check the binaries again with the <code>ar -t</code> option you should see that the symbols are not longer there.<br>Fattening the library</p>
+<p>Ok, we are almost done. We have the three architectures without the duplicated symbols. All we need to do now is combine them back again into a fat library that will be used by our project. So first lets move the old version and keep a copy just in case something goes wrong.<br>$ mv Serenity Serenity_original<br>And now lets build the fat library:<br>$ lipo Serenity.armv7 Serenity.armv7s Serenity.i386 -create -output Serenity<br>And there you have! you should have a new binary file without the duplicated classes. You can now remove the intermediate Serenity.armv7, Serenity.armv7s and Serenity.i386 files as they are not longer needed.<br>Finishing</p>
+<p>If you now build your project again, you should be able to link without the duplicated symbols error presented before (at least without this one, maybe you have another one though).<br>It is extremely important that you test your app again, because if any of the special considerations mentioned above are not met then your app could malfunction or even crash. Test, test and test!<br>Finally remember, you just modified a third party library so do not forget that any update on it will probably include the duplicated symbols again. And please, do not blame me if something does not work, just ask your third party developer to do his job properly and leave dependencies out of the binary :D.</p>
 
       
     </div>
@@ -286,13 +283,13 @@
   
     
     <div class="copyright">
-        <p><span>Title:</span><a href="/2016/06/17/buildError/">Undefined symbols for architecture armv7的处理</a></p>
+        <p><span>Title:</span><a href="/2016/07/19/duplicate/">How to fix a &quot;Duplicated Symbols&quot; error on binary files</a></p>
         <p><span>Author:</span><a href="/" title="Back to Homepage">Lynn Cheng</a></p>
-        <p><span>Created:</span>2016-06-17, 08:53:31</p>
-        <p><span>Updated:</span>2016-06-17, 09:44:19</p>
+        <p><span>Created:</span>2016-07-19, 20:17:09</p>
+        <p><span>Updated:</span>2016-07-19, 20:18:26</p>
         <p>
-            <span>Full URL:</span><a class="post-url" href="/2016/06/17/buildError/" title="Undefined symbols for architecture armv7的处理">http://lynncheng.github.io/2016/06/17/buildError/</a>
-            <span class="copy-path" data-clipboard-text="From http://lynncheng.github.io/2016/06/17/buildError/　　By Lynn Cheng" title="Copy Article&#39;s Link &amp; Author"><i class="fa fa-clipboard"></i></span>
+            <span>Full URL:</span><a class="post-url" href="/2016/07/19/duplicate/" title="How to fix a &quot;Duplicated Symbols&quot; error on binary files">http://lynncheng.github.io/2016/07/19/duplicate/</a>
+            <span class="copy-path" data-clipboard-text="From http://lynncheng.github.io/2016/07/19/duplicate/　　By Lynn Cheng" title="Copy Article&#39;s Link &amp; Author"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
@@ -305,15 +302,15 @@
     <nav id="article-nav">
         
             <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2016/06/18/tableview/">
-                    tableview中增加了头视图后，初始位置显示不正常
+                <a href="/2016/07/20/duplicateds/">
+                    ios 引用编译出现duplicate symbol错误的处理
                 </a>
             </div>
         
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2016/06/15/pod/">
-                    CocoaPods的一些常用操作
+                <a href="/2016/07/14/ios-app/">
+                    ios app 发布时需要的图片资源
                 </a>
             </div>
         
@@ -381,7 +378,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"Undefined symbols for architecture armv7的处理　| LynnCheng　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"How to fix a "Duplicated Symbols" error on binary files　| LynnCheng　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -397,7 +394,7 @@
     
       <div class="duoshuo" id="comments">
     <!-- 多说评论框 start -->
-    <div class="ds-thread" data-thread-key="2016/06/17/buildError/" data-title="Undefined symbols for architecture armv7的处理" data-url="http://lynncheng.github.io/2016/06/17/buildError/"></div>
+    <div class="ds-thread" data-thread-key="2016/07/19/duplicate/" data-title="How to fix a &quot;Duplicated Symbols&quot; error on binary files" data-url="http://lynncheng.github.io/2016/07/19/duplicate/"></div>
     <!-- 多说评论框 end -->
     <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
     <script type="text/javascript">
@@ -421,7 +418,7 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2016/06/18/tableview/" title="Pre: tableview中增加了头视图后，初始位置显示不正常">
+            <a href="/2016/07/20/duplicateds/" title="Pre: ios 引用编译出现duplicate symbol错误的处理">
                 <i class="fa fa-angle-left"></i>
             </a>
         
@@ -429,7 +426,7 @@
         <a title="Mini Archives"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2016/06/15/pod/" title="Next: CocoaPods的一些常用操作">
+            <a href="/2016/07/14/ios-app/" title="Next: ios app 发布时需要的图片资源">
                 <i class="fa fa-angle-right"></i>
             </a>
         
