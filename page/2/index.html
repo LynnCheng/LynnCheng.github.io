@@ -233,6 +233,65 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-duplicate" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/07/19/duplicate/" class="article-date">
+      <time datetime="2016-07-19T12:17:09.000Z" itemprop="datePublished">2016-07-19</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/07/19/duplicate/">How to fix a &quot;Duplicated Symbols&quot; error on binary files</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+              <p>Come From:<a href="http://angelolloqui.com/blog/31-How-to-fix-a-Duplicated-Symbols-error-on-binary-files">http://angelolloqui.com/blog/31-How-to-fix-a-Duplicated-Symbols-error-on-binary-files</a></p>
+<p>Introduction
+          
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+        <p class="article-more-link">
+          <a href="/2016/07/19/duplicate/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-ios-app" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -727,62 +786,6 @@
 <li><p>从文件中grep hex 提取 00-00-00 对应的厂商信息</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat oui.txt |grep hex &gt; MAC_original.file</span><br></pre></td></tr></table></figure></li>
 </ol>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-autolayout" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/06/28/autolayout/" class="article-date">
-      <time datetime="2016-06-28T09:07:15.000Z" itemprop="datePublished">2016-06-28</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/06/28/autolayout/">iOS的自动布局问题</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p>相关代码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">let deButton = UIButton(frame: CGRect(x: 0, y: 0 , width: 160, height: 100))</span><br><span class="line">      deButton.setTitle(&quot;TL&quot;, forState: .Normal)</span><br><span class="line">      deButton.backgroundColor = UIColor.greenColor()</span><br><span class="line">      self.view.addSubview(deButton)</span><br><span class="line">      </span><br><span class="line">      deButton.snp_makeConstraints &#123; (make) -&gt; Void in</span><br><span class="line">          make.left.equalTo(self.view).offset(20)</span><br><span class="line">          make.top.equalTo(self.view).offset(70)</span><br><span class="line">      &#125;</span><br></pre></td></tr></table></figure></p>
-<p>疑问：这段代码执行后，deButton的长和宽根据title的内容自动调节，而不是预先定义的160x100</p>
-<p>原因：使用autolayout实现自动布局的时候，控件的frame设置将被忽略，所以要在自动布局的时候，把长宽也一同设置。</p>
 
       
     </div>

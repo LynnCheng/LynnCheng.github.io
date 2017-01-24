@@ -3,18 +3,21 @@
 <head>
   <meta charset="utf-8">
   
-  <title>rsync命令参数 | LynnCheng</title>
+  <title>UIViewController中self.view的位置 | LynnCheng</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="参数说明-v, –verbose  详细模式输出-q, –quiet 精简输出模式-c, –checksum 打开校验开关，强制对文件传输进行校验-a, –archive 归档模式，表示以递归方式传输文件，并保持所有文件属性，等于-rlptgoD-r, –recursive 对子目录以递归模式处理">
+  <meta name="description" content="原文地址：http://www.jianshu.com/p/930643270455
+总所周知，苹果从iOS7开始采用扁平化的界面风格，颠覆了果粉们“迷恋”的拟物化风格。对于开发者而言，全新的风格带来新的接口，这些新的接口改动中，有些更加合理了，有些更加方便了，而有些可能让开发者容易迷糊，下面本人就来谈谈iOS7这些新添加“鬼魅”的接口中的经常接触到的一个—-UITabBar/UINavigati">
 <meta property="og:type" content="article">
-<meta property="og:title" content="rsync命令参数">
-<meta property="og:url" content="http://lynncheng.github.io/2016/05/03/rsync/index.html">
+<meta property="og:title" content="UIViewController中self.view的位置">
+<meta property="og:url" content="http://lynncheng.github.io/2017/01/23/trans/index.html">
 <meta property="og:site_name" content="LynnCheng">
-<meta property="og:description" content="参数说明-v, –verbose  详细模式输出-q, –quiet 精简输出模式-c, –checksum 打开校验开关，强制对文件传输进行校验-a, –archive 归档模式，表示以递归方式传输文件，并保持所有文件属性，等于-rlptgoD-r, –recursive 对子目录以递归模式处理">
-<meta property="og:updated_time" content="2016-05-04T01:40:06.000Z">
+<meta property="og:description" content="原文地址：http://www.jianshu.com/p/930643270455
+总所周知，苹果从iOS7开始采用扁平化的界面风格，颠覆了果粉们“迷恋”的拟物化风格。对于开发者而言，全新的风格带来新的接口，这些新的接口改动中，有些更加合理了，有些更加方便了，而有些可能让开发者容易迷糊，下面本人就来谈谈iOS7这些新添加“鬼魅”的接口中的经常接触到的一个—-UITabBar/UINavigati">
+<meta property="og:updated_time" content="2017-01-23T08:33:06.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="rsync命令参数">
-<meta name="twitter:description" content="参数说明-v, –verbose  详细模式输出-q, –quiet 精简输出模式-c, –checksum 打开校验开关，强制对文件传输进行校验-a, –archive 归档模式，表示以递归方式传输文件，并保持所有文件属性，等于-rlptgoD-r, –recursive 对子目录以递归模式处理">
+<meta name="twitter:title" content="UIViewController中self.view的位置">
+<meta name="twitter:description" content="原文地址：http://www.jianshu.com/p/930643270455
+总所周知，苹果从iOS7开始采用扁平化的界面风格，颠覆了果粉们“迷恋”的拟物化风格。对于开发者而言，全新的风格带来新的接口，这些新的接口改动中，有些更加合理了，有些更加方便了，而有些可能让开发者容易迷糊，下面本人就来谈谈iOS7这些新添加“鬼魅”的接口中的经常接触到的一个—-UITabBar/UINavigati">
   
     <link rel="alternative" href="/atom.xml" title="LynnCheng" type="application/atom+xml">
   
@@ -227,11 +230,11 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
-      <div class="body-wrap"><article id="post-rsync" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-trans" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/05/03/rsync/" class="article-date">
-      <time datetime="2016-05-03T09:43:00.000Z" itemprop="datePublished">2016-05-03</time>
+      <a href="/2017/01/23/trans/" class="article-date">
+      <time datetime="2017-01-23T08:28:54.000Z" itemprop="datePublished">2017-01-23</time>
 </a>
     </div>
   
@@ -244,7 +247,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      rsync命令参数
+      UIViewController中self.view的位置
     </h1>
   
 
@@ -261,7 +264,45 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>参数说明<br>-v, –verbose  详细模式输出<br>-q, –quiet 精简输出模式<br>-c, –checksum 打开校验开关，强制对文件传输进行校验<br>-a, –archive 归档模式，表示以递归方式传输文件，并保持所有文件属性，等于-rlptgoD<br>-r, –recursive 对子目录以递归模式处理<a id="more"></a><br>-R, –relative 使用相对路径信息<br>-b, –backup 创建备份，也就是对于目的已经存在有同样的文件名时，将老的文件重新命名为~filename。可以使用–suffix选项来指定不同的备份文件前缀。<br>–backup-dir 将备份文件(如~filename)存放在在目录下。<br>-suffix=SUFFIX 定义备份文件前缀<br>-u, –update 仅仅进行更新，也就是跳过所有已经存在于DST，并且文件时间晚于要备份的文件。(不覆盖更新的文件)<br>-l, –links 保留软链结<br>-L, –copy-links 想对待常规文件一样处理软链结<br>–copy-unsafe-links 仅仅拷贝指向SRC路径目录树以外的链结<br>–safe-links 忽略指向SRC路径目录树以外的链结<br>-H, –hard-links 保留硬链结     -p, –perms 保持文件权限<br>-o, –owner 保持文件属主信息     -g, –group 保持文件属组信息<br>-D, –devices 保持设备文件信息    -t, –times 保持文件时间信息<br>-S, –sparse 对稀疏文件进行特殊处理以节省DST的空间<br>-n, –dry-run现实哪些文件将被传输<br>-W, –whole-file 拷贝文件，不进行增量检测<br>-x, –one-file-system 不要跨越文件系统边界<br>-B, –block-size=SIZE 检验算法使用的块尺寸，默认是700字节<br>-e, –rsh=COMMAND 指定使用rsh、ssh方式进行数据同步<br>–rsync-path=PATH 指定远程服务器上的rsync命令所在路径信息<br>-C, –cvs-exclude 使用和CVS一样的方法自动忽略文件，用来排除那些不希望传输的文件<br>–existing 仅仅更新那些已经存在于DST的文件，而不备份那些新创建的文件<br>–delete 删除那些DST中SRC没有的文件<br>–delete-excluded 同样删除接收端那些被该选项指定排除的文件<br>–delete-after 传输结束以后再删除<br>–ignore-errors 及时出现IO错误也进行删除<br>–max-delete=NUM 最多删除NUM个文件<br>–partial 保留那些因故没有完全传输的文件，以是加快随后的再次传输<br>–force 强制删除目录，即使不为空<br>–numeric-ids 不将数字的用户和组ID匹配为用户名和组名<br>–timeout=TIME IP超时时间，单位为秒<br>-I, –ignore-times 不跳过那些有同样的时间和长度的文件<br>–size-only 当决定是否要备份文件时，仅仅察看文件大小而不考虑文件时间<br>–modify-window=NUM 决定文件是否时间相同时使用的时间戳窗口，默认为0<br>-T –temp-dir=DIR 在DIR中创建临时文件<br>–compare-dest=DIR 同样比较DIR中的文件来决定是否需要备份<br>-P 等同于 –partial<br>–progress 显示备份过程<br>-z, –compress 对备份的文件在传输时进行压缩处理<br>–exclude=PATTERN 指定排除不需要传输的文件模式<br>–include=PATTERN 指定不排除而需要传输的文件模式<br>–exclude-from=FILE 排除FILE中指定模式的文件<br>–include-from=FILE 不排除FILE指定模式匹配的文件<br>–version 打印版本信息<br>–address 绑定到特定的地址<br>–config=FILE 指定其他的配置文件，不使用默认的rsyncd.conf文件<br>–port=PORT 指定其他的rsync服务端口<br>–blocking-io 对远程shell使用阻塞IO<br>-stats 给出某些文件的传输状态<br>–progress 在传输时现实传输过程<br>–log-format=formAT 指定日志文件格式<br>–password-file=FILE 从FILE中得到密码<br>–bwlimit=KBPS 限制I/O带宽，KBytes per second      -h, –help 显示帮助信息</p>
+        <p>原文地址：<a href="http://www.jianshu.com/p/930643270455" target="_blank" rel="external">http://www.jianshu.com/p/930643270455</a></p>
+<p>总所周知，苹果从iOS7开始采用扁平化的界面风格，颠覆了果粉们“迷恋”的拟物化风格。对于开发者而言，全新的风格带来新的接口，这些新的接口改动中，有些更加合理了，有些更加方便了，而有些可能让开发者容易迷糊，下面本人就来谈谈iOS7这些新添加“鬼魅”的接口中的经常接触到的一个—-UITabBar/UINavigationBar的translucent属性。</p>
+<p>新的属性translucent简介</p>
+<p>顾名思义，translucent属性能决定UITabBar/UINavigationBar是否为半透明的效果，苹果官方对此的解释如下：</p>
+<p>UINavigationBar的translucent属性解释</p>
+<p>复制代码<br>/<em><br>New behavior on iOS 7.<br>Default is YES.<br>You may force an opaque background by setting the property to NO.<br>If the navigation bar has a custom background image, the default is inferred<br>from the alpha values of the image—YES if it has any pixel with alpha &lt; 1.0<br>If you send setTranslucent:YES to a bar with an opaque custom background image<br>it will apply a system opacity less than 1.0 to the image.<br>If you send setTranslucent:NO to a bar with a translucent custom background image<br>it will provide an opaque background for the image using the bar’s barTintColor if defined, or black<br>for UIBarStyleBlack or white for UIBarStyleDefault if barTintColor is nil.
+</em>/<br>@property(nonatomic,assign,getter=isTranslucent) BOOL translucent NS_AVAILABLE_IOS(3_0) UI_APPEARANCE_SELECTOR;<br>// Default is NO on iOS 6 and earlier. Always YES if barStyle is set to UIBarStyleBlackTranslucent<br>复制代码<br>UITabBar的translucent属性解释</p>
+<p>复制代码<br>/<em><br>Default is YES.<br>You may force an opaque background by setting the property to NO.<br>If the tab bar has a custom background image, the default is inferred from the alpha<br>values of the image—YES if it has any pixel with alpha &lt; 1.0<br>If you send setTranslucent:YES to a tab bar with an opaque custom background image<br>the tab bar will apply a system opacity less than 1.0 to the image.<br>If you send setTranslucent:NO to a tab bar with a translucent custom background image<br>the tab bar will provide an opaque background for the image using the bar’s barTintColor if defined, or black<br>for UIBarStyleBlack or white for UIBarStyleDefault if barTintColor is nil.
+</em>/<br>@property(nonatomic,getter=isTranslucent) BOOL translucent NS_AVAILABLE_IOS(7_0);<br>复制代码<br>简而言之，这个BOOL属性能控制UITabBar/UINavigationBar的半透明效果，默认为YES，即默认情况下为半透明效果（后面会详细解释这两段官方文字描述的含义）。</p>
+<p>translucent缘何“鬼魅”</p>
+<p>新属性的出现往往会导致一些“注意事项”，主要体现为被半透明效果处理后产生的色差和添加的类view控件的坐标变动。</p>
+<p>默认情况下，如果使用UITabBarController和UINavigationBarController（translucent属性默认为YES），设置一个蓝色的view添加其中并设置距离屏幕边距为（0，0，0，0），展示效果如下：</p>
+<p>可以看到，UITabBarController和UINavigationBarController被蓝色的view“穿透”了，此时view的边距也正如设置的一样，零点坐标在（0，0）处。</p>
+<p>这时候，如果将view替换成tableView，展示效果如下：</p>
+<p>可以看到，tableView的cell并没有因为“穿透”效果而出现被遮挡的情况，这是由于苹果对滚动视图的特殊性进行处理：对于类ScrollView，系统默认默认控制器属性automaticallyAdjustsScrollViewInsets默认为YES。</p>
+<p>automaticallyAdjustsScrollViewInsets = YES时系统底层所干的事<br>scrollView的内容原本没有内边距，但是考虑到导航栏（高度44px）、状态栏（高度20px）、TabBar（高度49px）会挡住后面scrollView所展示的内容，系统自动为scrollView增加上下的内边距，这时候我们打印一下tableView的描述（友情提示：tableView继承自scrollView）：</p>
+<p>tableView描述.png</p>
+<p>可以看出，contentOffset（内容坐标偏移量）和contentSize（内容尺寸大小）都发生了变化，结合tableView自身的frame可以看出，系统自动为scrollView增加了顶部64px的内边距以及底部49px的内边距，正好是导航栏高度+状态栏高度以及TabBar高度。一旦手动在系统布局页面之前设置automaticallyAdjustsScrollViewInsets = NO，将会取消上述操作，届时scrollView内容将会被部分挡住。<br>请注意：上述的情况仅仅对UIScrollView或者子类（如UITableView）有效。</p>
+<p>非滚动视图中导致“鬼魅”的原因<br>从上述内容中，我们可以了解到滚动视图默认情况下系统会给滚动内容增加上下内边距，以防内容被导航条和TabBar遮挡，但是实际上在常用的项目界面结构（TabBarController–NavigationController–ViewController）以及系统默认情况下，viewController中的view是没有内边距的（也就是说view穿透上下两个Bar）。但是我们有时候会看到应用中会有这样的情形：非滚动视图依然有类似增加上下内边距的效果，自己并没有手动更改过视图的frame。这种情况，就要结合其他几个系统的属性来解释了。</p>
+<p>针对非滚动视图的需求</p>
+<p>由上述内容我们知道，默认情况下，导航条和TabBar都是半透明，添加在上面的控制器的视图会有“穿透”效果。如果现在有这样的需求：对于非滚动视图，从原点（0，0）布局，但是内容不被遮挡，能够正常显示。<br>这时候我们需要区分两种情况：是否需要导航条/TabBar带有半透明效果。</p>
+<p>保留半透明效果（导航条/TabBar的translucent == YES）</p>
+<p>手动修改frame布局，从（0，64）开始布局，底部同理，需要计算坐标尺寸，比较繁琐。<br>修改viewController的edgesForExtendedLayout属性，edgesForExtendedLayout = UIRectEdgeNone<br>（备注：设置后，控制器的view的frame的坐标Y增加64px紧挨着navigationBar下方，底部同理，该属性支持iOS7及以后的版本。）<br>注意：这里虽然看着导航条和TabBar还有半透明效果，但是实际上下面的内容已经无法再”穿透“了。<br>运行效果如下图所示：</p>
+<p>不保留半透明效果（导航条/TabBar的translucent == NO）<br>将TabBar和导航条的translucent属性分别设置为NO，不做任何其他修改，此时bar的背景颜色为默认的白色，且不再有色差，运行效果如下图所示：</p>
+<p>导航条的translucent设置为NO效果展示</p>
+<p>TabBar的translucent设置为NO效果展示<br>关于iOS7之后与view全屏相关的知识点</p>
+<p>在iOS7之后，默认情况下，控制器的view是”全屏“的，也就是说，即便有TabBar或者NavigationBar，控制器的view也是可以”穿透至全屏“的，针对这一特性，苹果对UIViewController提供了以下几个属性供开发者使用：</p>
+<p>// 在iOS7之前，控制器的view默认非全屏，如果想要全屏效果，需要设置为YES，该属性已从iOS7开始过期<br>@property(nonatomic,assign) BOOL wantsFullScreenLayout NS_DEPRECATED_IOS(3_0, 7_0) __TVOS_PROHIBITED;<br>// Deprecated in 7_0, Replaced by the following:  该属性被以下三个属性代替</p>
+<p>// Defaults to UIRectEdgeAll<br>@property(nonatomic,assign) UIRectEdge edgesForExtendedLayout NS_AVAILABLE_IOS(7_0); </p>
+<p>// Defaults to NO, but bars are translucent by default on 7_0.<br>@property(nonatomic,assign) BOOL extendedLayoutIncludesOpaqueBars NS_AVAILABLE_IOS(7_0); </p>
+<p>// Defaults to YES<br>@property(nonatomic,assign) BOOL automaticallyAdjustsScrollViewInsets NS_AVAILABLE_IOS(7_0);<br>下面解释一下这三个属性：</p>
+<p>edgesForExtendedLayout：意思是view的边缘允许额外布局的情况，默认为UIRectEdgeAll，意味着全屏布局（带穿透效果）。</p>
+<p>extendedLayoutIncludesOpaqueBars：意思是额外布局是否包括不透明的Bar，默认为NO，意味着如果导航条或者TabBar非透明，view内容不会被他们遮挡，如果该属性设置为YES，那么在导航条或者TabBar非透明的情况下，view的内容将会被他们遮挡（原点为0，0），该属性仅仅对非透明的Bar控件有效。<br>示例展示如下图所示（代码设置 navigationBar.translucent = NO 并且 extendedLayoutIncludesOpaqueBars = YES）</p>
+<p>非透明导航条遮挡内容效果展示<br>automaticallyAdjustsScrollViewInsets：意思是是否由系统自动调整滚动视图的内边距，默认为YES，意味着系统将会根据导航条和TabBar的情况自动增加上下内边距以防止滚动视图的内容被Bar遮挡。</p>
+<p>设置导航条或者TabBar背景图片的注意事项</p>
+<p>这里会详细解释官方文档对translucent属性的注释，为什么放到这里才说？因为官方文档对该属性的解释全部跟设置导航条或者TabBar的背景图片有关！说明苹果也知道，这里坑很多，下面就来梳理一下吧。。。</p>
+<p>translucent属性的官方解释</p>
+<p>UINavigationBar/UITabBar的translucent属性解释：默认为YES，可以通过设置NO来强制使用非透明背景，如果导航条使用自定义背景图片，那么默认情况该属性的值由图片的alpha（透明度）决定，如果alpha的透明度小于1.0值为YES。如果手动设置translucent为YES并且使用自定义不透明图片，那么会自动设置系统透明度（小于1.0）在这个图片上。如果手动设置translucent为NO并且使用自定义带透明度（透明度小于0）的图片，那么系统会展示这张背景图片，只不过这张图片会使用事先确定的barTintColor进行不透明处理，若barTintColor为空，则会使用UIBarStyleBlack（黑色）或者UIBarStyleDefault（白色）。<br>设置导航栏背景图片透明度问题</p>
+<p>如果背景图片没有透明度，系统会自动把导航控制器的栈顶控制器的view的Y值增加64，如果没有透明度，则不会增加。<br>这一情况的图片必须是imageSet格式的，并且图片的透明度为1（不透明），系统才会去调整</p>
 
       
     </div>
@@ -270,13 +311,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2016/05/03/rsync/">rsync命令参数</a></p>
+        <p><span>本文标题:</span><a href="/2017/01/23/trans/">UIViewController中self.view的位置</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">Lynn Cheng</a></p>
-        <p><span>发布时间:</span>2016-05-03, 17:43:00</p>
-        <p><span>最后更新:</span>2016-05-04, 09:40:06</p>
+        <p><span>发布时间:</span>2017-01-23, 16:28:54</p>
+        <p><span>最后更新:</span>2017-01-23, 16:33:06</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2016/05/03/rsync/" title="rsync命令参数">http://lynncheng.github.io/2016/05/03/rsync/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://lynncheng.github.io/2016/05/03/rsync/　　作者: Lynn Cheng" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2017/01/23/trans/" title="UIViewController中self.view的位置">http://lynncheng.github.io/2017/01/23/trans/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://lynncheng.github.io/2017/01/23/trans/　　作者: Lynn Cheng" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
@@ -288,16 +329,10 @@
 
     <nav id="article-nav">
         
-            <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2016/05/04/capturepackage/">
-                    iOS APP抓包方法介绍之tcpdump
-                </a>
-            </div>
-        
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2016/04/29/测试在线编辑/">
-                    ssl交互handshake failure故障一则
+                <a href="/2017/01/22/如何区分模拟器和真机调试/">
+                    如何区分模拟器和真机调试
                 </a>
             </div>
         
@@ -365,7 +400,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"rsync命令参数　| LynnCheng　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"UIViewController中self.view的位置　| LynnCheng　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -381,7 +416,7 @@
     
       <div class="duoshuo" id="comments">
     <!-- 多说评论框 start -->
-    <div class="ds-thread" data-thread-key="2016/05/03/rsync/" data-title="rsync命令参数" data-url="http://lynncheng.github.io/2016/05/03/rsync/"></div>
+    <div class="ds-thread" data-thread-key="2017/01/23/trans/" data-title="UIViewController中self.view的位置" data-url="http://lynncheng.github.io/2017/01/23/trans/"></div>
     <!-- 多说评论框 end -->
     <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
     <script type="text/javascript">
@@ -405,15 +440,13 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2016/05/04/capturepackage/" title="上一篇: iOS APP抓包方法介绍之tcpdump">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
 
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2016/04/29/测试在线编辑/" title="下一篇: ssl交互handshake failure故障一则">
+            <a href="/2017/01/22/如何区分模拟器和真机调试/" title="下一篇: 如何区分模拟器和真机调试">
                 <i class="fa fa-angle-right"></i>
             </a>
         
