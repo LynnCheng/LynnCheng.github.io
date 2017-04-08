@@ -3,24 +3,24 @@
 <head>
   <meta charset="utf-8">
   
-  <title>使用hexo撰写博客 | LynnCheng</title>
+  <title>优雅的开发Swift和Objective C混编的Framework | LynnCheng</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="发布新博客:1$ hexo new &quot;My New Post&quot;
-More info: Writing
-本地运行hexo查看结果:1$ hexo server">
+  <meta name="description" content="如果你之前没有用Swift和Objective C混合开发，建议看看这篇文档：
+Swift and Objective-C in the Same Project这篇文档很详细的讲解了如何运用Objective C和Swift进行混合开发App和Framework。于是，我们先按照文档来写一个混编的Framework
+按照文档一步一步来">
 <meta property="og:type" content="article">
-<meta property="og:title" content="使用hexo撰写博客">
-<meta property="og:url" content="http://lynncheng.github.io/2016/04/29/hello-world/index.html">
+<meta property="og:title" content="优雅的开发Swift和Objective C混编的Framework">
+<meta property="og:url" content="http://lynncheng.github.io/2017/04/08/framework-1/index.html">
 <meta property="og:site_name" content="LynnCheng">
-<meta property="og:description" content="发布新博客:1$ hexo new &quot;My New Post&quot;
-More info: Writing
-本地运行hexo查看结果:1$ hexo server">
-<meta property="og:updated_time" content="2016-05-03T10:42:30.000Z">
+<meta property="og:description" content="如果你之前没有用Swift和Objective C混合开发，建议看看这篇文档：
+Swift and Objective-C in the Same Project这篇文档很详细的讲解了如何运用Objective C和Swift进行混合开发App和Framework。于是，我们先按照文档来写一个混编的Framework
+按照文档一步一步来">
+<meta property="og:updated_time" content="2017-04-08T07:45:33.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="使用hexo撰写博客">
-<meta name="twitter:description" content="发布新博客:1$ hexo new &quot;My New Post&quot;
-More info: Writing
-本地运行hexo查看结果:1$ hexo server">
+<meta name="twitter:title" content="优雅的开发Swift和Objective C混编的Framework">
+<meta name="twitter:description" content="如果你之前没有用Swift和Objective C混合开发，建议看看这篇文档：
+Swift and Objective-C in the Same Project这篇文档很详细的讲解了如何运用Objective C和Swift进行混合开发App和Framework。于是，我们先按照文档来写一个混编的Framework
+按照文档一步一步来">
   
     <link rel="alternative" href="/atom.xml" title="LynnCheng" type="application/atom+xml">
   
@@ -233,11 +233,11 @@ More info: Writing
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
-      <div class="body-wrap"><article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-framework-1" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/04/29/hello-world/" class="article-date">
-      <time datetime="2016-04-29T02:55:00.000Z" itemprop="datePublished">2016-04-29</time>
+      <a href="/2017/04/08/framework-1/" class="article-date">
+      <time datetime="2017-04-08T07:42:13.000Z" itemprop="datePublished">2017-04-08</time>
 </a>
     </div>
   
@@ -250,7 +250,7 @@ More info: Writing
         
   
     <h1 class="article-title" itemprop="name">
-      使用hexo撰写博客
+      优雅的开发Swift和Objective C混编的Framework
     </h1>
   
 
@@ -267,15 +267,50 @@ More info: Writing
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>发布新博客:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure></p>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<p>本地运行hexo查看结果:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure></p>
-<a id="more"></a>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<p>生成静态页面:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure></p>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<p>发布博客:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure></p>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+        <p>如果你之前没有用Swift和Objective C混合开发，建议看看这篇文档：</p>
+<p>Swift and Objective-C in the Same Project<br>这篇文档很详细的讲解了如何运用Objective C和Swift进行混合开发App和Framework。于是，我们先按照文档来写一个混编的Framework</p>
+<p>按照文档一步一步来 <a id="more"></a></p>
+<p>新建一个基于单页面工程，然后新建一个一个Target，选中Cocoa Touch Framework。然后，分别新建一个Swift文件和Objective C类，注意Target Member Ship选中Framework。类的内容如下：</p>
+<p>OCSource.h</p>
+<p>#import <foundation foundation.h=""><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">@interface OCSource : NSObject</span><br><span class="line">- (void)functionFromOC;</span><br><span class="line">@end</span><br></pre></td></tr></table></figure></foundation></p>
+<p>OCSource.m<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">#import &quot;OCSource.h&quot;</span><br><span class="line"></span><br><span class="line">@implementation OCSource</span><br><span class="line"></span><br><span class="line">- (void)functionFromOC&#123;</span><br><span class="line">    NSLog(@&quot;%@&quot;,@&quot;Log from objective c in framework&quot;);</span><br><span class="line">&#125;</span><br><span class="line">@end</span><br></pre></td></tr></table></figure></p>
+<p>Swift调用OC</p>
+<p>新建SwiftSource.swift<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">open class SwiftIt&#123;</span><br><span class="line">    public init()&#123;&#125;</span><br><span class="line">    let ocObject = OCSource()</span><br><span class="line">    public func encapsulate()&#123;</span><br><span class="line">        ocObject.functionFromOC()</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>然后，按照文档中，为了让Swift文件访问Objective C文件，我们应该在umbrella header，也就是MixFramework.h中，暴露所需要的header。</p>
+<p>也就是，MixFramework.h,<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">#import &lt;MixFramework/OCSource.h&gt;</span><br></pre></td></tr></table></figure></p>
+<p>然后，自信满满的点击build。</p>
+<p>Boom～～～，编译不通过。</p>
+<p>原因：OCSource.h默认编译的时候是Project权限. 为了在umbrella header中使用，要把这个文件的权限改成Public<br>按照图中的方式拖过去即可。</p>
+<p>嗯，现在build，可以看到build成功了。</p>
+<p>OC调用Swift</p>
+<p>在SwiftSource.swift中，增加一个类，<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">open class ClassForOC:NSObject&#123;</span><br><span class="line">    public static let textForOC = &quot;textForOC&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>然后，为了在OC中调用Swift的方法，我们需要导入头文件，这时候，OCSource.m文件内容如下</p>
+<p>#import “OCSource.h”</p>
+<p>#import <mixframework mixframework-swift.h=""></mixframework></p>
+<p>@implementation OCSource<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">- (void)functionFromOC&#123;</span><br><span class="line">    NSLog(@&quot;%@&quot;,[ClassForOC textForOC]);</span><br><span class="line">&#125;</span><br><span class="line">@end</span><br></pre></td></tr></table></figure></p>
+<p>然后，build，发现成功了，很开心。</p>
+<p>外部调用</p>
+<p>在ViewController.swift中，我们调用Framework中的内容。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">import MixFramework</span><br><span class="line">class ViewController: UIViewController &#123;</span><br><span class="line">    var t = SwiftIt()</span><br><span class="line">    override func viewDidLoad() &#123;</span><br><span class="line">        super.viewDidLoad()</span><br><span class="line">        t.encapsulate()</span><br><span class="line">        // Do any additional setup after loading the view, typically from a nib.</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    override func didReceiveMemoryWarning() &#123;</span><br><span class="line">        super.didReceiveMemoryWarning()</span><br><span class="line">        // Dispose of any resources that can be recreated.</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>然后运行，发现控制台打印出</p>
+<p>2017-03-02 16:08:24.000 HostApplication[19524:167669] textForOC</p>
+<p>嗯，framework打包成功了。</p>
+<p>问题</p>
+<p>通常，我们希望暴露给外部的接口是纯Swift，而OC文件的具体接口应该隐藏，这就是我标题中的优雅两个字的含义。</p>
+<p>如果你好奇，你会发现，在ViewController.swift中你可以这么调用</p>
+<pre><code>var s = OCSource()
+</code></pre><p>也就是说，OC的内容也暴露出来了，这破坏了Framework的封装特性。</p>
+<p>通过查看MixFramework的编译结果，发现最后暴露出的接口是这样子的<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">import Foundation</span><br><span class="line">import MixFramework.OCSource</span><br><span class="line">import MixFramework</span><br><span class="line">import MixFramework.Swift</span><br><span class="line">import SwiftOnoneSupport</span><br><span class="line">import UIKit</span><br><span class="line"></span><br><span class="line">//</span><br><span class="line">//  MixFramework.h</span><br><span class="line">//  MixFramework</span><br><span class="line">//</span><br><span class="line">//  Created by Leo on 2017/3/2.</span><br><span class="line">//  Copyright © 2017年 Leo Huang. All rights reserved.</span><br><span class="line">//</span><br><span class="line"></span><br><span class="line">//! Project version number for MixFramework.</span><br><span class="line">public var MixFrameworkVersionNumber: Double</span><br><span class="line">open class ClassForOC : NSObject &#123;</span><br><span class="line"></span><br><span class="line">    public static let textForOC: String</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">open class SwiftIt &#123;</span><br><span class="line"></span><br><span class="line">    public init()</span><br><span class="line"></span><br><span class="line">    public func encapsulate()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>这一行，把OC对应的实现暴露出来了</p>
+<p>import MixFramework.OCSource<br>1<br>1<br>优雅的解决方案</p>
+<p>不再通过umbrella header的方式让framework中的Swift调用OC方法。而是通过modulemap。</p>
+<p>新建一个module.modulemap文件，内容如下</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">module OCSource [system] &#123;</span><br><span class="line">    //由于module.modulemap和OCSource.h是在同一个文件夹的，如果不是同一个，路径要写全</span><br><span class="line">    header &quot;OCSource.h&quot;</span><br><span class="line">    export *</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这里的#(SRCROOT)是XCode的宏，会自动替换成项目所在的根目录，这里输入的路径是module.modulemap文件所在的路径。</p>
+<p>然后，删除MixFramework.h(umbrella header)中#import 的OC header。</p>
+<p>把OCSource.h的权限改回默认的project。</p>
+<p>再编译，发现OC的类被隐藏了。</p>
+<p>总结</p>
+<p>如果你要开发一个framework，一定要想清楚哪些接口暴露出去，哪些封装起来，framework不是简单把一包文件加个壳子。</p>
 
       
     </div>
@@ -284,13 +319,13 @@ More info: Writing
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2016/04/29/hello-world/">使用hexo撰写博客</a></p>
+        <p><span>本文标题:</span><a href="/2017/04/08/framework-1/">优雅的开发Swift和Objective C混编的Framework</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">Lynn Cheng</a></p>
-        <p><span>发布时间:</span>2016-04-29, 10:55:00</p>
-        <p><span>最后更新:</span>2016-05-03, 18:42:30</p>
+        <p><span>发布时间:</span>2017-04-08, 15:42:13</p>
+        <p><span>最后更新:</span>2017-04-08, 15:45:33</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2016/04/29/hello-world/" title="使用hexo撰写博客">http://lynncheng.github.io/2016/04/29/hello-world/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://lynncheng.github.io/2016/04/29/hello-world/　　作者: Lynn Cheng" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2017/04/08/framework-1/" title="优雅的开发Swift和Objective C混编的Framework">http://lynncheng.github.io/2017/04/08/framework-1/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://lynncheng.github.io/2017/04/08/framework-1/　　作者: Lynn Cheng" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
@@ -302,12 +337,12 @@ More info: Writing
 
     <nav id="article-nav">
         
-            <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2016/04/29/my-new-post/">
-                    ios开发过程中遇到的一些小坑
+        
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="/2017/03/22/useragent/">
+                    更改 UIWebview 的useragent
                 </a>
             </div>
-        
         
     </nav>
 
@@ -373,7 +408,7 @@ More info: Writing
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"使用hexo撰写博客　| LynnCheng　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"优雅的开发Swift和Objective C混编的Framework　| LynnCheng　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -389,7 +424,7 @@ More info: Writing
     
       <div class="duoshuo" id="comments">
     <!-- 多说评论框 start -->
-    <div class="ds-thread" data-thread-key="2016/04/29/hello-world/" data-title="使用hexo撰写博客" data-url="http://lynncheng.github.io/2016/04/29/hello-world/"></div>
+    <div class="ds-thread" data-thread-key="2017/04/08/framework-1/" data-title="优雅的开发Swift和Objective C混编的Framework" data-url="http://lynncheng.github.io/2017/04/08/framework-1/"></div>
     <!-- 多说评论框 end -->
     <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
     <script type="text/javascript">
@@ -413,15 +448,15 @@ More info: Writing
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2016/04/29/my-new-post/" title="上一篇: ios开发过程中遇到的一些小坑">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
 
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
+            <a href="/2017/03/22/useragent/" title="下一篇: 更改 UIWebview 的useragent">
+                <i class="fa fa-angle-right"></i>
+            </a>
         
     </div>
 
