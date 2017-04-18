@@ -233,6 +233,65 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-一种规避多线程下全局变量异常的方法" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/08/12/一种规避多线程下全局变量异常的方法/" class="article-date">
+      <time datetime="2016-08-12T07:31:01.000Z" itemprop="datePublished">2016-08-12</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/08/12/一种规避多线程下全局变量异常的方法/">一种规避多线程下全局变量异常的方法</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+              <p>问题代码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">//全局变量，可能会在多个线程被赋值</span><br><span class="line">var name:String?</span><br><span class="line">var arr:[NSObject : AnyObject]?</span><br><span class="line"></span><br><span class="line">//某个类的代码片段</span><br><span class="line">if (name == nil || if arr == nil) &#123;</span><br><span class="line">    return</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">if arr[name] == nil &#123;  //有时候，这里会引发crash</span><br><span class="line">    return</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>原因分析：
+          
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+        <p class="article-more-link">
+          <a href="/2016/08/12/一种规避多线程下全局变量异常的方法/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-frameworka" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -740,61 +799,6 @@
         <p class="article-more-link">
           <a href="/2016/07/09/iosTree/#more">more >></a>
         </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-runerror" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/07/08/runerror/" class="article-date">
-      <time datetime="2016-07-08T05:22:59.000Z" itemprop="datePublished">2016-07-08</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/07/08/runerror/">dyld: Library not loaded as image not found</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p>APP运行时的错误日志：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">dyld: Library not loaded: @rpath/softCamera.framework/softCamera</span><br><span class="line">  Referenced from: /var/containers/Bundle/Application/7AE9BCCF-E583-4015-85EC-A2D48F5182D1/ZTE.app/ZTE</span><br><span class="line">  Reason: image not found</span><br></pre></td></tr></table></figure></p>
-<p>解决方案：<br>把softcamera framework 添加到“general”－&gt; “Embedded binaries”; 而不是”general”-&gt;”Linked framework and library”</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
       
       <div class="clearfix"></div>
     </div>

@@ -293,6 +293,60 @@
 
 
   
+    <article id="post-framework" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/04/08/framework/" class="article-date">
+      <time datetime="2017-04-08T07:42:00.000Z" itemprop="datePublished">2017-04-08</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/04/08/framework/">不更新xcode的情况下更新支持最新版本ios系统</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>从已经安装了最新版本xcode的机器上找到最新ios系统的支持包，拷贝到目标电脑到相关目录下：Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/DeviceSupport</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-useragent" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -728,65 +782,6 @@
       
 
       
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-一种规避多线程下全局变量异常的方法" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/08/12/一种规避多线程下全局变量异常的方法/" class="article-date">
-      <time datetime="2016-08-12T07:31:01.000Z" itemprop="datePublished">2016-08-12</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/08/12/一种规避多线程下全局变量异常的方法/">一种规避多线程下全局变量异常的方法</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              <p>问题代码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">//全局变量，可能会在多个线程被赋值</span><br><span class="line">var name:String?</span><br><span class="line">var arr:[NSObject : AnyObject]?</span><br><span class="line"></span><br><span class="line">//某个类的代码片段</span><br><span class="line">if (name == nil || if arr == nil) &#123;</span><br><span class="line">    return</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">if arr[name] == nil &#123;  //有时候，这里会引发crash</span><br><span class="line">    return</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>原因分析：
-          
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-      
-        <p class="article-more-link">
-          <a href="/2016/08/12/一种规避多线程下全局变量异常的方法/#more">more >></a>
-        </p>
       
       <div class="clearfix"></div>
     </div>
