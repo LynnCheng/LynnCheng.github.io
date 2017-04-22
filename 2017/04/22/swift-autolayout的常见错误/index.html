@@ -3,18 +3,21 @@
 <head>
   <meta charset="utf-8">
   
-  <title>一种规避多线程下全局变量异常的方法 | LynnCheng</title>
+  <title>swift autolayout的常见错误 | LynnCheng</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="问题代码：123456789101112//全局变量，可能会在多个线程被赋值var name:String?var arr:[NSObject : AnyObject]?//某个类的代码片段if (name == nil || if arr == nil) &amp;#123;    return&amp;#125;if arr[name] == nil &amp;#123;  //有时候，这里会引发crash    r">
+  <meta name="description" content="如下图，一行中有图标、title、comment、箭头四个元素：1|-15-&amp;#123;icon&amp;#125;-15-&amp;#123;title&amp;#125;-15-&amp;#123;comment&amp;#125;-5-&amp;apos;&amp;gt;&amp;apos;-15-|
+设置autolayout规则的时候，除了如上图设置了各个元素之间的间距外，还添加了comment和title的最大宽度；但运行的时候发现，如果title、">
 <meta property="og:type" content="article">
-<meta property="og:title" content="一种规避多线程下全局变量异常的方法">
-<meta property="og:url" content="http://lynncheng.github.io/2016/08/12/一种规避多线程下全局变量异常的方法/index.html">
+<meta property="og:title" content="swift autolayout的常见错误">
+<meta property="og:url" content="http://lynncheng.github.io/2017/04/22/swift-autolayout的常见错误/index.html">
 <meta property="og:site_name" content="LynnCheng">
-<meta property="og:description" content="问题代码：123456789101112//全局变量，可能会在多个线程被赋值var name:String?var arr:[NSObject : AnyObject]?//某个类的代码片段if (name == nil || if arr == nil) &amp;#123;    return&amp;#125;if arr[name] == nil &amp;#123;  //有时候，这里会引发crash    r">
-<meta property="og:updated_time" content="2016-08-12T07:44:29.000Z">
+<meta property="og:description" content="如下图，一行中有图标、title、comment、箭头四个元素：1|-15-&amp;#123;icon&amp;#125;-15-&amp;#123;title&amp;#125;-15-&amp;#123;comment&amp;#125;-5-&amp;apos;&amp;gt;&amp;apos;-15-|
+设置autolayout规则的时候，除了如上图设置了各个元素之间的间距外，还添加了comment和title的最大宽度；但运行的时候发现，如果title、">
+<meta property="og:updated_time" content="2017-04-22T07:33:11.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="一种规避多线程下全局变量异常的方法">
-<meta name="twitter:description" content="问题代码：123456789101112//全局变量，可能会在多个线程被赋值var name:String?var arr:[NSObject : AnyObject]?//某个类的代码片段if (name == nil || if arr == nil) &amp;#123;    return&amp;#125;if arr[name] == nil &amp;#123;  //有时候，这里会引发crash    r">
+<meta name="twitter:title" content="swift autolayout的常见错误">
+<meta name="twitter:description" content="如下图，一行中有图标、title、comment、箭头四个元素：1|-15-&amp;#123;icon&amp;#125;-15-&amp;#123;title&amp;#125;-15-&amp;#123;comment&amp;#125;-5-&amp;apos;&amp;gt;&amp;apos;-15-|
+设置autolayout规则的时候，除了如上图设置了各个元素之间的间距外，还添加了comment和title的最大宽度；但运行的时候发现，如果title、">
   
     <link rel="alternative" href="/atom.xml" title="LynnCheng" type="application/atom+xml">
   
@@ -227,11 +230,11 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
-      <div class="body-wrap"><article id="post-一种规避多线程下全局变量异常的方法" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-swift-autolayout的常见错误" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/08/12/一种规避多线程下全局变量异常的方法/" class="article-date">
-      <time datetime="2016-08-12T07:31:01.000Z" itemprop="datePublished">2016-08-12</time>
+      <a href="/2017/04/22/swift-autolayout的常见错误/" class="article-date">
+      <time datetime="2017-04-22T07:20:25.000Z" itemprop="datePublished">2017-04-22</time>
 </a>
     </div>
   
@@ -244,7 +247,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      一种规避多线程下全局变量异常的方法
+      swift autolayout的常见错误
     </h1>
   
 
@@ -261,9 +264,9 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>问题代码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">//全局变量，可能会在多个线程被赋值</span><br><span class="line">var name:String?</span><br><span class="line">var arr:[NSObject : AnyObject]?</span><br><span class="line"></span><br><span class="line">//某个类的代码片段</span><br><span class="line">if (name == nil || if arr == nil) &#123;</span><br><span class="line">    return</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">if arr[name] == nil &#123;  //有时候，这里会引发crash</span><br><span class="line">    return</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>原因分析： <a id="more"></a><br>第一个if判断的时候，name还不是nil，所以能走到第二个if语句；结果，在第二个if执行前，name被别动线程赋值为nil了，所以引发crash</p>
-<p>修改方案：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">guard let curName = name else &#123;</span><br><span class="line">    return</span><br><span class="line">&#125;</span><br><span class="line">guard let curArr = arr else &#123;</span><br><span class="line">    return</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">guard let curAge = curArr[curName] else &#123;</span><br><span class="line">    return</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+        <p>如下图，一行中有图标、title、comment、箭头四个元素：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">|-15-&#123;icon&#125;-15-&#123;title&#125;-15-&#123;comment&#125;-5-&apos;&gt;&apos;-15-|</span><br></pre></td></tr></table></figure></p>
+<p>设置autolayout规则的时候，除了如上图设置了各个元素之间的间距外，还添加了comment和title的最大宽度；但运行的时候发现，如果title、comment字段都非常长，经常偶现icon消失的情况。</p>
+<p>故障原因：缺少一条icon宽度的规则，导致icon的宽度被挤成0了….</p>
 
       
     </div>
@@ -272,13 +275,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2016/08/12/一种规避多线程下全局变量异常的方法/">一种规避多线程下全局变量异常的方法</a></p>
+        <p><span>本文标题:</span><a href="/2017/04/22/swift-autolayout的常见错误/">swift autolayout的常见错误</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">Lynn Cheng</a></p>
-        <p><span>发布时间:</span>2016-08-12, 15:31:01</p>
-        <p><span>最后更新:</span>2016-08-12, 15:44:29</p>
+        <p><span>发布时间:</span>2017-04-22, 15:20:25</p>
+        <p><span>最后更新:</span>2017-04-22, 15:33:11</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2016/08/12/一种规避多线程下全局变量异常的方法/" title="一种规避多线程下全局变量异常的方法">http://lynncheng.github.io/2016/08/12/一种规避多线程下全局变量异常的方法/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://lynncheng.github.io/2016/08/12/一种规避多线程下全局变量异常的方法/　　作者: Lynn Cheng" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2017/04/22/swift-autolayout的常见错误/" title="swift autolayout的常见错误">http://lynncheng.github.io/2017/04/22/swift-autolayout的常见错误/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://lynncheng.github.io/2017/04/22/swift-autolayout的常见错误/　　作者: Lynn Cheng" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
@@ -290,16 +293,10 @@
 
     <nav id="article-nav">
         
-            <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2016/08/24/collectionviewcell/">
-                    collectionView超过一屏后，选择/去选的问题
-                </a>
-            </div>
-        
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2016/07/25/frameworka/">
-                    iOS库 .a与.framework区别
+                <a href="/2017/04/22/swift-framework的注释/">
+                    swift framework的注释
                 </a>
             </div>
         
@@ -367,7 +364,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"一种规避多线程下全局变量异常的方法　| LynnCheng　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"swift autolayout的常见错误　| LynnCheng　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -383,7 +380,7 @@
     
       <div class="duoshuo" id="comments">
     <!-- 多说评论框 start -->
-    <div class="ds-thread" data-thread-key="2016/08/12/一种规避多线程下全局变量异常的方法/" data-title="一种规避多线程下全局变量异常的方法" data-url="http://lynncheng.github.io/2016/08/12/一种规避多线程下全局变量异常的方法/"></div>
+    <div class="ds-thread" data-thread-key="2017/04/22/swift-autolayout的常见错误/" data-title="swift autolayout的常见错误" data-url="http://lynncheng.github.io/2017/04/22/swift-autolayout的常见错误/"></div>
     <!-- 多说评论框 end -->
     <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
     <script type="text/javascript">
@@ -407,15 +404,13 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2016/08/24/collectionviewcell/" title="上一篇: collectionView超过一屏后，选择/去选的问题">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
 
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2016/07/25/frameworka/" title="下一篇: iOS库 .a与.framework区别">
+            <a href="/2017/04/22/swift-framework的注释/" title="下一篇: swift framework的注释">
                 <i class="fa fa-angle-right"></i>
             </a>
         

@@ -3,18 +3,21 @@
 <head>
   <meta charset="utf-8">
   
-  <title>一种规避多线程下全局变量异常的方法 | LynnCheng</title>
+  <title>swift framework的注释 | LynnCheng</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="问题代码：123456789101112//全局变量，可能会在多个线程被赋值var name:String?var arr:[NSObject : AnyObject]?//某个类的代码片段if (name == nil || if arr == nil) &amp;#123;    return&amp;#125;if arr[name] == nil &amp;#123;  //有时候，这里会引发crash    r">
+  <meta name="description" content="参考链接：http://swifter.tips/documentation/
+ Swift 采用了一套新的文档注释方法，对于一个简单的方法，我们的文档注释看起来应该是这样的：12345678910/**A demo method- parameter input: An Int number- returns: The string represents the input number*/fu">
 <meta property="og:type" content="article">
-<meta property="og:title" content="一种规避多线程下全局变量异常的方法">
-<meta property="og:url" content="http://lynncheng.github.io/2016/08/12/一种规避多线程下全局变量异常的方法/index.html">
+<meta property="og:title" content="swift framework的注释">
+<meta property="og:url" content="http://lynncheng.github.io/2017/04/22/swift-framework的注释/index.html">
 <meta property="og:site_name" content="LynnCheng">
-<meta property="og:description" content="问题代码：123456789101112//全局变量，可能会在多个线程被赋值var name:String?var arr:[NSObject : AnyObject]?//某个类的代码片段if (name == nil || if arr == nil) &amp;#123;    return&amp;#125;if arr[name] == nil &amp;#123;  //有时候，这里会引发crash    r">
-<meta property="og:updated_time" content="2016-08-12T07:44:29.000Z">
+<meta property="og:description" content="参考链接：http://swifter.tips/documentation/
+ Swift 采用了一套新的文档注释方法，对于一个简单的方法，我们的文档注释看起来应该是这样的：12345678910/**A demo method- parameter input: An Int number- returns: The string represents the input number*/fu">
+<meta property="og:updated_time" content="2017-04-22T06:15:42.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="一种规避多线程下全局变量异常的方法">
-<meta name="twitter:description" content="问题代码：123456789101112//全局变量，可能会在多个线程被赋值var name:String?var arr:[NSObject : AnyObject]?//某个类的代码片段if (name == nil || if arr == nil) &amp;#123;    return&amp;#125;if arr[name] == nil &amp;#123;  //有时候，这里会引发crash    r">
+<meta name="twitter:title" content="swift framework的注释">
+<meta name="twitter:description" content="参考链接：http://swifter.tips/documentation/
+ Swift 采用了一套新的文档注释方法，对于一个简单的方法，我们的文档注释看起来应该是这样的：12345678910/**A demo method- parameter input: An Int number- returns: The string represents the input number*/fu">
   
     <link rel="alternative" href="/atom.xml" title="LynnCheng" type="application/atom+xml">
   
@@ -227,11 +230,11 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
-      <div class="body-wrap"><article id="post-一种规避多线程下全局变量异常的方法" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-swift-framework的注释" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/08/12/一种规避多线程下全局变量异常的方法/" class="article-date">
-      <time datetime="2016-08-12T07:31:01.000Z" itemprop="datePublished">2016-08-12</time>
+      <a href="/2017/04/22/swift-framework的注释/" class="article-date">
+      <time datetime="2017-04-22T06:10:42.000Z" itemprop="datePublished">2017-04-22</time>
 </a>
     </div>
   
@@ -244,7 +247,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      一种规避多线程下全局变量异常的方法
+      swift framework的注释
     </h1>
   
 
@@ -261,10 +264,11 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>问题代码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">//全局变量，可能会在多个线程被赋值</span><br><span class="line">var name:String?</span><br><span class="line">var arr:[NSObject : AnyObject]?</span><br><span class="line"></span><br><span class="line">//某个类的代码片段</span><br><span class="line">if (name == nil || if arr == nil) &#123;</span><br><span class="line">    return</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">if arr[name] == nil &#123;  //有时候，这里会引发crash</span><br><span class="line">    return</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>原因分析： <a id="more"></a><br>第一个if判断的时候，name还不是nil，所以能走到第二个if语句；结果，在第二个if执行前，name被别动线程赋值为nil了，所以引发crash</p>
-<p>修改方案：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">guard let curName = name else &#123;</span><br><span class="line">    return</span><br><span class="line">&#125;</span><br><span class="line">guard let curArr = arr else &#123;</span><br><span class="line">    return</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">guard let curAge = curArr[curName] else &#123;</span><br><span class="line">    return</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-
+        <p>参考链接：<a href="http://swifter.tips/documentation/" target="_blank" rel="external">http://swifter.tips/documentation/</a></p>
+<p> Swift 采用了一套新的文档注释方法，对于一个简单的方法，我们的文档注释看起来应该是这样的：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line">A demo method</span><br><span class="line"></span><br><span class="line">- parameter input: An Int number</span><br><span class="line"></span><br><span class="line">- returns: The string represents the input number</span><br><span class="line">*/</span><br><span class="line">func method(input: Int) -&gt; String &#123;</span><br><span class="line">    return String(input)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>在文档注释的块中 (在这里是被 /<em>*…</em>/ 包围的注释)，我们需要使用 - parameter 紧接输入参数名的形式来表达对输入参数的说明。如果有多个参数的情况下，我们会需要对应着写多组 - parameter 语句。如果返回值不是 Void 的话，我们还需要写 - returns: 来对返回进行说明。</p>
+<p>对于像属性这样的简单的声明，我们直接使用 /// 就可以了：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">///Homecare颜色定义</span><br><span class="line">public class HCColor : UIColor &#123;</span><br><span class="line">    ///APP 主色调，用于导航、按钮及重要的文字提醒等 浅蓝</span><br><span class="line">    public class func HCMainColor(alpha: CGFloat = default) -&gt; UIColor</span><br><span class="line">    </span><br><span class="line">    ....</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
     
@@ -272,13 +276,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2016/08/12/一种规避多线程下全局变量异常的方法/">一种规避多线程下全局变量异常的方法</a></p>
+        <p><span>本文标题:</span><a href="/2017/04/22/swift-framework的注释/">swift framework的注释</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">Lynn Cheng</a></p>
-        <p><span>发布时间:</span>2016-08-12, 15:31:01</p>
-        <p><span>最后更新:</span>2016-08-12, 15:44:29</p>
+        <p><span>发布时间:</span>2017-04-22, 14:10:42</p>
+        <p><span>最后更新:</span>2017-04-22, 14:15:42</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2016/08/12/一种规避多线程下全局变量异常的方法/" title="一种规避多线程下全局变量异常的方法">http://lynncheng.github.io/2016/08/12/一种规避多线程下全局变量异常的方法/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://lynncheng.github.io/2016/08/12/一种规避多线程下全局变量异常的方法/　　作者: Lynn Cheng" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2017/04/22/swift-framework的注释/" title="swift framework的注释">http://lynncheng.github.io/2017/04/22/swift-framework的注释/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://lynncheng.github.io/2017/04/22/swift-framework的注释/　　作者: Lynn Cheng" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
@@ -291,15 +295,15 @@
     <nav id="article-nav">
         
             <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2016/08/24/collectionviewcell/">
-                    collectionView超过一屏后，选择/去选的问题
+                <a href="/2017/04/22/swift-autolayout的常见错误/">
+                    swift autolayout的常见错误
                 </a>
             </div>
         
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2016/07/25/frameworka/">
-                    iOS库 .a与.framework区别
+                <a href="/2017/04/08/framework-1/">
+                    优雅的开发Swift和Objective C混编的Framework
                 </a>
             </div>
         
@@ -367,7 +371,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"一种规避多线程下全局变量异常的方法　| LynnCheng　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"swift framework的注释　| LynnCheng　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -383,7 +387,7 @@
     
       <div class="duoshuo" id="comments">
     <!-- 多说评论框 start -->
-    <div class="ds-thread" data-thread-key="2016/08/12/一种规避多线程下全局变量异常的方法/" data-title="一种规避多线程下全局变量异常的方法" data-url="http://lynncheng.github.io/2016/08/12/一种规避多线程下全局变量异常的方法/"></div>
+    <div class="ds-thread" data-thread-key="2017/04/22/swift-framework的注释/" data-title="swift framework的注释" data-url="http://lynncheng.github.io/2017/04/22/swift-framework的注释/"></div>
     <!-- 多说评论框 end -->
     <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
     <script type="text/javascript">
@@ -407,7 +411,7 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2016/08/24/collectionviewcell/" title="上一篇: collectionView超过一屏后，选择/去选的问题">
+            <a href="/2017/04/22/swift-autolayout的常见错误/" title="上一篇: swift autolayout的常见错误">
                 <i class="fa fa-angle-left"></i>
             </a>
         
@@ -415,7 +419,7 @@
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2016/07/25/frameworka/" title="下一篇: iOS库 .a与.framework区别">
+            <a href="/2017/04/08/framework-1/" title="下一篇: 优雅的开发Swift和Objective C混编的Framework">
                 <i class="fa fa-angle-right"></i>
             </a>
         

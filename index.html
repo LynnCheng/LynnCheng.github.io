@@ -233,6 +233,119 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-swift-autolayout的常见错误" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/04/22/swift-autolayout的常见错误/" class="article-date">
+      <time datetime="2017-04-22T07:20:25.000Z" itemprop="datePublished">2017-04-22</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/04/22/swift-autolayout的常见错误/">swift autolayout的常见错误</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>如下图，一行中有图标、title、comment、箭头四个元素：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">|-15-&#123;icon&#125;-15-&#123;title&#125;-15-&#123;comment&#125;-5-&apos;&gt;&apos;-15-|</span><br></pre></td></tr></table></figure></p>
+<p>设置autolayout规则的时候，除了如上图设置了各个元素之间的间距外，还添加了comment和title的最大宽度；但运行的时候发现，如果title、comment字段都非常长，经常偶现icon消失的情况。</p>
+<p>故障原因：缺少一条icon宽度的规则，导致icon的宽度被挤成0了….</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-swift-framework的注释" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/04/22/swift-framework的注释/" class="article-date">
+      <time datetime="2017-04-22T06:10:42.000Z" itemprop="datePublished">2017-04-22</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/04/22/swift-framework的注释/">swift framework的注释</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>参考链接：<a href="http://swifter.tips/documentation/" target="_blank" rel="external">http://swifter.tips/documentation/</a></p>
+<p> Swift 采用了一套新的文档注释方法，对于一个简单的方法，我们的文档注释看起来应该是这样的：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line">A demo method</span><br><span class="line"></span><br><span class="line">- parameter input: An Int number</span><br><span class="line"></span><br><span class="line">- returns: The string represents the input number</span><br><span class="line">*/</span><br><span class="line">func method(input: Int) -&gt; String &#123;</span><br><span class="line">    return String(input)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>在文档注释的块中 (在这里是被 /<em>*…</em>/ 包围的注释)，我们需要使用 - parameter 紧接输入参数名的形式来表达对输入参数的说明。如果有多个参数的情况下，我们会需要对应着写多组 - parameter 语句。如果返回值不是 Void 的话，我们还需要写 - returns: 来对返回进行说明。</p>
+<p>对于像属性这样的简单的声明，我们直接使用 /// 就可以了：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">///Homecare颜色定义</span><br><span class="line">public class HCColor : UIColor &#123;</span><br><span class="line">    ///APP 主色调，用于导航、按钮及重要的文字提醒等 浅蓝</span><br><span class="line">    public class func HCMainColor(alpha: CGFloat = default) -&gt; UIColor</span><br><span class="line">    </span><br><span class="line">    ....</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-framework-1" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -688,120 +801,9 @@
 
 
   
-    <article id="post-UITableView" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/09/03/UITableView/" class="article-date">
-      <time datetime="2016-09-03T13:45:04.000Z" itemprop="datePublished">2016-09-03</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/09/03/UITableView/">UITableView的一些技术细节</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p>1.plain样式 section footer &amp; header层在cell contentview的上面<br>  group样式则相反，section footer &amp; header层在cell contentview的下面<br>  所以如果希望在footer上显示单元格的一些扩充内容，则必现使用group样式</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-collectionviewcell" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/08/24/collectionviewcell/" class="article-date">
-      <time datetime="2016-08-24T11:22:15.000Z" itemprop="datePublished">2016-08-24</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/08/24/collectionviewcell/">collectionView超过一屏后，选择/去选的问题</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p>出问题的代码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">for item in (self.collectionView?.indexPathsForSelectedItems())!</span><br><span class="line">&#123;</span><br><span class="line">    let cell = self.collectionView!.cellForItemAtIndexPath(item)</span><br><span class="line">    cell.selected = false</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>故障描述：设置后，单元格确实处于非选中状态了；但滚动一下滚动条，部分单元格又恢复成选中状态……</p>
-<p>优化代码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">for item in (self.collectionView?.indexPathsForSelectedItems())!</span><br><span class="line">&#123;</span><br><span class="line">    self.collectionView?.deselectItemAtIndexPath(item, animated: false)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>问题分析：cell类似于局部变量，滚动到屏幕外，cell就会被释放了，所以设置的selected属性就失效了。<br>而collectionView因为一直处于前台，所以不会被释放</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
     </nav>
   
 </div>

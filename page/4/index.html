@@ -233,6 +233,61 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-vlctab" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/06/06/vlctab/" class="article-date">
+      <time datetime="2016-06-06T11:44:15.000Z" itemprop="datePublished">2016-06-06</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/06/06/vlctab/">升级vlc后，播放器的单击事件失效</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>vlc升级到v2.2.0以后，在modules/video_output/ios2.m文件中，添加了tapRecognized事件。所以在使用libvlc实现播放器的时候，应该注意规避改问题。<br>解决方案一：修改源码，把单击事件相关代码去掉，搜一下taprecognized相关的代码就行，主要是<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">if (sys-&gt;viewContainer.window) &#123;</span><br><span class="line">    if (sys-&gt;viewContainer.window.rootViewController) &#123;</span><br><span class="line">        if (sys-&gt;viewContainer.window.rootViewController.view)</span><br><span class="line">            [sys-&gt;viewContainer.superview addGestureRecognizer:sys-&gt;tapRecognizer];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">sys-&gt;tapRecognizer.cancelsTouchesInView = NO;</span><br></pre></td></tr></table></figure></p>
+<p>解决方案二：不修改vlc的源码，在视频显示界面上再添加一层视图，接收单击事件</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-Swift开发点滴" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -766,69 +821,9 @@
 
 
   
-    <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/04/29/hello-world/" class="article-date">
-      <time datetime="2016-04-29T02:55:00.000Z" itemprop="datePublished">2016-04-29</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/04/29/hello-world/">使用hexo撰写博客</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              <p>发布新博客:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure></p>
-<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
-<p>本地运行hexo查看结果:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure></p>
-          
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-      
-        <p class="article-more-link">
-          <a href="/2016/04/29/hello-world/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/3/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span>
+      <a class="extend prev" rel="prev" href="/page/3/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/5/">Next &raquo;</a>
     </nav>
   
 </div>
