@@ -3,21 +3,30 @@
 <head>
   <meta charset="utf-8">
   
-  <title>更改 UIWebview 的useragent | LynnCheng</title>
+  <title>rn遇过的那些坑 | LynnCheng</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="获取UIWebView的useragent：12UIWebView* webView = [[UIWebView alloc] initWithFrame:CGRectZero];  NSString* secretAgent = [webView stringByEvaluatingJavaScriptFromString:@&amp;quot;navigator.userAgent&amp;quot;];
-附">
+  <meta name="description" content="title: rn遇过的那些坑
+tags:RN, React Native
+react navigation怎么传递参数到下一界面？怎么传递参数到上一界面
+每个界面都要实现navigationOptions的所有细节？//不需要！可以定义一个screen的基类，后续所有界面都基于该基类实现//或者在TabNavigator等上实现
+为什么每个页面都要在componentDidMount中拦截and">
 <meta property="og:type" content="article">
-<meta property="og:title" content="更改 UIWebview 的useragent">
-<meta property="og:url" content="http://lynncheng.github.io/2017/03/22/useragent/index.html">
+<meta property="og:title" content="rn遇过的那些坑">
+<meta property="og:url" content="http://lynncheng.github.io/2017/07/11/rn遇过的那些坑/index.html">
 <meta property="og:site_name" content="LynnCheng">
-<meta property="og:description" content="获取UIWebView的useragent：12UIWebView* webView = [[UIWebView alloc] initWithFrame:CGRectZero];  NSString* secretAgent = [webView stringByEvaluatingJavaScriptFromString:@&amp;quot;navigator.userAgent&amp;quot;];
-附">
-<meta property="og:updated_time" content="2017-03-22T10:22:55.000Z">
+<meta property="og:description" content="title: rn遇过的那些坑
+tags:RN, React Native
+react navigation怎么传递参数到下一界面？怎么传递参数到上一界面
+每个界面都要实现navigationOptions的所有细节？//不需要！可以定义一个screen的基类，后续所有界面都基于该基类实现//或者在TabNavigator等上实现
+为什么每个页面都要在componentDidMount中拦截and">
+<meta property="og:updated_time" content="2017-07-12T05:58:24.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="更改 UIWebview 的useragent">
-<meta name="twitter:description" content="获取UIWebView的useragent：12UIWebView* webView = [[UIWebView alloc] initWithFrame:CGRectZero];  NSString* secretAgent = [webView stringByEvaluatingJavaScriptFromString:@&amp;quot;navigator.userAgent&amp;quot;];
-附">
+<meta name="twitter:title" content="rn遇过的那些坑">
+<meta name="twitter:description" content="title: rn遇过的那些坑
+tags:RN, React Native
+react navigation怎么传递参数到下一界面？怎么传递参数到上一界面
+每个界面都要实现navigationOptions的所有细节？//不需要！可以定义一个screen的基类，后续所有界面都基于该基类实现//或者在TabNavigator等上实现
+为什么每个页面都要在componentDidMount中拦截and">
   
     <link rel="alternative" href="/atom.xml" title="LynnCheng" type="application/atom+xml">
   
@@ -230,11 +239,11 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
-      <div class="body-wrap"><article id="post-useragent" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-rn遇过的那些坑" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2017/03/22/useragent/" class="article-date">
-      <time datetime="2017-03-22T10:18:03.000Z" itemprop="datePublished">2017-03-22</time>
+      <a href="/2017/07/11/rn遇过的那些坑/" class="article-date">
+      <time datetime="2017-07-11T11:39:00.000Z" itemprop="datePublished">2017-07-11</time>
 </a>
     </div>
   
@@ -247,7 +256,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      更改 UIWebview 的useragent
+      rn遇过的那些坑
     </h1>
   
 
@@ -264,9 +273,21 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>获取UIWebView的useragent：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">UIWebView* webView = [[UIWebView alloc] initWithFrame:CGRectZero];  </span><br><span class="line">NSString* secretAgent = [webView stringByEvaluatingJavaScriptFromString:@&quot;navigator.userAgent&quot;];</span><br></pre></td></tr></table></figure></p>
-<p>附加自定义字段到 Useragent中<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">NSString *newUagent = [NSString stringWithFormat:@&quot;%@ appname/3.5.2&quot;,secretAgent];  </span><br><span class="line">NSDictionary *dictionary = [[NSDictionary alloc]  </span><br><span class="line">                                initWithObjectsAndKeys:newUagent, @&quot;UserAgent&quot;, nil nil];  </span><br><span class="line">[[NSUserDefaults standardUserDefaults] registerDefaults:dictionary];</span><br></pre></td></tr></table></figure></p>
-<p>但应该注意的事，设置了useragent以后，需要过一段时间才能生效，所以一般是在appdelegate.m中就去改；如果在UIWebViewController初始化的时候再去更改的话，就有会导致有些请求还是原来的useragent</p>
+        <p>title: rn遇过的那些坑</p>
+<h2 id="tags-RN-React-Native"><a href="#tags-RN-React-Native" class="headerlink" title="tags:RN, React Native"></a>tags:RN, React Native</h2><ol>
+<li>react navigation怎么传递参数到下一界面？怎么传递参数到上一界面</li>
+<li>每个界面都要实现navigationOptions的所有细节？<br>//不需要！可以定义一个screen的基类，后续所有界面都基于该基类实现<br>//或者在TabNavigator等上实现</li>
+<li>为什么每个页面都要在componentDidMount中拦截android回退按钮事件？<br>//不需要！可以定义一个screen的基类，后续所有界面都基于该基类实现</li>
+<li>组件之间通信（4-8 链接：<a href="http://www.jianshu.com/p/48df06330967）" target="_blank" rel="external">http://www.jianshu.com/p/48df06330967）</a></li>
+</ol>
+<p>子组件调用父组件的方法：子组件要拿到父组件的属性，需要通过this.props方法。每次父组件修改了传入的属性，子组件会收到通知，会自动获取新的属性。</p>
+<p>父组件调用子组件的方法：在ReactJS中通过ref属性。该属性类似与给组件起名字。父组件可以通过this.ref.xxx来获取到该组件</p>
+<ol>
+<li>创建不定数View，在return方法中不支持for语句<br>(1).采用MAP形式<br>(2).采用数组的形式</li>
+</ol>
+<p>6 ref 属性</p>
+<p>7.网络请求加载Loading框注意的地方<br>Loading 框采用的是IOS原生封装，在RN页面进行网络请求注意延迟200ms左右<br>this.timer = setTimeout(()=&gt;{this._fetchData();}, 200);<br>避免Loading 框在上一页面。</p>
+<p>8.关于倒计时问题<br>产品详情页有倒计时功能，但应用切换到后台后，倒计时开始停止工作，这时候需要重新校准时间。所以需要应用的状态<br>RN中使用APPState来查看应用状态<br>通过此接口可以获悉应用在当前处于后台还是前台激活的状态，常用方法和应用场景类似于h5的visibilitychange。<br>注意该接口要最新版本（2.0+）的 react-native 才能调用。<br>获取到的应用状态常规有：<br>active:表示应用处于前台运行状态；<br>background：表示应用处于后台挂起状态；<br>inactive：表示过度状态，常规不会发生，可以先忽略<br>我们可以使用 AppState.addEventListener 和 AppState.removeEventListener 方法来监听、移除应用状态的 change 事件。</p>
 
       
     </div>
@@ -275,13 +296,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2017/03/22/useragent/">更改 UIWebview 的useragent</a></p>
+        <p><span>本文标题:</span><a href="/2017/07/11/rn遇过的那些坑/">rn遇过的那些坑</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">Lynn Cheng</a></p>
-        <p><span>发布时间:</span>2017-03-22, 18:18:03</p>
-        <p><span>最后更新:</span>2017-03-22, 18:22:55</p>
+        <p><span>发布时间:</span>2017-07-11, 19:39:00</p>
+        <p><span>最后更新:</span>2017-07-12, 13:58:24</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2017/03/22/useragent/" title="更改 UIWebview 的useragent">http://lynncheng.github.io/2017/03/22/useragent/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://lynncheng.github.io/2017/03/22/useragent/　　作者: Lynn Cheng" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2017/07/11/rn遇过的那些坑/" title="rn遇过的那些坑">http://lynncheng.github.io/2017/07/11/rn遇过的那些坑/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://lynncheng.github.io/2017/07/11/rn遇过的那些坑/　　作者: Lynn Cheng" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
@@ -294,15 +315,15 @@
     <nav id="article-nav">
         
             <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2017/04/08/framework/">
-                    不更新xcode的情况下更新支持最新版本ios系统
+                <a href="/2017/08/15/NSTimer/">
+                    NSTimer时应注意避免的坑
                 </a>
             </div>
         
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2017/03/18/ui/">
-                    ui
+                <a href="/2017/07/04/易用性/">
+                    开发时应注意的易用性问题
                 </a>
             </div>
         
@@ -313,7 +334,7 @@
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#tags-RN-React-Native"><span class="toc-number">1.</span> <span class="toc-text">tags:RN, React Native</span></a></li></ol>
 </div>
 <style>
     .left-col .switch-btn {
@@ -370,7 +391,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"更改 UIWebview 的useragent　| LynnCheng　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"rn遇过的那些坑　| LynnCheng　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -386,7 +407,7 @@
     
       <div class="duoshuo" id="comments">
     <!-- 多说评论框 start -->
-    <div class="ds-thread" data-thread-key="2017/03/22/useragent/" data-title="更改 UIWebview 的useragent" data-url="http://lynncheng.github.io/2017/03/22/useragent/"></div>
+    <div class="ds-thread" data-thread-key="2017/07/11/rn遇过的那些坑/" data-title="rn遇过的那些坑" data-url="http://lynncheng.github.io/2017/07/11/rn遇过的那些坑/"></div>
     <!-- 多说评论框 end -->
     <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
     <script type="text/javascript">
@@ -410,7 +431,7 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2017/04/08/framework/" title="上一篇: 不更新xcode的情况下更新支持最新版本ios系统">
+            <a href="/2017/08/15/NSTimer/" title="上一篇: NSTimer时应注意避免的坑">
                 <i class="fa fa-angle-left"></i>
             </a>
         
@@ -418,7 +439,7 @@
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2017/03/18/ui/" title="下一篇: ui">
+            <a href="/2017/07/04/易用性/" title="下一篇: 开发时应注意的易用性问题">
                 <i class="fa fa-angle-right"></i>
             </a>
         

@@ -3,21 +3,24 @@
 <head>
   <meta charset="utf-8">
   
-  <title>更改 UIWebview 的useragent | LynnCheng</title>
+  <title>开发时应注意的易用性问题 | LynnCheng</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="获取UIWebView的useragent：12UIWebView* webView = [[UIWebView alloc] initWithFrame:CGRectZero];  NSString* secretAgent = [webView stringByEvaluatingJavaScriptFromString:@&amp;quot;navigator.userAgent&amp;quot;];
-附">
+  <meta name="description" content="tags: 易用性
+输入框的键盘类型：UIKeyboardType\UIReturnKeyType
+弹窗/toast/新页面的选择">
 <meta property="og:type" content="article">
-<meta property="og:title" content="更改 UIWebview 的useragent">
-<meta property="og:url" content="http://lynncheng.github.io/2017/03/22/useragent/index.html">
+<meta property="og:title" content="开发时应注意的易用性问题">
+<meta property="og:url" content="http://lynncheng.github.io/2017/07/04/易用性/index.html">
 <meta property="og:site_name" content="LynnCheng">
-<meta property="og:description" content="获取UIWebView的useragent：12UIWebView* webView = [[UIWebView alloc] initWithFrame:CGRectZero];  NSString* secretAgent = [webView stringByEvaluatingJavaScriptFromString:@&amp;quot;navigator.userAgent&amp;quot;];
-附">
-<meta property="og:updated_time" content="2017-03-22T10:22:55.000Z">
+<meta property="og:description" content="tags: 易用性
+输入框的键盘类型：UIKeyboardType\UIReturnKeyType
+弹窗/toast/新页面的选择">
+<meta property="og:updated_time" content="2017-07-19T06:40:07.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="更改 UIWebview 的useragent">
-<meta name="twitter:description" content="获取UIWebView的useragent：12UIWebView* webView = [[UIWebView alloc] initWithFrame:CGRectZero];  NSString* secretAgent = [webView stringByEvaluatingJavaScriptFromString:@&amp;quot;navigator.userAgent&amp;quot;];
-附">
+<meta name="twitter:title" content="开发时应注意的易用性问题">
+<meta name="twitter:description" content="tags: 易用性
+输入框的键盘类型：UIKeyboardType\UIReturnKeyType
+弹窗/toast/新页面的选择">
   
     <link rel="alternative" href="/atom.xml" title="LynnCheng" type="application/atom+xml">
   
@@ -230,11 +233,11 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
-      <div class="body-wrap"><article id="post-useragent" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-易用性" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2017/03/22/useragent/" class="article-date">
-      <time datetime="2017-03-22T10:18:03.000Z" itemprop="datePublished">2017-03-22</time>
+      <a href="/2017/07/04/易用性/" class="article-date">
+      <time datetime="2017-07-04T05:58:52.000Z" itemprop="datePublished">2017-07-04</time>
 </a>
     </div>
   
@@ -247,7 +250,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      更改 UIWebview 的useragent
+      开发时应注意的易用性问题
     </h1>
   
 
@@ -264,9 +267,10 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>获取UIWebView的useragent：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">UIWebView* webView = [[UIWebView alloc] initWithFrame:CGRectZero];  </span><br><span class="line">NSString* secretAgent = [webView stringByEvaluatingJavaScriptFromString:@&quot;navigator.userAgent&quot;];</span><br></pre></td></tr></table></figure></p>
-<p>附加自定义字段到 Useragent中<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">NSString *newUagent = [NSString stringWithFormat:@&quot;%@ appname/3.5.2&quot;,secretAgent];  </span><br><span class="line">NSDictionary *dictionary = [[NSDictionary alloc]  </span><br><span class="line">                                initWithObjectsAndKeys:newUagent, @&quot;UserAgent&quot;, nil nil];  </span><br><span class="line">[[NSUserDefaults standardUserDefaults] registerDefaults:dictionary];</span><br></pre></td></tr></table></figure></p>
-<p>但应该注意的事，设置了useragent以后，需要过一段时间才能生效，所以一般是在appdelegate.m中就去改；如果在UIWebViewController初始化的时候再去更改的话，就有会导致有些请求还是原来的useragent</p>
+        <h2 id="tags-易用性"><a href="#tags-易用性" class="headerlink" title="tags: 易用性"></a>tags: 易用性</h2><ol>
+<li>输入框的键盘类型：UIKeyboardType\UIReturnKeyType</li>
+<li>弹窗/toast/新页面的选择</li>
+</ol>
 
       
     </div>
@@ -275,13 +279,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2017/03/22/useragent/">更改 UIWebview 的useragent</a></p>
+        <p><span>本文标题:</span><a href="/2017/07/04/易用性/">开发时应注意的易用性问题</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">Lynn Cheng</a></p>
-        <p><span>发布时间:</span>2017-03-22, 18:18:03</p>
-        <p><span>最后更新:</span>2017-03-22, 18:22:55</p>
+        <p><span>发布时间:</span>2017-07-04, 13:58:52</p>
+        <p><span>最后更新:</span>2017-07-19, 14:40:07</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2017/03/22/useragent/" title="更改 UIWebview 的useragent">http://lynncheng.github.io/2017/03/22/useragent/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://lynncheng.github.io/2017/03/22/useragent/　　作者: Lynn Cheng" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2017/07/04/易用性/" title="开发时应注意的易用性问题">http://lynncheng.github.io/2017/07/04/易用性/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://lynncheng.github.io/2017/07/04/易用性/　　作者: Lynn Cheng" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
@@ -294,15 +298,15 @@
     <nav id="article-nav">
         
             <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2017/04/08/framework/">
-                    不更新xcode的情况下更新支持最新版本ios系统
+                <a href="/2017/07/11/rn遇过的那些坑/">
+                    rn遇过的那些坑
                 </a>
             </div>
         
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2017/03/18/ui/">
-                    ui
+                <a href="/2017/04/22/swift-autolayout的常见错误/">
+                    swift autolayout的常见错误
                 </a>
             </div>
         
@@ -313,7 +317,7 @@
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#tags-易用性"><span class="toc-number">1.</span> <span class="toc-text">tags: 易用性</span></a></li></ol>
 </div>
 <style>
     .left-col .switch-btn {
@@ -370,7 +374,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"更改 UIWebview 的useragent　| LynnCheng　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"开发时应注意的易用性问题　| LynnCheng　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -386,7 +390,7 @@
     
       <div class="duoshuo" id="comments">
     <!-- 多说评论框 start -->
-    <div class="ds-thread" data-thread-key="2017/03/22/useragent/" data-title="更改 UIWebview 的useragent" data-url="http://lynncheng.github.io/2017/03/22/useragent/"></div>
+    <div class="ds-thread" data-thread-key="2017/07/04/易用性/" data-title="开发时应注意的易用性问题" data-url="http://lynncheng.github.io/2017/07/04/易用性/"></div>
     <!-- 多说评论框 end -->
     <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
     <script type="text/javascript">
@@ -410,7 +414,7 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2017/04/08/framework/" title="上一篇: 不更新xcode的情况下更新支持最新版本ios系统">
+            <a href="/2017/07/11/rn遇过的那些坑/" title="上一篇: rn遇过的那些坑">
                 <i class="fa fa-angle-left"></i>
             </a>
         
@@ -418,7 +422,7 @@
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2017/03/18/ui/" title="下一篇: ui">
+            <a href="/2017/04/22/swift-autolayout的常见错误/" title="下一篇: swift autolayout的常见错误">
                 <i class="fa fa-angle-right"></i>
             </a>
         
