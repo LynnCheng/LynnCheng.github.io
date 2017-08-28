@@ -233,6 +233,83 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-设置UIWebviewController的导航为透明" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/08/28/设置UIWebviewController的导航为透明/" class="article-date">
+      <time datetime="2017-08-28T10:33:55.000Z" itemprop="datePublished">2017-08-28</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/08/28/设置UIWebviewController的导航为透明/">设置UIWebviewController的导航为透明</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>‘’‘’<br>override func viewWillAppear(animated: Bool) {<br>        super.viewWillAppear(animated)</p>
+<pre><code>    self.navigationController?.navigationBar.setBackgroundImage(UIImage(), forBarMetrics: .Default)
+    self.navigationController?.navigationBar.shadowImage = UIImage()
+    //如果导航栏有背景色，也需要修改下
+    self.navigationController?.navigationBar.barTintColor = UIColor.clearColor()
+    self.navigationController?.navigationBar.translucent = true
+
+    for subview in self.view.subviews {
+        if subview.isKindOfClass(UIWebView) {
+            let webview = subview as! UIWebView
+            //webview的y轴起点默认为64
+            webview.scrollView.contentInset = UIEdgeInsets(top: -64, left: 0, bottom: 0, right: 0)
+        }
+    }
+}
+
+override func viewWillDisappear(animated: Bool) {
+    super.viewWillDisappear(animated)
+
+    self.navigationController?.navigationBar.setBackgroundImage(nil, forBarMetrics: .Default)
+    self.navigationController?.navigationBar.shadowImage = nil
+    self.navigationController?.navigationBar.translucent = false
+}
+</code></pre><p>‘’‘’</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-NSTimer" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -576,7 +653,7 @@ userInfo:nil
       
       
         <p class="article-more-link">
-          <a href="/2017/04/08/framework-1/#more">more >></a>
+          <a href="/2017/04/08/framework-1/#more">阅读全文 >></a>
         </p>
       
       <div class="clearfix"></div>
@@ -743,66 +820,6 @@ userInfo:nil
       
 
       
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-trans" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2017/01/23/trans/" class="article-date">
-      <time datetime="2017-01-23T08:28:00.000Z" itemprop="datePublished">2017-01-23</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/01/23/trans/">UIViewController中self.view的位置</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              <p>原文地址：<a href="http://www.jianshu.com/p/930643270455">http://www.jianshu.com/p/930643270455</a></p>
-<p>总所周知，苹果从iOS7开始采用扁平化的界面风格，颠覆了果粉们“迷恋”的拟物化风格。对于开发者而言，全新的风格带来新的接口，这些新的接口改动中，有些更加合理了，有些更加方便了，而有些可能让开发者容易迷糊，下面本人就来谈谈iOS7这些新添加“鬼魅”的接口中的经常接触到的一个—-UITabBar/UINavigationBar的translucent属性。</p>
-<p>新的属性translucent简介
-          
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-      
-        <p class="article-more-link">
-          <a href="/2017/01/23/trans/#more">more >></a>
-        </p>
       
       <div class="clearfix"></div>
     </div>
