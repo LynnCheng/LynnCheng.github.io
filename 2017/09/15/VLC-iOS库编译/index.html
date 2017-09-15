@@ -3,27 +3,24 @@
 <head>
   <meta charset="utf-8">
   
-  <title>iOS APP抓包方法介绍之tcpdump | LynnCheng</title>
+  <title>VLC iOS库编译 | LynnCheng</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="将手机通过usb口连在mac电脑上
-通过xcode查看手机的uuid,如 rvictl -s f7f41359d97aa34487f574a4db2e028dfd4f7aa
-打开终端，开启虚拟网口
-123456$rvictl -s f7f41359d97aa34487f574a4db2e028dfd4f7aaStarting device f7f41359d97aa34487f574a4db2e">
+  <meta name="description" content="1.下载源码后，执行 ./buildMobileVLCKit.sh -f -n
+
+contrib目录下的文件修改，需要打patcha. 把修改前和修改后的文件，含路径，都拷贝一份，分别放入a、b两个文件夹b. 执行命令： diff -uNr a b &amp;gt; 0008-xxxx.patchc. 修改contrib/xxx/rule.mak">
 <meta property="og:type" content="article">
-<meta property="og:title" content="iOS APP抓包方法介绍之tcpdump">
-<meta property="og:url" content="http://lynncheng.github.io/2016/05/04/capturepackage/index.html">
+<meta property="og:title" content="VLC iOS库编译">
+<meta property="og:url" content="http://lynncheng.github.io/2017/09/15/VLC-iOS库编译/index.html">
 <meta property="og:site_name" content="LynnCheng">
-<meta property="og:description" content="将手机通过usb口连在mac电脑上
-通过xcode查看手机的uuid,如 rvictl -s f7f41359d97aa34487f574a4db2e028dfd4f7aa
-打开终端，开启虚拟网口
-123456$rvictl -s f7f41359d97aa34487f574a4db2e028dfd4f7aaStarting device f7f41359d97aa34487f574a4db2e">
-<meta property="og:updated_time" content="2016-05-04T01:47:39.000Z">
+<meta property="og:description" content="1.下载源码后，执行 ./buildMobileVLCKit.sh -f -n
+
+contrib目录下的文件修改，需要打patcha. 把修改前和修改后的文件，含路径，都拷贝一份，分别放入a、b两个文件夹b. 执行命令： diff -uNr a b &amp;gt; 0008-xxxx.patchc. 修改contrib/xxx/rule.mak">
+<meta property="og:updated_time" content="2017-09-15T05:25:00.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="iOS APP抓包方法介绍之tcpdump">
-<meta name="twitter:description" content="将手机通过usb口连在mac电脑上
-通过xcode查看手机的uuid,如 rvictl -s f7f41359d97aa34487f574a4db2e028dfd4f7aa
-打开终端，开启虚拟网口
-123456$rvictl -s f7f41359d97aa34487f574a4db2e028dfd4f7aaStarting device f7f41359d97aa34487f574a4db2e">
+<meta name="twitter:title" content="VLC iOS库编译">
+<meta name="twitter:description" content="1.下载源码后，执行 ./buildMobileVLCKit.sh -f -n
+
+contrib目录下的文件修改，需要打patcha. 把修改前和修改后的文件，含路径，都拷贝一份，分别放入a、b两个文件夹b. 执行命令： diff -uNr a b &amp;gt; 0008-xxxx.patchc. 修改contrib/xxx/rule.mak">
   
     <link rel="alternative" href="/atom.xml" title="LynnCheng" type="application/atom+xml">
   
@@ -236,11 +233,11 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
-      <div class="body-wrap"><article id="post-capturepackage" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-VLC-iOS库编译" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/05/04/capturepackage/" class="article-date">
-      <time datetime="2016-05-04T00:56:37.000Z" itemprop="datePublished">2016-05-04</time>
+      <a href="/2017/09/15/VLC-iOS库编译/" class="article-date">
+      <time datetime="2017-09-15T05:19:41.000Z" itemprop="datePublished">2017-09-15</time>
 </a>
     </div>
   
@@ -253,7 +250,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      iOS APP抓包方法介绍之tcpdump
+      VLC iOS库编译
     </h1>
   
 
@@ -270,18 +267,10 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <ol>
-<li>将手机通过usb口连在mac电脑上</li>
-<li>通过xcode查看手机的uuid,如 rvictl -s f7f41359d97aa34487f574a4db2e028dfd4f7aa</li>
-<li><p>打开终端，开启虚拟网口</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$rvictl</span> <span class="_">-s</span> f7f41359d97aa34487f574a4db2e028dfd4f7aa</span><br><span class="line">Starting device f7f41359d97aa34487f574a4db2e028dfd4f7aa [SUCCEEDED] with interface rvi0 (rvi0就是虚拟网口的名字，抓包的时候需要使用)</span><br><span class="line"><span class="variable">$sudo</span> tcpdump -i rvi0 -w trace.pcap</span><br><span class="line">tcpdump: WARNING: rvi0: That device doesn<span class="string">'t support promiscuous mode</span><br><span class="line">(BIOCPROMISC: Operation not supported on socket)</span><br><span class="line">tcpdump: listening on rvi0, link-type PKTAP (Packet Tap), capture size 262144 bytes</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>然后就可以在手机上运行app，执行你想要的操作了。所有报文会存储在trace.pcap文件上</p>
-</li>
-<li>抓包结束后，记得删除虚拟接口<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ rvictl -x f7f41359d97aa34487f574a4db2e028dfd4f7aa</span><br></pre></td></tr></table></figure>
-</li>
+        <p>1.下载源码后，执行 ./buildMobileVLCKit.sh -f -n</p>
+<ol>
+<li>contrib目录下的文件修改，需要打patch<br>a. 把修改前和修改后的文件，含路径，都拷贝一份，分别放入a、b两个文件夹<br>b. 执行命令： diff -uNr a b &gt; 0008-xxxx.patch<br>c. 修改contrib/xxx/rule.mak</li>
 </ol>
-<p>参考资料：<br><a href="https://developer.apple.com/library/mac/qa/qa1176/_index.html" target="_blank" rel="external">app developer: Getting a Packet Trace</a></p>
 
       
     </div>
@@ -290,13 +279,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2016/05/04/capturepackage/">iOS APP抓包方法介绍之tcpdump</a></p>
+        <p><span>本文标题:</span><a href="/2017/09/15/VLC-iOS库编译/">VLC iOS库编译</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">Lynn Cheng</a></p>
-        <p><span>发布时间:</span>2016-05-04, 08:56:37</p>
-        <p><span>最后更新:</span>2016-05-04, 09:47:39</p>
+        <p><span>发布时间:</span>2017-09-15, 13:19:41</p>
+        <p><span>最后更新:</span>2017-09-15, 13:25:00</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2016/05/04/capturepackage/" title="iOS APP抓包方法介绍之tcpdump">http://lynncheng.github.io/2016/05/04/capturepackage/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://lynncheng.github.io/2016/05/04/capturepackage/　　作者: Lynn Cheng" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2017/09/15/VLC-iOS库编译/" title="VLC iOS库编译">http://lynncheng.github.io/2017/09/15/VLC-iOS库编译/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://lynncheng.github.io/2017/09/15/VLC-iOS库编译/　　作者: Lynn Cheng" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
@@ -308,16 +297,10 @@
 
     <nav id="article-nav">
         
-            <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2016/05/05/push/">
-                    iOS消息推送：如何在调试阶段获取到正式服务器推送的消息
-                </a>
-            </div>
-        
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2016/05/03/rsync/">
-                    rsync命令参数
+                <a href="/2017/08/28/设置UIWebviewController的导航为透明/">
+                    设置UIWebviewController的导航为透明
                 </a>
             </div>
         
@@ -385,7 +368,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"iOS APP抓包方法介绍之tcpdump　| LynnCheng　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"VLC iOS库编译　| LynnCheng　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -401,7 +384,7 @@
     
       <div class="duoshuo" id="comments">
     <!-- 多说评论框 start -->
-    <div class="ds-thread" data-thread-key="2016/05/04/capturepackage/" data-title="iOS APP抓包方法介绍之tcpdump" data-url="http://lynncheng.github.io/2016/05/04/capturepackage/"></div>
+    <div class="ds-thread" data-thread-key="2017/09/15/VLC-iOS库编译/" data-title="VLC iOS库编译" data-url="http://lynncheng.github.io/2017/09/15/VLC-iOS库编译/"></div>
     <!-- 多说评论框 end -->
     <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
     <script type="text/javascript">
@@ -425,15 +408,13 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2016/05/05/push/" title="上一篇: iOS消息推送：如何在调试阶段获取到正式服务器推送的消息">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
 
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2016/05/03/rsync/" title="下一篇: rsync命令参数">
+            <a href="/2017/08/28/设置UIWebviewController的导航为透明/" title="下一篇: 设置UIWebviewController的导航为透明">
                 <i class="fa fa-angle-right"></i>
             </a>
         
