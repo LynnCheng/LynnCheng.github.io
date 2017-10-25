@@ -233,6 +233,62 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-useragent" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/03/22/useragent/" class="article-date">
+      <time datetime="2017-03-22T10:18:03.000Z" itemprop="datePublished">2017-03-22</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/03/22/useragent/">更改 UIWebview 的useragent</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>获取UIWebView的useragent：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">UIWebView* webView = [[UIWebView alloc] initWithFrame:CGRectZero];  </span><br><span class="line">NSString* secretAgent = [webView stringByEvaluatingJavaScriptFromString:@&quot;navigator.userAgent&quot;];</span><br></pre></td></tr></table></figure></p>
+<p>附加自定义字段到 Useragent中<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">NSString *newUagent = [NSString stringWithFormat:@&quot;%@ appname/3.5.2&quot;,secretAgent];  </span><br><span class="line">NSDictionary *dictionary = [[NSDictionary alloc]  </span><br><span class="line">                                initWithObjectsAndKeys:newUagent, @&quot;UserAgent&quot;, nil nil];  </span><br><span class="line">[[NSUserDefaults standardUserDefaults] registerDefaults:dictionary];</span><br></pre></td></tr></table></figure></p>
+<p>但应该注意的事，设置了useragent以后，需要过一段时间才能生效，所以一般是在appdelegate.m中就去改；如果在UIWebViewController初始化的时候再去更改的话，就有会导致有些请求还是原来的useragent</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-ui" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -734,62 +790,6 @@
         <p class="article-more-link">
           <a href="/2016/07/25/frameworka/#more">more >></a>
         </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-页面字体变小" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/07/20/页面字体变小/" class="article-date">
-      <time datetime="2016-07-20T05:23:43.000Z" itemprop="datePublished">2016-07-20</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/07/20/页面字体变小/">页面字体变小</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p>现象：<br>ios 页面整体的字体莫名其妙的变小了</p>
-<p>诱因：<br>设置了启动页</p>
-<p>原因：待查…(启动页格式不对?)</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
       
       <div class="clearfix"></div>
     </div>

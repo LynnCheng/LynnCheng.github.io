@@ -3,24 +3,21 @@
 <head>
   <meta charset="utf-8">
   
-  <title>NSTimer时应注意避免的坑 | LynnCheng</title>
+  <title>optional解析之String, String?, String! | LynnCheng</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="title: NSTimer
-tags:
-NSTimer不生效：非主线程中代码中会遇到在我们进行多线程编程时，所有的Source都需要添加到Runloop中才能生效，对于我们的NSTimer当然也需要添加到Runloop中才能生效。如果一个Runloop中没有任何Source的话，会立即退出的。而主线程的Runloop在程序运行时，系统就已经为我们添加了很多Source到Runloop中，所以主线">
+  <meta name="description" content="声明变量时，如果使用String? 或者 String!，则该变量的类型都是optional string两者的区别在于，使用String!声明的变量，在使用的时候，不需要显示的解包；编译器会帮我们强制解包。这也就要求使用者需要确保该变量在引用的时候，必须是非nil值。示例：
+12345let a:String? = &amp;quot;a&amp;quot;let b:String! = &amp;quot;b&amp;quo">
 <meta property="og:type" content="article">
-<meta property="og:title" content="NSTimer时应注意避免的坑">
-<meta property="og:url" content="http://lynncheng.github.io/2017/08/15/NSTimer/index.html">
+<meta property="og:title" content="optional解析之String, String?, String!">
+<meta property="og:url" content="http://lynncheng.github.io/2017/10/25/VLC-i/index.html">
 <meta property="og:site_name" content="LynnCheng">
-<meta property="og:description" content="title: NSTimer
-tags:
-NSTimer不生效：非主线程中代码中会遇到在我们进行多线程编程时，所有的Source都需要添加到Runloop中才能生效，对于我们的NSTimer当然也需要添加到Runloop中才能生效。如果一个Runloop中没有任何Source的话，会立即退出的。而主线程的Runloop在程序运行时，系统就已经为我们添加了很多Source到Runloop中，所以主线">
-<meta property="og:updated_time" content="2017-08-15T12:36:36.000Z">
+<meta property="og:description" content="声明变量时，如果使用String? 或者 String!，则该变量的类型都是optional string两者的区别在于，使用String!声明的变量，在使用的时候，不需要显示的解包；编译器会帮我们强制解包。这也就要求使用者需要确保该变量在引用的时候，必须是非nil值。示例：
+12345let a:String? = &amp;quot;a&amp;quot;let b:String! = &amp;quot;b&amp;quo">
+<meta property="og:updated_time" content="2017-10-25T05:52:36.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="NSTimer时应注意避免的坑">
-<meta name="twitter:description" content="title: NSTimer
-tags:
-NSTimer不生效：非主线程中代码中会遇到在我们进行多线程编程时，所有的Source都需要添加到Runloop中才能生效，对于我们的NSTimer当然也需要添加到Runloop中才能生效。如果一个Runloop中没有任何Source的话，会立即退出的。而主线程的Runloop在程序运行时，系统就已经为我们添加了很多Source到Runloop中，所以主线">
+<meta name="twitter:title" content="optional解析之String, String?, String!">
+<meta name="twitter:description" content="声明变量时，如果使用String? 或者 String!，则该变量的类型都是optional string两者的区别在于，使用String!声明的变量，在使用的时候，不需要显示的解包；编译器会帮我们强制解包。这也就要求使用者需要确保该变量在引用的时候，必须是非nil值。示例：
+12345let a:String? = &amp;quot;a&amp;quot;let b:String! = &amp;quot;b&amp;quo">
   
     <link rel="alternative" href="/atom.xml" title="LynnCheng" type="application/atom+xml">
   
@@ -233,11 +230,11 @@ NSTimer不生效：非主线程中代码中会遇到在我们进行多线程编�
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
-      <div class="body-wrap"><article id="post-NSTimer" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-VLC-i" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2017/08/15/NSTimer/" class="article-date">
-      <time datetime="2017-08-15T11:55:35.000Z" itemprop="datePublished">2017-08-15</time>
+      <a href="/2017/10/25/VLC-i/" class="article-date">
+      <time datetime="2017-10-25T05:32:15.000Z" itemprop="datePublished">2017-10-25</time>
 </a>
     </div>
   
@@ -250,7 +247,7 @@ NSTimer不生效：非主线程中代码中会遇到在我们进行多线程编�
         
   
     <h1 class="article-title" itemprop="name">
-      NSTimer时应注意避免的坑
+      optional解析之String, String?, String!
     </h1>
   
 
@@ -267,17 +264,10 @@ NSTimer不生效：非主线程中代码中会遇到在我们进行多线程编�
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>title: NSTimer</p>
-<h2 id="tags"><a href="#tags" class="headerlink" title="tags:"></a>tags:</h2><ol>
-<li><p>NSTimer不生效：非主线程中代码中会遇到<br>在我们进行多线程编程时，所有的Source都需要添加到Runloop中才能生效，对于我们的NSTimer当然也需要添加到Runloop中才能生效。如果一个Runloop中没有任何Source的话，会立即退出的。而主线程的Runloop在程序运行时，系统就已经为我们添加了很多Source到Runloop中，所以主线程的Runloop是一直存在。</p>
-</li>
-<li><p>timer = [NSTimer scheduledTimerWithTimeInterval:0.1 // 10ms</p>
-<pre><code>  target:self
-selector:@selector(loop:)
-userInfo:nil
- repeats:YES];
-</code></pre></li>
-</ol>
+        <p>声明变量时，如果使用String? 或者 String!，则该变量的类型都是optional string<br>两者的区别在于，使用String!声明的变量，在使用的时候，不需要显示的解包；编译器会帮我们强制解包。这也就要求使用者需要确保该变量在引用的时候，必须是非nil值。示例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">let a:String? = &quot;a&quot;</span><br><span class="line">let b:String! = &quot;b&quot;</span><br><span class="line">let c:String = &quot;c&quot;</span><br><span class="line"></span><br><span class="line">print(a!+b+c)   //打印abc</span><br></pre></td></tr></table></figure>
+<p>需要注意的是，在打印、显示在ui上的时候，系统会自动为optional类型在上Optional(“xxx”)字样，如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">let a:String? = &quot;a&quot;</span><br><span class="line">let b:String! = &quot;b&quot;</span><br><span class="line">let c:String = &quot;c&quot;</span><br><span class="line"></span><br><span class="line">print(&quot;\(a)\(b)\(c)&quot;) //打印&quot;Optional(&quot;a&quot;)Optional(&quot;b&quot;)c\n&quot;</span><br></pre></td></tr></table></figure></p>
+<p>所以，大部分情况下，我们需要显示的解包，才能达到自己想要的效果：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">let a:String? = &quot;a&quot;</span><br><span class="line">let b:String! = &quot;b&quot;</span><br><span class="line">let c:String = &quot;c&quot;</span><br><span class="line"></span><br><span class="line">print(&quot;\(a!)\(b!)\(c)&quot;) //打印&quot;abc\n&quot;</span><br></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -286,13 +276,13 @@ userInfo:nil
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2017/08/15/NSTimer/">NSTimer时应注意避免的坑</a></p>
+        <p><span>本文标题:</span><a href="/2017/10/25/VLC-i/">optional解析之String, String?, String!</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">Lynn Cheng</a></p>
-        <p><span>发布时间:</span>2017-08-15, 19:55:35</p>
-        <p><span>最后更新:</span>2017-08-15, 20:36:36</p>
+        <p><span>发布时间:</span>2017-10-25, 13:32:15</p>
+        <p><span>最后更新:</span>2017-10-25, 13:52:36</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2017/08/15/NSTimer/" title="NSTimer时应注意避免的坑">http://lynncheng.github.io/2017/08/15/NSTimer/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://lynncheng.github.io/2017/08/15/NSTimer/　　作者: Lynn Cheng" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2017/10/25/VLC-i/" title="optional解析之String, String?, String!">http://lynncheng.github.io/2017/10/25/VLC-i/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://lynncheng.github.io/2017/10/25/VLC-i/　　作者: Lynn Cheng" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
@@ -304,16 +294,10 @@ userInfo:nil
 
     <nav id="article-nav">
         
-            <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2017/08/28/设置UIWebviewController的导航为透明/">
-                    设置UIWebviewController的导航为透明
-                </a>
-            </div>
-        
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2017/07/11/rn遇过的那些坑/">
-                    rn遇过的那些坑
+                <a href="/2017/09/15/VLC-iOS库编译/">
+                    VLC iOS库编译
                 </a>
             </div>
         
@@ -324,7 +308,7 @@ userInfo:nil
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#tags"><span class="toc-number">1.</span> <span class="toc-text">tags:</span></a></li></ol>
+    
 </div>
 <style>
     .left-col .switch-btn {
@@ -381,7 +365,7 @@ userInfo:nil
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"NSTimer时应注意避免的坑　| LynnCheng　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"optional解析之String, String?, String!　| LynnCheng　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -397,7 +381,7 @@ userInfo:nil
     
       <div class="duoshuo" id="comments">
     <!-- 多说评论框 start -->
-    <div class="ds-thread" data-thread-key="2017/08/15/NSTimer/" data-title="NSTimer时应注意避免的坑" data-url="http://lynncheng.github.io/2017/08/15/NSTimer/"></div>
+    <div class="ds-thread" data-thread-key="2017/10/25/VLC-i/" data-title="optional解析之String, String?, String!" data-url="http://lynncheng.github.io/2017/10/25/VLC-i/"></div>
     <!-- 多说评论框 end -->
     <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
     <script type="text/javascript">
@@ -421,15 +405,13 @@ userInfo:nil
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2017/08/28/设置UIWebviewController的导航为透明/" title="上一篇: 设置UIWebviewController的导航为透明">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
 
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2017/07/11/rn遇过的那些坑/" title="下一篇: rn遇过的那些坑">
+            <a href="/2017/09/15/VLC-iOS库编译/" title="下一篇: VLC iOS库编译">
                 <i class="fa fa-angle-right"></i>
             </a>
         

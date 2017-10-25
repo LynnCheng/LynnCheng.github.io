@@ -233,6 +233,63 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-VLC-i" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/10/25/VLC-i/" class="article-date">
+      <time datetime="2017-10-25T05:32:15.000Z" itemprop="datePublished">2017-10-25</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/10/25/VLC-i/">optional解析之String, String?, String!</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>声明变量时，如果使用String? 或者 String!，则该变量的类型都是optional string<br>两者的区别在于，使用String!声明的变量，在使用的时候，不需要显示的解包；编译器会帮我们强制解包。这也就要求使用者需要确保该变量在引用的时候，必须是非nil值。示例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">let a:String? = &quot;a&quot;</span><br><span class="line">let b:String! = &quot;b&quot;</span><br><span class="line">let c:String = &quot;c&quot;</span><br><span class="line"></span><br><span class="line">print(a!+b+c)   //打印abc</span><br></pre></td></tr></table></figure>
+<p>需要注意的是，在打印、显示在ui上的时候，系统会自动为optional类型在上Optional(“xxx”)字样，如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">let a:String? = &quot;a&quot;</span><br><span class="line">let b:String! = &quot;b&quot;</span><br><span class="line">let c:String = &quot;c&quot;</span><br><span class="line"></span><br><span class="line">print(&quot;\(a)\(b)\(c)&quot;) //打印&quot;Optional(&quot;a&quot;)Optional(&quot;b&quot;)c\n&quot;</span><br></pre></td></tr></table></figure></p>
+<p>所以，大部分情况下，我们需要显示的解包，才能达到自己想要的效果：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">let a:String? = &quot;a&quot;</span><br><span class="line">let b:String! = &quot;b&quot;</span><br><span class="line">let c:String = &quot;c&quot;</span><br><span class="line"></span><br><span class="line">print(&quot;\(a!)\(b!)\(c)&quot;) //打印&quot;abc\n&quot;</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-VLC-iOS库编译" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -757,62 +814,6 @@ userInfo:nil
       
           
         <p>从已经安装了最新版本xcode的机器上找到最新ios系统的支持包，拷贝到目标电脑到相关目录下：Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/DeviceSupport</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-useragent" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2017/03/22/useragent/" class="article-date">
-      <time datetime="2017-03-22T10:18:03.000Z" itemprop="datePublished">2017-03-22</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/03/22/useragent/">更改 UIWebview 的useragent</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p>获取UIWebView的useragent：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">UIWebView* webView = [[UIWebView alloc] initWithFrame:CGRectZero];  </span><br><span class="line">NSString* secretAgent = [webView stringByEvaluatingJavaScriptFromString:@&quot;navigator.userAgent&quot;];</span><br></pre></td></tr></table></figure></p>
-<p>附加自定义字段到 Useragent中<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">NSString *newUagent = [NSString stringWithFormat:@&quot;%@ appname/3.5.2&quot;,secretAgent];  </span><br><span class="line">NSDictionary *dictionary = [[NSDictionary alloc]  </span><br><span class="line">                                initWithObjectsAndKeys:newUagent, @&quot;UserAgent&quot;, nil nil];  </span><br><span class="line">[[NSUserDefaults standardUserDefaults] registerDefaults:dictionary];</span><br></pre></td></tr></table></figure></p>
-<p>但应该注意的事，设置了useragent以后，需要过一段时间才能生效，所以一般是在appdelegate.m中就去改；如果在UIWebViewController初始化的时候再去更改的话，就有会导致有些请求还是原来的useragent</p>
 
       
     </div>
