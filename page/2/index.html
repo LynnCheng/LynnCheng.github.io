@@ -233,6 +233,187 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-rn遇过的那些坑" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/07/11/rn遇过的那些坑/" class="article-date">
+      <time datetime="2017-07-11T11:39:00.000Z" itemprop="datePublished">2017-07-11</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/07/11/rn遇过的那些坑/">rn遇过的那些坑</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>title: rn遇过的那些坑</p>
+<h2 id="tags-RN-React-Native"><a href="#tags-RN-React-Native" class="headerlink" title="tags:RN, React Native"></a>tags:RN, React Native</h2><ol>
+<li>react navigation怎么传递参数到下一界面？怎么传递参数到上一界面</li>
+<li>每个界面都要实现navigationOptions的所有细节？<br>//不需要！可以定义一个screen的基类，后续所有界面都基于该基类实现<br>//或者在TabNavigator等上实现</li>
+<li>为什么每个页面都要在componentDidMount中拦截android回退按钮事件？<br>//不需要！可以定义一个screen的基类，后续所有界面都基于该基类实现</li>
+<li>组件之间通信（4-8 链接：<a href="http://www.jianshu.com/p/48df06330967）" target="_blank" rel="external">http://www.jianshu.com/p/48df06330967）</a></li>
+</ol>
+<p>子组件调用父组件的方法：子组件要拿到父组件的属性，需要通过this.props方法。每次父组件修改了传入的属性，子组件会收到通知，会自动获取新的属性。</p>
+<p>父组件调用子组件的方法：在ReactJS中通过ref属性。该属性类似与给组件起名字。父组件可以通过this.ref.xxx来获取到该组件</p>
+<ol>
+<li>创建不定数View，在return方法中不支持for语句<br>(1).采用MAP形式<br>(2).采用数组的形式</li>
+</ol>
+<p>6 ref 属性</p>
+<p>7.网络请求加载Loading框注意的地方<br>Loading 框采用的是IOS原生封装，在RN页面进行网络请求注意延迟200ms左右<br>this.timer = setTimeout(()=&gt;{this._fetchData();}, 200);<br>避免Loading 框在上一页面。</p>
+<p>8.关于倒计时问题<br>产品详情页有倒计时功能，但应用切换到后台后，倒计时开始停止工作，这时候需要重新校准时间。所以需要应用的状态<br>RN中使用APPState来查看应用状态<br>通过此接口可以获悉应用在当前处于后台还是前台激活的状态，常用方法和应用场景类似于h5的visibilitychange。<br>注意该接口要最新版本（2.0+）的 react-native 才能调用。<br>获取到的应用状态常规有：<br>active:表示应用处于前台运行状态；<br>background：表示应用处于后台挂起状态；<br>inactive：表示过度状态，常规不会发生，可以先忽略<br>我们可以使用 AppState.addEventListener 和 AppState.removeEventListener 方法来监听、移除应用状态的 change 事件。</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-易用性" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/07/04/易用性/" class="article-date">
+      <time datetime="2017-07-04T05:58:52.000Z" itemprop="datePublished">2017-07-04</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/07/04/易用性/">开发时应注意的易用性问题</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h2 id="tags-易用性"><a href="#tags-易用性" class="headerlink" title="tags: 易用性"></a>tags: 易用性</h2><ol>
+<li>输入框的键盘类型：UIKeyboardType\UIReturnKeyType</li>
+<li>弹窗/toast/新页面的选择</li>
+</ol>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-swift-autolayout的常见错误" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/04/22/swift-autolayout的常见错误/" class="article-date">
+      <time datetime="2017-04-22T07:20:25.000Z" itemprop="datePublished">2017-04-22</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/04/22/swift-autolayout的常见错误/">swift autolayout的常见错误</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>如下图，一行中有图标、title、comment、箭头四个元素：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">|-15-&#123;icon&#125;-15-&#123;title&#125;-15-&#123;comment&#125;-5-&apos;&gt;&apos;-15-|</span><br></pre></td></tr></table></figure></p>
+<p>设置autolayout规则的时候，除了如上图设置了各个元素之间的间距外，还添加了comment和title的最大宽度；但运行的时候发现，如果title、comment字段都非常长，经常偶现icon消失的情况。</p>
+<p>故障原因：缺少一条icon宽度的规则，导致icon的宽度被挤成0了….</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-swift-framework的注释" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -636,172 +817,9 @@
 
 
   
-    <article id="post-framework的实现" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2017/01/18/framework的实现/" class="article-date">
-      <time datetime="2017-01-18T03:35:07.000Z" itemprop="datePublished">2017-01-18</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/01/18/framework的实现/">framework的实现</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p>问题：<br>打包了一个HCUIStyles的sdk，在其他应用里调用的时候，总是提示该sdk的接口未定义</p>
-<p>原因：<br>编译目标是 generic ios device，而测试代码使用的是虚拟机……<br>将编译目标改成任意的虚拟机就可以了。</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-neterror" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/09/20/neterror/" class="article-date">
-      <time datetime="2016-09-20T05:24:05.000Z" itemprop="datePublished">2016-09-20</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/09/20/neterror/">ios网络请求的错误码</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p>  <a href="https://developer.apple.com/library/ios/documentation/Cocoa/Reference/Foundation/Miscellaneous/Foundation_Constants/index.html#//apple_ref/doc/constant_group/URL_Loading_System_Error_Codes" target="_blank" rel="external">https://developer.apple.com/library/ios/documentation/Cocoa/Reference/Foundation/Miscellaneous/Foundation_Constants/index.html#//apple_ref/doc/constant_group/URL_Loading_System_Error_Codes</a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line">NSURLErrorUnknown = -1,</span><br><span class="line">NSURLErrorCancelled = -999,</span><br><span class="line">NSURLErrorBadURL = -1000,</span><br><span class="line">NSURLErrorTimedOut = -1001,</span><br><span class="line">NSURLErrorUnsupportedURL = -1002,</span><br><span class="line">NSURLErrorCannotFindHost = -1003,</span><br><span class="line">NSURLErrorCannotConnectToHost = -1004,</span><br><span class="line">NSURLErrorDataLengthExceedsMaximum = -1103,</span><br><span class="line">NSURLErrorNetworkConnectionLost = -1005,</span><br><span class="line">NSURLErrorDNSLookupFailed = -1006,</span><br><span class="line">NSURLErrorHTTPTooManyRedirects = -1007,</span><br><span class="line">NSURLErrorResourceUnavailable = -1008,</span><br><span class="line">NSURLErrorNotConnectedToInternet = -1009,</span><br><span class="line">NSURLErrorRedirectToNonExistentLocation = -1010,</span><br><span class="line">NSURLErrorBadServerResponse = -1011,</span><br><span class="line">NSURLErrorUserCancelledAuthentication = -1012,</span><br><span class="line">NSURLErrorUserAuthenticationRequired = -1013,</span><br><span class="line">NSURLErrorZeroByteResource = -1014,</span><br><span class="line">NSURLErrorCannotDecodeRawData = -1015,</span><br><span class="line">NSURLErrorCannotDecodeContentData = -1016,</span><br><span class="line">NSURLErrorCannotParseResponse = -1017,</span><br><span class="line">NSURLErrorInternationalRoamingOff = -1018,</span><br><span class="line">NSURLErrorCallIsActive = -1019,</span><br><span class="line">NSURLErrorDataNotAllowed = -1020,</span><br><span class="line">NSURLErrorRequestBodyStreamExhausted = -1021,</span><br><span class="line">NSURLErrorFileDoesNotExist = -1100,</span><br><span class="line">NSURLErrorFileIsDirectory = -1101,</span><br><span class="line">NSURLErrorNoPermissionsToReadFile = -1102,</span><br><span class="line">NSURLErrorSecureConnectionFailed = -1200,</span><br><span class="line">NSURLErrorServerCertificateHasBadDate = -1201,</span><br><span class="line">NSURLErrorServerCertificateUntrusted = -1202,</span><br><span class="line">NSURLErrorServerCertificateHasUnknownRoot = -1203,</span><br><span class="line">NSURLErrorServerCertificateNotYetValid = -1204,</span><br><span class="line">NSURLErrorClientCertificateRejected = -1205,</span><br><span class="line">NSURLErrorClientCertificateRequired = -1206,</span><br><span class="line">NSURLErrorCannotLoadFromNetwork = -2000,</span><br><span class="line">NSURLErrorCannotCreateFile = -3000,</span><br><span class="line">NSURLErrorCannotOpenFile = -3001,</span><br><span class="line">NSURLErrorCannotCloseFile = -3002,</span><br><span class="line">NSURLErrorCannotWriteToFile = -3003,</span><br><span class="line">NSURLErrorCannotRemoveFile = -3004,</span><br><span class="line">NSURLErrorCannotMoveFile = -3005,</span><br><span class="line">NSURLErrorDownloadDecodingFailedMidStream = -3006,</span><br><span class="line">NSURLErrorDownloadDecodingFailedToComplete = -3007</span><br></pre></td></tr></table></figure></p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-UITableView" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/09/03/UITableView/" class="article-date">
-      <time datetime="2016-09-03T13:45:04.000Z" itemprop="datePublished">2016-09-03</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/09/03/UITableView/">UITableView的一些技术细节</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p>1.plain样式 section footer &amp; header层在cell contentview的上面<br>  group样式则相反，section footer &amp; header层在cell contentview的下面<br>  所以如果希望在footer上显示单元格的一些扩充内容，则必现使用group样式</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
+      <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
     </nav>
   
 </div>

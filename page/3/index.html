@@ -233,6 +233,169 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-framework的实现" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/01/18/framework的实现/" class="article-date">
+      <time datetime="2017-01-18T03:35:07.000Z" itemprop="datePublished">2017-01-18</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/01/18/framework的实现/">framework的实现</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>问题：<br>打包了一个HCUIStyles的sdk，在其他应用里调用的时候，总是提示该sdk的接口未定义</p>
+<p>原因：<br>编译目标是 generic ios device，而测试代码使用的是虚拟机……<br>将编译目标改成任意的虚拟机就可以了。</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-neterror" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/09/20/neterror/" class="article-date">
+      <time datetime="2016-09-20T05:24:05.000Z" itemprop="datePublished">2016-09-20</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/09/20/neterror/">ios网络请求的错误码</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>  <a href="https://developer.apple.com/library/ios/documentation/Cocoa/Reference/Foundation/Miscellaneous/Foundation_Constants/index.html#//apple_ref/doc/constant_group/URL_Loading_System_Error_Codes" target="_blank" rel="external">https://developer.apple.com/library/ios/documentation/Cocoa/Reference/Foundation/Miscellaneous/Foundation_Constants/index.html#//apple_ref/doc/constant_group/URL_Loading_System_Error_Codes</a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line">NSURLErrorUnknown = -1,</span><br><span class="line">NSURLErrorCancelled = -999,</span><br><span class="line">NSURLErrorBadURL = -1000,</span><br><span class="line">NSURLErrorTimedOut = -1001,</span><br><span class="line">NSURLErrorUnsupportedURL = -1002,</span><br><span class="line">NSURLErrorCannotFindHost = -1003,</span><br><span class="line">NSURLErrorCannotConnectToHost = -1004,</span><br><span class="line">NSURLErrorDataLengthExceedsMaximum = -1103,</span><br><span class="line">NSURLErrorNetworkConnectionLost = -1005,</span><br><span class="line">NSURLErrorDNSLookupFailed = -1006,</span><br><span class="line">NSURLErrorHTTPTooManyRedirects = -1007,</span><br><span class="line">NSURLErrorResourceUnavailable = -1008,</span><br><span class="line">NSURLErrorNotConnectedToInternet = -1009,</span><br><span class="line">NSURLErrorRedirectToNonExistentLocation = -1010,</span><br><span class="line">NSURLErrorBadServerResponse = -1011,</span><br><span class="line">NSURLErrorUserCancelledAuthentication = -1012,</span><br><span class="line">NSURLErrorUserAuthenticationRequired = -1013,</span><br><span class="line">NSURLErrorZeroByteResource = -1014,</span><br><span class="line">NSURLErrorCannotDecodeRawData = -1015,</span><br><span class="line">NSURLErrorCannotDecodeContentData = -1016,</span><br><span class="line">NSURLErrorCannotParseResponse = -1017,</span><br><span class="line">NSURLErrorInternationalRoamingOff = -1018,</span><br><span class="line">NSURLErrorCallIsActive = -1019,</span><br><span class="line">NSURLErrorDataNotAllowed = -1020,</span><br><span class="line">NSURLErrorRequestBodyStreamExhausted = -1021,</span><br><span class="line">NSURLErrorFileDoesNotExist = -1100,</span><br><span class="line">NSURLErrorFileIsDirectory = -1101,</span><br><span class="line">NSURLErrorNoPermissionsToReadFile = -1102,</span><br><span class="line">NSURLErrorSecureConnectionFailed = -1200,</span><br><span class="line">NSURLErrorServerCertificateHasBadDate = -1201,</span><br><span class="line">NSURLErrorServerCertificateUntrusted = -1202,</span><br><span class="line">NSURLErrorServerCertificateHasUnknownRoot = -1203,</span><br><span class="line">NSURLErrorServerCertificateNotYetValid = -1204,</span><br><span class="line">NSURLErrorClientCertificateRejected = -1205,</span><br><span class="line">NSURLErrorClientCertificateRequired = -1206,</span><br><span class="line">NSURLErrorCannotLoadFromNetwork = -2000,</span><br><span class="line">NSURLErrorCannotCreateFile = -3000,</span><br><span class="line">NSURLErrorCannotOpenFile = -3001,</span><br><span class="line">NSURLErrorCannotCloseFile = -3002,</span><br><span class="line">NSURLErrorCannotWriteToFile = -3003,</span><br><span class="line">NSURLErrorCannotRemoveFile = -3004,</span><br><span class="line">NSURLErrorCannotMoveFile = -3005,</span><br><span class="line">NSURLErrorDownloadDecodingFailedMidStream = -3006,</span><br><span class="line">NSURLErrorDownloadDecodingFailedToComplete = -3007</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-UITableView" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/09/03/UITableView/" class="article-date">
+      <time datetime="2016-09-03T13:45:04.000Z" itemprop="datePublished">2016-09-03</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/09/03/UITableView/">UITableView的一些技术细节</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>1.plain样式 section footer &amp; header层在cell contentview的上面<br>  group样式则相反，section footer &amp; header层在cell contentview的下面<br>  所以如果希望在footer上显示单元格的一些扩充内容，则必现使用group样式</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-collectionviewcell" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -645,179 +808,9 @@
 
 
   
-    <article id="post-apns-sound" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/07/14/apns-sound/" class="article-date">
-      <time datetime="2016-07-14T03:07:38.000Z" itemprop="datePublished">2016-07-14</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/07/14/apns-sound/">iOS 关于推送消息的设置</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p>app：app只需要放一个声音文件就行，没别的设置<br>服务器：服务器向苹果APNs服务器发送消息的时候，需要设置sound字段：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  aps =</span><br><span class="line">  &#123;</span><br><span class="line">    alert = &quot;message&quot;;</span><br><span class="line">    sound = &quot;sound file name.extension&quot;;</span><br><span class="line">    badge = 1;</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>参考文档：<a href="https://developer.apple.com/library/ios/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/IPhoneOSClientImp.html#//apple_ref/doc/uid/TP40008194-CH103-SW6" target="_blank" rel="external">https://developer.apple.com/library/ios/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/IPhoneOSClientImp.html#//apple_ref/doc/uid/TP40008194-CH103-SW6</a></p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-uitextfield" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/07/14/uitextfield/" class="article-date">
-      <time datetime="2016-07-14T03:01:09.000Z" itemprop="datePublished">2016-07-14</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/07/14/uitextfield/">uitextfield输入文字的时候忽隐忽现</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p>故障现象：<br>    往uitextfield输入文字的时候，输入一个字母，字串消失；再输入一个，字串出现；再输入，字串消失…</p>
-<p>故障原因：<br>    uitextfield继承了scrollview的属性</p>
-<p>解决方案：<br>   uitextfield所在的uiview加入语句：<br>   self.automaticallyAdjustsScrollViewInsets = false</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-常用framework" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/07/09/常用framework/" class="article-date">
-      <time datetime="2016-07-09T10:22:23.000Z" itemprop="datePublished">2016-07-09</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/07/09/常用framework/">常用framework</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              <p>AddressBook.framework<br>提供访问存储核心数据库中用户联系人信息的功能</p>
-<p>AddressBookUI.framework<br>提供一个用户界面，用于显示存储在地址簿中的联系人信息
-          
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-      
-        <p class="article-more-link">
-          <a href="/2016/07/09/常用framework/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/2/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/4/">Next &raquo;</a>
+      <a class="extend prev" rel="prev" href="/page/2/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/4/">Next &raquo;</a>
     </nav>
   
 </div>
