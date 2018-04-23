@@ -3,21 +3,21 @@
 <head>
   <meta charset="utf-8">
   
-  <title>UIViewController中self.view的位置 | LynnCheng</title>
+  <title>pod demo | LynnCheng</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="原文地址：http://www.jianshu.com/p/930643270455
-总所周知，苹果从iOS7开始采用扁平化的界面风格，颠覆了果粉们“迷恋”的拟物化风格。对于开发者而言，全新的风格带来新的接口，这些新的接口改动中，有些更加合理了，有些更加方便了，而有些可能让开发者容易迷糊，下面本人就来谈谈iOS7这些新添加“鬼魅”的接口中的经常接触到的一个—-UITabBar/UINavigati">
+  <meta name="description" content="Uncomment this line to define a global platform for your projectplatform :ios, ‘8.0’use_frameworks!workspace ‘XXXX’
+def share_pods    pod ‘SnapKit’, ‘~&amp;gt; 4.0.0’    pod ‘MJExtension’, ‘~&amp;gt; 3.0.13’">
 <meta property="og:type" content="article">
-<meta property="og:title" content="UIViewController中self.view的位置">
-<meta property="og:url" content="http://lynncheng.github.io/2017/01/23/trans/index.html">
+<meta property="og:title" content="pod demo">
+<meta property="og:url" content="http://lynncheng.github.io/2018/04/23/pod-demo/index.html">
 <meta property="og:site_name" content="LynnCheng">
-<meta property="og:description" content="原文地址：http://www.jianshu.com/p/930643270455
-总所周知，苹果从iOS7开始采用扁平化的界面风格，颠覆了果粉们“迷恋”的拟物化风格。对于开发者而言，全新的风格带来新的接口，这些新的接口改动中，有些更加合理了，有些更加方便了，而有些可能让开发者容易迷糊，下面本人就来谈谈iOS7这些新添加“鬼魅”的接口中的经常接触到的一个—-UITabBar/UINavigati">
-<meta property="og:updated_time" content="2017-01-24T08:52:31.000Z">
+<meta property="og:description" content="Uncomment this line to define a global platform for your projectplatform :ios, ‘8.0’use_frameworks!workspace ‘XXXX’
+def share_pods    pod ‘SnapKit’, ‘~&amp;gt; 4.0.0’    pod ‘MJExtension’, ‘~&amp;gt; 3.0.13’">
+<meta property="og:updated_time" content="2018-04-23T03:15:31.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="UIViewController中self.view的位置">
-<meta name="twitter:description" content="原文地址：http://www.jianshu.com/p/930643270455
-总所周知，苹果从iOS7开始采用扁平化的界面风格，颠覆了果粉们“迷恋”的拟物化风格。对于开发者而言，全新的风格带来新的接口，这些新的接口改动中，有些更加合理了，有些更加方便了，而有些可能让开发者容易迷糊，下面本人就来谈谈iOS7这些新添加“鬼魅”的接口中的经常接触到的一个—-UITabBar/UINavigati">
+<meta name="twitter:title" content="pod demo">
+<meta name="twitter:description" content="Uncomment this line to define a global platform for your projectplatform :ios, ‘8.0’use_frameworks!workspace ‘XXXX’
+def share_pods    pod ‘SnapKit’, ‘~&amp;gt; 4.0.0’    pod ‘MJExtension’, ‘~&amp;gt; 3.0.13’">
   
     <link rel="alternative" href="/atom.xml" title="LynnCheng" type="application/atom+xml">
   
@@ -230,11 +230,11 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
-      <div class="body-wrap"><article id="post-trans" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-pod-demo" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2017/01/23/trans/" class="article-date">
-      <time datetime="2017-01-23T08:28:00.000Z" itemprop="datePublished">2017-01-23</time>
+      <a href="/2018/04/23/pod-demo/" class="article-date">
+      <time datetime="2018-04-23T03:14:02.000Z" itemprop="datePublished">2018-04-23</time>
 </a>
     </div>
   
@@ -247,7 +247,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      UIViewController中self.view的位置
+      pod demo
     </h1>
   
 
@@ -264,45 +264,26 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>原文地址：<a href="http://www.jianshu.com/p/930643270455" target="_blank" rel="external">http://www.jianshu.com/p/930643270455</a></p>
-<p>总所周知，苹果从iOS7开始采用扁平化的界面风格，颠覆了果粉们“迷恋”的拟物化风格。对于开发者而言，全新的风格带来新的接口，这些新的接口改动中，有些更加合理了，有些更加方便了，而有些可能让开发者容易迷糊，下面本人就来谈谈iOS7这些新添加“鬼魅”的接口中的经常接触到的一个—-UITabBar/UINavigationBar的translucent属性。</p>
-<p>新的属性translucent简介 <a id="more"></a></p>
-<p>顾名思义，translucent属性能决定UITabBar/UINavigationBar是否为半透明的效果，苹果官方对此的解释如下：</p>
-<p>UINavigationBar的translucent属性解释</p>
-<p>复制代码<br>/<em><br>New behavior on iOS 7.<br>Default is YES.<br>You may force an opaque background by setting the property to NO.<br>If the navigation bar has a custom background image, the default is inferred<br>from the alpha values of the image—YES if it has any pixel with alpha &lt; 1.0<br>If you send setTranslucent:YES to a bar with an opaque custom background image<br>it will apply a system opacity less than 1.0 to the image.<br>If you send setTranslucent:NO to a bar with a translucent custom background image<br>it will provide an opaque background for the image using the bar’s barTintColor if defined, or black<br>for UIBarStyleBlack or white for UIBarStyleDefault if barTintColor is nil.
-</em>/<br>@property(nonatomic,assign,getter=isTranslucent) BOOL translucent NS_AVAILABLE_IOS(3_0) UI_APPEARANCE_SELECTOR;<br>// Default is NO on iOS 6 and earlier. Always YES if barStyle is set to UIBarStyleBlackTranslucent<br>复制代码<br>UITabBar的translucent属性解释</p>
-<p>复制代码<br>/<em><br>Default is YES.<br>You may force an opaque background by setting the property to NO.<br>If the tab bar has a custom background image, the default is inferred from the alpha<br>values of the image—YES if it has any pixel with alpha &lt; 1.0<br>If you send setTranslucent:YES to a tab bar with an opaque custom background image<br>the tab bar will apply a system opacity less than 1.0 to the image.<br>If you send setTranslucent:NO to a tab bar with a translucent custom background image<br>the tab bar will provide an opaque background for the image using the bar’s barTintColor if defined, or black<br>for UIBarStyleBlack or white for UIBarStyleDefault if barTintColor is nil.
-</em>/<br>@property(nonatomic,getter=isTranslucent) BOOL translucent NS_AVAILABLE_IOS(7_0);<br>复制代码<br>简而言之，这个BOOL属性能控制UITabBar/UINavigationBar的半透明效果，默认为YES，即默认情况下为半透明效果（后面会详细解释这两段官方文字描述的含义）。</p>
-<p>translucent缘何“鬼魅”</p>
-<p>新属性的出现往往会导致一些“注意事项”，主要体现为被半透明效果处理后产生的色差和添加的类view控件的坐标变动。</p>
-<p>默认情况下，如果使用UITabBarController和UINavigationBarController（translucent属性默认为YES），设置一个蓝色的view添加其中并设置距离屏幕边距为（0，0，0，0），展示效果如下：</p>
-<p>可以看到，UITabBarController和UINavigationBarController被蓝色的view“穿透”了，此时view的边距也正如设置的一样，零点坐标在（0，0）处。</p>
-<p>这时候，如果将view替换成tableView，展示效果如下：</p>
-<p>可以看到，tableView的cell并没有因为“穿透”效果而出现被遮挡的情况，这是由于苹果对滚动视图的特殊性进行处理：对于类ScrollView，系统默认默认控制器属性automaticallyAdjustsScrollViewInsets默认为YES。</p>
-<p>automaticallyAdjustsScrollViewInsets = YES时系统底层所干的事<br>scrollView的内容原本没有内边距，但是考虑到导航栏（高度44px）、状态栏（高度20px）、TabBar（高度49px）会挡住后面scrollView所展示的内容，系统自动为scrollView增加上下的内边距，这时候我们打印一下tableView的描述（友情提示：tableView继承自scrollView）：</p>
-<p>tableView描述.png</p>
-<p>可以看出，contentOffset（内容坐标偏移量）和contentSize（内容尺寸大小）都发生了变化，结合tableView自身的frame可以看出，系统自动为scrollView增加了顶部64px的内边距以及底部49px的内边距，正好是导航栏高度+状态栏高度以及TabBar高度。一旦手动在系统布局页面之前设置automaticallyAdjustsScrollViewInsets = NO，将会取消上述操作，届时scrollView内容将会被部分挡住。<br>请注意：上述的情况仅仅对UIScrollView或者子类（如UITableView）有效。</p>
-<p>非滚动视图中导致“鬼魅”的原因<br>从上述内容中，我们可以了解到滚动视图默认情况下系统会给滚动内容增加上下内边距，以防内容被导航条和TabBar遮挡，但是实际上在常用的项目界面结构（TabBarController–NavigationController–ViewController）以及系统默认情况下，viewController中的view是没有内边距的（也就是说view穿透上下两个Bar）。但是我们有时候会看到应用中会有这样的情形：非滚动视图依然有类似增加上下内边距的效果，自己并没有手动更改过视图的frame。这种情况，就要结合其他几个系统的属性来解释了。</p>
-<p>针对非滚动视图的需求</p>
-<p>由上述内容我们知道，默认情况下，导航条和TabBar都是半透明，添加在上面的控制器的视图会有“穿透”效果。如果现在有这样的需求：对于非滚动视图，从原点（0，0）布局，但是内容不被遮挡，能够正常显示。<br>这时候我们需要区分两种情况：是否需要导航条/TabBar带有半透明效果。</p>
-<p>保留半透明效果（导航条/TabBar的translucent == YES）</p>
-<p>手动修改frame布局，从（0，64）开始布局，底部同理，需要计算坐标尺寸，比较繁琐。<br>修改viewController的edgesForExtendedLayout属性，edgesForExtendedLayout = UIRectEdgeNone<br>（备注：设置后，控制器的view的frame的坐标Y增加64px紧挨着navigationBar下方，底部同理，该属性支持iOS7及以后的版本。）<br>注意：这里虽然看着导航条和TabBar还有半透明效果，但是实际上下面的内容已经无法再”穿透“了。<br>运行效果如下图所示：</p>
-<p>不保留半透明效果（导航条/TabBar的translucent == NO）<br>将TabBar和导航条的translucent属性分别设置为NO，不做任何其他修改，此时bar的背景颜色为默认的白色，且不再有色差，运行效果如下图所示：</p>
-<p>导航条的translucent设置为NO效果展示</p>
-<p>TabBar的translucent设置为NO效果展示<br>关于iOS7之后与view全屏相关的知识点</p>
-<p>在iOS7之后，默认情况下，控制器的view是”全屏“的，也就是说，即便有TabBar或者NavigationBar，控制器的view也是可以”穿透至全屏“的，针对这一特性，苹果对UIViewController提供了以下几个属性供开发者使用：</p>
-<p>// 在iOS7之前，控制器的view默认非全屏，如果想要全屏效果，需要设置为YES，该属性已从iOS7开始过期<br>@property(nonatomic,assign) BOOL wantsFullScreenLayout NS_DEPRECATED_IOS(3_0, 7_0) __TVOS_PROHIBITED;<br>// Deprecated in 7_0, Replaced by the following:  该属性被以下三个属性代替</p>
-<p>// Defaults to UIRectEdgeAll<br>@property(nonatomic,assign) UIRectEdge edgesForExtendedLayout NS_AVAILABLE_IOS(7_0); </p>
-<p>// Defaults to NO, but bars are translucent by default on 7_0.<br>@property(nonatomic,assign) BOOL extendedLayoutIncludesOpaqueBars NS_AVAILABLE_IOS(7_0); </p>
-<p>// Defaults to YES<br>@property(nonatomic,assign) BOOL automaticallyAdjustsScrollViewInsets NS_AVAILABLE_IOS(7_0);<br>下面解释一下这三个属性：</p>
-<p>edgesForExtendedLayout：意思是view的边缘允许额外布局的情况，默认为UIRectEdgeAll，意味着全屏布局（带穿透效果）。</p>
-<p>extendedLayoutIncludesOpaqueBars：意思是额外布局是否包括不透明的Bar，默认为NO，意味着如果导航条或者TabBar非透明，view内容不会被他们遮挡，如果该属性设置为YES，那么在导航条或者TabBar非透明的情况下，view的内容将会被他们遮挡（原点为0，0），该属性仅仅对非透明的Bar控件有效。<br>示例展示如下图所示（代码设置 navigationBar.translucent = NO 并且 extendedLayoutIncludesOpaqueBars = YES）</p>
-<p>非透明导航条遮挡内容效果展示<br>automaticallyAdjustsScrollViewInsets：意思是是否由系统自动调整滚动视图的内边距，默认为YES，意味着系统将会根据导航条和TabBar的情况自动增加上下内边距以防止滚动视图的内容被Bar遮挡。</p>
-<p>设置导航条或者TabBar背景图片的注意事项</p>
-<p>这里会详细解释官方文档对translucent属性的注释，为什么放到这里才说？因为官方文档对该属性的解释全部跟设置导航条或者TabBar的背景图片有关！说明苹果也知道，这里坑很多，下面就来梳理一下吧。。。</p>
-<p>translucent属性的官方解释</p>
-<p>UINavigationBar/UITabBar的translucent属性解释：默认为YES，可以通过设置NO来强制使用非透明背景，如果导航条使用自定义背景图片，那么默认情况该属性的值由图片的alpha（透明度）决定，如果alpha的透明度小于1.0值为YES。如果手动设置translucent为YES并且使用自定义不透明图片，那么会自动设置系统透明度（小于1.0）在这个图片上。如果手动设置translucent为NO并且使用自定义带透明度（透明度小于0）的图片，那么系统会展示这张背景图片，只不过这张图片会使用事先确定的barTintColor进行不透明处理，若barTintColor为空，则会使用UIBarStyleBlack（黑色）或者UIBarStyleDefault（白色）。<br>设置导航栏背景图片透明度问题</p>
-<p>如果背景图片没有透明度，系统会自动把导航控制器的栈顶控制器的view的Y值增加64，如果没有透明度，则不会增加。<br>这一情况的图片必须是imageSet格式的，并且图片的透明度为1（不透明），系统才会去调整</p>
+        <h1 id="Uncomment-this-line-to-define-a-global-platform-for-your-project"><a href="#Uncomment-this-line-to-define-a-global-platform-for-your-project" class="headerlink" title="Uncomment this line to define a global platform for your project"></a>Uncomment this line to define a global platform for your project</h1><p>platform :ios, ‘8.0’<br>use_frameworks!<br>workspace ‘XXXX’</p>
+<p>def share_pods<br>    pod ‘SnapKit’, ‘~&gt; 4.0.0’<br>    pod ‘MJExtension’, ‘~&gt; 3.0.13’<br>    pod ‘HandyJSON’, ‘~&gt;4.0.0-beta.1’<br>end</p>
+<p>target ‘HCCalendar’ do<br>    pod ‘JTCalendar’<br>end</p>
+<p>target ‘HCCameraSDK’ do  #基于同一个workspace的其他project<br>    project ‘./Projects/HCCameraSDK/HCCameraSDK’<br>    pod ‘AFNetworking’, ‘~&gt; 3.0’<br>    pod ‘Reachability’, ‘~&gt; 3.2’<br>    pod ‘SWXMLHash’, ‘~&gt; 4.0.0’<br>end</p>
+<p>target ‘HCCameraSDKTests’ do<br>    project ‘./Projects/HCCameraSDK/HCCameraSDK’<br>    pod ‘AFNetworking’, ‘~&gt; 3.0’<br>    pod ‘Reachability’, ‘~&gt; 3.2’<br>    pod ‘SWXMLHash’, ‘~&gt; 4.0.0’<br>end</p>
+<p>target ‘HCOSSXSDK’ do<br>    project ‘./Projects/HCOSSXSDK/HCOSSXSDK’<br>    pod ‘AFNetworking’, ‘~&gt; 3.0’<br>    pod ‘HandyJSON’, ‘~&gt;4.0.0-beta.1’<br>end</p>
+<p>target ‘HCOSSXSDKTests’ do<br>    project ‘./Projects/HCOSSXSDK/HCOSSXSDK’<br>    pod ‘AFNetworking’, ‘~&gt; 3.0’<br>end</p>
+<p>abstract_target ‘Defaults’ do<br>pod ‘AFNetworking’,’~&gt; 3.0’<br>pod ‘Mantle’, ‘~&gt; 2.0.4’<br>pod ‘Masonry’<br>pod ‘MBProgressHUD’, ‘~&gt; 0.9.1’<br>pod ‘Reachability’, ‘~&gt; 3.2’<br>pod ‘MJRefresh’<br>pod ‘KVOController’<br>pod ‘SDVersion’<br>pod ‘CocoaAsyncSocket’<br>pod “Qiniu”, :git =&gt; ‘<a href="https://github.com/qiniu/objc-sdk.git" target="_blank" rel="external">https://github.com/qiniu/objc-sdk.git</a>‘, :branch =&gt; ‘AFNetworking-3.x’<br>pod ‘YYWebImage’<br>pod ‘MGSwipeTableCell’<br>pod ‘SWXMLHash’, ‘~&gt; 4.0.0’<br>pod ‘SDWebImage’, ‘~&gt; 4.1.2’<br>pod ‘SDWebImage/GIF’<br>pod ‘FLAnimatedImage’, ‘~&gt; 1.0’<br>pod ‘HandyJSON’, ‘~&gt;4.0.0-beta.1’<br>pod ‘AliyunOSSiOS’, ‘~&gt; 2.5.0’<br>pod ‘MJExtension’, ‘~&gt; 3.0.13’<br>pod ‘UITextView+Placeholder’, ‘~&gt; 1.2.0’<br>pod ‘UMengAnalytics-NO-IDFA’ #无IDFA版SDK<br>pod ‘SnapKit’, ‘~&gt; 4.0.0’<br>pod ‘WechatOpenSDK’<br>pod ‘SSZipArchive’</p>
+<p>source ‘<a href="https://github.com/CocoaPods/Specs.git" target="_blank" rel="external">https://github.com/CocoaPods/Specs.git</a>‘<br>source ‘<a href="https://github.com/aliyun/aliyun-specs.git" target="_blank" rel="external">https://github.com/aliyun/aliyun-specs.git</a>‘<br>pod ‘AlicloudPush’, ‘~&gt; 1.9.1’<br>pod ‘WZLBadge’</p>
+<h1 id="‘node-modules’目录一般位于根目录中"><a href="#‘node-modules’目录一般位于根目录中" class="headerlink" title="‘node_modules’目录一般位于根目录中"></a>‘node_modules’目录一般位于根目录中</h1><h1 id="但是如果你的结构不同，那你就要根据实际路径修改下面的-path"><a href="#但是如果你的结构不同，那你就要根据实际路径修改下面的-path" class="headerlink" title="但是如果你的结构不同，那你就要根据实际路径修改下面的:path"></a>但是如果你的结构不同，那你就要根据实际路径修改下面的<code>:path</code></h1><p>pod ‘React’, :path =&gt; ‘../node_modules/react-native’, :subspecs =&gt; [<br>‘Core’,<br>‘RCTText’,<br>‘RCTNetwork’,<br>‘RCTWebSocket’,<br>‘RCTImage’,<br>‘DevSupport’,<br>‘RCTLinkingIOS’,<br>‘RCTAnimation’,<br>]</p>
+<h1 id="如果你的RN版本-gt-0-42-0，请加入下面这行"><a href="#如果你的RN版本-gt-0-42-0，请加入下面这行" class="headerlink" title="如果你的RN版本 &gt;= 0.42.0，请加入下面这行"></a>如果你的RN版本 &gt;= 0.42.0，请加入下面这行</h1><p>pod “Yoga”, :path =&gt; “../node_modules/react-native/ReactCommon/yoga”<br>pod ‘react-native-camera’, path: ‘../node_modules/react-native-camera’<br>pod ‘react-native-network-info’, path: ‘../node_modules/react-native-network-info’<br>pod ‘BVLinearGradient’, :path =&gt; ‘../node_modules/react-native-linear-gradient’<br>pod ‘RNSVG’, :path =&gt; ‘../node_modules/react-native-svg’</p>
+<p>target ‘Homecare’<br>target ‘Homecare_Inhome’<br>target ‘Homecare_Product’</p>
+<p>target ‘ZTECam_Product’</p>
+<p>#do</p>
+<p>#pod ‘PayPal-iOS-SDK’</p>
+<p>#end</p>
+<p>end</p>
+<p>target ‘SceneToday’ do<br>    share_pods<br>end</p>
+<p>target ‘HomecareTests’ do</p>
+<p>end</p>
 
       
     </div>
@@ -311,13 +292,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2017/01/23/trans/">UIViewController中self.view的位置</a></p>
+        <p><span>本文标题:</span><a href="/2018/04/23/pod-demo/">pod demo</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">Lynn Cheng</a></p>
-        <p><span>发布时间:</span>2017-01-23, 16:28:00</p>
-        <p><span>最后更新:</span>2017-01-24, 16:52:31</p>
+        <p><span>发布时间:</span>2018-04-23, 11:14:02</p>
+        <p><span>最后更新:</span>2018-04-23, 11:15:31</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2017/01/23/trans/" title="UIViewController中self.view的位置">http://lynncheng.github.io/2017/01/23/trans/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://lynncheng.github.io/2017/01/23/trans/　　作者: Lynn Cheng" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2018/04/23/pod-demo/" title="pod demo">http://lynncheng.github.io/2018/04/23/pod-demo/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://lynncheng.github.io/2018/04/23/pod-demo/　　作者: Lynn Cheng" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
@@ -329,16 +310,10 @@
 
     <nav id="article-nav">
         
-            <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2017/03/18/ui/">
-                    ui
-                </a>
-            </div>
-        
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2017/01/22/如何区分模拟器和真机调试/">
-                    如何区分模拟器和真机调试
+                <a href="/2018/04/10/frame/">
+                    frame、bounds
                 </a>
             </div>
         
@@ -349,7 +324,7 @@
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Uncomment-this-line-to-define-a-global-platform-for-your-project"><span class="toc-number">1.</span> <span class="toc-text">Uncomment this line to define a global platform for your project</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#‘node-modules’目录一般位于根目录中"><span class="toc-number">2.</span> <span class="toc-text">‘node_modules’目录一般位于根目录中</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#但是如果你的结构不同，那你就要根据实际路径修改下面的-path"><span class="toc-number">3.</span> <span class="toc-text">但是如果你的结构不同，那你就要根据实际路径修改下面的:path</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#如果你的RN版本-gt-0-42-0，请加入下面这行"><span class="toc-number">4.</span> <span class="toc-text">如果你的RN版本 >= 0.42.0，请加入下面这行</span></a></li></ol>
 </div>
 <style>
     .left-col .switch-btn {
@@ -406,7 +381,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"UIViewController中self.view的位置　| LynnCheng　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"pod demo　| LynnCheng　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -422,7 +397,7 @@
     
       <div class="duoshuo" id="comments">
     <!-- 多说评论框 start -->
-    <div class="ds-thread" data-thread-key="2017/01/23/trans/" data-title="UIViewController中self.view的位置" data-url="http://lynncheng.github.io/2017/01/23/trans/"></div>
+    <div class="ds-thread" data-thread-key="2018/04/23/pod-demo/" data-title="pod demo" data-url="http://lynncheng.github.io/2018/04/23/pod-demo/"></div>
     <!-- 多说评论框 end -->
     <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
     <script type="text/javascript">
@@ -446,15 +421,13 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2017/03/18/ui/" title="上一篇: ui">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
 
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2017/01/22/如何区分模拟器和真机调试/" title="下一篇: 如何区分模拟器和真机调试">
+            <a href="/2018/04/10/frame/" title="下一篇: frame、bounds">
                 <i class="fa fa-angle-right"></i>
             </a>
         
