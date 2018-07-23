@@ -233,6 +233,323 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-ios打包ipa文件的脚本" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2018/07/23/ios打包ipa文件的脚本/" class="article-date">
+      <time datetime="2018-07-23T09:04:31.000Z" itemprop="datePublished">2018-07-23</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/07/23/ios打包ipa文件的脚本/">ios打包ipa文件的脚本</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <ol>
+<li>编译打包命令：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">xcodebuild archive -workspace xxxx.xcworkspace -scheme pppp -configuration Release -archivePath ../export/xxxx.xcarchive</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>其中xxxx为工程名称，pppp为所用的profile的名称（不带后缀）</p>
+<ol>
+<li>生成ipa文件<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">xcodebuild -exportArchive -archivePath ../export/xxxx.xcarchive -exportPath ../export/ -exportOptionsPlist ExportOptions.plist</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>其中ExportOptions.plist文件可以在你手动打包ipa后，ipa文件的同级目录中找到</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-VLC同步解析" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2018/06/19/VLC同步解析/" class="article-date">
+      <time datetime="2018-06-19T02:05:00.000Z" itemprop="datePublished">2018-06-19</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/06/19/VLC同步解析/">mac电脑配置路由表</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>很多公司都有自己的局域网，和互联网是两张不互通的网络。如果同一台电脑通过两张网卡接入两个网络，windows电脑能自动选路，而mac电脑则要自己配置了。</p>
+<p>最开始想到的是使用route命令，如：<br>sudo route add 18.0.0.0/24 10.0.66.2</p>
+<p>但这种方案有个缺点：如果电脑重启一下，路由配置就没了。所以每次重启电脑都要重新配置。</p>
+<p>搜索了一下，终于找到了解决方案：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">networksetup -setadditionalroutes &quot;Wi-Fi&quot; 10.0.0.0 255.0.0.0 10.46.18.129</span><br></pre></td></tr></table></figure></p>
+<p>其中，”Wi-Fi” 这个是指我当前上网的设备（查看当前的设备可以使用这个命令networksetup -listallnetworkservices）</p>
+<p>如果不需要了，则使用如下命令清空表：</p>
+<p>$ networksetup -setadditionalroutes Wi-Fi<br>检查下：</p>
+<p>$ networksetup -getadditionalroutes Wi-Fi<br>There are no additional IPv4 routes on Wi-Fi.<br>route -rn 也可以检查一下</p>
+<p>如果公司内网还有私有dns，如www.xxx.com对应的是10.1.1.10这种私有地址，则可以把对应的域名添加到/etc/host文件中</p>
+<p>参考</p>
+<p><a href="https://developer.apple.com/legacy/library/documentation/Darwin/Reference/ManPages/man8/networksetup.8.html" target="_blank" rel="external">https://developer.apple.com/legacy/library/documentation/Darwin/Reference/ManPages/man8/networksetup.8.html</a></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-UICollectionView" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2018/05/31/UICollectionView/" class="article-date">
+      <time datetime="2018-05-31T12:07:04.000Z" itemprop="datePublished">2018-05-31</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/05/31/UICollectionView/">UICollectionView</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <ol>
+<li>如何修改装饰视图的背景色？（或者其他属性、新增子视图等等）<br>a. 继承UICollectionViewLayoutAttributes自定义一个attributes<br>b. 使用自定义的重写UICollectionReusableView的apply函数<br>c. 重写UICollectionViewFlowLayout的func layoutAttributesForDecorationView(ofKind elementKind: String, at indexPath: IndexPath)函数，返回自定义的attributes</li>
+</ol>
+<p>2.</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-VLC" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2018/05/30/VLC/" class="article-date">
+      <time datetime="2018-05-30T08:47:56.000Z" itemprop="datePublished">2018-05-30</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/05/30/VLC/">VLC</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <ol>
+<li><p>基本概念：<br>I帧、p帧、b帧、DTS、PTS、<br>抖动jitter、<br>音视频同步：stream clock、system clock、pcr（参考时钟）<br>时钟同步：drift</p>
+</li>
+<li><p>播放流程：<br>input-&gt;Demux-&gt;audio FIFO-&gt;Decoder-&gt;DirectSound<br>————–Video FIFO-&gt;Decoder-&gt;Pic FIFO-&gt;DirectShow</p>
+</li>
+</ol>
+<p>access访问：接受获取-&gt;内存缓冲<br>demux解吗：input_decoderdecode-&gt;vlc_fifo_QueueUnlocked<br>          es_out.c:创建音视频两个解码器<br>decode解码：vlc_fifo_DequeueUnlocked-&gt;DecoderDecode-&gt;<br>           avcodec/video.c-&gt;DecodeVideo-&gt;vout_putPicture-&gt;picture_fifo_push<br>           vlc_fifo_QueueUnlocked-&gt;DecoderDecode-&gt;avcodec/audio.c-&gt;DecodeAudio-&gt;aout_decplay<br>output输出：aout直接播放decoderplayaudio；<br>           vout送入缓存<br>丢帧策略：以音频为基准，来一帧播放一帧；延时超过500ms，如果缓存有多余的帧，就丢掉一些；视频：比音频快慢20ms就丢（不能丢关键帧..）</p>
+<ol>
+<li><p>常见问题：<br>a. 直播延时：<br>   启动延时: 进程初始化，如cpu探测、加载组件等；控制协议，如rtsp协议交互时间；关键帧的位置；</p>
+<pre><code>预读取的流太多，等待时间太长，可以通过修改p_sys-&gt;ic-&gt;probesize、max_analyze_duration来减少
+</code></pre><p>   播放延时：网络延时；网络抖动；乱序；丢包；缓存；音视频同步（累积延时）；</p>
+<pre><code>音频播放延时的处理函数为aout_decsynchronize
+</code></pre><p>b. 马赛克：由于gop中的p帧丢失，导致部分连续新鲜丢失；h264解码的时候会根据前面的参考帧来补齐，从而造成马赛克现象。<br>c. 卡顿：如果I帧丢失，就没法显示一个GOP内的所有帧，而I帧周期较长，所以会导致下一个I帧到来之前画面静止不动。<br>丢帧策略-&gt; threaddisplaypreparepicture里，即使“too late to be displayed”，也是隔一帧才丢一帧，不连续丢。<br>d. 裁减：减少flash占用、加快vlc初始化、减少内存占用</p>
+</li>
+<li><p>历史故障：<br>a. 某地长城宽带用户无法播放xx摄像头的直播流，问题原因：<br>b. 用户app在局域网内无法播放直播流，更换家庭网关则正常</p>
+</li>
+</ol>
+<ol>
+<li>VLC启动流程<br>libvlc_InternalInit(): log初始化、注册组件、<br>avcodec_skip_frame:跳侦的作用？<br>avcodec_skip_idct:</li>
+</ol>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-UITableView的常见问题" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2018/05/15/UITableView的常见问题/" class="article-date">
+      <time datetime="2018-05-15T04:00:51.000Z" itemprop="datePublished">2018-05-15</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/05/15/UITableView的常见问题/">UITableView的常见问题</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <ol>
+<li>如果是系统自动计算cell的高度，则cell内的自动布局要针对contentView，而不是cell本身</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">let list = UIView()</span><br><span class="line">cell.contentView.addSubView(list)</span><br><span class="line">list.snp.makeConstraints &#123; (make) in</span><br><span class="line">    make.edges.equalTo(cell!.contentView)   //正解！</span><br><span class="line">    //make.edges.equalTo(cell!)             //错误</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ol>
+<li>如何去掉section的上下两条分割线？tablestyle设置成plain，有两个以上section就木有这两条分割线了</li>
+</ol>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-pod-demo" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -518,312 +835,6 @@
 <li>clean swift: <a href="https://clean-swift.com" target="_blank" rel="external">https://clean-swift.com</a></li>
 <li>promise kit</li>
 <li>VIPER: <a href="http://www.cocoachina.com/ios/20140703/9016.html" target="_blank" rel="external">http://www.cocoachina.com/ios/20140703/9016.html</a></li>
-</ol>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-函数式编程" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2018/01/17/函数式编程/" class="article-date">
-      <time datetime="2018-01-17T02:25:28.000Z" itemprop="datePublished">2018-01-17</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/01/17/函数式编程/">函数式编程</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p>函数式编程是种编程方式，它将电脑运算视为函数的计算。函数编程语言最重要的基础是λ演算（lambda calculus），而且λ演算的函数可以接受函数当作输入（参数）和输出（返回值）</p>
-<p>函数式程序就是一个表达式，这里的函数是指数学函数，与一般语言的函数有区别<br>函数式编程关心数据的映射，命令式编程关心解决问题的步骤。</p>
-<h2 id="函数式编程的特点。"><a href="#函数式编程的特点。" class="headerlink" title="函数式编程的特点。"></a>函数式编程的特点。</h2><h3 id="函数是”第一等公民”"><a href="#函数是”第一等公民”" class="headerlink" title="函数是”第一等公民”"></a>函数是”第一等公民”</h3><p>所谓”第一等公民”（first class），指的是函数与其他数据类型一样，处于平等地位，可以赋值给其他变量，也可以作为参数，传入另一个函数，或者作为别的函数的返回值。可以和变量一样，在任何地方定义和使用。<br>举例来说，下面代码中的print变量就是一个函数，可以作为另一个函数的参数。<br>var print = function(i){ console.log(i);};<br>　　[1,2,3].forEach(print);</p>
-<h3 id="只用”表达式”，不用”语句”"><a href="#只用”表达式”，不用”语句”" class="headerlink" title="只用”表达式”，不用”语句”"></a>只用”表达式”，不用”语句”</h3><p>“表达式”（expression）是一个单纯的运算过程，总是有返回值；”语句”（statement）是执行某种操作，没有返回值。函数式编程要求，只使用表达式，不使用语句。也就是说，每一步都是单纯的运算，而且都有返回值。<br>原因是函数式编程的开发动机，一开始就是为了处理运算（computation），不考虑系统的读写（I/O）。”语句”属于对系统的读写操作，所以就被排斥在外。<br>当然，实际应用中，不做I/O是不可能的。因此，编程过程中，函数式编程只要求把I/O限制到最小，不要有不必要的读写行为，保持计算过程的单纯性。</p>
-<h3 id="没有”副作用"><a href="#没有”副作用" class="headerlink" title="没有”副作用"></a>没有”副作用</h3><p>所谓”副作用”（side effect），指的是函数内部与外部互动（最典型的情况，就是修改全局变量的值），产生运算以外的其他结果。<br>函数式编程强调没有”副作用”，意味着函数要保持独立，所有功能就是返回一个新的值，没有其他行为，尤其是不得修改外部变量的值。</p>
-<h3 id="不修改状态"><a href="#不修改状态" class="headerlink" title="不修改状态"></a>不修改状态</h3><p>上一点已经提到，函数式编程只是返回新的值，不修改系统变量。因此，不修改变量，也是它的一个重要特点。<br>在其他类型的语言中，变量往往用来保存”状态”（state）。不修改变量，意味着状态不能保存在变量中。函数式编程使用参数保存状态，最好的例子就是递归。下面的代码是一个将字符串逆序排列的函数，它演示了不同的参数如何决定了运算所处的”状态”。</p>
-<h3 id="引用透明性"><a href="#引用透明性" class="headerlink" title="引用透明性"></a>引用透明性</h3><p>函数程序通常还加强引用透明性，即如果提供同样的输入，那么函数总是返回同样的结果。就是说，表达式的值不依赖于可以改变值的全局状态。这使您可以从形式上推断程序行为，因为表达式的意义只取决于其子表达式而不是计算顺序或者其他表达式的副作用。这有助于验证正确性、简化算法，甚至有助于找出优化它的方法。</p>
-<h3 id="副作用"><a href="#副作用" class="headerlink" title="副作用"></a>副作用</h3><p>副作用是修改系统状态的语言结构。因为 FP 语言不包含任何赋值语句，变量值一旦被指派就永远不会改变。而且，调用函数只会计算出结果 ── 不会出现其他效果。</p>
-<h3 id="柯里化"><a href="#柯里化" class="headerlink" title="柯里化"></a>柯里化</h3><p>只传递给函数一部分参数来调用函数，然后返回一个函数去处理剩下的参数。本质上，柯里化就是对高阶函数（就是一种对过程的抽象 参考map它就是一个抽象的过程）的降阶处理。比如 function(arg1,arg2)变成function(arg1)(arg2)。function(arg1,arg2,arg3)变成function(arg1)(arg2)(arg3)….以此类推。</p>
-<p>声明式思维</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-编程模式" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2018/01/15/编程模式/" class="article-date">
-      <time datetime="2018-01-15T08:38:24.000Z" itemprop="datePublished">2018-01-15</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/01/15/编程模式/">编程范式</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p>两种编程范式：</p>
-<ul>
-<li><p>命令式编程范式：命令“机器”如何去做事情(how)，这样不管你想要的是什么(what)，它都会按照你的命令实现。</p>
-<ul>
-<li>面向对象编程，如c++、Java</li>
-<li>面向过程编程，如c语言</li>
-<li>响应式编程：rxswift</li>
-<li>链接式编程：典型示例 snapkit</li>
-<li>面向切片编程：AOP</li>
-</ul>
-</li>
-<li><p>声明式编程范式：告诉“机器”你想要的是什么(what)，让机器想出如何去做(how)。<br>声明式编程范式常见有以下两种：</p>
-<ul>
-<li>领域特定语言（Domain Specific Language，DSL）：<br>名字很陌生，但是我们却经常在用。如SQL、CSS以及正则表达式等等。这些语言只在特定领域起作用，并且使用这些语言时，我们大多数时候是在写“陈述、声明”的语句。如“select * from tb”，我们只关心我们要的结果，而不用去关系具体实现。</li>
-<li>函数式编程（Functional Program，FP）：函数式编程是我们要讨论的重点。既然它属于声明式编程范式，那么它也应该强调结果（What）而非过程（How）。没错，函数式编程不同于常见的命令式编程，它不关心计算机具体的实现过程，而仅仅注重问题结果。</li>
-</ul>
-</li>
-</ul>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-iOS新特性" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2017/11/15/iOS新特性/" class="article-date">
-      <time datetime="2017-11-15T07:39:13.000Z" itemprop="datePublished">2017-11-15</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/11/15/iOS新特性/">iOS新特性</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p>iOS 新特性</p>
-<p>来源： <a href="https://github.com/iamjiyixuan/iOS-dev-skill-map" target="_blank" rel="external">https://github.com/iamjiyixuan/iOS-dev-skill-map</a></p>
-<p>iPhone X<br>    Safe Area<br>    Face ID<br>    苹果官方 iPhone X 适配指南</p>
-<p>iOS 11<br>    Core ML<br>    ARKit<br>    WWDC 2017<br>    开发者所需要知道的 iOS 11 SDK 新特性 by onevcat 2017.06</p>
-<p>iOS 10<br>Extension<br>SiriKit<br>扩展阅读<br>WWDC 2016<br>开发者所需要知道的 iOS 10 SDK 新特性 by onevcat 2016.06<br>iOS 9<br>Multitasking<br>UI Test<br>扩展阅读<br>WWDC 2015<br>开发者所需要知道的 iOS 9 SDK 新特性 by onevcat 2015.06<br>iOS 8<br>iOS 8 VoIP Notifications by Pierre-Marc Airoldi 2015.03<br>扩展阅读<br>WWDC 2014<br>开发者所需要知道的 iOS 8 SDK 新特性 by onevcat 2014.07<br>iOS 7<br>Multitasking<br>WWDC 2013 Session 204 - What’s New with Multitasking<br>后台获取 (Background Fetch)<br>推送唤醒 / 静默推送 (Silent Remote Notifications)<br>后台传输 (Background Transfer Service)<br>扩展阅读<br>WWDC 2013<br>开发者所需要知道的 iOS 7 SDK 新特性 by onevcat 2013.06</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-VLC-i" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2017/10/25/VLC-i/" class="article-date">
-      <time datetime="2017-10-25T05:32:15.000Z" itemprop="datePublished">2017-10-25</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/10/25/VLC-i/">optional解析之String, String?, String!</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p>声明变量时，如果使用String? 或者 String!，则该变量的类型都是optional string<br>两者的区别在于，使用String!声明的变量，在使用的时候，不需要显示的解包；编译器会帮我们强制解包。这也就要求使用者需要确保该变量在引用的时候，必须是非nil值。示例：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">let a:String? = &quot;a&quot;</span><br><span class="line">let b:String! = &quot;b&quot;</span><br><span class="line">let c:String = &quot;c&quot;</span><br><span class="line"></span><br><span class="line">print(a!+b+c)   //打印abc</span><br></pre></td></tr></table></figure>
-<p>需要注意的是，在打印、显示在ui上的时候，系统会自动为optional类型在上Optional(“xxx”)字样，如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">let a:String? = &quot;a&quot;</span><br><span class="line">let b:String! = &quot;b&quot;</span><br><span class="line">let c:String = &quot;c&quot;</span><br><span class="line"></span><br><span class="line">print(&quot;\(a)\(b)\(c)&quot;) //打印&quot;Optional(&quot;a&quot;)Optional(&quot;b&quot;)c\n&quot;</span><br></pre></td></tr></table></figure></p>
-<p>所以，大部分情况下，我们需要显示的解包，才能达到自己想要的效果：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">let a:String? = &quot;a&quot;</span><br><span class="line">let b:String! = &quot;b&quot;</span><br><span class="line">let c:String = &quot;c&quot;</span><br><span class="line"></span><br><span class="line">print(&quot;\(a!)\(b!)\(c)&quot;) //打印&quot;abc\n&quot;</span><br></pre></td></tr></table></figure></p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-VLC-iOS库编译" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2017/09/15/VLC-iOS库编译/" class="article-date">
-      <time datetime="2017-09-15T05:19:41.000Z" itemprop="datePublished">2017-09-15</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/09/15/VLC-iOS库编译/">VLC iOS库编译</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p>1.下载源码后，执行 ./buildMobileVLCKit.sh -f -n</p>
-<ol>
-<li>contrib目录下的文件修改，需要打patch<br>a. 把修改前和修改后的文件，含路径，都拷贝一份，分别放入a、b两个文件夹<br>b. 执行命令： diff -uNr a b &gt; 0008-xxxx.patch<br>c. 修改contrib/xxx/rule.mak</li>
 </ol>
 
       

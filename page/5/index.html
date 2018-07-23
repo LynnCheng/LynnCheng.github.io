@@ -233,6 +233,289 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-iosTree" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/07/09/iosTree/" class="article-date">
+      <time datetime="2016-07-09T10:17:17.000Z" itemprop="datePublished">2016-07-09</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/07/09/iosTree/">iOS 技能图谱</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+              <h2 id="编程语言"><a href="#编程语言" class="headerlink" title="编程语言"></a>编程语言</h2><p>Swift<br>Objective-C<br>C++/C<br>JavaScript
+          
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+        <p class="article-more-link">
+          <a href="/2016/07/09/iosTree/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-runerror" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/07/08/runerror/" class="article-date">
+      <time datetime="2016-07-08T05:22:59.000Z" itemprop="datePublished">2016-07-08</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/07/08/runerror/">dyld: Library not loaded as image not found</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>APP运行时的错误日志：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">dyld: Library not loaded: @rpath/softCamera.framework/softCamera</span><br><span class="line">  Referenced from: /var/containers/Bundle/Application/7AE9BCCF-E583-4015-85EC-A2D48F5182D1/ZTE.app/ZTE</span><br><span class="line">  Reason: image not found</span><br></pre></td></tr></table></figure></p>
+<p>解决方案：<br>把softcamera framework 添加到“general”－&gt; “Embedded binaries”; 而不是”general”-&gt;”Linked framework and library”</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-makeerror" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/07/07/makeerror/" class="article-date">
+      <time datetime="2016-07-07T11:21:46.000Z" itemprop="datePublished">2016-07-07</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/07/07/makeerror/">&quot;Undefined symbols for architecture armv7&quot;错误</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>xcode编译swift源码的时候，提示” Undefined symbols for architecture armv7 ….”<br>一般是因为某些c库未被引用，入libz等等</p>
+<p>可以在general-&gt;linked framework and static library</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-Mac" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/06/28/Mac/" class="article-date">
+      <time datetime="2016-06-28T12:56:13.000Z" itemprop="datePublished">2016-06-28</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/06/28/Mac/">提取MAC地址OUI对应的厂商信息</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <ol>
+<li><p>到ieee的官网下载oui.txt文件<br><a href="http://standards.ieee.org/develop/regauth/oui/oui.txt" target="_blank" rel="external">http://standards.ieee.org/develop/regauth/oui/oui.txt</a></p>
+</li>
+<li><p>从文件中grep hex 提取 00-00-00 对应的厂商信息</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat oui.txt |grep hex &gt; MAC_original.file</span><br></pre></td></tr></table></figure></li>
+</ol>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-autolayout" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/06/28/autolayout/" class="article-date">
+      <time datetime="2016-06-28T09:07:15.000Z" itemprop="datePublished">2016-06-28</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/06/28/autolayout/">iOS的自动布局问题</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>相关代码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">let deButton = UIButton(frame: CGRect(x: 0, y: 0 , width: 160, height: 100))</span><br><span class="line">      deButton.setTitle(&quot;TL&quot;, forState: .Normal)</span><br><span class="line">      deButton.backgroundColor = UIColor.greenColor()</span><br><span class="line">      self.view.addSubview(deButton)</span><br><span class="line">      </span><br><span class="line">      deButton.snp_makeConstraints &#123; (make) -&gt; Void in</span><br><span class="line">          make.left.equalTo(self.view).offset(20)</span><br><span class="line">          make.top.equalTo(self.view).offset(70)</span><br><span class="line">      &#125;</span><br></pre></td></tr></table></figure></p>
+<p>疑问：这段代码执行后，deButton的长和宽根据title的内容自动调节，而不是预先定义的160x100</p>
+<p>原因：使用autolayout实现自动布局的时候，控件的frame设置将被忽略，所以要在自动布局的时候，把长宽也一同设置。</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-tableview" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -499,291 +782,6 @@
           
         <p>vlc升级到v2.2.0以后，在modules/video_output/ios2.m文件中，添加了tapRecognized事件。所以在使用libvlc实现播放器的时候，应该注意规避改问题。<br>解决方案一：修改源码，把单击事件相关代码去掉，搜一下taprecognized相关的代码就行，主要是<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">if (sys-&gt;viewContainer.window) &#123;</span><br><span class="line">    if (sys-&gt;viewContainer.window.rootViewController) &#123;</span><br><span class="line">        if (sys-&gt;viewContainer.window.rootViewController.view)</span><br><span class="line">            [sys-&gt;viewContainer.superview addGestureRecognizer:sys-&gt;tapRecognizer];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">sys-&gt;tapRecognizer.cancelsTouchesInView = NO;</span><br></pre></td></tr></table></figure></p>
 <p>解决方案二：不修改vlc的源码，在视频显示界面上再添加一层视图，接收单击事件</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-Swift开发点滴" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/05/20/Swift开发点滴/" class="article-date">
-      <time datetime="2016-05-20T02:06:24.000Z" itemprop="datePublished">2016-05-20</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/05/20/Swift开发点滴/">Swift开发点滴</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p>Q:如何设置UIButton的高度和宽度？<br>A:可以通过设置边距实现，<br>  self.contentEdgeInsets = EdgeInsets(top: 5, left: 8, bottom: 5, right: 8)</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-SwiftStudy1" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/05/18/SwiftStudy1/" class="article-date">
-      <time datetime="2016-05-18T06:12:48.000Z" itemprop="datePublished">2016-05-18</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/05/18/SwiftStudy1/">Swift学习笔记－本地化</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">按网上的教程实现的时候，开始的时候一直没成功，原因是文件名必须正确</span><br><span class="line">1.app名称的本地化：InfoPlist.strings</span><br><span class="line">2.其它词条的本地化：Localizable.strings</span><br></pre></td></tr></table></figure>
-<p>本地化处理的内容包括：<br>（1）应用程序名称<br>（2）出现在代码中的字符串<br>（3）本地化图片<br>（4）XIB文件<br>（5）其他文件</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-structInit" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/05/12/structInit/" class="article-date">
-      <time datetime="2016-05-12T13:05:19.000Z" itemprop="datePublished">2016-05-12</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/05/12/structInit/">swift 引用c语言结构体时的初始化问题</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              <p>问题场景：<br>swift引用c语言写的静态库，接口文件中有一个结构体，类似：
-          
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-      
-        <p class="article-more-link">
-          <a href="/2016/05/12/structInit/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-ioscode" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/05/09/ioscode/" class="article-date">
-      <time datetime="2016-05-09T00:48:00.000Z" itemprop="datePublished">2016-05-09</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/05/09/ioscode/">ios开发过程中的代码块</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              <p>1.判断邮箱格式是否正确的代码：</p>
-<p>// 利用正则表达式验证 -( BOOL )isValidateEmail:( NSString  <em>)email<br>{<br>NSString  </em>emailRegex =  @”[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}” ;<br>NSPredicate  *emailTest = [ NSPredicate   predicateWithFormat : @”SELF MATCHES%@” ,emailRegex];<br>return  [emailTest  evaluateWithObject :email];<br>}
-          
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-      
-        <p class="article-more-link">
-          <a href="/2016/05/09/ioscode/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-push" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/05/05/push/" class="article-date">
-      <time datetime="2016-05-05T06:13:00.000Z" itemprop="datePublished">2016-05-05</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/05/05/push/">iOS消息推送：如何在调试阶段获取到正式服务器推送的消息</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p>iOS消息推送需要对应发布证书和调试证书，正常情况下调试阶段只能通过沙盒测试。如果希望在调试阶段就对正式服务器进行测试，就需要曲线救国了：</p>
-<ol>
-<li>从app store上下载安装app的正式版本</li>
-<li>开发时，编译一个同样bundleid的app来覆盖已经安装的正式app</li>
-<li>等待奇迹的发生……</li>
-</ol>
 
       
     </div>

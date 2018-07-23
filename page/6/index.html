@@ -233,6 +233,291 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-Swift开发点滴" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/05/20/Swift开发点滴/" class="article-date">
+      <time datetime="2016-05-20T02:06:24.000Z" itemprop="datePublished">2016-05-20</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/05/20/Swift开发点滴/">Swift开发点滴</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>Q:如何设置UIButton的高度和宽度？<br>A:可以通过设置边距实现，<br>  self.contentEdgeInsets = EdgeInsets(top: 5, left: 8, bottom: 5, right: 8)</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-SwiftStudy1" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/05/18/SwiftStudy1/" class="article-date">
+      <time datetime="2016-05-18T06:12:48.000Z" itemprop="datePublished">2016-05-18</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/05/18/SwiftStudy1/">Swift学习笔记－本地化</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">按网上的教程实现的时候，开始的时候一直没成功，原因是文件名必须正确</span><br><span class="line">1.app名称的本地化：InfoPlist.strings</span><br><span class="line">2.其它词条的本地化：Localizable.strings</span><br></pre></td></tr></table></figure>
+<p>本地化处理的内容包括：<br>（1）应用程序名称<br>（2）出现在代码中的字符串<br>（3）本地化图片<br>（4）XIB文件<br>（5）其他文件</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-structInit" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/05/12/structInit/" class="article-date">
+      <time datetime="2016-05-12T13:05:19.000Z" itemprop="datePublished">2016-05-12</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/05/12/structInit/">swift 引用c语言结构体时的初始化问题</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+              <p>问题场景：<br>swift引用c语言写的静态库，接口文件中有一个结构体，类似：
+          
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+        <p class="article-more-link">
+          <a href="/2016/05/12/structInit/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-ioscode" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/05/09/ioscode/" class="article-date">
+      <time datetime="2016-05-09T00:48:00.000Z" itemprop="datePublished">2016-05-09</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/05/09/ioscode/">ios开发过程中的代码块</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+              <p>1.判断邮箱格式是否正确的代码：</p>
+<p>// 利用正则表达式验证 -( BOOL )isValidateEmail:( NSString  <em>)email<br>{<br>NSString  </em>emailRegex =  @”[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}” ;<br>NSPredicate  *emailTest = [ NSPredicate   predicateWithFormat : @”SELF MATCHES%@” ,emailRegex];<br>return  [emailTest  evaluateWithObject :email];<br>}
+          
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+        <p class="article-more-link">
+          <a href="/2016/05/09/ioscode/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-push" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/05/05/push/" class="article-date">
+      <time datetime="2016-05-05T06:13:00.000Z" itemprop="datePublished">2016-05-05</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/05/05/push/">iOS消息推送：如何在调试阶段获取到正式服务器推送的消息</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>iOS消息推送需要对应发布证书和调试证书，正常情况下调试阶段只能通过沙盒测试。如果希望在调试阶段就对正式服务器进行测试，就需要曲线救国了：</p>
+<ol>
+<li>从app store上下载安装app的正式版本</li>
+<li>开发时，编译一个同样bundleid的app来覆盖已经安装的正式app</li>
+<li>等待奇迹的发生……</li>
+</ol>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-capturepackage" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
