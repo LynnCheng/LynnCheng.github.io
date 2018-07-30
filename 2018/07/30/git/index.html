@@ -3,21 +3,42 @@
 <head>
   <meta charset="utf-8">
   
-  <title>更改 UIWebview 的useragent | LynnCheng</title>
+  <title>git | LynnCheng</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="获取UIWebView的useragent：12UIWebView* webView = [[UIWebView alloc] initWithFrame:CGRectZero];  NSString* secretAgent = [webView stringByEvaluatingJavaScriptFromString:@&amp;quot;navigator.userAgent&amp;quot;];
-附">
+  <meta name="description" content="基本概念：正常情况下，我们的工作流就是3个步骤，：
+123git add .git commit -m &amp;quot;comment&amp;quot;git push
+
+git add .把所有文件放入暂存区；
+
+git commit把所有文件从暂存区提交进本地仓库；
+git push把所有文件从本地仓库推送进远程仓库。
+
+4个区工作区(Working Area)暂存区(Stage)本地仓库(Local">
 <meta property="og:type" content="article">
-<meta property="og:title" content="更改 UIWebview 的useragent">
-<meta property="og:url" content="http://lynncheng.github.io/2017/03/22/useragent/index.html">
+<meta property="og:title" content="git">
+<meta property="og:url" content="http://lynncheng.github.io/2018/07/30/git/index.html">
 <meta property="og:site_name" content="LynnCheng">
-<meta property="og:description" content="获取UIWebView的useragent：12UIWebView* webView = [[UIWebView alloc] initWithFrame:CGRectZero];  NSString* secretAgent = [webView stringByEvaluatingJavaScriptFromString:@&amp;quot;navigator.userAgent&amp;quot;];
-附">
-<meta property="og:updated_time" content="2017-03-22T10:22:55.000Z">
+<meta property="og:description" content="基本概念：正常情况下，我们的工作流就是3个步骤，：
+123git add .git commit -m &amp;quot;comment&amp;quot;git push
+
+git add .把所有文件放入暂存区；
+
+git commit把所有文件从暂存区提交进本地仓库；
+git push把所有文件从本地仓库推送进远程仓库。
+
+4个区工作区(Working Area)暂存区(Stage)本地仓库(Local">
+<meta property="og:updated_time" content="2018-07-30T09:09:03.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="更改 UIWebview 的useragent">
-<meta name="twitter:description" content="获取UIWebView的useragent：12UIWebView* webView = [[UIWebView alloc] initWithFrame:CGRectZero];  NSString* secretAgent = [webView stringByEvaluatingJavaScriptFromString:@&amp;quot;navigator.userAgent&amp;quot;];
-附">
+<meta name="twitter:title" content="git">
+<meta name="twitter:description" content="基本概念：正常情况下，我们的工作流就是3个步骤，：
+123git add .git commit -m &amp;quot;comment&amp;quot;git push
+
+git add .把所有文件放入暂存区；
+
+git commit把所有文件从暂存区提交进本地仓库；
+git push把所有文件从本地仓库推送进远程仓库。
+
+4个区工作区(Working Area)暂存区(Stage)本地仓库(Local">
   
     <link rel="alternative" href="/atom.xml" title="LynnCheng" type="application/atom+xml">
   
@@ -230,11 +251,11 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
-      <div class="body-wrap"><article id="post-useragent" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-git" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2017/03/22/useragent/" class="article-date">
-      <time datetime="2017-03-22T10:18:03.000Z" itemprop="datePublished">2017-03-22</time>
+      <a href="/2018/07/30/git/" class="article-date">
+      <time datetime="2018-07-30T09:02:10.000Z" itemprop="datePublished">2018-07-30</time>
 </a>
     </div>
   
@@ -247,7 +268,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      更改 UIWebview 的useragent
+      git
     </h1>
   
 
@@ -264,9 +285,38 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>获取UIWebView的useragent：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">UIWebView* webView = [[UIWebView alloc] initWithFrame:CGRectZero];  </span><br><span class="line">NSString* secretAgent = [webView stringByEvaluatingJavaScriptFromString:@&quot;navigator.userAgent&quot;];</span><br></pre></td></tr></table></figure></p>
-<p>附加自定义字段到 Useragent中<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">NSString *newUagent = [NSString stringWithFormat:@&quot;%@ appname/3.5.2&quot;,secretAgent];  </span><br><span class="line">NSDictionary *dictionary = [[NSDictionary alloc]  </span><br><span class="line">                                initWithObjectsAndKeys:newUagent, @&quot;UserAgent&quot;, nil nil];  </span><br><span class="line">[[NSUserDefaults standardUserDefaults] registerDefaults:dictionary];</span><br></pre></td></tr></table></figure></p>
-<p>但应该注意的事，设置了useragent以后，需要过一段时间才能生效，所以一般是在appdelegate.m中就去改；如果在UIWebViewController初始化的时候再去更改的话，就有会导致有些请求还是原来的useragent</p>
+        <ol>
+<li><p>基本概念：<br>正常情况下，我们的工作流就是3个步骤，：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git add .</span><br><span class="line">git commit -m &quot;comment&quot;</span><br><span class="line">git push</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>git add .把所有文件放入暂存区；</p>
+</li>
+<li>git commit把所有文件从暂存区提交进本地仓库；</li>
+<li>git push把所有文件从本地仓库推送进远程仓库。</li>
+</ol>
+<p>4个区<br>工作区(Working Area)<br>暂存区(Stage)<br>本地仓库(Local Repository)<br>远程仓库(Remote Repository)</p>
+<p>5种状态<br>未修改(Origin)<br>已修改(Modified)<br>已暂存(Staged)<br>已提交(Committed)<br>已推送(Pushed)</p>
+<ol>
+<li>检查修改<br>git diff:这个命令只检查我们的工作区和暂存区之间的差异</li>
+</ol>
+<p>已暂存，未提交:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git diff --cached</span><br></pre></td></tr></table></figure></p>
+<p>git diff –cached 检查暂存区和本地仓库之间的差异</p>
+<p>已提交，未推送:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git diff master origin/master</span><br></pre></td></tr></table></figure></p>
+<p>master就是你的本地仓库，而origin/master就是你的远程仓库，master是主分支的意思，因为我们都在主分支上工作，所以这里两边都是master，而origin就代表远程。</p>
+<ol>
+<li>撤销修改<br>已修改，未暂存<br>如果我们只是在编辑器里修改了文件，但还没有执行git add .，这时候我们的文件还在工作区，并没有进入暂存区，我们可以用：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git checkout .</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>或者<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git reset --hard</span><br></pre></td></tr></table></figure></p>
+<p>来进行撤销操作。</p>
+<p>已暂存，未提交<br>你已经执行了git add .，但还没有执行git commit -m “comment”。这时候你意识到了错误，想要撤销，你可以执行：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git reset</span><br><span class="line">git checkout .</span><br></pre></td></tr></table></figure></p>
+<p>或者<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git reset --hard</span><br></pre></td></tr></table></figure></p>
+<p>git reset只是把修改退回到了git add .之前的状态，也就是说文件本身还处于已修改未暂存状态，你如果想退回未修改状态，还需要执行git checkout .。<br>或许你已经注意到了，以上两个步骤都可以用同一个命令git reset –hard来完成。是的，就是这个强大的命令，可以一步到位地把你的修改完全恢复到未修改的状态。</p>
+<p>已提交，未推送<br>你的手太快，你既执行了git add .，又执行了git commit，这时候你的代码已经进入了你的本地仓库，然而你后悔了，怎么办？不要着急，还有办法。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git reset --hard origin/master</span><br></pre></td></tr></table></figure></p>
+<p>还是这个git reset –hard命令，只不过这次多了一个参数origin/master，正如我们上面讲过的，origin/master代表远程仓库，既然你已经污染了你的本地仓库，那么就从远程仓库把代码取回来吧。</p>
+<p>已推送<br>很不幸，你的手实在是太快了，你既git add了，又git commit了，并且还git push了，这时你的代码已经进入远程仓库。如果你想恢复的话，还好，由于你的本地仓库和远程仓库是等价的，你只需要先恢复本地仓库，再强制push到远程仓库就好了：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git reset --hard HEAD^</span><br><span class="line">git push -f</span><br></pre></td></tr></table></figure></p>
+<p>附加<br>git log</p>
+<p>命令显示从最近到最远的提交日志<br>如果嫌输出信息太多，看得眼花缭乱的，可以试试加上<br>git log –pretty=oneline<br>git reflog   用来记录你的每一次命令<br>git status   查看工作区状态<br>git diff HEAD – 文件名   可以查看工作区和版本库里面最新版本的区别<br>git rm – 文件名       用于删除一个文件<br>git push origin HEAD:refs/for/master 代码走查</p>
 
       
     </div>
@@ -275,13 +325,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2017/03/22/useragent/">更改 UIWebview 的useragent</a></p>
+        <p><span>本文标题:</span><a href="/2018/07/30/git/">git</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">Lynn Cheng</a></p>
-        <p><span>发布时间:</span>2017-03-22, 18:18:03</p>
-        <p><span>最后更新:</span>2017-03-22, 18:22:55</p>
+        <p><span>发布时间:</span>2018-07-30, 17:02:10</p>
+        <p><span>最后更新:</span>2018-07-30, 17:09:03</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2017/03/22/useragent/" title="更改 UIWebview 的useragent">http://lynncheng.github.io/2017/03/22/useragent/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://lynncheng.github.io/2017/03/22/useragent/　　作者: Lynn Cheng" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2018/07/30/git/" title="git">http://lynncheng.github.io/2018/07/30/git/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://lynncheng.github.io/2018/07/30/git/　　作者: Lynn Cheng" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
@@ -293,16 +343,10 @@
 
     <nav id="article-nav">
         
-            <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2017/04/08/framework/">
-                    不更新xcode的情况下更新支持最新版本ios系统
-                </a>
-            </div>
-        
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2017/03/18/ui/">
-                    ui
+                <a href="/2018/07/27/搬瓦匠/">
+                    搬瓦匠
                 </a>
             </div>
         
@@ -370,7 +414,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"更改 UIWebview 的useragent　| LynnCheng　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"git　| LynnCheng　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -386,7 +430,7 @@
     
       <div class="duoshuo" id="comments">
     <!-- 多说评论框 start -->
-    <div class="ds-thread" data-thread-key="2017/03/22/useragent/" data-title="更改 UIWebview 的useragent" data-url="http://lynncheng.github.io/2017/03/22/useragent/"></div>
+    <div class="ds-thread" data-thread-key="2018/07/30/git/" data-title="git" data-url="http://lynncheng.github.io/2018/07/30/git/"></div>
     <!-- 多说评论框 end -->
     <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
     <script type="text/javascript">
@@ -410,15 +454,13 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2017/04/08/framework/" title="上一篇: 不更新xcode的情况下更新支持最新版本ios系统">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
 
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2017/03/18/ui/" title="下一篇: ui">
+            <a href="/2018/07/27/搬瓦匠/" title="下一篇: 搬瓦匠">
                 <i class="fa fa-angle-right"></i>
             </a>
         

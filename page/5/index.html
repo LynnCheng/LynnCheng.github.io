@@ -233,6 +233,121 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-uitextfield" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/07/14/uitextfield/" class="article-date">
+      <time datetime="2016-07-14T03:01:09.000Z" itemprop="datePublished">2016-07-14</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/07/14/uitextfield/">uitextfield输入文字的时候忽隐忽现</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>故障现象：<br>    往uitextfield输入文字的时候，输入一个字母，字串消失；再输入一个，字串出现；再输入，字串消失…</p>
+<p>故障原因：<br>    uitextfield继承了scrollview的属性</p>
+<p>解决方案：<br>   uitextfield所在的uiview加入语句：<br>   self.automaticallyAdjustsScrollViewInsets = false</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-常用framework" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/07/09/常用framework/" class="article-date">
+      <time datetime="2016-07-09T10:22:23.000Z" itemprop="datePublished">2016-07-09</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/07/09/常用framework/">常用framework</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+              <p>AddressBook.framework<br>提供访问存储核心数据库中用户联系人信息的功能</p>
+<p>AddressBookUI.framework<br>提供一个用户界面，用于显示存储在地址簿中的联系人信息
+          
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+        <p class="article-more-link">
+          <a href="/2016/07/09/常用framework/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-iosTree" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -699,118 +814,9 @@
 
 
   
-    <article id="post-upnp" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/06/13/upnp/" class="article-date">
-      <time datetime="2016-06-13T01:02:48.000Z" itemprop="datePublished">2016-06-13</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/06/13/upnp/">在局域网内，无法通过upnp协议发现其它设备</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p>问题现象：app无法发现局域网内的dms<br>故障原因：部分路由器默认不在局域网内转发无线侧的组播报文，导致upnp无法发现其它设备<br>解决方案：a. 将upnp组播改成单播<br>        b.修改upnp设备的实现，显式加入组播组</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-vlctab" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/06/06/vlctab/" class="article-date">
-      <time datetime="2016-06-06T11:44:15.000Z" itemprop="datePublished">2016-06-06</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/06/06/vlctab/">升级vlc后，播放器的单击事件失效</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p>vlc升级到v2.2.0以后，在modules/video_output/ios2.m文件中，添加了tapRecognized事件。所以在使用libvlc实现播放器的时候，应该注意规避改问题。<br>解决方案一：修改源码，把单击事件相关代码去掉，搜一下taprecognized相关的代码就行，主要是<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">if (sys-&gt;viewContainer.window) &#123;</span><br><span class="line">    if (sys-&gt;viewContainer.window.rootViewController) &#123;</span><br><span class="line">        if (sys-&gt;viewContainer.window.rootViewController.view)</span><br><span class="line">            [sys-&gt;viewContainer.superview addGestureRecognizer:sys-&gt;tapRecognizer];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">sys-&gt;tapRecognizer.cancelsTouchesInView = NO;</span><br></pre></td></tr></table></figure></p>
-<p>解决方案二：不修改vlc的源码，在视频显示界面上再添加一层视图，接收单击事件</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/4/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/6/">Next &raquo;</a>
+      <a class="extend prev" rel="prev" href="/page/4/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/6/">Next &raquo;</a>
     </nav>
   
 </div>

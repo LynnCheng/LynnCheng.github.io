@@ -233,6 +233,153 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-git" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2018/07/30/git/" class="article-date">
+      <time datetime="2018-07-30T09:02:10.000Z" itemprop="datePublished">2018-07-30</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/07/30/git/">git</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <ol>
+<li><p>基本概念：<br>正常情况下，我们的工作流就是3个步骤，：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git add .</span><br><span class="line">git commit -m &quot;comment&quot;</span><br><span class="line">git push</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>git add .把所有文件放入暂存区；</p>
+</li>
+<li>git commit把所有文件从暂存区提交进本地仓库；</li>
+<li>git push把所有文件从本地仓库推送进远程仓库。</li>
+</ol>
+<p>4个区<br>工作区(Working Area)<br>暂存区(Stage)<br>本地仓库(Local Repository)<br>远程仓库(Remote Repository)</p>
+<p>5种状态<br>未修改(Origin)<br>已修改(Modified)<br>已暂存(Staged)<br>已提交(Committed)<br>已推送(Pushed)</p>
+<ol>
+<li>检查修改<br>git diff:这个命令只检查我们的工作区和暂存区之间的差异</li>
+</ol>
+<p>已暂存，未提交:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git diff --cached</span><br></pre></td></tr></table></figure></p>
+<p>git diff –cached 检查暂存区和本地仓库之间的差异</p>
+<p>已提交，未推送:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git diff master origin/master</span><br></pre></td></tr></table></figure></p>
+<p>master就是你的本地仓库，而origin/master就是你的远程仓库，master是主分支的意思，因为我们都在主分支上工作，所以这里两边都是master，而origin就代表远程。</p>
+<ol>
+<li>撤销修改<br>已修改，未暂存<br>如果我们只是在编辑器里修改了文件，但还没有执行git add .，这时候我们的文件还在工作区，并没有进入暂存区，我们可以用：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git checkout .</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>或者<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git reset --hard</span><br></pre></td></tr></table></figure></p>
+<p>来进行撤销操作。</p>
+<p>已暂存，未提交<br>你已经执行了git add .，但还没有执行git commit -m “comment”。这时候你意识到了错误，想要撤销，你可以执行：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git reset</span><br><span class="line">git checkout .</span><br></pre></td></tr></table></figure></p>
+<p>或者<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git reset --hard</span><br></pre></td></tr></table></figure></p>
+<p>git reset只是把修改退回到了git add .之前的状态，也就是说文件本身还处于已修改未暂存状态，你如果想退回未修改状态，还需要执行git checkout .。<br>或许你已经注意到了，以上两个步骤都可以用同一个命令git reset –hard来完成。是的，就是这个强大的命令，可以一步到位地把你的修改完全恢复到未修改的状态。</p>
+<p>已提交，未推送<br>你的手太快，你既执行了git add .，又执行了git commit，这时候你的代码已经进入了你的本地仓库，然而你后悔了，怎么办？不要着急，还有办法。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git reset --hard origin/master</span><br></pre></td></tr></table></figure></p>
+<p>还是这个git reset –hard命令，只不过这次多了一个参数origin/master，正如我们上面讲过的，origin/master代表远程仓库，既然你已经污染了你的本地仓库，那么就从远程仓库把代码取回来吧。</p>
+<p>已推送<br>很不幸，你的手实在是太快了，你既git add了，又git commit了，并且还git push了，这时你的代码已经进入远程仓库。如果你想恢复的话，还好，由于你的本地仓库和远程仓库是等价的，你只需要先恢复本地仓库，再强制push到远程仓库就好了：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git reset --hard HEAD^</span><br><span class="line">git push -f</span><br></pre></td></tr></table></figure></p>
+<p>附加<br>git log</p>
+<p>命令显示从最近到最远的提交日志<br>如果嫌输出信息太多，看得眼花缭乱的，可以试试加上<br>git log –pretty=oneline<br>git reflog   用来记录你的每一次命令<br>git status   查看工作区状态<br>git diff HEAD – 文件名   可以查看工作区和版本库里面最新版本的区别<br>git rm – 文件名       用于删除一个文件<br>git push origin HEAD:refs/for/master 代码走查</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-搬瓦匠" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2018/07/27/搬瓦匠/" class="article-date">
+      <time datetime="2018-07-27T06:05:38.000Z" itemprop="datePublished">2018-07-27</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/07/27/搬瓦匠/">搬瓦匠</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>搭建vpn服务器的一些细节：</p>
+<ol>
+<li>去bwh1.net购买一个vps空间</li>
+<li>进入你购买空间的控制面板，最好先把root密码、端口等设置一下</li>
+<li>现在一键安装shadowsocks的页面已经隐藏掉了，不过可以直接在浏览器上深入网址：<br><a href="https://kiwivm.64clouds.com/main-exec.php?mode=extras_shadowsocks" target="_blank" rel="external">https://kiwivm.64clouds.com/main-exec.php?mode=extras_shadowsocks</a></li>
+</ol>
+<p>配置多用户</p>
+<p>如果想多用户使用的话就需要更改配置。</p>
+<p>首先通过ssh连上vps<br>在终端输入vi /etc/shadowsocks.json创建配置文件<br>按i插入<br>插入以下内容（用户数任意，注意最后一个用户密码后面没有逗号）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line"> 	&quot;server&quot;:&quot;my_server_ip&quot;,  #填入你的IP地址</span><br><span class="line">	&quot;local_address&quot;: &quot;127.0.0.1&quot;,</span><br><span class="line">	&quot;local_port&quot;:1080,</span><br><span class="line">	&quot;port_password&quot;: &#123;</span><br><span class="line">  	    &quot;8381&quot;: &quot;foobar1&quot;,    #端口号，密码</span><br><span class="line">  	    &quot;8382&quot;: &quot;foobar2&quot;,</span><br><span class="line">   		&quot;8383&quot;: &quot;foobar3&quot;,</span><br><span class="line">    	&quot;8384&quot;: &quot;foobar4&quot;</span><br><span class="line">	&#125;,</span><br><span class="line"> 	&quot;timeout&quot;:300,</span><br><span class="line">	&quot;method&quot;:&quot;aes-256-cfb&quot;,</span><br><span class="line"> 	&quot;fast_open&quot;: false</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-ios打包ipa文件的脚本" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -738,133 +885,9 @@
 
 
   
-    <article id="post-微交互" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2018/02/28/微交互/" class="article-date">
-      <time datetime="2018-02-28T08:29:19.000Z" itemprop="datePublished">2018-02-28</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/02/28/微交互/">微交互</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              <p>原文地址：<a href="http://www.lukew.com/ff/entry.asp?1726">http://www.lukew.com/ff/entry.asp?1726</a></p>
-<ol>
-<li>微交互具有单一性，一次只专注的做一件事。一个功能，可以有多种微交互。</li>
-<li>设计师对产品也是有感情的，如果设计师喜欢他设计的产品，肯定会想方设法加入各种细节和微交互，反之，则不会加入，草草了事。
-          
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-      
-        <p class="article-more-link">
-          <a href="/2018/02/28/微交互/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-iOS模板" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2018/01/18/iOS模板/" class="article-date">
-      <time datetime="2018-01-18T12:05:44.000Z" itemprop="datePublished">2018-01-18</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/01/18/iOS模板/">iOS模板</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p>title: iOS模板</p>
-<h2 id="tags"><a href="#tags" class="headerlink" title="tags:"></a>tags:</h2><ul>
-<li>segues</li>
-</ul>
-<ol>
-<li>reSwift</li>
-<li>clean swift: <a href="https://clean-swift.com" target="_blank" rel="external">https://clean-swift.com</a></li>
-<li>promise kit</li>
-<li>VIPER: <a href="http://www.cocoachina.com/ios/20140703/9016.html" target="_blank" rel="external">http://www.cocoachina.com/ios/20140703/9016.html</a></li>
-</ol>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
     </nav>
   
 </div>
