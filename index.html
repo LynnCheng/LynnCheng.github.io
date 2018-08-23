@@ -233,6 +233,198 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-ios踩过的坑" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2018/08/16/ios踩过的坑/" class="article-date">
+      <time datetime="2018-08-16T08:18:24.000Z" itemprop="datePublished">2018-08-16</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/08/16/ios踩过的坑/">ios踩过的坑</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>title: ios踩过的坑</p>
+<h2 id="tags"><a href="#tags" class="headerlink" title="tags:"></a>tags:</h2><ol>
+<li>AFNetWorking的HTTP Basic Auth鉴权一直失败：Authorization Error<br>原因： 设置了错误的content-type</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">var params = basicParams()</span><br><span class="line">params[&quot;aa&quot;] = &quot;sel&quot;</span><br><span class="line">params[&quot;bb&quot;] = &quot;some&quot;</span><br><span class="line">        </span><br><span class="line">let array = stream.components(separatedBy: &quot;,&quot;)</span><br><span class="line">var bodyParam = [String : Any]()  </span><br><span class="line">bodyParam[&quot;stream&quot;] = array</span><br><span class="line">let bodyString = jsonString(bodyParam as NSDictionary)</span><br><span class="line">postWithParams(getRequestURL(&quot;api&quot;, ak: self.ak, body: bodyString, params: params), params: bodyParam, complete: complete)</span><br></pre></td></tr></table></figure>
+<p>&lt;– more –&gt;<br>其中postwithparams使用的httpsession是系统启动的时候创建的，设置了一些默认配置。导致鉴权失败的代码：<br>httpSession.requestSerializer.setValue(<font color="#A52A2">“text/html; charset=utf-8 </font>, forHTTPHeaderField: “Content-Type”)</p>
+<p>正确的代码(应该需要和服务器端沟通好～)<br>httpSession.requestSerializer.setValue(<font color="#008000">“appliction/json”</font>, forHTTPHeaderField: “Content-Type”)</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-从零开始" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2018/08/07/从零开始/" class="article-date">
+      <time datetime="2018-08-07T11:58:00.000Z" itemprop="datePublished">2018-08-07</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/08/07/从零开始/">从零开始</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <ol>
+<li><p>开发工具：Intellij IDEA</p>
+</li>
+<li><p>常用的代码部署方式有哪些？<br>a. ftp上传代码 +  java -jar xxx.jar<br>b. docker抓取</p>
+</li>
+<li><p>jvm</p>
+</li>
+<li><p>并发：响应时间、吞吐量、并发用户数<br>提高系统并发能力的方式，方法论上主要有两种：垂直扩展（Scale Up）与水平扩展（Scale Out）。前者垂直扩展可以通过提升单机硬件性能，或者提升单机架构性能，来提高并发性，但单机性能总是有极限的，互联网分布式架构设计高并发终极解决方案还是后者：水平扩展。<br>互联网分层架构中，各层次水平扩展的实践又有所不同：<br>（1）反向代理层可以通过“DNS轮询”的方式来进行水平扩展；<br>（2）站点层可以通过nginx来进行水平扩展；<br>（3）服务层可以通过服务连接池来进行水平扩展；<br>（4）数据库可以按照数据范围，或者数据哈希的方式来进行水平扩展；<br>各层实施水平扩展后，能够通过增加服务器数量的方式来提升系统的性能，做到理论上的性能无限</p>
+</li>
+<li><p>高可用：<br>常见互联网分布式架构如上，分为：<br>（1）客户端层：典型调用方是浏览器browser或者手机应用APP<br>（2）反向代理层：系统入口，反向代理<br>（3）站点应用层：实现核心应用逻辑，返回html或者json<br>（4）服务层：如果实现了服务化，就有这一层<br>（5）数据-缓存层：缓存加速访问存储<br>（6）数据-数据库层：数据库固化数据存储<br>整个系统的高可用，又是通过每一层的冗余+自动故障转移来综合实现的。<br>参考：<a href="https://mp.weixin.qq.com/s?__biz=MjM5ODYxMDA5OQ==&amp;mid=2651959728&amp;idx=1&amp;sn=933227840ec8cdc35d3a33ae3fe97ec5&amp;chksm=bd2d046c8a5a8d7a13551124af36bedf68f7a6e31f6f32828678d2adb108b86b7e08c678f22f&amp;scene=21#wechat_redirect" target="_blank" rel="external">https://mp.weixin.qq.com/s?__biz=MjM5ODYxMDA5OQ==&amp;mid=2651959728&amp;idx=1&amp;sn=933227840ec8cdc35d3a33ae3fe97ec5&amp;chksm=bd2d046c8a5a8d7a13551124af36bedf68f7a6e31f6f32828678d2adb108b86b7e08c678f22f&amp;scene=21#wechat_redirect</a></p>
+</li>
+<li><p>memcached</p>
+</li>
+<li><p>gc策略<br>调优实战：<a href="http://www.iteye.com/topic/212967" target="_blank" rel="external">http://www.iteye.com/topic/212967</a><br>JVM gc参数设置与分析：<a href="https://blog.csdn.net/yohoph/article/details/42041729" target="_blank" rel="external">https://blog.csdn.net/yohoph/article/details/42041729</a></p>
+</li>
+<li><p>session共享<br>利用Memcache来存储共享Session数据  </p>
+</li>
+<li><p>缓存：memcached HBase tair Redis LevelDB Cassandra MongoDB<br><a href="https://blog.csdn.net/Jesse_cool/article/details/76174778" target="_blank" rel="external">https://blog.csdn.net/Jesse_cool/article/details/76174778</a></p>
+</li>
+<li><p>集群</p>
+</li>
+</ol>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-Swift日期格式处理" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2018/07/31/Swift日期格式处理/" class="article-date">
+      <time datetime="2018-07-31T02:52:21.000Z" itemprop="datePublished">2018-07-31</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/07/31/Swift日期格式处理/">Swift日期格式处理</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>1、在平时的开发中我们会遇到很多和时间有关的处理，比如App中显示一天微博的发布时间 、个人信息等等。<br>下面以微博日期格式为例：<br>Sun May 24 12:12:00 +0800 2015<br>星期 月 日 时:分:秒 时区 年<br>这种合适的时间是我们最常见的时间，但是 它对于大多数来说是没有任何意思的 。我们要从一个字符串中解析得到准确的时间必须要指定正确的格式字符串，以及对应的时区标示。</p>
+<p>日期格式：<br>年<br>y 将年份 (0-9) 显示为不带前导零的数字<br>yy 以带前导零的两位数字格式显示年份<br>yyy 以四位数字格式显示年份<br>yyyy 以四位数字格式显示年份<br>月</p>
+<p>M 将月份显示为不带前导零的数字（如一月表示为 1）<br>MM 将月份显示为带前导零的数字（例如 01/12/01）<br>MMM 将月份显示为缩写形式（例如 Jan） – 如果是中文环境下，默认会显示“1月”；我们可以指定语言：dateFormat.locale = Locale(identifier: “en_US”)<br>MMMM 将月份显示为完整月份名（例如 January）<br>一月 Jan January<br>二月 Feb February<br>三月 Mar March<br>四月 Apr April<br>五月 May May<br>六月 Jun June<br>七月 Jul July<br>八月 Aug August<br>九月 Sep September<br>十月 Oct October<br>十一月 Nov November<br>十二月 Dec December<br>日</p>
+<p>d 将日显示为不带前导零的数字（如 1）<br>dd 将日显示为带前导零的数字（如 01）<br>星期<br>EEE 将日显示为缩写形式（例如 Sun）<br>EEEE 将日显示为全名（例如 Sunday）<br>星期一 Mon Monday<br>星期二 Tue Tuesday<br>星期三 Wed Wednesday<br>星期四 Thu Thursday<br>星期五 Fri Friday<br>星期六 Sat Saturday<br>星期天 Sun Sunday<br>小时<br>h 使用 12 小时制将小时显示为不带前导零的数字（例如 1:15:15 PM）<br>hh 使用 12 小时制将小时显示为带前导零的数字（例如 01:15:15 PM）<br>H 使用 24 小时制将小时显示为不带前导零的数字（例如 1:15:15）<br>HH 使用 24 小时制将小时显示为带前导零的数字（例如 01:15:15）<br>分钟<br>m 将分钟显示为不带前导零的数字（例如 12:1:15）<br>mm 将分钟显示为带前导零的数字（例如 12:01:15）<br>秒<br>s 将秒显示为不带前导零的数字（例如 12:15:5）<br>ss 将秒显示为带前导零的数字（例如 12:15:05）<br>f 显示秒的小数部分<br>ff 将精确显示到百分之一秒<br>ffff 将精确显示到万分之一秒<br>用户定义格式中最多可使用七个 f 符号<br>上午&amp;下午<br>t 使用 12 小时制<br>中午之前任一小时显示大写的 A<br>中午到 11:59 PM 之间的任一小时显示大写的 P<br>tt 对于使用 12 小时制的区域设置<br>中午之前任一小时显示大写的 AM<br>中午到 11:59 PM 之间的任一小时显示大写的 PM<br>对于使用 24 小时制的区域设置，不显示任何字符<br>时区<br>z 显示不带前导零的时区偏移量<br>zz 显示带前导零的时区偏移量（例如 -08）<br>zzz 显示完整的时区偏移量（例如 -0800）<br>纪元<br>gg 显示时代/纪元字符串（例如 A.D.）</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-git" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -671,194 +863,6 @@
 <ol>
 <li>如何去掉section的上下两条分割线？tablestyle设置成plain，有两个以上section就木有这两条分割线了</li>
 </ol>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-pod-demo" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2018/04/23/pod-demo/" class="article-date">
-      <time datetime="2018-04-23T03:14:02.000Z" itemprop="datePublished">2018-04-23</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/04/23/pod-demo/">pod demo</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <h1 id="Uncomment-this-line-to-define-a-global-platform-for-your-project"><a href="#Uncomment-this-line-to-define-a-global-platform-for-your-project" class="headerlink" title="Uncomment this line to define a global platform for your project"></a>Uncomment this line to define a global platform for your project</h1><p>platform :ios, ‘8.0’<br>use_frameworks!<br>workspace ‘XXXX’</p>
-<p>def share_pods<br>    pod ‘SnapKit’, ‘~&gt; 4.0.0’<br>    pod ‘MJExtension’, ‘~&gt; 3.0.13’<br>    pod ‘HandyJSON’, ‘~&gt;4.0.0-beta.1’<br>end</p>
-<p>target ‘HCCalendar’ do<br>    pod ‘JTCalendar’<br>end</p>
-<p>target ‘HCCameraSDK’ do  #基于同一个workspace的其他project<br>    project ‘./Projects/HCCameraSDK/HCCameraSDK’<br>    pod ‘AFNetworking’, ‘~&gt; 3.0’<br>    pod ‘Reachability’, ‘~&gt; 3.2’<br>    pod ‘SWXMLHash’, ‘~&gt; 4.0.0’<br>end</p>
-<p>target ‘HCCameraSDKTests’ do<br>    project ‘./Projects/HCCameraSDK/HCCameraSDK’<br>    pod ‘AFNetworking’, ‘~&gt; 3.0’<br>    pod ‘Reachability’, ‘~&gt; 3.2’<br>    pod ‘SWXMLHash’, ‘~&gt; 4.0.0’<br>end</p>
-<p>target ‘HCOSSXSDK’ do<br>    project ‘./Projects/HCOSSXSDK/HCOSSXSDK’<br>    pod ‘AFNetworking’, ‘~&gt; 3.0’<br>    pod ‘HandyJSON’, ‘~&gt;4.0.0-beta.1’<br>end</p>
-<p>target ‘HCOSSXSDKTests’ do<br>    project ‘./Projects/HCOSSXSDK/HCOSSXSDK’<br>    pod ‘AFNetworking’, ‘~&gt; 3.0’<br>end</p>
-<p>abstract_target ‘Defaults’ do<br>pod ‘AFNetworking’,’~&gt; 3.0’<br>pod ‘Mantle’, ‘~&gt; 2.0.4’<br>pod ‘Masonry’<br>pod ‘MBProgressHUD’, ‘~&gt; 0.9.1’<br>pod ‘Reachability’, ‘~&gt; 3.2’<br>pod ‘MJRefresh’<br>pod ‘KVOController’<br>pod ‘SDVersion’<br>pod ‘CocoaAsyncSocket’<br>pod “Qiniu”, :git =&gt; ‘<a href="https://github.com/qiniu/objc-sdk.git" target="_blank" rel="external">https://github.com/qiniu/objc-sdk.git</a>‘, :branch =&gt; ‘AFNetworking-3.x’<br>pod ‘YYWebImage’<br>pod ‘MGSwipeTableCell’<br>pod ‘SWXMLHash’, ‘~&gt; 4.0.0’<br>pod ‘SDWebImage’, ‘~&gt; 4.1.2’<br>pod ‘SDWebImage/GIF’<br>pod ‘FLAnimatedImage’, ‘~&gt; 1.0’<br>pod ‘HandyJSON’, ‘~&gt;4.0.0-beta.1’<br>pod ‘AliyunOSSiOS’, ‘~&gt; 2.5.0’<br>pod ‘MJExtension’, ‘~&gt; 3.0.13’<br>pod ‘UITextView+Placeholder’, ‘~&gt; 1.2.0’<br>pod ‘UMengAnalytics-NO-IDFA’ #无IDFA版SDK<br>pod ‘SnapKit’, ‘~&gt; 4.0.0’<br>pod ‘WechatOpenSDK’<br>pod ‘SSZipArchive’</p>
-<p>source ‘<a href="https://github.com/CocoaPods/Specs.git" target="_blank" rel="external">https://github.com/CocoaPods/Specs.git</a>‘<br>source ‘<a href="https://github.com/aliyun/aliyun-specs.git" target="_blank" rel="external">https://github.com/aliyun/aliyun-specs.git</a>‘<br>pod ‘AlicloudPush’, ‘~&gt; 1.9.1’<br>pod ‘WZLBadge’</p>
-<h1 id="‘node-modules’目录一般位于根目录中"><a href="#‘node-modules’目录一般位于根目录中" class="headerlink" title="‘node_modules’目录一般位于根目录中"></a>‘node_modules’目录一般位于根目录中</h1><h1 id="但是如果你的结构不同，那你就要根据实际路径修改下面的-path"><a href="#但是如果你的结构不同，那你就要根据实际路径修改下面的-path" class="headerlink" title="但是如果你的结构不同，那你就要根据实际路径修改下面的:path"></a>但是如果你的结构不同，那你就要根据实际路径修改下面的<code>:path</code></h1><p>pod ‘React’, :path =&gt; ‘../node_modules/react-native’, :subspecs =&gt; [<br>‘Core’,<br>‘RCTText’,<br>‘RCTNetwork’,<br>‘RCTWebSocket’,<br>‘RCTImage’,<br>‘DevSupport’,<br>‘RCTLinkingIOS’,<br>‘RCTAnimation’,<br>]</p>
-<h1 id="如果你的RN版本-gt-0-42-0，请加入下面这行"><a href="#如果你的RN版本-gt-0-42-0，请加入下面这行" class="headerlink" title="如果你的RN版本 &gt;= 0.42.0，请加入下面这行"></a>如果你的RN版本 &gt;= 0.42.0，请加入下面这行</h1><p>pod “Yoga”, :path =&gt; “../node_modules/react-native/ReactCommon/yoga”<br>pod ‘react-native-camera’, path: ‘../node_modules/react-native-camera’<br>pod ‘react-native-network-info’, path: ‘../node_modules/react-native-network-info’<br>pod ‘BVLinearGradient’, :path =&gt; ‘../node_modules/react-native-linear-gradient’<br>pod ‘RNSVG’, :path =&gt; ‘../node_modules/react-native-svg’</p>
-<p>target ‘Homecare’<br>target ‘Homecare_Inhome’<br>target ‘Homecare_Product’</p>
-<p>target ‘ZTECam_Product’</p>
-<p>#do</p>
-<p>#pod ‘PayPal-iOS-SDK’</p>
-<p>#end</p>
-<p>end</p>
-<p>target ‘SceneToday’ do<br>    share_pods<br>end</p>
-<p>target ‘HomecareTests’ do</p>
-<p>end</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-frame" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2018/04/10/frame/" class="article-date">
-      <time datetime="2018-04-10T07:18:57.000Z" itemprop="datePublished">2018-04-10</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/04/10/frame/">frame、bounds</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p>frame: 该view在父view坐标系统中的位置和大小。（参照点是，父亲的坐标系统）<br>bounds：该view在本地坐标系统中的位置和大小。（参照点是，本地坐标系统，就相当于ViewB自己的坐标系统，以0,0点为起点）<br>center：该view的中心点在父view坐标系统中的位置和大小。（参照点是父亲的坐标系统）</p>
-<ol>
-<li><p>获取相对于屏幕的frame坐标：<br>selectCell.convert(selectCell.card.frame, to: nil)</p>
-</li>
-<li><p>使用autolayout自动布局后，view的frame就没法直接手动修改了。我们可以认为使用了autolayout的view的frame属性是一个只读的属性。在代码里认为的改动这个view的frame并不能对这个view的frame产生真正的效果。 如在制作动画的时候，去修改子view的frame，不会有任何效果。</p>
-</li>
-</ol>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-RTSP直播延时" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2018/03/16/RTSP直播延时/" class="article-date">
-      <time datetime="2018-03-16T06:16:21.000Z" itemprop="datePublished">2018-03-16</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/03/16/RTSP直播延时/">RTSP直播延时</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p>title: RTSP直播延时</p>
-<h2 id="tags"><a href="#tags" class="headerlink" title="tags:"></a>tags:</h2><p>参考资料：<br><a href="https://www.cnblogs.com/jiayayao/p/6890882.html" target="_blank" rel="external">https://www.cnblogs.com/jiayayao/p/6890882.html</a>  音视频同步<br><a href="http://www.cnitblog.com/luofuchong/archive/2015/10/27/90247.html" target="_blank" rel="external">http://www.cnitblog.com/luofuchong/archive/2015/10/27/90247.html</a> buffer管理和时钟同步<br><a href="http://blog.csdn.net/yagerfgcs/article/details/51105571" target="_blank" rel="external">http://blog.csdn.net/yagerfgcs/article/details/51105571</a> vlc播放流程</p>
 
       
     </div>

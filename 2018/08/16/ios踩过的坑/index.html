@@ -3,18 +3,30 @@
 <head>
   <meta charset="utf-8">
   
-  <title>ios 引用编译出现duplicate symbol错误的处理 | LynnCheng</title>
+  <title>ios踩过的坑 | LynnCheng</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="1 头文件中定义了全局变量，因为多个文件引用了该头文件，导致重复定义。错误信息：123duplicate symbol _kMediaCmdParamVideFileName in:    /Users/lynn/Library/Developer/Xcode/DerivedData/xxx-dekysmkcblreiyesflewliynaudf/Build/Intermediates/xxx.">
+  <meta name="description" content="title: ios踩过的坑
+tags:
+AFNetWorking的HTTP Basic Auth鉴权一直失败：Authorization Error原因： 设置了错误的content-type
+
+123456789var params = basicParams()params[&amp;quot;aa&amp;quot;] = &amp;quot;sel&amp;quot;params[&amp;quot;bb&amp;quot;] = &amp;">
 <meta property="og:type" content="article">
-<meta property="og:title" content="ios 引用编译出现duplicate symbol错误的处理">
-<meta property="og:url" content="http://lynncheng.github.io/2016/07/20/duplicateds/index.html">
+<meta property="og:title" content="ios踩过的坑">
+<meta property="og:url" content="http://lynncheng.github.io/2018/08/16/ios踩过的坑/index.html">
 <meta property="og:site_name" content="LynnCheng">
-<meta property="og:description" content="1 头文件中定义了全局变量，因为多个文件引用了该头文件，导致重复定义。错误信息：123duplicate symbol _kMediaCmdParamVideFileName in:    /Users/lynn/Library/Developer/Xcode/DerivedData/xxx-dekysmkcblreiyesflewliynaudf/Build/Intermediates/xxx.">
-<meta property="og:updated_time" content="2016-07-20T02:00:14.000Z">
+<meta property="og:description" content="title: ios踩过的坑
+tags:
+AFNetWorking的HTTP Basic Auth鉴权一直失败：Authorization Error原因： 设置了错误的content-type
+
+123456789var params = basicParams()params[&amp;quot;aa&amp;quot;] = &amp;quot;sel&amp;quot;params[&amp;quot;bb&amp;quot;] = &amp;">
+<meta property="og:updated_time" content="2018-08-16T08:36:04.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="ios 引用编译出现duplicate symbol错误的处理">
-<meta name="twitter:description" content="1 头文件中定义了全局变量，因为多个文件引用了该头文件，导致重复定义。错误信息：123duplicate symbol _kMediaCmdParamVideFileName in:    /Users/lynn/Library/Developer/Xcode/DerivedData/xxx-dekysmkcblreiyesflewliynaudf/Build/Intermediates/xxx.">
+<meta name="twitter:title" content="ios踩过的坑">
+<meta name="twitter:description" content="title: ios踩过的坑
+tags:
+AFNetWorking的HTTP Basic Auth鉴权一直失败：Authorization Error原因： 设置了错误的content-type
+
+123456789var params = basicParams()params[&amp;quot;aa&amp;quot;] = &amp;quot;sel&amp;quot;params[&amp;quot;bb&amp;quot;] = &amp;">
   
     <link rel="alternative" href="/atom.xml" title="LynnCheng" type="application/atom+xml">
   
@@ -227,11 +239,11 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
-      <div class="body-wrap"><article id="post-duplicateds" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-ios踩过的坑" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/07/20/duplicateds/" class="article-date">
-      <time datetime="2016-07-20T01:10:30.000Z" itemprop="datePublished">2016-07-20</time>
+      <a href="/2018/08/16/ios踩过的坑/" class="article-date">
+      <time datetime="2018-08-16T08:18:24.000Z" itemprop="datePublished">2018-08-16</time>
 </a>
     </div>
   
@@ -244,7 +256,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      ios 引用编译出现duplicate symbol错误的处理
+      ios踩过的坑
     </h1>
   
 
@@ -261,10 +273,13 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>1 头文件中定义了全局变量，因为多个文件引用了该头文件，导致重复定义。错误信息：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">duplicate symbol _kMediaCmdParamVideFileName in:</span><br><span class="line">    /Users/lynn/Library/Developer/Xcode/DerivedData/xxx-dekysmkcblreiyesflewliynaudf/Build/Intermediates/xxx.build/Debug-iphoneos/xxx.build/Objects-normal/arm64/LeftViewController.o</span><br><span class="line">    /Users/lynn/Development/xxx/Framework/RvsViewerUI.framework/RvsViewerUI(UIImageView+YaMaXunCache.o)</span><br></pre></td></tr></table></figure></p>
-<p>问题原因：<br>在a.h中有如下定义<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">NSString *const kMediaCmdParamVideFileName   = @&quot;AVSCIDNumber&quot;;</span><br></pre></td></tr></table></figure></p>
-<p>修改方案：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">static NSString *const kMediaCmdParamVideFileName   = @&quot;AVSCIDNumber&quot;;</span><br></pre></td></tr></table></figure></p>
-<p>2 workspace的多个工程之间，或者引用的framework都引用了同一个第三方库，导致类和方法多次实现。<br>解决方案：如果能拿到源码，只在主工程保留完整的源码，其他工程或者framework直接删掉.m、.swift文件，只留下头文件就可以了</p>
+        <p>title: ios踩过的坑</p>
+<h2 id="tags"><a href="#tags" class="headerlink" title="tags:"></a>tags:</h2><ol>
+<li>AFNetWorking的HTTP Basic Auth鉴权一直失败：Authorization Error<br>原因： 设置了错误的content-type</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">var params = basicParams()</span><br><span class="line">params[&quot;aa&quot;] = &quot;sel&quot;</span><br><span class="line">params[&quot;bb&quot;] = &quot;some&quot;</span><br><span class="line">        </span><br><span class="line">let array = stream.components(separatedBy: &quot;,&quot;)</span><br><span class="line">var bodyParam = [String : Any]()  </span><br><span class="line">bodyParam[&quot;stream&quot;] = array</span><br><span class="line">let bodyString = jsonString(bodyParam as NSDictionary)</span><br><span class="line">postWithParams(getRequestURL(&quot;api&quot;, ak: self.ak, body: bodyString, params: params), params: bodyParam, complete: complete)</span><br></pre></td></tr></table></figure>
+<p>&lt;– more –&gt;<br>其中postwithparams使用的httpsession是系统启动的时候创建的，设置了一些默认配置。导致鉴权失败的代码：<br>httpSession.requestSerializer.setValue(<font color="#A52A2">“text/html; charset=utf-8 </font>, forHTTPHeaderField: “Content-Type”)</p>
+<p>正确的代码(应该需要和服务器端沟通好～)<br>httpSession.requestSerializer.setValue(<font color="#008000">“appliction/json”</font>, forHTTPHeaderField: “Content-Type”)</p>
 
       
     </div>
@@ -273,13 +288,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2016/07/20/duplicateds/">ios 引用编译出现duplicate symbol错误的处理</a></p>
+        <p><span>本文标题:</span><a href="/2018/08/16/ios踩过的坑/">ios踩过的坑</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">Lynn Cheng</a></p>
-        <p><span>发布时间:</span>2016-07-20, 09:10:30</p>
-        <p><span>最后更新:</span>2016-07-20, 10:00:14</p>
+        <p><span>发布时间:</span>2018-08-16, 16:18:24</p>
+        <p><span>最后更新:</span>2018-08-16, 16:36:04</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2016/07/20/duplicateds/" title="ios 引用编译出现duplicate symbol错误的处理">http://lynncheng.github.io/2016/07/20/duplicateds/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://lynncheng.github.io/2016/07/20/duplicateds/　　作者: Lynn Cheng" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2018/08/16/ios踩过的坑/" title="ios踩过的坑">http://lynncheng.github.io/2018/08/16/ios踩过的坑/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://lynncheng.github.io/2018/08/16/ios踩过的坑/　　作者: Lynn Cheng" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
@@ -291,16 +306,10 @@
 
     <nav id="article-nav">
         
-            <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2016/07/20/页面字体变小/">
-                    页面字体变小
-                </a>
-            </div>
-        
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2016/07/19/duplicate/">
-                    How to fix a &quot;Duplicated Symbols&quot; error on binary files
+                <a href="/2018/08/07/从零开始/">
+                    从零开始
                 </a>
             </div>
         
@@ -311,7 +320,7 @@
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#tags"><span class="toc-number">1.</span> <span class="toc-text">tags:</span></a></li></ol>
 </div>
 <style>
     .left-col .switch-btn {
@@ -368,7 +377,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"ios 引用编译出现duplicate symbol错误的处理　| LynnCheng　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"ios踩过的坑　| LynnCheng　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -384,7 +393,7 @@
     
       <div class="duoshuo" id="comments">
     <!-- 多说评论框 start -->
-    <div class="ds-thread" data-thread-key="2016/07/20/duplicateds/" data-title="ios 引用编译出现duplicate symbol错误的处理" data-url="http://lynncheng.github.io/2016/07/20/duplicateds/"></div>
+    <div class="ds-thread" data-thread-key="2018/08/16/ios踩过的坑/" data-title="ios踩过的坑" data-url="http://lynncheng.github.io/2018/08/16/ios踩过的坑/"></div>
     <!-- 多说评论框 end -->
     <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
     <script type="text/javascript">
@@ -408,15 +417,13 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2016/07/20/页面字体变小/" title="上一篇: 页面字体变小">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
 
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2016/07/19/duplicate/" title="下一篇: How to fix a &quot;Duplicated Symbols&quot; error on binary files">
+            <a href="/2018/08/07/从零开始/" title="下一篇: 从零开始">
                 <i class="fa fa-angle-right"></i>
             </a>
         

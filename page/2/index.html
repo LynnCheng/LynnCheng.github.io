@@ -233,6 +233,194 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-pod-demo" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2018/04/23/pod-demo/" class="article-date">
+      <time datetime="2018-04-23T03:14:02.000Z" itemprop="datePublished">2018-04-23</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/04/23/pod-demo/">pod demo</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h1 id="Uncomment-this-line-to-define-a-global-platform-for-your-project"><a href="#Uncomment-this-line-to-define-a-global-platform-for-your-project" class="headerlink" title="Uncomment this line to define a global platform for your project"></a>Uncomment this line to define a global platform for your project</h1><p>platform :ios, ‘8.0’<br>use_frameworks!<br>workspace ‘XXXX’</p>
+<p>def share_pods<br>    pod ‘SnapKit’, ‘~&gt; 4.0.0’<br>    pod ‘MJExtension’, ‘~&gt; 3.0.13’<br>    pod ‘HandyJSON’, ‘~&gt;4.0.0-beta.1’<br>end</p>
+<p>target ‘HCCalendar’ do<br>    pod ‘JTCalendar’<br>end</p>
+<p>target ‘HCCameraSDK’ do  #基于同一个workspace的其他project<br>    project ‘./Projects/HCCameraSDK/HCCameraSDK’<br>    pod ‘AFNetworking’, ‘~&gt; 3.0’<br>    pod ‘Reachability’, ‘~&gt; 3.2’<br>    pod ‘SWXMLHash’, ‘~&gt; 4.0.0’<br>end</p>
+<p>target ‘HCCameraSDKTests’ do<br>    project ‘./Projects/HCCameraSDK/HCCameraSDK’<br>    pod ‘AFNetworking’, ‘~&gt; 3.0’<br>    pod ‘Reachability’, ‘~&gt; 3.2’<br>    pod ‘SWXMLHash’, ‘~&gt; 4.0.0’<br>end</p>
+<p>target ‘HCOSSXSDK’ do<br>    project ‘./Projects/HCOSSXSDK/HCOSSXSDK’<br>    pod ‘AFNetworking’, ‘~&gt; 3.0’<br>    pod ‘HandyJSON’, ‘~&gt;4.0.0-beta.1’<br>end</p>
+<p>target ‘HCOSSXSDKTests’ do<br>    project ‘./Projects/HCOSSXSDK/HCOSSXSDK’<br>    pod ‘AFNetworking’, ‘~&gt; 3.0’<br>end</p>
+<p>abstract_target ‘Defaults’ do<br>pod ‘AFNetworking’,’~&gt; 3.0’<br>pod ‘Mantle’, ‘~&gt; 2.0.4’<br>pod ‘Masonry’<br>pod ‘MBProgressHUD’, ‘~&gt; 0.9.1’<br>pod ‘Reachability’, ‘~&gt; 3.2’<br>pod ‘MJRefresh’<br>pod ‘KVOController’<br>pod ‘SDVersion’<br>pod ‘CocoaAsyncSocket’<br>pod “Qiniu”, :git =&gt; ‘<a href="https://github.com/qiniu/objc-sdk.git" target="_blank" rel="external">https://github.com/qiniu/objc-sdk.git</a>‘, :branch =&gt; ‘AFNetworking-3.x’<br>pod ‘YYWebImage’<br>pod ‘MGSwipeTableCell’<br>pod ‘SWXMLHash’, ‘~&gt; 4.0.0’<br>pod ‘SDWebImage’, ‘~&gt; 4.1.2’<br>pod ‘SDWebImage/GIF’<br>pod ‘FLAnimatedImage’, ‘~&gt; 1.0’<br>pod ‘HandyJSON’, ‘~&gt;4.0.0-beta.1’<br>pod ‘AliyunOSSiOS’, ‘~&gt; 2.5.0’<br>pod ‘MJExtension’, ‘~&gt; 3.0.13’<br>pod ‘UITextView+Placeholder’, ‘~&gt; 1.2.0’<br>pod ‘UMengAnalytics-NO-IDFA’ #无IDFA版SDK<br>pod ‘SnapKit’, ‘~&gt; 4.0.0’<br>pod ‘WechatOpenSDK’<br>pod ‘SSZipArchive’</p>
+<p>source ‘<a href="https://github.com/CocoaPods/Specs.git" target="_blank" rel="external">https://github.com/CocoaPods/Specs.git</a>‘<br>source ‘<a href="https://github.com/aliyun/aliyun-specs.git" target="_blank" rel="external">https://github.com/aliyun/aliyun-specs.git</a>‘<br>pod ‘AlicloudPush’, ‘~&gt; 1.9.1’<br>pod ‘WZLBadge’</p>
+<h1 id="‘node-modules’目录一般位于根目录中"><a href="#‘node-modules’目录一般位于根目录中" class="headerlink" title="‘node_modules’目录一般位于根目录中"></a>‘node_modules’目录一般位于根目录中</h1><h1 id="但是如果你的结构不同，那你就要根据实际路径修改下面的-path"><a href="#但是如果你的结构不同，那你就要根据实际路径修改下面的-path" class="headerlink" title="但是如果你的结构不同，那你就要根据实际路径修改下面的:path"></a>但是如果你的结构不同，那你就要根据实际路径修改下面的<code>:path</code></h1><p>pod ‘React’, :path =&gt; ‘../node_modules/react-native’, :subspecs =&gt; [<br>‘Core’,<br>‘RCTText’,<br>‘RCTNetwork’,<br>‘RCTWebSocket’,<br>‘RCTImage’,<br>‘DevSupport’,<br>‘RCTLinkingIOS’,<br>‘RCTAnimation’,<br>]</p>
+<h1 id="如果你的RN版本-gt-0-42-0，请加入下面这行"><a href="#如果你的RN版本-gt-0-42-0，请加入下面这行" class="headerlink" title="如果你的RN版本 &gt;= 0.42.0，请加入下面这行"></a>如果你的RN版本 &gt;= 0.42.0，请加入下面这行</h1><p>pod “Yoga”, :path =&gt; “../node_modules/react-native/ReactCommon/yoga”<br>pod ‘react-native-camera’, path: ‘../node_modules/react-native-camera’<br>pod ‘react-native-network-info’, path: ‘../node_modules/react-native-network-info’<br>pod ‘BVLinearGradient’, :path =&gt; ‘../node_modules/react-native-linear-gradient’<br>pod ‘RNSVG’, :path =&gt; ‘../node_modules/react-native-svg’</p>
+<p>target ‘Homecare’<br>target ‘Homecare_Inhome’<br>target ‘Homecare_Product’</p>
+<p>target ‘ZTECam_Product’</p>
+<p>#do</p>
+<p>#pod ‘PayPal-iOS-SDK’</p>
+<p>#end</p>
+<p>end</p>
+<p>target ‘SceneToday’ do<br>    share_pods<br>end</p>
+<p>target ‘HomecareTests’ do</p>
+<p>end</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-frame" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2018/04/10/frame/" class="article-date">
+      <time datetime="2018-04-10T07:18:57.000Z" itemprop="datePublished">2018-04-10</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/04/10/frame/">frame、bounds</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>frame: 该view在父view坐标系统中的位置和大小。（参照点是，父亲的坐标系统）<br>bounds：该view在本地坐标系统中的位置和大小。（参照点是，本地坐标系统，就相当于ViewB自己的坐标系统，以0,0点为起点）<br>center：该view的中心点在父view坐标系统中的位置和大小。（参照点是父亲的坐标系统）</p>
+<ol>
+<li><p>获取相对于屏幕的frame坐标：<br>selectCell.convert(selectCell.card.frame, to: nil)</p>
+</li>
+<li><p>使用autolayout自动布局后，view的frame就没法直接手动修改了。我们可以认为使用了autolayout的view的frame属性是一个只读的属性。在代码里认为的改动这个view的frame并不能对这个view的frame产生真正的效果。 如在制作动画的时候，去修改子view的frame，不会有任何效果。</p>
+</li>
+</ol>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-RTSP直播延时" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2018/03/16/RTSP直播延时/" class="article-date">
+      <time datetime="2018-03-16T06:16:21.000Z" itemprop="datePublished">2018-03-16</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/03/16/RTSP直播延时/">RTSP直播延时</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>title: RTSP直播延时</p>
+<h2 id="tags"><a href="#tags" class="headerlink" title="tags:"></a>tags:</h2><p>参考资料：<br><a href="https://www.cnblogs.com/jiayayao/p/6890882.html" target="_blank" rel="external">https://www.cnblogs.com/jiayayao/p/6890882.html</a>  音视频同步<br><a href="http://www.cnitblog.com/luofuchong/archive/2015/10/27/90247.html" target="_blank" rel="external">http://www.cnitblog.com/luofuchong/archive/2015/10/27/90247.html</a> buffer管理和时钟同步<br><a href="http://blog.csdn.net/yagerfgcs/article/details/51105571" target="_blank" rel="external">http://blog.csdn.net/yagerfgcs/article/details/51105571</a> vlc播放流程</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-微交互" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -637,215 +825,6 @@
 <ol>
 <li>contrib目录下的文件修改，需要打patch<br>a. 把修改前和修改后的文件，含路径，都拷贝一份，分别放入a、b两个文件夹<br>b. 执行命令： diff -uNr a b &gt; 0008-xxxx.patch<br>c. 修改contrib/xxx/rule.mak</li>
 </ol>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-设置UIWebviewController的导航为透明" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2017/08/28/设置UIWebviewController的导航为透明/" class="article-date">
-      <time datetime="2017-08-28T10:33:55.000Z" itemprop="datePublished">2017-08-28</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/08/28/设置UIWebviewController的导航为透明/">设置UIWebviewController的导航为透明</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p>‘’‘’<br>override func viewWillAppear(animated: Bool) {<br>        super.viewWillAppear(animated)</p>
-<pre><code>    self.navigationController?.navigationBar.setBackgroundImage(UIImage(), forBarMetrics: .Default)
-    self.navigationController?.navigationBar.shadowImage = UIImage()
-    //如果导航栏有背景色，也需要修改下
-    self.navigationController?.navigationBar.barTintColor = UIColor.clearColor()
-    self.navigationController?.navigationBar.translucent = true
-
-    for subview in self.view.subviews {
-        if subview.isKindOfClass(UIWebView) {
-            let webview = subview as! UIWebView
-            //webview的y轴起点默认为64
-            webview.scrollView.contentInset = UIEdgeInsets(top: -64, left: 0, bottom: 0, right: 0)
-        }
-    }
-}
-
-override func viewWillDisappear(animated: Bool) {
-    super.viewWillDisappear(animated)
-
-    self.navigationController?.navigationBar.setBackgroundImage(nil, forBarMetrics: .Default)
-    self.navigationController?.navigationBar.shadowImage = nil
-    self.navigationController?.navigationBar.translucent = false
-}
-</code></pre><p>‘’‘’</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-NSTimer" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2017/08/15/NSTimer/" class="article-date">
-      <time datetime="2017-08-15T11:55:35.000Z" itemprop="datePublished">2017-08-15</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/08/15/NSTimer/">NSTimer时应注意避免的坑</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p>title: NSTimer</p>
-<h2 id="tags"><a href="#tags" class="headerlink" title="tags:"></a>tags:</h2><ol>
-<li><p>NSTimer不生效：非主线程中代码中会遇到<br>在我们进行多线程编程时，所有的Source都需要添加到Runloop中才能生效，对于我们的NSTimer当然也需要添加到Runloop中才能生效。如果一个Runloop中没有任何Source的话，会立即退出的。而主线程的Runloop在程序运行时，系统就已经为我们添加了很多Source到Runloop中，所以主线程的Runloop是一直存在。</p>
-</li>
-<li><p>timer = [NSTimer scheduledTimerWithTimeInterval:0.1 // 10ms</p>
-<pre><code>  target:self
-selector:@selector(loop:)
-userInfo:nil
- repeats:YES];
-</code></pre></li>
-</ol>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-rn遇过的那些坑" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2017/07/11/rn遇过的那些坑/" class="article-date">
-      <time datetime="2017-07-11T11:39:00.000Z" itemprop="datePublished">2017-07-11</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/07/11/rn遇过的那些坑/">rn遇过的那些坑</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p>title: rn遇过的那些坑</p>
-<h2 id="tags-RN-React-Native"><a href="#tags-RN-React-Native" class="headerlink" title="tags:RN, React Native"></a>tags:RN, React Native</h2><ol>
-<li>react navigation怎么传递参数到下一界面？怎么传递参数到上一界面</li>
-<li>每个界面都要实现navigationOptions的所有细节？<br>//不需要！可以定义一个screen的基类，后续所有界面都基于该基类实现<br>//或者在TabNavigator等上实现</li>
-<li>为什么每个页面都要在componentDidMount中拦截android回退按钮事件？<br>//不需要！可以定义一个screen的基类，后续所有界面都基于该基类实现</li>
-<li>组件之间通信（4-8 链接：<a href="http://www.jianshu.com/p/48df06330967）" target="_blank" rel="external">http://www.jianshu.com/p/48df06330967）</a></li>
-</ol>
-<p>子组件调用父组件的方法：子组件要拿到父组件的属性，需要通过this.props方法。每次父组件修改了传入的属性，子组件会收到通知，会自动获取新的属性。</p>
-<p>父组件调用子组件的方法：在ReactJS中通过ref属性。该属性类似与给组件起名字。父组件可以通过this.ref.xxx来获取到该组件</p>
-<ol>
-<li>创建不定数View，在return方法中不支持for语句<br>(1).采用MAP形式<br>(2).采用数组的形式</li>
-</ol>
-<p>6 ref 属性</p>
-<p>7.网络请求加载Loading框注意的地方<br>Loading 框采用的是IOS原生封装，在RN页面进行网络请求注意延迟200ms左右<br>this.timer = setTimeout(()=&gt;{this._fetchData();}, 200);<br>避免Loading 框在上一页面。</p>
-<p>8.关于倒计时问题<br>产品详情页有倒计时功能，但应用切换到后台后，倒计时开始停止工作，这时候需要重新校准时间。所以需要应用的状态<br>RN中使用APPState来查看应用状态<br>通过此接口可以获悉应用在当前处于后台还是前台激活的状态，常用方法和应用场景类似于h5的visibilitychange。<br>注意该接口要最新版本（2.0+）的 react-native 才能调用。<br>获取到的应用状态常规有：<br>active:表示应用处于前台运行状态；<br>background：表示应用处于后台挂起状态；<br>inactive：表示过度状态，常规不会发生，可以先忽略<br>我们可以使用 AppState.addEventListener 和 AppState.removeEventListener 方法来监听、移除应用状态的 change 事件。</p>
 
       
     </div>

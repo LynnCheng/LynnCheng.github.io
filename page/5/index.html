@@ -233,6 +233,181 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-duplicate" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/07/19/duplicate/" class="article-date">
+      <time datetime="2016-07-19T12:17:09.000Z" itemprop="datePublished">2016-07-19</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/07/19/duplicate/">How to fix a &quot;Duplicated Symbols&quot; error on binary files</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+              <p>Come From:<a href="http://angelolloqui.com/blog/31-How-to-fix-a-Duplicated-Symbols-error-on-binary-files">http://angelolloqui.com/blog/31-How-to-fix-a-Duplicated-Symbols-error-on-binary-files</a></p>
+<p>Introduction
+          
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+        <p class="article-more-link">
+          <a href="/2016/07/19/duplicate/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-ios-app" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/07/14/ios-app/" class="article-date">
+      <time datetime="2016-07-14T11:13:54.000Z" itemprop="datePublished">2016-07-14</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/07/14/ios-app/">ios app 发布时需要的图片资源</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <ol>
+<li><p>APP应用中的 icon 图片：icon29@2x, icon29@3x, icon40@2x, icon40@3x, icon60@2x, icon60@3x</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">iPhone 6s Plus, iPhone 6 Plus	120px by 120px	87px by 87px</span><br><span class="line">iPhone 6s, iPhone 6, iPhone SE	80px by 80px	58px by 58px</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>itunesconnect上需要的icon图片：1024x1024<br>itunesconnect上需要的屏幕截图：<br>5.5  2208 x 1242 pixels for hi-res landscape<br>4.7 1334 x 750 pixels for hi-res landscape<br>4 1136 x 640 pixels for landscape (full screen) minimum<br>3.5 960 x 640 pixels for hi-res landscape (full screen) maximum<br>（要求都是 72 dpi, RGB, flattened, no transparency<br>  High-quality JPEG or PNG image file format）</p>
+</li>
+</ol>
+<p>参考：<br><a href="https://developer.apple.com/ios/human-interface-guidelines/graphics/app-icon/#//apple_ref/doc/uid/TP40006556-CH27-SW1" target="_blank" rel="external">https://developer.apple.com/ios/human-interface-guidelines/graphics/app-icon/#//apple_ref/doc/uid/TP40006556-CH27-SW1</a></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-apns-sound" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/07/14/apns-sound/" class="article-date">
+      <time datetime="2016-07-14T03:07:38.000Z" itemprop="datePublished">2016-07-14</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/07/14/apns-sound/">iOS 关于推送消息的设置</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>app：app只需要放一个声音文件就行，没别的设置<br>服务器：服务器向苹果APNs服务器发送消息的时候，需要设置sound字段：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  aps =</span><br><span class="line">  &#123;</span><br><span class="line">    alert = &quot;message&quot;;</span><br><span class="line">    sound = &quot;sound file name.extension&quot;;</span><br><span class="line">    badge = 1;</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>参考文档：<a href="https://developer.apple.com/library/ios/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/IPhoneOSClientImp.html#//apple_ref/doc/uid/TP40008194-CH103-SW6" target="_blank" rel="external">https://developer.apple.com/library/ios/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/IPhoneOSClientImp.html#//apple_ref/doc/uid/TP40008194-CH103-SW6</a></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-uitextfield" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -605,189 +780,6 @@
         <p>相关代码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">let deButton = UIButton(frame: CGRect(x: 0, y: 0 , width: 160, height: 100))</span><br><span class="line">      deButton.setTitle(&quot;TL&quot;, forState: .Normal)</span><br><span class="line">      deButton.backgroundColor = UIColor.greenColor()</span><br><span class="line">      self.view.addSubview(deButton)</span><br><span class="line">      </span><br><span class="line">      deButton.snp_makeConstraints &#123; (make) -&gt; Void in</span><br><span class="line">          make.left.equalTo(self.view).offset(20)</span><br><span class="line">          make.top.equalTo(self.view).offset(70)</span><br><span class="line">      &#125;</span><br></pre></td></tr></table></figure></p>
 <p>疑问：这段代码执行后，deButton的长和宽根据title的内容自动调节，而不是预先定义的160x100</p>
 <p>原因：使用autolayout实现自动布局的时候，控件的frame设置将被忽略，所以要在自动布局的时候，把长宽也一同设置。</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-tableview" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/06/18/tableview/" class="article-date">
-      <time datetime="2016-06-18T01:39:00.000Z" itemprop="datePublished">2016-06-18</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/06/18/tableview/">tableview中增加了头视图后，初始位置显示不正常</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              <p>当为tableview插入头视图后，为了让tableview的起始位置显示正常，需要通过setContentOffset设置tableview的偏移位置：
-          
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-      
-        <p class="article-more-link">
-          <a href="/2016/06/18/tableview/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-buildError" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/06/17/buildError/" class="article-date">
-      <time datetime="2016-06-17T00:53:31.000Z" itemprop="datePublished">2016-06-17</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/06/17/buildError/">Undefined symbols for architecture armv7的处理</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p>问题描述：</p>
-<ol>
-<li>使用iphone6p真机调试，编译正常</li>
-<li>换成iPhone5真机调试，编译出现一堆错误：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">ld: warning: ld: warning: ignoring file /Users/lynn/Library/Developer/Xcode/DerivedData/Homecare-bcfxxolnwbuzthdgksefvehktwzf/Build/Products/Debug-iphoneos/libAFNetworking.a, file was built for archive which is not the architecture being linked (armv7): /Users/lynn/Library/Developer/Xcode/DerivedData/Homecare-bcfxxolnwbuzthdgksefvehktwzf/Build/Products/Debug-iphoneos/libAFNetworking.aignoring file /Users/lynn/Library/Developer/Xcode/DerivedData/Homecare-bcfxxolnwbuzthdgksefvehktwzf/Build/Products/Debug-iphoneos/libCocoaAsyncSocket.a, file was built for archive which is not the architecture being linked (armv7): /Users/lynn/Library/Developer/Xcode/DerivedData/Homecare-bcfxxolnwbuzthdgksefvehktwzf/Build/Products/Debug-iphoneos/libCocoaAsyncSocket.a</span><br><span class="line">......</span><br><span class="line">Undefined symbols for architecture armv7:</span><br><span class="line">  &quot;_OBJC_CLASS_$_JTHorizontalCalendarView&quot;, referenced from:</span><br><span class="line">      type metadata accessor for __ObjC.JTHorizontalCalendarView in CalendarViewController.o</span><br><span class="line">  &quot;_OBJC_CLASS_$_JTCalendarDayView&quot;, referenced from:</span><br><span class="line">      ZTE.CalendarViewController.calendar (__ObjC.JTCalendarManager!, prepareDayView : __ObjC.UIView!) -&gt; () in CalendarViewController.o</span><br><span class="line">      ZTE.CalendarViewController.calendar (__ObjC.JTCalendarManager!, didTouchDayView : __ObjC.UIView!) -&gt; () in CalendarViewController.o</span><br><span class="line">  &quot;_OBJC_CLASS_$_MGSwipeTableCell&quot;, referenced from:</span><br><span class="line">      _OBJC_CLASS_$__TtC3ZTE15MessageItemView in MessageItemView.o</span><br><span class="line">  &quot;_OBJC_CLASS_$_QNZone&quot;, referenced from:</span><br><span class="line">      type metadata accessor for __ObjC.QNZone in HCUploadManager.o</span><br><span class="line">  &quot;_OBJC_CLASS_$_QNConfiguration&quot;, referenced from:</span><br><span class="line">      type metadata accessor for __ObjC.QNConfiguration in HCUploadManager.o</span><br><span class="line">  &quot;_OBJC_CLASS_$_MJRefreshHeader&quot;, referenced from:</span><br><span class="line">      _OBJC_CLASS_$_HCRefresh in HCRefresh.o</span><br><span class="line">  &quot;_OBJC_METACLASS_$_MJRefreshHeader&quot;, referenced from:</span><br><span class="line">      _OBJC_METACLASS_$_HCRefresh in HCRefresh.o</span><br><span class="line">  &quot;_OBJC_CLASS_$_AFNetworkReachabilityManager&quot;, referenced from:</span><br><span class="line">  ......</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<p>问题分析：<br>从日志上看，出问题的都是实用cocoapods安装的第三方库；从日志看，应该是没有编译armv7对应的内容，修改pods工程的配置：<br>buildsettings-&gt;build active architecture only属性，debug－&gt;NO, release-&gt;NO</p>
-<p>我这样改后，还是报同样的错误；折腾了好久，最后进入pods编译出的静态库存在的目录，把所有第三方静态库全删了，重编一下就好了。</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-pod" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/06/15/pod/" class="article-date">
-      <time datetime="2016-06-15T07:46:11.000Z" itemprop="datePublished">2016-06-15</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/06/15/pod/">CocoaPods的一些常用操作</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <ol>
-<li><p>cocoapods版本升级</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">$ sudo gem update --system // 先更新gem，国内需要切换源</span><br><span class="line">$ gem sources --remove https://rubygems.org/</span><br><span class="line">$ gem sources -a https://ruby.taobao.org/</span><br><span class="line">$ gem sources -l</span><br><span class="line">\*\*\* CURRENT SOURCES \*\*\*</span><br><span class="line">https://ruby.taobao.org/</span><br><span class="line">$ sudo gem install cocoapods // 安装cocoapods</span><br><span class="line">$ pod setup</span><br><span class="line">$ pod --version</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>安装第三方类库：pod install</p>
-</li>
-<li><p>安装第三方类库，并自动更新至最新版本 pod update</p>
-</li>
-<li><p>执行pod install/update的时候会升级CocoaPods的spec仓库，加一个参数可以省略这一步，然后速度就会提升不少。加参数的命令如下：<br>pod install –verbose –no-repo-update<br>pod update –verbose –no-repo-update</p>
-</li>
-</ol>
 
       
     </div>
