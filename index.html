@@ -320,29 +320,11 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <ol>
+              <ol>
 <li><p>开发工具：Intellij IDEA</p>
 </li>
 <li><p>常用的代码部署方式有哪些？<br>a. ftp上传代码 +  java -jar xxx.jar<br>b. docker抓取</p>
-</li>
-<li><p>jvm</p>
-</li>
-<li><p>并发：响应时间、吞吐量、并发用户数<br>提高系统并发能力的方式，方法论上主要有两种：垂直扩展（Scale Up）与水平扩展（Scale Out）。前者垂直扩展可以通过提升单机硬件性能，或者提升单机架构性能，来提高并发性，但单机性能总是有极限的，互联网分布式架构设计高并发终极解决方案还是后者：水平扩展。<br>互联网分层架构中，各层次水平扩展的实践又有所不同：<br>（1）反向代理层可以通过“DNS轮询”的方式来进行水平扩展；<br>（2）站点层可以通过nginx来进行水平扩展；<br>（3）服务层可以通过服务连接池来进行水平扩展；<br>（4）数据库可以按照数据范围，或者数据哈希的方式来进行水平扩展；<br>各层实施水平扩展后，能够通过增加服务器数量的方式来提升系统的性能，做到理论上的性能无限</p>
-</li>
-<li><p>高可用：<br>常见互联网分布式架构如上，分为：<br>（1）客户端层：典型调用方是浏览器browser或者手机应用APP<br>（2）反向代理层：系统入口，反向代理<br>（3）站点应用层：实现核心应用逻辑，返回html或者json<br>（4）服务层：如果实现了服务化，就有这一层<br>（5）数据-缓存层：缓存加速访问存储<br>（6）数据-数据库层：数据库固化数据存储<br>整个系统的高可用，又是通过每一层的冗余+自动故障转移来综合实现的。<br>参考：<a href="https://mp.weixin.qq.com/s?__biz=MjM5ODYxMDA5OQ==&amp;mid=2651959728&amp;idx=1&amp;sn=933227840ec8cdc35d3a33ae3fe97ec5&amp;chksm=bd2d046c8a5a8d7a13551124af36bedf68f7a6e31f6f32828678d2adb108b86b7e08c678f22f&amp;scene=21#wechat_redirect" target="_blank" rel="external">https://mp.weixin.qq.com/s?__biz=MjM5ODYxMDA5OQ==&amp;mid=2651959728&amp;idx=1&amp;sn=933227840ec8cdc35d3a33ae3fe97ec5&amp;chksm=bd2d046c8a5a8d7a13551124af36bedf68f7a6e31f6f32828678d2adb108b86b7e08c678f22f&amp;scene=21#wechat_redirect</a></p>
-</li>
-<li><p>memcached</p>
-</li>
-<li><p>gc策略<br>调优实战：<a href="http://www.iteye.com/topic/212967" target="_blank" rel="external">http://www.iteye.com/topic/212967</a><br>JVM gc参数设置与分析：<a href="https://blog.csdn.net/yohoph/article/details/42041729" target="_blank" rel="external">https://blog.csdn.net/yohoph/article/details/42041729</a></p>
-</li>
-<li><p>session共享<br>利用Memcache来存储共享Session数据  </p>
-</li>
-<li><p>缓存：memcached HBase tair Redis LevelDB Cassandra MongoDB<br><a href="https://blog.csdn.net/Jesse_cool/article/details/76174778" target="_blank" rel="external">https://blog.csdn.net/Jesse_cool/article/details/76174778</a></p>
-</li>
-<li><p>集群</p>
-</li>
-</ol>
-
+          
       
     </div>
     
@@ -351,6 +333,10 @@
       
 
       
+      
+        <p class="article-more-link">
+          <a href="/2018/08/07/从零开始/#more">阅读全文 >></a>
+        </p>
       
       <div class="clearfix"></div>
     </div>
@@ -395,11 +381,8 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>1、在平时的开发中我们会遇到很多和时间有关的处理，比如App中显示一天微博的发布时间 、个人信息等等。<br>下面以微博日期格式为例：<br>Sun May 24 12:12:00 +0800 2015<br>星期 月 日 时:分:秒 时区 年<br>这种合适的时间是我们最常见的时间，但是 它对于大多数来说是没有任何意思的 。我们要从一个字符串中解析得到准确的时间必须要指定正确的格式字符串，以及对应的时区标示。</p>
-<p>日期格式：<br>年<br>y 将年份 (0-9) 显示为不带前导零的数字<br>yy 以带前导零的两位数字格式显示年份<br>yyy 以四位数字格式显示年份<br>yyyy 以四位数字格式显示年份<br>月</p>
-<p>M 将月份显示为不带前导零的数字（如一月表示为 1）<br>MM 将月份显示为带前导零的数字（例如 01/12/01）<br>MMM 将月份显示为缩写形式（例如 Jan） – 如果是中文环境下，默认会显示“1月”；我们可以指定语言：dateFormat.locale = Locale(identifier: “en_US”)<br>MMMM 将月份显示为完整月份名（例如 January）<br>一月 Jan January<br>二月 Feb February<br>三月 Mar March<br>四月 Apr April<br>五月 May May<br>六月 Jun June<br>七月 Jul July<br>八月 Aug August<br>九月 Sep September<br>十月 Oct October<br>十一月 Nov November<br>十二月 Dec December<br>日</p>
-<p>d 将日显示为不带前导零的数字（如 1）<br>dd 将日显示为带前导零的数字（如 01）<br>星期<br>EEE 将日显示为缩写形式（例如 Sun）<br>EEEE 将日显示为全名（例如 Sunday）<br>星期一 Mon Monday<br>星期二 Tue Tuesday<br>星期三 Wed Wednesday<br>星期四 Thu Thursday<br>星期五 Fri Friday<br>星期六 Sat Saturday<br>星期天 Sun Sunday<br>小时<br>h 使用 12 小时制将小时显示为不带前导零的数字（例如 1:15:15 PM）<br>hh 使用 12 小时制将小时显示为带前导零的数字（例如 01:15:15 PM）<br>H 使用 24 小时制将小时显示为不带前导零的数字（例如 1:15:15）<br>HH 使用 24 小时制将小时显示为带前导零的数字（例如 01:15:15）<br>分钟<br>m 将分钟显示为不带前导零的数字（例如 12:1:15）<br>mm 将分钟显示为带前导零的数字（例如 12:01:15）<br>秒<br>s 将秒显示为不带前导零的数字（例如 12:15:5）<br>ss 将秒显示为带前导零的数字（例如 12:15:05）<br>f 显示秒的小数部分<br>ff 将精确显示到百分之一秒<br>ffff 将精确显示到万分之一秒<br>用户定义格式中最多可使用七个 f 符号<br>上午&amp;下午<br>t 使用 12 小时制<br>中午之前任一小时显示大写的 A<br>中午到 11:59 PM 之间的任一小时显示大写的 P<br>tt 对于使用 12 小时制的区域设置<br>中午之前任一小时显示大写的 AM<br>中午到 11:59 PM 之间的任一小时显示大写的 PM<br>对于使用 24 小时制的区域设置，不显示任何字符<br>时区<br>z 显示不带前导零的时区偏移量<br>zz 显示带前导零的时区偏移量（例如 -08）<br>zzz 显示完整的时区偏移量（例如 -0800）<br>纪元<br>gg 显示时代/纪元字符串（例如 A.D.）</p>
-
+              <p>1、在平时的开发中我们会遇到很多和时间有关的处理，比如App中显示一天微博的发布时间 、个人信息等等。<br>下面以微博日期格式为例：<br>Sun May 24 12:12:00 +0800 2015<br>星期 月 日 时:分:秒 时区 年<br>这种合适的时间是我们最常见的时间，但是 它对于大多数来说是没有任何意思的 。我们要从一个字符串中解析得到准确的时间必须要指定正确的格式字符串，以及对应的时区标示。<br>
+          
       
     </div>
     
@@ -408,6 +391,10 @@
       
 
       
+      
+        <p class="article-more-link">
+          <a href="/2018/07/31/Swift日期格式处理/#more">阅读全文 >></a>
+        </p>
       
       <div class="clearfix"></div>
     </div>
@@ -537,16 +524,12 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>搭建vpn服务器的一些细节：</p>
+              <p>搭建vpn服务器的一些细节：</p>
 <ol>
 <li>去bwh1.net购买一个vps空间</li>
 <li>进入你购买空间的控制面板，最好先把root密码、端口等设置一下</li>
-<li>现在一键安装shadowsocks的页面已经隐藏掉了，不过可以直接在浏览器上深入网址：<br><a href="https://kiwivm.64clouds.com/main-exec.php?mode=extras_shadowsocks" target="_blank" rel="external">https://kiwivm.64clouds.com/main-exec.php?mode=extras_shadowsocks</a></li>
-</ol>
-<p>配置多用户</p>
-<p>如果想多用户使用的话就需要更改配置。</p>
-<p>首先通过ssh连上vps<br>在终端输入vi /etc/shadowsocks.json创建配置文件<br>按i插入<br>插入以下内容（用户数任意，注意最后一个用户密码后面没有逗号）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line"> 	&quot;server&quot;:&quot;my_server_ip&quot;,  #填入你的IP地址</span><br><span class="line">	&quot;local_address&quot;: &quot;127.0.0.1&quot;,</span><br><span class="line">	&quot;local_port&quot;:1080,</span><br><span class="line">	&quot;port_password&quot;: &#123;</span><br><span class="line">  	    &quot;8381&quot;: &quot;foobar1&quot;,    #端口号，密码</span><br><span class="line">  	    &quot;8382&quot;: &quot;foobar2&quot;,</span><br><span class="line">   		&quot;8383&quot;: &quot;foobar3&quot;,</span><br><span class="line">    	&quot;8384&quot;: &quot;foobar4&quot;</span><br><span class="line">	&#125;,</span><br><span class="line"> 	&quot;timeout&quot;:300,</span><br><span class="line">	&quot;method&quot;:&quot;aes-256-cfb&quot;,</span><br><span class="line"> 	&quot;fast_open&quot;: false</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-
+<li>现在一键安装shadowsocks的页面已经隐藏掉了，不过可以直接在浏览器上深入网址：<br><a href="https://kiwivm.64clouds.com/main-exec.php?mode=extras_shadowsocks">https://kiwivm.64clouds.com/main-exec.php?mode=extras_shadowsocks</a>
+          
       
     </div>
     
@@ -555,6 +538,10 @@
       
 
       
+      
+        <p class="article-more-link">
+          <a href="/2018/07/27/搬瓦匠/#more">阅读全文 >></a>
+        </p>
       
       <div class="clearfix"></div>
     </div>
@@ -662,18 +649,9 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>很多公司都有自己的局域网，和互联网是两张不互通的网络。如果同一台电脑通过两张网卡接入两个网络，windows电脑能自动选路，而mac电脑则要自己配置了。</p>
-<p>最开始想到的是使用route命令，如：<br>sudo route add 18.0.0.0/24 10.0.66.2</p>
-<p>但这种方案有个缺点：如果电脑重启一下，路由配置就没了。所以每次重启电脑都要重新配置。</p>
-<p>搜索了一下，终于找到了解决方案：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">networksetup -setadditionalroutes &quot;Wi-Fi&quot; 10.0.0.0 255.0.0.0 10.46.18.129</span><br></pre></td></tr></table></figure></p>
-<p>其中，”Wi-Fi” 这个是指我当前上网的设备（查看当前的设备可以使用这个命令networksetup -listallnetworkservices）</p>
-<p>如果不需要了，则使用如下命令清空表：</p>
-<p>$ networksetup -setadditionalroutes Wi-Fi<br>检查下：</p>
-<p>$ networksetup -getadditionalroutes Wi-Fi<br>There are no additional IPv4 routes on Wi-Fi.<br>route -rn 也可以检查一下</p>
-<p>如果公司内网还有私有dns，如www.xxx.com对应的是10.1.1.10这种私有地址，则可以把对应的域名添加到/etc/host文件中</p>
-<p>参考</p>
-<p><a href="https://developer.apple.com/legacy/library/documentation/Darwin/Reference/ManPages/man8/networksetup.8.html" target="_blank" rel="external">https://developer.apple.com/legacy/library/documentation/Darwin/Reference/ManPages/man8/networksetup.8.html</a></p>
-
+              <p>很多公司都有自己的局域网，和互联网是两张不互通的网络。如果同一台电脑通过两张网卡接入两个网络，windows电脑能自动选路，而mac电脑则要自己配置了。</p>
+<p>最开始想到的是使用route命令，如：<br>sudo route add 18.0.0.0/24 10.0.66.2<br>
+          
       
     </div>
     
@@ -682,6 +660,10 @@
       
 
       
+      
+        <p class="article-more-link">
+          <a href="/2018/06/19/VLC同步解析/#more">阅读全文 >></a>
+        </p>
       
       <div class="clearfix"></div>
     </div>

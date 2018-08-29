@@ -5,19 +5,16 @@
   
   <title>Swift日期格式处理 | LynnCheng</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="1、在平时的开发中我们会遇到很多和时间有关的处理，比如App中显示一天微博的发布时间 、个人信息等等。下面以微博日期格式为例：Sun May 24 12:12:00 +0800 2015星期 月 日 时:分:秒 时区 年这种合适的时间是我们最常见的时间，但是 它对于大多数来说是没有任何意思的 。我们要从一个字符串中解析得到准确的时间必须要指定正确的格式字符串，以及对应的时区标示。
-日期格式：年y">
+  <meta name="description" content="1、在平时的开发中我们会遇到很多和时间有关的处理，比如App中显示一天微博的发布时间 、个人信息等等。下面以微博日期格式为例：Sun May 24 12:12:00 +0800 2015星期 月 日 时:分:秒 时区 年这种合适的时间是我们最常见的时间，但是 它对于大多数来说是没有任何意思的 。我们要从一个字符串中解析得到准确的时间必须要指定正确的格式字符串，以及对应的时区标示。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Swift日期格式处理">
 <meta property="og:url" content="http://lynncheng.github.io/2018/07/31/Swift日期格式处理/index.html">
 <meta property="og:site_name" content="LynnCheng">
-<meta property="og:description" content="1、在平时的开发中我们会遇到很多和时间有关的处理，比如App中显示一天微博的发布时间 、个人信息等等。下面以微博日期格式为例：Sun May 24 12:12:00 +0800 2015星期 月 日 时:分:秒 时区 年这种合适的时间是我们最常见的时间，但是 它对于大多数来说是没有任何意思的 。我们要从一个字符串中解析得到准确的时间必须要指定正确的格式字符串，以及对应的时区标示。
-日期格式：年y">
-<meta property="og:updated_time" content="2018-07-31T02:53:43.000Z">
+<meta property="og:description" content="1、在平时的开发中我们会遇到很多和时间有关的处理，比如App中显示一天微博的发布时间 、个人信息等等。下面以微博日期格式为例：Sun May 24 12:12:00 +0800 2015星期 月 日 时:分:秒 时区 年这种合适的时间是我们最常见的时间，但是 它对于大多数来说是没有任何意思的 。我们要从一个字符串中解析得到准确的时间必须要指定正确的格式字符串，以及对应的时区标示。">
+<meta property="og:updated_time" content="2018-08-29T08:58:16.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Swift日期格式处理">
-<meta name="twitter:description" content="1、在平时的开发中我们会遇到很多和时间有关的处理，比如App中显示一天微博的发布时间 、个人信息等等。下面以微博日期格式为例：Sun May 24 12:12:00 +0800 2015星期 月 日 时:分:秒 时区 年这种合适的时间是我们最常见的时间，但是 它对于大多数来说是没有任何意思的 。我们要从一个字符串中解析得到准确的时间必须要指定正确的格式字符串，以及对应的时区标示。
-日期格式：年y">
+<meta name="twitter:description" content="1、在平时的开发中我们会遇到很多和时间有关的处理，比如App中显示一天微博的发布时间 、个人信息等等。下面以微博日期格式为例：Sun May 24 12:12:00 +0800 2015星期 月 日 时:分:秒 时区 年这种合适的时间是我们最常见的时间，但是 它对于大多数来说是没有任何意思的 。我们要从一个字符串中解析得到准确的时间必须要指定正确的格式字符串，以及对应的时区标示。">
   
     <link rel="alternative" href="/atom.xml" title="LynnCheng" type="application/atom+xml">
   
@@ -264,8 +261,7 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>1、在平时的开发中我们会遇到很多和时间有关的处理，比如App中显示一天微博的发布时间 、个人信息等等。<br>下面以微博日期格式为例：<br>Sun May 24 12:12:00 +0800 2015<br>星期 月 日 时:分:秒 时区 年<br>这种合适的时间是我们最常见的时间，但是 它对于大多数来说是没有任何意思的 。我们要从一个字符串中解析得到准确的时间必须要指定正确的格式字符串，以及对应的时区标示。</p>
-<p>日期格式：<br>年<br>y 将年份 (0-9) 显示为不带前导零的数字<br>yy 以带前导零的两位数字格式显示年份<br>yyy 以四位数字格式显示年份<br>yyyy 以四位数字格式显示年份<br>月</p>
+        <p>1、在平时的开发中我们会遇到很多和时间有关的处理，比如App中显示一天微博的发布时间 、个人信息等等。<br>下面以微博日期格式为例：<br>Sun May 24 12:12:00 +0800 2015<br>星期 月 日 时:分:秒 时区 年<br>这种合适的时间是我们最常见的时间，但是 它对于大多数来说是没有任何意思的 。我们要从一个字符串中解析得到准确的时间必须要指定正确的格式字符串，以及对应的时区标示。<br><a id="more"></a><br>日期格式：<br>年<br>y 将年份 (0-9) 显示为不带前导零的数字<br>yy 以带前导零的两位数字格式显示年份<br>yyy 以四位数字格式显示年份<br>yyyy 以四位数字格式显示年份<br>月</p>
 <p>M 将月份显示为不带前导零的数字（如一月表示为 1）<br>MM 将月份显示为带前导零的数字（例如 01/12/01）<br>MMM 将月份显示为缩写形式（例如 Jan） – 如果是中文环境下，默认会显示“1月”；我们可以指定语言：dateFormat.locale = Locale(identifier: “en_US”)<br>MMMM 将月份显示为完整月份名（例如 January）<br>一月 Jan January<br>二月 Feb February<br>三月 Mar March<br>四月 Apr April<br>五月 May May<br>六月 Jun June<br>七月 Jul July<br>八月 Aug August<br>九月 Sep September<br>十月 Oct October<br>十一月 Nov November<br>十二月 Dec December<br>日</p>
 <p>d 将日显示为不带前导零的数字（如 1）<br>dd 将日显示为带前导零的数字（如 01）<br>星期<br>EEE 将日显示为缩写形式（例如 Sun）<br>EEEE 将日显示为全名（例如 Sunday）<br>星期一 Mon Monday<br>星期二 Tue Tuesday<br>星期三 Wed Wednesday<br>星期四 Thu Thursday<br>星期五 Fri Friday<br>星期六 Sat Saturday<br>星期天 Sun Sunday<br>小时<br>h 使用 12 小时制将小时显示为不带前导零的数字（例如 1:15:15 PM）<br>hh 使用 12 小时制将小时显示为带前导零的数字（例如 01:15:15 PM）<br>H 使用 24 小时制将小时显示为不带前导零的数字（例如 1:15:15）<br>HH 使用 24 小时制将小时显示为带前导零的数字（例如 01:15:15）<br>分钟<br>m 将分钟显示为不带前导零的数字（例如 12:1:15）<br>mm 将分钟显示为带前导零的数字（例如 12:01:15）<br>秒<br>s 将秒显示为不带前导零的数字（例如 12:15:5）<br>ss 将秒显示为带前导零的数字（例如 12:15:05）<br>f 显示秒的小数部分<br>ff 将精确显示到百分之一秒<br>ffff 将精确显示到万分之一秒<br>用户定义格式中最多可使用七个 f 符号<br>上午&amp;下午<br>t 使用 12 小时制<br>中午之前任一小时显示大写的 A<br>中午到 11:59 PM 之间的任一小时显示大写的 P<br>tt 对于使用 12 小时制的区域设置<br>中午之前任一小时显示大写的 AM<br>中午到 11:59 PM 之间的任一小时显示大写的 PM<br>对于使用 24 小时制的区域设置，不显示任何字符<br>时区<br>z 显示不带前导零的时区偏移量<br>zz 显示带前导零的时区偏移量（例如 -08）<br>zzz 显示完整的时区偏移量（例如 -0800）<br>纪元<br>gg 显示时代/纪元字符串（例如 A.D.）</p>
 
@@ -279,7 +275,7 @@
         <p><span>本文标题:</span><a href="/2018/07/31/Swift日期格式处理/">Swift日期格式处理</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">Lynn Cheng</a></p>
         <p><span>发布时间:</span>2018-07-31, 10:52:21</p>
-        <p><span>最后更新:</span>2018-07-31, 10:53:43</p>
+        <p><span>最后更新:</span>2018-08-29, 16:58:16</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2018/07/31/Swift日期格式处理/" title="Swift日期格式处理">http://lynncheng.github.io/2018/07/31/Swift日期格式处理/</a>
             <span class="copy-path" data-clipboard-text="原文: http://lynncheng.github.io/2018/07/31/Swift日期格式处理/　　作者: Lynn Cheng" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>

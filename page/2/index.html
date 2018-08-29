@@ -260,27 +260,9 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h1 id="Uncomment-this-line-to-define-a-global-platform-for-your-project"><a href="#Uncomment-this-line-to-define-a-global-platform-for-your-project" class="headerlink" title="Uncomment this line to define a global platform for your project"></a>Uncomment this line to define a global platform for your project</h1><p>platform :ios, ‘8.0’<br>use_frameworks!<br>workspace ‘XXXX’</p>
-<p>def share_pods<br>    pod ‘SnapKit’, ‘~&gt; 4.0.0’<br>    pod ‘MJExtension’, ‘~&gt; 3.0.13’<br>    pod ‘HandyJSON’, ‘~&gt;4.0.0-beta.1’<br>end</p>
-<p>target ‘HCCalendar’ do<br>    pod ‘JTCalendar’<br>end</p>
-<p>target ‘HCCameraSDK’ do  #基于同一个workspace的其他project<br>    project ‘./Projects/HCCameraSDK/HCCameraSDK’<br>    pod ‘AFNetworking’, ‘~&gt; 3.0’<br>    pod ‘Reachability’, ‘~&gt; 3.2’<br>    pod ‘SWXMLHash’, ‘~&gt; 4.0.0’<br>end</p>
-<p>target ‘HCCameraSDKTests’ do<br>    project ‘./Projects/HCCameraSDK/HCCameraSDK’<br>    pod ‘AFNetworking’, ‘~&gt; 3.0’<br>    pod ‘Reachability’, ‘~&gt; 3.2’<br>    pod ‘SWXMLHash’, ‘~&gt; 4.0.0’<br>end</p>
-<p>target ‘HCOSSXSDK’ do<br>    project ‘./Projects/HCOSSXSDK/HCOSSXSDK’<br>    pod ‘AFNetworking’, ‘~&gt; 3.0’<br>    pod ‘HandyJSON’, ‘~&gt;4.0.0-beta.1’<br>end</p>
-<p>target ‘HCOSSXSDKTests’ do<br>    project ‘./Projects/HCOSSXSDK/HCOSSXSDK’<br>    pod ‘AFNetworking’, ‘~&gt; 3.0’<br>end</p>
-<p>abstract_target ‘Defaults’ do<br>pod ‘AFNetworking’,’~&gt; 3.0’<br>pod ‘Mantle’, ‘~&gt; 2.0.4’<br>pod ‘Masonry’<br>pod ‘MBProgressHUD’, ‘~&gt; 0.9.1’<br>pod ‘Reachability’, ‘~&gt; 3.2’<br>pod ‘MJRefresh’<br>pod ‘KVOController’<br>pod ‘SDVersion’<br>pod ‘CocoaAsyncSocket’<br>pod “Qiniu”, :git =&gt; ‘<a href="https://github.com/qiniu/objc-sdk.git" target="_blank" rel="external">https://github.com/qiniu/objc-sdk.git</a>‘, :branch =&gt; ‘AFNetworking-3.x’<br>pod ‘YYWebImage’<br>pod ‘MGSwipeTableCell’<br>pod ‘SWXMLHash’, ‘~&gt; 4.0.0’<br>pod ‘SDWebImage’, ‘~&gt; 4.1.2’<br>pod ‘SDWebImage/GIF’<br>pod ‘FLAnimatedImage’, ‘~&gt; 1.0’<br>pod ‘HandyJSON’, ‘~&gt;4.0.0-beta.1’<br>pod ‘AliyunOSSiOS’, ‘~&gt; 2.5.0’<br>pod ‘MJExtension’, ‘~&gt; 3.0.13’<br>pod ‘UITextView+Placeholder’, ‘~&gt; 1.2.0’<br>pod ‘UMengAnalytics-NO-IDFA’ #无IDFA版SDK<br>pod ‘SnapKit’, ‘~&gt; 4.0.0’<br>pod ‘WechatOpenSDK’<br>pod ‘SSZipArchive’</p>
-<p>source ‘<a href="https://github.com/CocoaPods/Specs.git" target="_blank" rel="external">https://github.com/CocoaPods/Specs.git</a>‘<br>source ‘<a href="https://github.com/aliyun/aliyun-specs.git" target="_blank" rel="external">https://github.com/aliyun/aliyun-specs.git</a>‘<br>pod ‘AlicloudPush’, ‘~&gt; 1.9.1’<br>pod ‘WZLBadge’</p>
-<h1 id="‘node-modules’目录一般位于根目录中"><a href="#‘node-modules’目录一般位于根目录中" class="headerlink" title="‘node_modules’目录一般位于根目录中"></a>‘node_modules’目录一般位于根目录中</h1><h1 id="但是如果你的结构不同，那你就要根据实际路径修改下面的-path"><a href="#但是如果你的结构不同，那你就要根据实际路径修改下面的-path" class="headerlink" title="但是如果你的结构不同，那你就要根据实际路径修改下面的:path"></a>但是如果你的结构不同，那你就要根据实际路径修改下面的<code>:path</code></h1><p>pod ‘React’, :path =&gt; ‘../node_modules/react-native’, :subspecs =&gt; [<br>‘Core’,<br>‘RCTText’,<br>‘RCTNetwork’,<br>‘RCTWebSocket’,<br>‘RCTImage’,<br>‘DevSupport’,<br>‘RCTLinkingIOS’,<br>‘RCTAnimation’,<br>]</p>
-<h1 id="如果你的RN版本-gt-0-42-0，请加入下面这行"><a href="#如果你的RN版本-gt-0-42-0，请加入下面这行" class="headerlink" title="如果你的RN版本 &gt;= 0.42.0，请加入下面这行"></a>如果你的RN版本 &gt;= 0.42.0，请加入下面这行</h1><p>pod “Yoga”, :path =&gt; “../node_modules/react-native/ReactCommon/yoga”<br>pod ‘react-native-camera’, path: ‘../node_modules/react-native-camera’<br>pod ‘react-native-network-info’, path: ‘../node_modules/react-native-network-info’<br>pod ‘BVLinearGradient’, :path =&gt; ‘../node_modules/react-native-linear-gradient’<br>pod ‘RNSVG’, :path =&gt; ‘../node_modules/react-native-svg’</p>
-<p>target ‘Homecare’<br>target ‘Homecare_Inhome’<br>target ‘Homecare_Product’</p>
-<p>target ‘ZTECam_Product’</p>
-<p>#do</p>
-<p>#pod ‘PayPal-iOS-SDK’</p>
-<p>#end</p>
-<p>end</p>
-<p>target ‘SceneToday’ do<br>    share_pods<br>end</p>
-<p>target ‘HomecareTests’ do</p>
-<p>end</p>
-
+              <h1 id="Uncomment-this-line-to-define-a-global-platform-for-your-project"><a href="#Uncomment-this-line-to-define-a-global-platform-for-your-project" class="headerlink" title="Uncomment this line to define a global platform for your project"></a>Uncomment this line to define a global platform for your project</h1><p>platform :ios, ‘8.0’<br>use_frameworks!<br>workspace ‘XXXX’</p>
+<p>def share_pods<br>    pod ‘SnapKit’, ‘~&gt; 4.0.0’<br>    pod ‘MJExtension’, ‘~&gt; 3.0.13’<br>    pod ‘HandyJSON’, ‘~&gt;4.0.0-beta.1’<br>end<br>
+          
       
     </div>
     
@@ -289,6 +271,10 @@
       
 
       
+      
+        <p class="article-more-link">
+          <a href="/2018/04/23/pod-demo/#more">阅读全文 >></a>
+        </p>
       
       <div class="clearfix"></div>
     </div>
@@ -463,7 +449,7 @@
       
       
         <p class="article-more-link">
-          <a href="/2018/02/28/微交互/#more">more >></a>
+          <a href="/2018/02/28/微交互/#more">阅读全文 >></a>
         </p>
       
       <div class="clearfix"></div>

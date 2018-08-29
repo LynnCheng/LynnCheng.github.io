@@ -6,24 +6,18 @@
   <title>mac电脑配置路由表 | LynnCheng</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="很多公司都有自己的局域网，和互联网是两张不互通的网络。如果同一台电脑通过两张网卡接入两个网络，windows电脑能自动选路，而mac电脑则要自己配置了。
-最开始想到的是使用route命令，如：sudo route add 18.0.0.0/24 10.0.66.2
-但这种方案有个缺点：如果电脑重启一下，路由配置就没了。所以每次重启电脑都要重新配置。
-搜索了一下，终于找到了解决方案：1network">
+最开始想到的是使用route命令，如：sudo route add 18.0.0.0/24 10.0.66.2">
 <meta property="og:type" content="article">
 <meta property="og:title" content="mac电脑配置路由表">
 <meta property="og:url" content="http://lynncheng.github.io/2018/06/19/VLC同步解析/index.html">
 <meta property="og:site_name" content="LynnCheng">
 <meta property="og:description" content="很多公司都有自己的局域网，和互联网是两张不互通的网络。如果同一台电脑通过两张网卡接入两个网络，windows电脑能自动选路，而mac电脑则要自己配置了。
-最开始想到的是使用route命令，如：sudo route add 18.0.0.0/24 10.0.66.2
-但这种方案有个缺点：如果电脑重启一下，路由配置就没了。所以每次重启电脑都要重新配置。
-搜索了一下，终于找到了解决方案：1network">
-<meta property="og:updated_time" content="2018-07-23T09:32:18.000Z">
+最开始想到的是使用route命令，如：sudo route add 18.0.0.0/24 10.0.66.2">
+<meta property="og:updated_time" content="2018-08-29T08:59:39.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="mac电脑配置路由表">
 <meta name="twitter:description" content="很多公司都有自己的局域网，和互联网是两张不互通的网络。如果同一台电脑通过两张网卡接入两个网络，windows电脑能自动选路，而mac电脑则要自己配置了。
-最开始想到的是使用route命令，如：sudo route add 18.0.0.0/24 10.0.66.2
-但这种方案有个缺点：如果电脑重启一下，路由配置就没了。所以每次重启电脑都要重新配置。
-搜索了一下，终于找到了解决方案：1network">
+最开始想到的是使用route命令，如：sudo route add 18.0.0.0/24 10.0.66.2">
   
     <link rel="alternative" href="/atom.xml" title="LynnCheng" type="application/atom+xml">
   
@@ -271,8 +265,7 @@
       
           
         <p>很多公司都有自己的局域网，和互联网是两张不互通的网络。如果同一台电脑通过两张网卡接入两个网络，windows电脑能自动选路，而mac电脑则要自己配置了。</p>
-<p>最开始想到的是使用route命令，如：<br>sudo route add 18.0.0.0/24 10.0.66.2</p>
-<p>但这种方案有个缺点：如果电脑重启一下，路由配置就没了。所以每次重启电脑都要重新配置。</p>
+<p>最开始想到的是使用route命令，如：<br>sudo route add 18.0.0.0/24 10.0.66.2<br><a id="more"></a><br>但这种方案有个缺点：如果电脑重启一下，路由配置就没了。所以每次重启电脑都要重新配置。</p>
 <p>搜索了一下，终于找到了解决方案：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">networksetup -setadditionalroutes &quot;Wi-Fi&quot; 10.0.0.0 255.0.0.0 10.46.18.129</span><br></pre></td></tr></table></figure></p>
 <p>其中，”Wi-Fi” 这个是指我当前上网的设备（查看当前的设备可以使用这个命令networksetup -listallnetworkservices）</p>
 <p>如果不需要了，则使用如下命令清空表：</p>
@@ -292,7 +285,7 @@
         <p><span>本文标题:</span><a href="/2018/06/19/VLC同步解析/">mac电脑配置路由表</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">Lynn Cheng</a></p>
         <p><span>发布时间:</span>2018-06-19, 10:05:00</p>
-        <p><span>最后更新:</span>2018-07-23, 17:32:18</p>
+        <p><span>最后更新:</span>2018-08-29, 16:59:39</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2018/06/19/VLC同步解析/" title="mac电脑配置路由表">http://lynncheng.github.io/2018/06/19/VLC同步解析/</a>
             <span class="copy-path" data-clipboard-text="原文: http://lynncheng.github.io/2018/06/19/VLC同步解析/　　作者: Lynn Cheng" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
