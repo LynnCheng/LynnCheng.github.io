@@ -3,33 +3,27 @@
 <head>
   <meta charset="utf-8">
   
-  <title>ios打包ipa文件的脚本 | LynnCheng</title>
+  <title>wxBot | LynnCheng</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="编译打包命令：1xcodebuild archive -workspace xxxx.xcworkspace -scheme pppp -configuration Release -archivePath ../export/xxxx.xcarchive
-
-
-其中xxxx为工程名称，pppp为所用的profile的名称（不带后缀）
-
-生成ipa文件1xcodebuild -exportArch">
+  <meta name="description" content="-- coding: utf-8 --：
+import requestsimport itchat
+KEY = ‘334c99571f96486683dde04cc998ac56’
+def get_response(msg):    question = msg.replace(“@毛毛球”, “”)    apiUrl = ‘http://www.tuling123.com/openapi/ap">
 <meta property="og:type" content="article">
-<meta property="og:title" content="ios打包ipa文件的脚本">
-<meta property="og:url" content="http://lynncheng.github.io/2018/07/23/ios打包ipa文件的脚本/index.html">
+<meta property="og:title" content="wxBot">
+<meta property="og:url" content="http://lynncheng.github.io/2018/09/10/wxBot/index.html">
 <meta property="og:site_name" content="LynnCheng">
-<meta property="og:description" content="编译打包命令：1xcodebuild archive -workspace xxxx.xcworkspace -scheme pppp -configuration Release -archivePath ../export/xxxx.xcarchive
-
-
-其中xxxx为工程名称，pppp为所用的profile的名称（不带后缀）
-
-生成ipa文件1xcodebuild -exportArch">
-<meta property="og:updated_time" content="2018-07-23T09:08:59.000Z">
+<meta property="og:description" content="-- coding: utf-8 --：
+import requestsimport itchat
+KEY = ‘334c99571f96486683dde04cc998ac56’
+def get_response(msg):    question = msg.replace(“@毛毛球”, “”)    apiUrl = ‘http://www.tuling123.com/openapi/ap">
+<meta property="og:updated_time" content="2018-09-10T11:45:16.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="ios打包ipa文件的脚本">
-<meta name="twitter:description" content="编译打包命令：1xcodebuild archive -workspace xxxx.xcworkspace -scheme pppp -configuration Release -archivePath ../export/xxxx.xcarchive
-
-
-其中xxxx为工程名称，pppp为所用的profile的名称（不带后缀）
-
-生成ipa文件1xcodebuild -exportArch">
+<meta name="twitter:title" content="wxBot">
+<meta name="twitter:description" content="-- coding: utf-8 --：
+import requestsimport itchat
+KEY = ‘334c99571f96486683dde04cc998ac56’
+def get_response(msg):    question = msg.replace(“@毛毛球”, “”)    apiUrl = ‘http://www.tuling123.com/openapi/ap">
   
     <link rel="alternative" href="/atom.xml" title="LynnCheng" type="application/atom+xml">
   
@@ -242,11 +236,11 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
-      <div class="body-wrap"><article id="post-ios打包ipa文件的脚本" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-wxBot" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2018/07/23/ios打包ipa文件的脚本/" class="article-date">
-      <time datetime="2018-07-23T09:04:31.000Z" itemprop="datePublished">2018-07-23</time>
+      <a href="/2018/09/10/wxBot/" class="article-date">
+      <time datetime="2018-09-10T11:44:34.000Z" itemprop="datePublished">2018-09-10</time>
 </a>
     </div>
   
@@ -259,7 +253,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      ios打包ipa文件的脚本
+      wxBot
     </h1>
   
 
@@ -276,17 +270,13 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <ol>
-<li>编译打包命令：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">xcodebuild archive -workspace xxxx.xcworkspace -scheme pppp -configuration Release -archivePath ../export/xxxx.xcarchive</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<p>其中xxxx为工程名称，pppp为所用的profile的名称（不带后缀）</p>
-<ol>
-<li>生成ipa文件<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">xcodebuild -exportArchive -archivePath ../export/xxxx.xcarchive -exportPath ../export/ -exportOptionsPlist ExportOptions.plist</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<p>其中ExportOptions.plist文件可以在你手动打包ipa后，ipa文件的同级目录中找到</p>
-
+        <h1 id="coding-utf-8-："><a href="#coding-utf-8-：" class="headerlink" title="-- coding: utf-8 --："></a>-<em>- coding: utf-8 -</em>-：</h1><hr>
+<p>import requests<br>import itchat</p>
+<p>KEY = ‘334c99571f96486683dde04cc998ac56’</p>
+<p>def get_response(msg):<br>    question = msg.replace(“@毛毛球”, “”)<br>    apiUrl = ‘<a href="http://www.tuling123.com/openapi/api" target="_blank" rel="external">http://www.tuling123.com/openapi/api</a>‘<br>    data = {<br>        ‘key’    : KEY,<br>        ‘info’   : question,<br>        ‘userid’ : ‘wechat-robot’,<br>    }<br>    try:<br>        r = requests.post(apiUrl, data=data).json()<br>        return r.get(‘text’)<br>    except:<br>        return “”</p>
+<p>@itchat.msg_register(itchat.content.TEXT, isGroupChat=True)<br>def group_reply(msg):<br>    if msg[‘isAt’]:<br>        itchat.send(u’@%s\u2005 %s’ % (msg[‘ActualNickName’], get_response(msg[‘Content’])), msg[‘FromUserName’])</p>
+<p>itchat.auto_login(hotReload=True)</p>
+<h2 id="itchat-run"><a href="#itchat-run" class="headerlink" title="itchat.run()"></a>itchat.run()</h2>
       
     </div>
     
@@ -294,13 +284,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2018/07/23/ios打包ipa文件的脚本/">ios打包ipa文件的脚本</a></p>
+        <p><span>本文标题:</span><a href="/2018/09/10/wxBot/">wxBot</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">Lynn Cheng</a></p>
-        <p><span>发布时间:</span>2018-07-23, 17:04:31</p>
-        <p><span>最后更新:</span>2018-07-23, 17:08:59</p>
+        <p><span>发布时间:</span>2018-09-10, 19:44:34</p>
+        <p><span>最后更新:</span>2018-09-10, 19:45:16</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2018/07/23/ios打包ipa文件的脚本/" title="ios打包ipa文件的脚本">http://lynncheng.github.io/2018/07/23/ios打包ipa文件的脚本/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://lynncheng.github.io/2018/07/23/ios打包ipa文件的脚本/　　作者: Lynn Cheng" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2018/09/10/wxBot/" title="wxBot">http://lynncheng.github.io/2018/09/10/wxBot/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://lynncheng.github.io/2018/09/10/wxBot/　　作者: Lynn Cheng" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
@@ -312,16 +302,10 @@
 
     <nav id="article-nav">
         
-            <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2018/07/27/搬瓦匠/">
-                    搬瓦匠
-                </a>
-            </div>
-        
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2018/06/19/VLC同步解析/">
-                    mac电脑配置路由表
+                <a href="/2018/09/06/大量数据表的优化方案/">
+                    大量数据表的优化方案
                 </a>
             </div>
         
@@ -332,7 +316,7 @@
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#coding-utf-8-："><span class="toc-number">1.</span> <span class="toc-text">-- coding: utf-8 --：</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#itchat-run"><span class="toc-number">1.1.</span> <span class="toc-text">itchat.run()</span></a></li></ol></li></ol>
 </div>
 <style>
     .left-col .switch-btn {
@@ -389,7 +373,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"ios打包ipa文件的脚本　| LynnCheng　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"wxBot　| LynnCheng　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -405,7 +389,7 @@
     
       <div class="duoshuo" id="comments">
     <!-- 多说评论框 start -->
-    <div class="ds-thread" data-thread-key="2018/07/23/ios打包ipa文件的脚本/" data-title="ios打包ipa文件的脚本" data-url="http://lynncheng.github.io/2018/07/23/ios打包ipa文件的脚本/"></div>
+    <div class="ds-thread" data-thread-key="2018/09/10/wxBot/" data-title="wxBot" data-url="http://lynncheng.github.io/2018/09/10/wxBot/"></div>
     <!-- 多说评论框 end -->
     <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
     <script type="text/javascript">
@@ -429,15 +413,13 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2018/07/27/搬瓦匠/" title="上一篇: 搬瓦匠">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
 
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2018/06/19/VLC同步解析/" title="下一篇: mac电脑配置路由表">
+            <a href="/2018/09/06/大量数据表的优化方案/" title="下一篇: 大量数据表的优化方案">
                 <i class="fa fa-angle-right"></i>
             </a>
         

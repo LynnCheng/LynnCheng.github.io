@@ -233,6 +233,120 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-VLC-i" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/10/25/VLC-i/" class="article-date">
+      <time datetime="2017-10-25T05:32:15.000Z" itemprop="datePublished">2017-10-25</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/10/25/VLC-i/">optional解析之String, String?, String!</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>声明变量时，如果使用String? 或者 String!，则该变量的类型都是optional string<br>两者的区别在于，使用String!声明的变量，在使用的时候，不需要显示的解包；编译器会帮我们强制解包。这也就要求使用者需要确保该变量在引用的时候，必须是非nil值。示例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">let a:String? = &quot;a&quot;</span><br><span class="line">let b:String! = &quot;b&quot;</span><br><span class="line">let c:String = &quot;c&quot;</span><br><span class="line"></span><br><span class="line">print(a!+b+c)   //打印abc</span><br></pre></td></tr></table></figure>
+<p>需要注意的是，在打印、显示在ui上的时候，系统会自动为optional类型在上Optional(“xxx”)字样，如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">let a:String? = &quot;a&quot;</span><br><span class="line">let b:String! = &quot;b&quot;</span><br><span class="line">let c:String = &quot;c&quot;</span><br><span class="line"></span><br><span class="line">print(&quot;\(a)\(b)\(c)&quot;) //打印&quot;Optional(&quot;a&quot;)Optional(&quot;b&quot;)c\n&quot;</span><br></pre></td></tr></table></figure></p>
+<p>所以，大部分情况下，我们需要显示的解包，才能达到自己想要的效果：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">let a:String? = &quot;a&quot;</span><br><span class="line">let b:String! = &quot;b&quot;</span><br><span class="line">let c:String = &quot;c&quot;</span><br><span class="line"></span><br><span class="line">print(&quot;\(a!)\(b!)\(c)&quot;) //打印&quot;abc\n&quot;</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-VLC-iOS库编译" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/09/15/VLC-iOS库编译/" class="article-date">
+      <time datetime="2017-09-15T05:19:41.000Z" itemprop="datePublished">2017-09-15</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/09/15/VLC-iOS库编译/">VLC iOS库编译</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>1.下载源码后，执行 ./buildMobileVLCKit.sh -f -n</p>
+<ol>
+<li>contrib目录下的文件修改，需要打patch<br>a. 把修改前和修改后的文件，含路径，都拷贝一份，分别放入a、b两个文件夹<br>b. 执行命令： diff -uNr a b &gt; 0008-xxxx.patch<br>c. 修改contrib/xxx/rule.mak</li>
+</ol>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-设置UIWebviewController的导航为透明" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -700,117 +814,6 @@ userInfo:nil
       
           
         <p>从已经安装了最新版本xcode的机器上找到最新ios系统的支持包，拷贝到目标电脑到相关目录下：Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/DeviceSupport</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-useragent" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2017/03/22/useragent/" class="article-date">
-      <time datetime="2017-03-22T10:18:03.000Z" itemprop="datePublished">2017-03-22</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/03/22/useragent/">更改 UIWebview 的useragent</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p>获取UIWebView的useragent：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">UIWebView* webView = [[UIWebView alloc] initWithFrame:CGRectZero];  </span><br><span class="line">NSString* secretAgent = [webView stringByEvaluatingJavaScriptFromString:@&quot;navigator.userAgent&quot;];</span><br></pre></td></tr></table></figure></p>
-<p>附加自定义字段到 Useragent中<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">NSString *newUagent = [NSString stringWithFormat:@&quot;%@ appname/3.5.2&quot;,secretAgent];  </span><br><span class="line">NSDictionary *dictionary = [[NSDictionary alloc]  </span><br><span class="line">                                initWithObjectsAndKeys:newUagent, @&quot;UserAgent&quot;, nil nil];  </span><br><span class="line">[[NSUserDefaults standardUserDefaults] registerDefaults:dictionary];</span><br></pre></td></tr></table></figure></p>
-<p>但应该注意的事，设置了useragent以后，需要过一段时间才能生效，所以一般是在appdelegate.m中就去改；如果在UIWebViewController初始化的时候再去更改的话，就有会导致有些请求还是原来的useragent</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-ui" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2017/03/18/ui/" class="article-date">
-      <time datetime="2017-03-18T09:04:47.000Z" itemprop="datePublished">2017-03-18</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/03/18/ui/">ui</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p>一、以下先列出作为【开发框架】技术选型的候选：<br>（1）DCloud出品：<a href="http://www.dcloud.io/" target="_blank" rel="external">MUI</a>，<br>（2）阿里出品：<a href="http://m.sui.taobao.org/" target="_blank" rel="external">MSUI</a>（基于大名鼎鼎的<a href="http://framework7.taobao.org/" target="_blank" rel="external">Framework7</a>框架，但MSUI的兼容性更好）；<br>（3）腾讯出品：<a href="http://frozenui.github.io/" target="_blank" rel="external">FrozenUI</a>；<br>（4）百度出品：<a href="http://clouda.baidu.com/blend2" target="_blank" rel="external">Clouda</a>是百度历时两年共同研发的开源App技术框架，基于Node.js，简单易用，完美结合BAE；<br>（5）<a href="http://vycool.com/Jingle/index.html" target="_blank" rel="external">Jingle UI</a>是一个基于html5、css3开发轻量级的移动webapp 框架（支持触摸屏操作、切换效果也不错）基于Zepto开发，依赖了iscroll；<br>(6) AmazeUI <a href="http://t.amazeui.org/kitchen-sink/#/?_k=a1ewns" target="_blank" rel="external">http://t.amazeui.org/kitchen-sink/#/?_k=a1ewns</a><br>二、以下再列出作为【开发集成环境】选型的候选：<br>（1）DCloud出品：<a href="http://www.dcloud.io/" target="_blank" rel="external">HBuilder</a>，<br>（2）正益无线出品：<a href="http://www.appcan.cn/" target="_blank" rel="external">AppCan</a>：国内 [Hybrid混合开发]、[移动平台]、[移动云平台]的倡导者&amp;领导者，我个人觉得他提供的SDK把所有的UI组件都进行了封装，然后通过向导方式进行嵌入开发，很方便，并且有很多很全面视频教学，是一个不错的开发平台之一；<br>（3）烽火星空出品：<a href="http://www.exmobi.cn/" target="_blank" rel="external">ExMobi</a>移动应用平台，技术融合成就完美Hybrid App跨平台开发，和上面的AppCan差不多，有教学视频和很多案例，平台也非常成熟；<br>（4）<a href="http://www.apicloud.com/" target="_blank" rel="external">APICloud IDE</a>：这个我就不说了，抄袭DCloud的技术，不推荐，但是限放在选型列表中吧；<br>（5）9秒团队出品：<a href="http://crossapp.9miao.com/" target="_blank" rel="external">CrossApp</a>是一款完全开源、免费、跨平台的移动应用开发引擎，采用C++开发（即将支持js和lua编写），可直接导出ios和android原生应用，拥有高性能，多控件，开发速度快的优势。</p>
-<p>三、以下再列出作为【在线App开发】网站选型的候选：这里的就比较多了，我只列出我觉得还可以放入选型列表中的，大家可以多多度娘、谷哥一下<br>（1）叮当App自助生产运营平台，这个比较赞，女生应该比较喜欢；<br>（2）简网App工场；<br>（3）金和IU App自助工厂；<br>（4）应用公园Apppark—全球领先APP免费在线制作平台，这个比较赞，女生应该比较喜欢；<br>（5）追信魔盒；</p>
 
       
     </div>
