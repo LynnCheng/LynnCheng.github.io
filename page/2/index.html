@@ -233,6 +233,275 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-git" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2018/07/30/git/" class="article-date">
+      <time datetime="2018-07-30T09:02:10.000Z" itemprop="datePublished">2018-07-30</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/07/30/git/">git</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <ol>
+<li><p>基本概念：<br>正常情况下，我们的工作流就是3个步骤，：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git add .</span><br><span class="line">git commit -m &quot;comment&quot;</span><br><span class="line">git push</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>git add .把所有文件放入暂存区；</p>
+</li>
+<li>git commit把所有文件从暂存区提交进本地仓库；</li>
+<li>git push把所有文件从本地仓库推送进远程仓库。</li>
+</ol>
+<p>4个区<br>工作区(Working Area)<br>暂存区(Stage)<br>本地仓库(Local Repository)<br>远程仓库(Remote Repository)</p>
+<p>5种状态<br>未修改(Origin)<br>已修改(Modified)<br>已暂存(Staged)<br>已提交(Committed)<br>已推送(Pushed)</p>
+<ol>
+<li>检查修改<br>git diff:这个命令只检查我们的工作区和暂存区之间的差异</li>
+</ol>
+<p>已暂存，未提交:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git diff --cached</span><br></pre></td></tr></table></figure></p>
+<p>git diff –cached 检查暂存区和本地仓库之间的差异</p>
+<p>已提交，未推送:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git diff master origin/master</span><br></pre></td></tr></table></figure></p>
+<p>master就是你的本地仓库，而origin/master就是你的远程仓库，master是主分支的意思，因为我们都在主分支上工作，所以这里两边都是master，而origin就代表远程。</p>
+<ol>
+<li>撤销修改<br>已修改，未暂存<br>如果我们只是在编辑器里修改了文件，但还没有执行git add .，这时候我们的文件还在工作区，并没有进入暂存区，我们可以用：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git checkout .</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>或者<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git reset --hard</span><br></pre></td></tr></table></figure></p>
+<p>来进行撤销操作。</p>
+<p>已暂存，未提交<br>你已经执行了git add .，但还没有执行git commit -m “comment”。这时候你意识到了错误，想要撤销，你可以执行：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git reset</span><br><span class="line">git checkout .</span><br></pre></td></tr></table></figure></p>
+<p>或者<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git reset --hard</span><br></pre></td></tr></table></figure></p>
+<p>git reset只是把修改退回到了git add .之前的状态，也就是说文件本身还处于已修改未暂存状态，你如果想退回未修改状态，还需要执行git checkout .。<br>或许你已经注意到了，以上两个步骤都可以用同一个命令git reset –hard来完成。是的，就是这个强大的命令，可以一步到位地把你的修改完全恢复到未修改的状态。</p>
+<p>已提交，未推送<br>你的手太快，你既执行了git add .，又执行了git commit，这时候你的代码已经进入了你的本地仓库，然而你后悔了，怎么办？不要着急，还有办法。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git reset --hard origin/master</span><br></pre></td></tr></table></figure></p>
+<p>还是这个git reset –hard命令，只不过这次多了一个参数origin/master，正如我们上面讲过的，origin/master代表远程仓库，既然你已经污染了你的本地仓库，那么就从远程仓库把代码取回来吧。</p>
+<p>已推送<br>很不幸，你的手实在是太快了，你既git add了，又git commit了，并且还git push了，这时你的代码已经进入远程仓库。如果你想恢复的话，还好，由于你的本地仓库和远程仓库是等价的，你只需要先恢复本地仓库，再强制push到远程仓库就好了：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git reset --hard HEAD^</span><br><span class="line">git push -f</span><br></pre></td></tr></table></figure></p>
+<p>附加<br>git log</p>
+<p>命令显示从最近到最远的提交日志<br>如果嫌输出信息太多，看得眼花缭乱的，可以试试加上<br>git log –pretty=oneline<br>git reflog   用来记录你的每一次命令<br>git status   查看工作区状态<br>git diff HEAD – 文件名   可以查看工作区和版本库里面最新版本的区别<br>git rm – 文件名       用于删除一个文件<br>git push origin HEAD:refs/for/master 代码走查</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-搬瓦匠" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2018/07/27/搬瓦匠/" class="article-date">
+      <time datetime="2018-07-27T06:05:38.000Z" itemprop="datePublished">2018-07-27</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/07/27/搬瓦匠/">搬瓦匠</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+              <p>搭建vpn服务器的一些细节：</p>
+<ol>
+<li>去bwh1.net购买一个vps空间</li>
+<li>进入你购买空间的控制面板，最好先把root密码、端口等设置一下</li>
+<li>现在一键安装shadowsocks的页面已经隐藏掉了，不过可以直接在浏览器上深入网址：<br><a href="https://kiwivm.64clouds.com/main-exec.php?mode=extras_shadowsocks">https://kiwivm.64clouds.com/main-exec.php?mode=extras_shadowsocks</a>
+          
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+        <p class="article-more-link">
+          <a href="/2018/07/27/搬瓦匠/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-ios打包ipa文件的脚本" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2018/07/23/ios打包ipa文件的脚本/" class="article-date">
+      <time datetime="2018-07-23T09:04:31.000Z" itemprop="datePublished">2018-07-23</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/07/23/ios打包ipa文件的脚本/">ios打包ipa文件的脚本</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <ol>
+<li>编译打包命令：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">xcodebuild archive -workspace xxxx.xcworkspace -scheme pppp -configuration Release -archivePath ../export/xxxx.xcarchive</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>其中xxxx为工程名称，pppp为所用的profile的名称（不带后缀）</p>
+<ol>
+<li>生成ipa文件<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">xcodebuild -exportArchive -archivePath ../export/xxxx.xcarchive -exportPath ../export/ -exportOptionsPlist ExportOptions.plist</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>其中ExportOptions.plist文件可以在你手动打包ipa后，ipa文件的同级目录中找到</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-VLC同步解析" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2018/06/19/VLC同步解析/" class="article-date">
+      <time datetime="2018-06-19T02:05:00.000Z" itemprop="datePublished">2018-06-19</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/06/19/VLC同步解析/">mac电脑配置路由表</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+              <p>很多公司都有自己的局域网，和互联网是两张不互通的网络。如果同一台电脑通过两张网卡接入两个网络，windows电脑能自动选路，而mac电脑则要自己配置了。</p>
+<p>最开始想到的是使用route命令，如：<br>sudo route add 18.0.0.0/24 10.0.66.2<br>
+          
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+        <p class="article-more-link">
+          <a href="/2018/06/19/VLC同步解析/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-UICollectionView" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -597,267 +866,9 @@
 
 
   
-    <article id="post-微交互" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2018/02/28/微交互/" class="article-date">
-      <time datetime="2018-02-28T08:29:19.000Z" itemprop="datePublished">2018-02-28</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/02/28/微交互/">微交互</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              <p>原文地址：<a href="http://www.lukew.com/ff/entry.asp?1726">http://www.lukew.com/ff/entry.asp?1726</a></p>
-<ol>
-<li>微交互具有单一性，一次只专注的做一件事。一个功能，可以有多种微交互。</li>
-<li>设计师对产品也是有感情的，如果设计师喜欢他设计的产品，肯定会想方设法加入各种细节和微交互，反之，则不会加入，草草了事。
-          
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-      
-        <p class="article-more-link">
-          <a href="/2018/02/28/微交互/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-iOS模板" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2018/01/18/iOS模板/" class="article-date">
-      <time datetime="2018-01-18T12:05:44.000Z" itemprop="datePublished">2018-01-18</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/01/18/iOS模板/">iOS模板</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p>title: iOS模板</p>
-<h2 id="tags"><a href="#tags" class="headerlink" title="tags:"></a>tags:</h2><ul>
-<li>segues</li>
-</ul>
-<ol>
-<li>reSwift</li>
-<li>clean swift: <a href="https://clean-swift.com" target="_blank" rel="external">https://clean-swift.com</a></li>
-<li>promise kit</li>
-<li>VIPER: <a href="http://www.cocoachina.com/ios/20140703/9016.html" target="_blank" rel="external">http://www.cocoachina.com/ios/20140703/9016.html</a></li>
-</ol>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-函数式编程" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2018/01/17/函数式编程/" class="article-date">
-      <time datetime="2018-01-17T02:25:28.000Z" itemprop="datePublished">2018-01-17</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/01/17/函数式编程/">函数式编程</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p>函数式编程是种编程方式，它将电脑运算视为函数的计算。函数编程语言最重要的基础是λ演算（lambda calculus），而且λ演算的函数可以接受函数当作输入（参数）和输出（返回值）</p>
-<p>函数式程序就是一个表达式，这里的函数是指数学函数，与一般语言的函数有区别<br>函数式编程关心数据的映射，命令式编程关心解决问题的步骤。</p>
-<h2 id="函数式编程的特点。"><a href="#函数式编程的特点。" class="headerlink" title="函数式编程的特点。"></a>函数式编程的特点。</h2><h3 id="函数是”第一等公民”"><a href="#函数是”第一等公民”" class="headerlink" title="函数是”第一等公民”"></a>函数是”第一等公民”</h3><p>所谓”第一等公民”（first class），指的是函数与其他数据类型一样，处于平等地位，可以赋值给其他变量，也可以作为参数，传入另一个函数，或者作为别的函数的返回值。可以和变量一样，在任何地方定义和使用。<br>举例来说，下面代码中的print变量就是一个函数，可以作为另一个函数的参数。<br>var print = function(i){ console.log(i);};<br>　　[1,2,3].forEach(print);</p>
-<h3 id="只用”表达式”，不用”语句”"><a href="#只用”表达式”，不用”语句”" class="headerlink" title="只用”表达式”，不用”语句”"></a>只用”表达式”，不用”语句”</h3><p>“表达式”（expression）是一个单纯的运算过程，总是有返回值；”语句”（statement）是执行某种操作，没有返回值。函数式编程要求，只使用表达式，不使用语句。也就是说，每一步都是单纯的运算，而且都有返回值。<br>原因是函数式编程的开发动机，一开始就是为了处理运算（computation），不考虑系统的读写（I/O）。”语句”属于对系统的读写操作，所以就被排斥在外。<br>当然，实际应用中，不做I/O是不可能的。因此，编程过程中，函数式编程只要求把I/O限制到最小，不要有不必要的读写行为，保持计算过程的单纯性。</p>
-<h3 id="没有”副作用"><a href="#没有”副作用" class="headerlink" title="没有”副作用"></a>没有”副作用</h3><p>所谓”副作用”（side effect），指的是函数内部与外部互动（最典型的情况，就是修改全局变量的值），产生运算以外的其他结果。<br>函数式编程强调没有”副作用”，意味着函数要保持独立，所有功能就是返回一个新的值，没有其他行为，尤其是不得修改外部变量的值。</p>
-<h3 id="不修改状态"><a href="#不修改状态" class="headerlink" title="不修改状态"></a>不修改状态</h3><p>上一点已经提到，函数式编程只是返回新的值，不修改系统变量。因此，不修改变量，也是它的一个重要特点。<br>在其他类型的语言中，变量往往用来保存”状态”（state）。不修改变量，意味着状态不能保存在变量中。函数式编程使用参数保存状态，最好的例子就是递归。下面的代码是一个将字符串逆序排列的函数，它演示了不同的参数如何决定了运算所处的”状态”。</p>
-<h3 id="引用透明性"><a href="#引用透明性" class="headerlink" title="引用透明性"></a>引用透明性</h3><p>函数程序通常还加强引用透明性，即如果提供同样的输入，那么函数总是返回同样的结果。就是说，表达式的值不依赖于可以改变值的全局状态。这使您可以从形式上推断程序行为，因为表达式的意义只取决于其子表达式而不是计算顺序或者其他表达式的副作用。这有助于验证正确性、简化算法，甚至有助于找出优化它的方法。</p>
-<h3 id="副作用"><a href="#副作用" class="headerlink" title="副作用"></a>副作用</h3><p>副作用是修改系统状态的语言结构。因为 FP 语言不包含任何赋值语句，变量值一旦被指派就永远不会改变。而且，调用函数只会计算出结果 ── 不会出现其他效果。</p>
-<h3 id="柯里化"><a href="#柯里化" class="headerlink" title="柯里化"></a>柯里化</h3><p>只传递给函数一部分参数来调用函数，然后返回一个函数去处理剩下的参数。本质上，柯里化就是对高阶函数（就是一种对过程的抽象 参考map它就是一个抽象的过程）的降阶处理。比如 function(arg1,arg2)变成function(arg1)(arg2)。function(arg1,arg2,arg3)变成function(arg1)(arg2)(arg3)….以此类推。</p>
-<p>声明式思维</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-编程模式" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2018/01/15/编程模式/" class="article-date">
-      <time datetime="2018-01-15T08:38:24.000Z" itemprop="datePublished">2018-01-15</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/01/15/编程模式/">编程范式</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p>两种编程范式：</p>
-<ul>
-<li><p>命令式编程范式：命令“机器”如何去做事情(how)，这样不管你想要的是什么(what)，它都会按照你的命令实现。</p>
-<ul>
-<li>面向对象编程，如c++、Java</li>
-<li>面向过程编程，如c语言</li>
-<li>响应式编程：rxswift</li>
-<li>链接式编程：典型示例 snapkit</li>
-<li>面向切片编程：AOP</li>
-</ul>
-</li>
-<li><p>声明式编程范式：告诉“机器”你想要的是什么(what)，让机器想出如何去做(how)。<br>声明式编程范式常见有以下两种：</p>
-<ul>
-<li>领域特定语言（Domain Specific Language，DSL）：<br>名字很陌生，但是我们却经常在用。如SQL、CSS以及正则表达式等等。这些语言只在特定领域起作用，并且使用这些语言时，我们大多数时候是在写“陈述、声明”的语句。如“select * from tb”，我们只关心我们要的结果，而不用去关系具体实现。</li>
-<li>函数式编程（Functional Program，FP）：函数式编程是我们要讨论的重点。既然它属于声明式编程范式，那么它也应该强调结果（What）而非过程（How）。没错，函数式编程不同于常见的命令式编程，它不关心计算机具体的实现过程，而仅仅注重问题结果。</li>
-</ul>
-</li>
-</ul>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
+      <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
     </nav>
   
 </div>
@@ -866,7 +877,7 @@
         <div id="footer-info">
             <div class="footer-left">
                 <i class="fa fa-copyright"></i> 
-                2016-2018 Lynn Cheng
+                2016-2019 Lynn Cheng
             </div>
             <div class="footer-right">
                 <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的博客框架">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="简而不减 Hexo 双栏博客主题">Yelee</a> by MOxFIVE <i class="fa fa-heart animated infinite pulse"></i>

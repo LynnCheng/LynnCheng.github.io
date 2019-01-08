@@ -233,6 +233,330 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-iconfont" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2019/01/08/iconfont/" class="article-date">
+      <time datetime="2019-01-08T06:47:41.000Z" itemprop="datePublished">2019-01-08</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/01/08/iconfont/">iconfont  vs emoji</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <ol>
+<li><p>在iOS项目中，一般对图片资源要求有@2x，@3x两套，以适配不同分辨率的设备。为了释放开发者、设计者的双手以及给APP“减重”，iconfont被引入到iOS开发中来。在一些公司中同样会使用到iconfont，笔者所在的公司就有使用到。接下来主要讲解一下在iOS移动开发中如何使用iconfont<br>iconfont，让开发者像使用字体一样使用图标。<br>制作/获取iconfont<br>进入<a href="http://www.iconfont.cn，登录账号以官网提供的字体图标为例，选择要使用的图标，添加到购物车" target="_blank" rel="external">http://www.iconfont.cn，登录账号以官网提供的字体图标为例，选择要使用的图标，添加到购物车</a></p>
+</li>
+<li><p>emoji: 等同与文字，可以直接使用；且xcode提供了所有支持的emoji</p>
+</li>
+</ol>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-Kamailio" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2018/12/29/Kamailio/" class="article-date">
+      <time datetime="2018-12-29T07:52:16.000Z" itemprop="datePublished">2018-12-29</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/12/29/Kamailio/">Kamailio</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h1 id="在centos系统下编译安装"><a href="#在centos系统下编译安装" class="headerlink" title="在centos系统下编译安装"></a>在centos系统下编译安装</h1><ol>
+<li><p>安装编译环境</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo  yum  install  gcc  gcc-c++  flex bison make  openssl  openssl-devel libxml2  libxml2-devel  zlib-devel  ncurses*  e2fsprogs-devel  uuid-devel  libuuid-devel  readline6  readline-devel curl-devel</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>安装mysql</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">wget http://repo.mysql.com/mysql57-community-release-el7-8.noarch.rpm </span><br><span class="line">rpm -ivh mysql57-community-release-el7-8.noarch.rpm </span><br><span class="line">yum -y install mysql-server</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>下载kamailio源码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">wget http://www.kamailio.org/pub/kamailio/latest/src/kamailio-5.2.0_src.tar.gz</span><br><span class="line">tar xvf kamailio-5.2.0_src.tar.gz</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>编译</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">cd kamailio-5.2.0</span><br><span class="line">make  FLAVOUR=kamailio  cfg</span><br><span class="line">make all</span><br><span class="line">sudo make install</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>配置 &amp;&amp; 运行<br>需要为kamailio配置mysql数据库，…..</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">kamctl  add user1 123456  //添加用户</span><br><span class="line">kamailio start   //启动</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-实时语音通话" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2018/12/28/实时语音通话/" class="article-date">
+      <time datetime="2018-12-28T01:48:39.000Z" itemprop="datePublished">2018-12-28</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/12/28/实时语音通话/">实时语音通话</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>方案选型：</p>
+<ul>
+<li>linphone：仅适合双方通话</li>
+<li>webrtc</li>
+<li>doubango：适合多方通话，回声消除功能略差</li>
+</ul>
+<p>ios实现客户端：voip push + callkit<br>android实现客户端：android系统自带sip接口<br>sip server: opensips/kamailio + asterisk/freeswitch能够构建超大容量的VOIP平台，</p>
+<p>技术方案：</p>
+<ul>
+<li>voip - sip</li>
+<li>webrtc</li>
+<li>xmpp</li>
+<li>mqtt</li>
+</ul>
+<p>相关开源软件：</p>
+<ul>
+<li>Speex：是一套主要针对语音的开源免费，无专利保护的音频压缩格式。[<a href="http://www.speex.org" target="_blank" rel="external">http://www.speex.org</a>] 目前最新的版本是Speex 1.2rc2 and SpeexDSP 1.2rc3。它的特点有：<ul>
+<li>窄带（8kHz），宽带（16kHz）和超宽带（32kHz）压缩于同一位流。</li>
+<li>强化立体编码</li>
+<li>数据包丢失隐蔽</li>
+<li>可变比特率（VBR）</li>
+<li>语音捕捉（VAD）</li>
+<li>非连续传输（DTX）</li>
+<li>定点运算</li>
+<li>感官回声消除（AEC）</li>
+<li>噪音屏蔽</li>
+</ul>
+</li>
+<li>react-native-webrtc：支持ios/android系统</li>
+<li>Linphone：是一种开源的IP语音电话（或SIP电话），可以通过互联网与人们进行免费的语音，视频和文本即时通讯。它使用SIP协议（互联网电话的开放标准），可以与任何SIP VoIP运营商一起使用，包括一些免费的SIP音频/视频服务<a href="http://www.linphone.org" target="_blank" rel="external">http://www.linphone.org</a>, </li>
+<li>idoubs：doubango for ios基于doubango(Doubango 是一个基于3GPP IMS/RCS 并能用于嵌入式和桌面系统的开源框架。该框架使用ANSCI-C编写，具有很好的可移植性。并且已经被设计成非常轻便且能有效的工作在低内存和低处理能力的嵌入式系统上。苹果系统上的idoubs功能就是基于此框架编写) .音视频编码格式大部分都支持（H264(video)，VP8(video)，iLBC(audio),PCMA,PCMU,G722,G729）。NAT支持ICE（stun+turn）<br>官方网站：<a href="https://github.com/DoubangoTelecom/imsdroid" target="_blank" rel="external">https://github.com/DoubangoTelecom/imsdroid</a>  <a href="http://www.doubango.org/" target="_blank" rel="external">http://www.doubango.org/</a></li>
+<li>imsdroid： doubango for android</li>
+<li>csipsimple </li>
+<li>Openfire：是开源的、基于可拓展通讯和表示协议(XMPP)、采用Java编程语言开发的实时协作服务器。 Openfire安装和使用都非常简单，并利用Web进行管理。单台服务器可支持上万并发用户。</li>
+<li>WebRTC：名称源自网页实时通信（Web Real-Time Communication）的缩写，是一个支持网页浏览器进行实时语音对话或视频对话的技术。现在许多SDK都是使用WebRTC作为框架来实现。<br>官方网站：<a href="https://webrtc.org/" target="_blank" rel="external">https://webrtc.org/</a></li>
+</ul>
+<p>其他可参考第三方商用sdk:<br><a href="http://sdk.anychat.cn/html/price.html" target="_blank" rel="external">http://sdk.anychat.cn/html/price.html</a><br><a href="http://developer.juphoon.com/home/voip" target="_blank" rel="external">http://developer.juphoon.com/home/voip</a><br><a href="https://cloud.tencent.com/product/trtc" target="_blank" rel="external">https://cloud.tencent.com/product/trtc</a><br><a href="https://dev.yunxin.163.com/docs/product/音视频通话/SDK开发集成/Linux开发集成/sdk库文件下载" target="_blank" rel="external">https://dev.yunxin.163.com/docs/product/音视频通话/SDK开发集成/Linux开发集成/sdk库文件下载</a></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-APP框架" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2018/11/30/APP框架/" class="article-date">
+      <time datetime="2018-11-30T08:29:29.000Z" itemprop="datePublished">2018-11-30</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/11/30/APP框架/">ios app元素</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <ol>
+<li><p>启动页:</p>
+<ul>
+<li>app启动</li>
+<li>app从后台返回前台</li>
+</ul>
+</li>
+<li><p>引导页：可采用图片、文字、音频、视频等多种样式，类型包括：</p>
+<ul>
+<li>功能介绍类：首次安装、版本更新时； 告诉用户咋玩</li>
+<li>使用说明类：</li>
+<li>推广类：广告..</li>
+</ul>
+</li>
+<li><p>数据存储：</p>
+<ul>
+<li>UserDefaults</li>
+<li>KeyChain</li>
+<li>coredata/sqlite</li>
+<li>plist</li>
+</ul>
+</li>
+<li><p>皮肤主题:切换皮肤风格时需要考虑已加载的视图；</p>
+<ul>
+<li>颜色</li>
+<li>图片</li>
+<li>风格？</li>
+</ul>
+</li>
+<li><p>弹窗：</p>
+<ul>
+<li>toast</li>
+<li>alertview</li>
+</ul>
+</li>
+<li><p>社会化分享</p>
+</li>
+<li><p>用户数据分析</p>
+<ul>
+<li>Firebase Analytics 作者是 Google Developers</li>
+<li>友盟</li>
+</ul>
+</li>
+</ol>
+<p>facebook/AsyncDisplayKit - iOS app 的平滑异步用户界面。</p>
+<ul>
+<li>playground</li>
+<li>pod</li>
+<li>埋点</li>
+<li>uibutton: 小红点、执行动作时的菊花</li>
+<li>UI框架：imui、qmui  (阿里的SUI Mobile)</li>
+</ul>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-git迷茫过" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -375,77 +699,10 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>1、对查询进行优化，要尽量避免全表扫描，首先应考虑在 where 及 order by 涉及的列上建立索引。</p>
+              <p>1、对查询进行优化，要尽量避免全表扫描，首先应考虑在 where 及 order by 涉及的列上建立索引。</p>
 <p>2、应尽量避免在 where 子句中对字段进行 null 值判断，否则将导致引擎放弃使用索引而进行全表扫描，如：</p>
-<p> select id from t where num is null</p>
-<p>最好不要给数据库留NULL，尽可能的使用 NOT NULL填充数据库.</p>
-<p>备注、描述、评论之类的可以设置为 NULL，其他的，最好不要使用NULL。</p>
-<p>不要以为 NULL 不需要空间，比如：char(100) 型，在字段建立时，空间就固定了， 不管是否插入值（NULL也包含在内），都是占用 100个字符的空间的，如果是varchar这样的变长字段， null 不占用空间。</p>
-<p>可以在num上设置默认值0，确保表中num列没有null值，然后这样查询：</p>
-<p>select id from t where num=0</p>
-<p>3、应尽量避免在 where 子句中使用 != 或 &lt;&gt; 操作符，否则将引擎放弃使用索引而进行全表扫描。</p>
-<p>4、应尽量避免在 where 子句中使用 or 来连接条件，如果一个字段有索引，一个字段没有索引，将导致引擎放弃使用索引而进行全表扫描，如：</p>
-<p>select id from t where num=10 or Name=’admin’</p>
-<p>可以这样查询：</p>
-<p> select id from t where num=10 union all select id from t where Name=’admin’</p>
-<p>5、n 和 not in 也要慎用，否则会导致全表扫描，如：</p>
-<p>select id from t where num in (1,2,3)</p>
-<p>对于连续的数值，能用 between 就不要用 in 了：</p>
-<p> select id from t where num between 1 and 3</p>
-<p>很多时候用 exists 代替 in 是一个好的选择：</p>
-<p> select num from a where num in (select num from b)</p>
-<p>用下面的语句替换：</p>
-<p> select num from a where exists (select 1 from b where num=a.num)</p>
-<p>6、下面的查询也将导致全表扫描：</p>
-<p>select id from t where name like ‘%abc%’</p>
-<p>若要提高效率，可以考虑全文检索。</p>
-<p>7、如果在 where 子句中使用参数，也会导致全表扫描。因为SQL只有在运行时才会解析局部变量，但优化程序不能将访问计划的选择推迟到运行时；它必须在编译时进行选择。然 而，如果在编译时建立访问计划，变量的值还是未知的，因而无法作为索引选择的输入项。如下面语句将进行全表扫描：</p>
-<p>select id from t where num=@num</p>
-<p>可以改为强制查询使用索引：</p>
-<p>select id from t with (index(索引名)) where num=@num</p>
-<p>应尽量避免在 where 子句中对字段进行表达式操作，这将导致引擎放弃使用索引而进行全表扫描。如：</p>
-<p>select id from t where num/2=100</p>
-<p>应改为:</p>
-<p>select id from t where num=100*2</p>
-<p>9、应尽量避免在where子句中对字段进行函数操作，这将导致引擎放弃使用索引而进行全表扫描。如：</p>
-<p> select id from t where substring(name,1,3)=’abc’ -–name以abc开头的id<br> select id from t where datediff(day,createdate,’2015-11-30′)=0 -–‘2015-11-30’ –生成的id</p>
-<p>应改为:</p>
-<p>select id from t where name like’abc%’ select id from t where createdate&gt;=’2005-11-30’ and createdate&lt;’2005-12-1’</p>
-<p>10、不要在 where 子句中的“=”左边进行函数、算术运算或其他表达式运算，否则系统将可能无法正确使用索引。</p>
-<p>11、在使用索引字段作为条件时，如果该索引是复合索引，那么必须使用到该索引中的第一个字段作为条件时才能保证系统使用该索引，否则该索引将不会被使用，并且应尽可能的让字段顺序与索引顺序相一致。</p>
-<p>12、不要写一些没有意义的查询，如需要生成一个空表结构：</p>
-<p>select col1,col2 into #t from t where1=0</p>
-<p>这类代码不会返回任何结果集，但是会消耗系统资源的，应改成这样：</p>
-<p>create table #t(…)</p>
-<p>13、Update 语句，如果只更改1、2个字段，不要Update全部字段，否则频繁调用会引起明显的性能消耗，同时带来大量日志。</p>
-<p>14、对于多张大数据量（这里几百条就算大了）的表JOIN，要先分页再JOIN，否则逻辑读会很高，性能很差。</p>
-<p>15、select count(*) from table；这样不带任何条件的count会引起全表扫描，并且没有任何业务意义，是一定要杜绝的。</p>
-<p>16、索引并不是越多越好，索引固然可以提高相应的 select 的效率，但同时也降低了 insert 及 update 的效率，因为 insert 或 update 时有可能会重建索引，所以怎样建索引需要慎重考虑，视具体情况而定。一个表的索引数最好不要超过6个，若太多则应考虑一些不常使用到的列上建的索引是否有 必要。</p>
-<p>17、应尽可能的避免更新 clustered 索引数据列，因为 clustered 索引数据列的顺序就是表记录的物理存储顺序，一旦该列值改变将导致整个表记录的顺序的调整，会耗费相当大的资源。若应用系统需要频繁更新 clustered 索引数据列，那么需要考虑是否应将该索引建为 clustered 索引。</p>
-<p>18、尽量使用数字型字段，若只含数值信息的字段尽量不要设计为字符型，这会降低查询和连接的性能，并会增加存储开销。这是因为引擎在处理查询和连 接时会逐个比较字符串中每一个字符，而对于数字型而言只需要比较一次就够了。</p>
-<p>19、尽可能的使用 varchar/nvarchar 代替 char/nchar ，因为首先变长字段存储空间小，可以节省存储空间，其次对于查询来说，在一个相对较小的字段内搜索效率显然要高些。</p>
-<ol>
-<li>任何地方都不要使用</li>
-</ol>
-<p>select * from t</p>
-<p>用具体的字段列表代替“*”，不要返回用不到的任何字段。</p>
-<p>21、尽量使用表变量来代替临时表。如果表变量包含大量数据，请注意索引非常有限（只有主键索引）。</p>
-<p>22、避免频繁创建和删除临时表，以减少系统表资源的消耗。临时表并不是不可使用，适当地使用它们可以使某些例程更有效，例如，当需要重复引用大型表或常用表中的某个数据集时。但是，对于一次性事件， 最好使用导出表。</p>
-<p>23、在新建临时表时，如果一次性插入数据量很大，那么可以使用 select into 代替 create table，避免造成大量 log ，以提高速度；如果数据量不大，为了缓和系统表的资源，应先create table，然后insert。</p>
-<p>24、如果使用到了临时表，在存储过程的最后务必将所有的临时表显式删除，先 truncate table ，然后 drop table ，这样可以避免系统表的较长时间锁定。</p>
-<p>25、尽量避免使用游标，因为游标的效率较差，如果游标操作的数据超过1万行，那么就应该考虑改写。</p>
-<p>26、使用基于游标的方法或临时表方法之前，应先寻找基于集的解决方案来解决问题，基于集的方法通常更有效。</p>
-<p>27、与临时表一样，游标并不是不可使用。对小型数据集使用 FAST_FORWARD 游标通常要优于其他逐行处理方法，尤其是在必须引用几个表才能获得所需的数据时。在结果集中包括“合计”的例程通常要比使用游标执行的速度快。如果开发时 间允许，基于游标的方法和基于集的方法都可以尝试一下，看哪一种方法的效果更好。</p>
-<p>28、在所有的存储过程和触发器的开始处设置 SET NOCOUNT ON ，在结束时设置 SET NOCOUNT OFF 。无需在执行存储过程和触发器的每个语句后向客户端发送 DONE_IN_PROC 消息。</p>
-<p>29、尽量避免大事务操作，提高系统并发能力。</p>
-<p>30、尽量避免向客户端返回大数据量，若数据量过大，应该考虑相应需求是否合理。</p>
-<p>实际案例分析：拆分大的 DELETE 或INSERT 语句，批量提交SQL语句</p>
-<p>如果你需要在一个在线的网站上去执行一个大的 DELETE 或 INSERT 查询，你需要非常小心，要避免你的操作让你的整个网站停止相应。因为这两个操作是会锁表的，表一锁住了，别的操作都进不来了。</p>
-<p>Apache 会有很多的子进程或线程。所以，其工作起来相当有效率，而我们的服务器也不希望有太多的子进程，线程和数据库链接，这是极大的占服务器资源的事情，尤其是内存。</p>
-<p>如果你把你的表锁上一段时间，比如30秒钟，那么对于一个有很高访问量的站点来说，这30秒所积累的访问进程/线程，数据库链接，打开的文件数，可能不仅仅会让你的WEB服务崩溃，还可能会让你的整台服务器马上挂了。</p>
-<p>所以，如果你有一个大的处理，你一定把其拆分，使用 LIMIT oracle(rownum),sqlserver(top)条件是一个好的方法。下面是一个mysql示例：</p>
-<p>while(1){//每次只做1000条mysql_query(“delete from logs where log_date &lt;= ’2015-11-01’ limit 1000”);if(mysql_affected_rows() == 0){//删除完成，退出！break；}//每次暂停一段时间，释放表让其他进程/线程访问。usleep(50000)<br>}</p>
-
+<p> select id from t where num is null<br>
+          
       
     </div>
     
@@ -454,6 +711,10 @@
       
 
       
+      
+        <p class="article-more-link">
+          <a href="/2018/09/06/大量数据表的优化方案/#more">more >></a>
+        </p>
       
       <div class="clearfix"></div>
     </div>
@@ -498,14 +759,12 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>title: ios踩过的坑</p>
-<h2 id="tags"><a href="#tags" class="headerlink" title="tags:"></a>tags:</h2><ol>
+              <p>title: ios踩过的坑</p>
+<h2 id="tags-ios"><a href="#tags-ios" class="headerlink" title="tags:ios"></a>tags:ios</h2><ol>
 <li>AFNetWorking的HTTP Basic Auth鉴权一直失败：Authorization Error<br>原因： 设置了错误的content-type</li>
 </ol>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">var params = basicParams()</span><br><span class="line">params[&quot;aa&quot;] = &quot;sel&quot;</span><br><span class="line">params[&quot;bb&quot;] = &quot;some&quot;</span><br><span class="line">        </span><br><span class="line">let array = stream.components(separatedBy: &quot;,&quot;)</span><br><span class="line">var bodyParam = [String : Any]()  </span><br><span class="line">bodyParam[&quot;stream&quot;] = array</span><br><span class="line">let bodyString = jsonString(bodyParam as NSDictionary)</span><br><span class="line">postWithParams(getRequestURL(&quot;api&quot;, ak: self.ak, body: bodyString, params: params), params: bodyParam, complete: complete)</span><br></pre></td></tr></table></figure>
-<p>&lt;– more –&gt;<br>其中postwithparams使用的httpsession是系统启动的时候创建的，设置了一些默认配置。导致鉴权失败的代码：<br>httpSession.requestSerializer.setValue(<font color="#A52A2">“text/html; charset=utf-8 </font>, forHTTPHeaderField: “Content-Type”)</p>
-<p>正确的代码(应该需要和服务器端沟通好～)<br>httpSession.requestSerializer.setValue(<font color="#008000">“appliction/json”</font>, forHTTPHeaderField: “Content-Type”)</p>
-
+          
       
     </div>
     
@@ -514,6 +773,10 @@
       
 
       
+      
+        <p class="article-more-link">
+          <a href="/2018/08/16/ios踩过的坑/#more">more >></a>
+        </p>
       
       <div class="clearfix"></div>
     </div>
@@ -650,278 +913,9 @@
 
 
   
-    <article id="post-git" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2018/07/30/git/" class="article-date">
-      <time datetime="2018-07-30T09:02:10.000Z" itemprop="datePublished">2018-07-30</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/07/30/git/">git</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <ol>
-<li><p>基本概念：<br>正常情况下，我们的工作流就是3个步骤，：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git add .</span><br><span class="line">git commit -m &quot;comment&quot;</span><br><span class="line">git push</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>git add .把所有文件放入暂存区；</p>
-</li>
-<li>git commit把所有文件从暂存区提交进本地仓库；</li>
-<li>git push把所有文件从本地仓库推送进远程仓库。</li>
-</ol>
-<p>4个区<br>工作区(Working Area)<br>暂存区(Stage)<br>本地仓库(Local Repository)<br>远程仓库(Remote Repository)</p>
-<p>5种状态<br>未修改(Origin)<br>已修改(Modified)<br>已暂存(Staged)<br>已提交(Committed)<br>已推送(Pushed)</p>
-<ol>
-<li>检查修改<br>git diff:这个命令只检查我们的工作区和暂存区之间的差异</li>
-</ol>
-<p>已暂存，未提交:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git diff --cached</span><br></pre></td></tr></table></figure></p>
-<p>git diff –cached 检查暂存区和本地仓库之间的差异</p>
-<p>已提交，未推送:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git diff master origin/master</span><br></pre></td></tr></table></figure></p>
-<p>master就是你的本地仓库，而origin/master就是你的远程仓库，master是主分支的意思，因为我们都在主分支上工作，所以这里两边都是master，而origin就代表远程。</p>
-<ol>
-<li>撤销修改<br>已修改，未暂存<br>如果我们只是在编辑器里修改了文件，但还没有执行git add .，这时候我们的文件还在工作区，并没有进入暂存区，我们可以用：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git checkout .</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<p>或者<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git reset --hard</span><br></pre></td></tr></table></figure></p>
-<p>来进行撤销操作。</p>
-<p>已暂存，未提交<br>你已经执行了git add .，但还没有执行git commit -m “comment”。这时候你意识到了错误，想要撤销，你可以执行：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git reset</span><br><span class="line">git checkout .</span><br></pre></td></tr></table></figure></p>
-<p>或者<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git reset --hard</span><br></pre></td></tr></table></figure></p>
-<p>git reset只是把修改退回到了git add .之前的状态，也就是说文件本身还处于已修改未暂存状态，你如果想退回未修改状态，还需要执行git checkout .。<br>或许你已经注意到了，以上两个步骤都可以用同一个命令git reset –hard来完成。是的，就是这个强大的命令，可以一步到位地把你的修改完全恢复到未修改的状态。</p>
-<p>已提交，未推送<br>你的手太快，你既执行了git add .，又执行了git commit，这时候你的代码已经进入了你的本地仓库，然而你后悔了，怎么办？不要着急，还有办法。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git reset --hard origin/master</span><br></pre></td></tr></table></figure></p>
-<p>还是这个git reset –hard命令，只不过这次多了一个参数origin/master，正如我们上面讲过的，origin/master代表远程仓库，既然你已经污染了你的本地仓库，那么就从远程仓库把代码取回来吧。</p>
-<p>已推送<br>很不幸，你的手实在是太快了，你既git add了，又git commit了，并且还git push了，这时你的代码已经进入远程仓库。如果你想恢复的话，还好，由于你的本地仓库和远程仓库是等价的，你只需要先恢复本地仓库，再强制push到远程仓库就好了：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git reset --hard HEAD^</span><br><span class="line">git push -f</span><br></pre></td></tr></table></figure></p>
-<p>附加<br>git log</p>
-<p>命令显示从最近到最远的提交日志<br>如果嫌输出信息太多，看得眼花缭乱的，可以试试加上<br>git log –pretty=oneline<br>git reflog   用来记录你的每一次命令<br>git status   查看工作区状态<br>git diff HEAD – 文件名   可以查看工作区和版本库里面最新版本的区别<br>git rm – 文件名       用于删除一个文件<br>git push origin HEAD:refs/for/master 代码走查</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-搬瓦匠" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2018/07/27/搬瓦匠/" class="article-date">
-      <time datetime="2018-07-27T06:05:38.000Z" itemprop="datePublished">2018-07-27</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/07/27/搬瓦匠/">搬瓦匠</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              <p>搭建vpn服务器的一些细节：</p>
-<ol>
-<li>去bwh1.net购买一个vps空间</li>
-<li>进入你购买空间的控制面板，最好先把root密码、端口等设置一下</li>
-<li>现在一键安装shadowsocks的页面已经隐藏掉了，不过可以直接在浏览器上深入网址：<br><a href="https://kiwivm.64clouds.com/main-exec.php?mode=extras_shadowsocks">https://kiwivm.64clouds.com/main-exec.php?mode=extras_shadowsocks</a>
-          
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-      
-        <p class="article-more-link">
-          <a href="/2018/07/27/搬瓦匠/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-ios打包ipa文件的脚本" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2018/07/23/ios打包ipa文件的脚本/" class="article-date">
-      <time datetime="2018-07-23T09:04:31.000Z" itemprop="datePublished">2018-07-23</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/07/23/ios打包ipa文件的脚本/">ios打包ipa文件的脚本</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <ol>
-<li>编译打包命令：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">xcodebuild archive -workspace xxxx.xcworkspace -scheme pppp -configuration Release -archivePath ../export/xxxx.xcarchive</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<p>其中xxxx为工程名称，pppp为所用的profile的名称（不带后缀）</p>
-<ol>
-<li>生成ipa文件<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">xcodebuild -exportArchive -archivePath ../export/xxxx.xcarchive -exportPath ../export/ -exportOptionsPlist ExportOptions.plist</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<p>其中ExportOptions.plist文件可以在你手动打包ipa后，ipa文件的同级目录中找到</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-VLC同步解析" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2018/06/19/VLC同步解析/" class="article-date">
-      <time datetime="2018-06-19T02:05:00.000Z" itemprop="datePublished">2018-06-19</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/06/19/VLC同步解析/">mac电脑配置路由表</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              <p>很多公司都有自己的局域网，和互联网是两张不互通的网络。如果同一台电脑通过两张网卡接入两个网络，windows电脑能自动选路，而mac电脑则要自己配置了。</p>
-<p>最开始想到的是使用route命令，如：<br>sudo route add 18.0.0.0/24 10.0.66.2<br>
-          
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-      
-        <p class="article-more-link">
-          <a href="/2018/06/19/VLC同步解析/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
     </nav>
   
 </div>
@@ -930,7 +924,7 @@
         <div id="footer-info">
             <div class="footer-left">
                 <i class="fa fa-copyright"></i> 
-                2016-2018 Lynn Cheng
+                2016-2019 Lynn Cheng
             </div>
             <div class="footer-right">
                 <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的博客框架">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="简而不减 Hexo 双栏博客主题">Yelee</a> by MOxFIVE <i class="fa fa-heart animated infinite pulse"></i>
