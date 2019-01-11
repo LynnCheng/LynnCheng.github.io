@@ -233,6 +233,74 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-rn遇过的那些坑" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/07/11/rn遇过的那些坑/" class="article-date">
+      <time datetime="2017-07-11T11:39:00.000Z" itemprop="datePublished">2017-07-11</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/07/11/rn遇过的那些坑/">rn遇过的那些坑</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>title: rn遇过的那些坑</p>
+<h2 id="tags-RN-React-Native"><a href="#tags-RN-React-Native" class="headerlink" title="tags:RN, React Native"></a>tags:RN, React Native</h2><ol>
+<li>react navigation怎么传递参数到下一界面？怎么传递参数到上一界面</li>
+<li>每个界面都要实现navigationOptions的所有细节？<br>//不需要！可以定义一个screen的基类，后续所有界面都基于该基类实现<br>//或者在TabNavigator等上实现</li>
+<li>为什么每个页面都要在componentDidMount中拦截android回退按钮事件？<br>//不需要！可以定义一个screen的基类，后续所有界面都基于该基类实现</li>
+<li>组件之间通信（4-8 链接：<a href="http://www.jianshu.com/p/48df06330967）" target="_blank" rel="external">http://www.jianshu.com/p/48df06330967）</a></li>
+</ol>
+<p>子组件调用父组件的方法：子组件要拿到父组件的属性，需要通过this.props方法。每次父组件修改了传入的属性，子组件会收到通知，会自动获取新的属性。</p>
+<p>父组件调用子组件的方法：在ReactJS中通过ref属性。该属性类似与给组件起名字。父组件可以通过this.ref.xxx来获取到该组件</p>
+<ol>
+<li>创建不定数View，在return方法中不支持for语句<br>(1).采用MAP形式<br>(2).采用数组的形式</li>
+</ol>
+<p>6 ref 属性</p>
+<p>7.网络请求加载Loading框注意的地方<br>Loading 框采用的是IOS原生封装，在RN页面进行网络请求注意延迟200ms左右<br>this.timer = setTimeout(()=&gt;{this._fetchData();}, 200);<br>避免Loading 框在上一页面。</p>
+<p>8.关于倒计时问题<br>产品详情页有倒计时功能，但应用切换到后台后，倒计时开始停止工作，这时候需要重新校准时间。所以需要应用的状态<br>RN中使用APPState来查看应用状态<br>通过此接口可以获悉应用在当前处于后台还是前台激活的状态，常用方法和应用场景类似于h5的visibilitychange。<br>注意该接口要最新版本（2.0+）的 react-native 才能调用。<br>获取到的应用状态常规有：<br>active:表示应用处于前台运行状态；<br>background：表示应用处于后台挂起状态；<br>inactive：表示过度状态，常规不会发生，可以先忽略<br>我们可以使用 AppState.addEventListener 和 AppState.removeEventListener 方法来监听、移除应用状态的 change 事件。</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-易用性" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -723,61 +791,6 @@
 <p>#endif  </p>
 <p>注意不要用＃ifdef TARGET_IPHONE_SIMULATOR, 因为在device上， TARGET_IPHONE_SIMULATOR被定义为0。、</p>
 <p>TARGET_OS_IPHONE的用法也一样。</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-framework的实现" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2017/01/18/framework的实现/" class="article-date">
-      <time datetime="2017-01-18T03:35:07.000Z" itemprop="datePublished">2017-01-18</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/01/18/framework的实现/">framework的实现</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p>问题：<br>打包了一个HCUIStyles的sdk，在其他应用里调用的时候，总是提示该sdk的接口未定义</p>
-<p>原因：<br>编译目标是 generic ios device，而测试代码使用的是虚拟机……<br>将编译目标改成任意的虚拟机就可以了。</p>
 
       
     </div>

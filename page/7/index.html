@@ -233,6 +233,70 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-pod" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/06/15/pod/" class="article-date">
+      <time datetime="2016-06-15T07:46:11.000Z" itemprop="datePublished">2016-06-15</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/06/15/pod/">CocoaPods的一些常用操作</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <ol>
+<li><p>cocoapods版本升级</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">$ sudo gem update --system // 先更新gem，国内需要切换源</span><br><span class="line">$ gem sources --remove https://rubygems.org/</span><br><span class="line">$ gem sources -a https://ruby.taobao.org/</span><br><span class="line">$ gem sources -l</span><br><span class="line">\*\*\* CURRENT SOURCES \*\*\*</span><br><span class="line">https://ruby.taobao.org/</span><br><span class="line">$ sudo gem install cocoapods // 安装cocoapods</span><br><span class="line">$ pod setup</span><br><span class="line">$ pod --version</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>安装第三方类库：pod install</p>
+</li>
+<li><p>安装第三方类库，并自动更新至最新版本 pod update</p>
+</li>
+<li><p>执行pod install/update的时候会升级CocoaPods的spec仓库，加一个参数可以省略这一步，然后速度就会提升不少。加参数的命令如下：<br>pod install –verbose –no-repo-update<br>pod update –verbose –no-repo-update</p>
+</li>
+</ol>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-upnp" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -733,73 +797,6 @@
         <p class="article-more-link">
           <a href="/2016/05/03/rsync/#more">more >></a>
         </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-测试在线编辑" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/04/29/测试在线编辑/" class="article-date">
-      <time datetime="2016-04-29T10:38:00.000Z" itemprop="datePublished">2016-04-29</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/04/29/测试在线编辑/">ssl交互handshake failure故障一则</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <blockquote>
-<p>现网运行正常的设备，突然有一天连不上服务器。设备维护人员和服务器维护人员都声称近段时间没做任何修改，不应该是自己引入的。 因为设备侧的功能是两年前我开发的，所以项目负责人把交互报文发给我，让我协助分析一下。<br>问题分析：从抓包的结果看，服务器报“handshake failure”错误，导致ssl连接建立失败，还没到应用层交互；所以关注ssl交互就行了，不用关心上层应用。</p>
-<blockquote>
-<p>首先检查证书是否有效－－ 正常<br>其次，因为在网设备都在用户家，改动的机会不大；所以推测是服务器维护的时候，有意无意中改动了相关配置。于是我提醒服务器维护员检查服务器支持的ssl版本列表，结果找到原因了<br>解决方案：修改服务器关于ssl的设置，增加对sslv3的支持，然后一切正常了。至于产生这个问题的原因……</p>
-</blockquote>
-</blockquote>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/bugfix/">bugfix</a>
-    </div>
-
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ssl/">ssl</a></li></ul>
-    </div>
-
       
       <div class="clearfix"></div>
     </div>
