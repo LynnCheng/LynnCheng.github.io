@@ -233,6 +233,70 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-NSTimer" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/08/15/NSTimer/" class="article-date">
+      <time datetime="2017-08-15T11:55:35.000Z" itemprop="datePublished">2017-08-15</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/08/15/NSTimer/">NSTimer时应注意避免的坑</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>title: NSTimer</p>
+<h2 id="tags"><a href="#tags" class="headerlink" title="tags:"></a>tags:</h2><ol>
+<li><p>NSTimer不生效：非主线程中代码中会遇到<br>在我们进行多线程编程时，所有的Source都需要添加到Runloop中才能生效，对于我们的NSTimer当然也需要添加到Runloop中才能生效。如果一个Runloop中没有任何Source的话，会立即退出的。而主线程的Runloop在程序运行时，系统就已经为我们添加了很多Source到Runloop中，所以主线程的Runloop是一直存在。</p>
+</li>
+<li><p>timer = [NSTimer scheduledTimerWithTimeInterval:0.1 // 10ms</p>
+<pre><code>  target:self
+selector:@selector(loop:)
+userInfo:nil
+ repeats:YES];
+</code></pre></li>
+</ol>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-rn遇过的那些坑" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -739,67 +803,6 @@
         <p class="article-more-link">
           <a href="/2017/01/23/trans/#more">more >></a>
         </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-如何区分模拟器和真机调试" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2017/01/22/如何区分模拟器和真机调试/" class="article-date">
-      <time datetime="2017-01-22T09:53:47.000Z" itemprop="datePublished">2017-01-22</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/01/22/如何区分模拟器和真机调试/">如何区分模拟器和真机调试</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p>使用TARGET_IPHONE_SIMULATOR和TARGET_OS_IPHONE区分模拟器和真机</p>
-<p>#if TARGET_IPHONE_SIMULATOR  </p>
-<p>#include <net route.h=""></net></p>
-<p>#else  </p>
-<p>#include “route.h” </p>
-<p>#endif  </p>
-<p>注意不要用＃ifdef TARGET_IPHONE_SIMULATOR, 因为在device上， TARGET_IPHONE_SIMULATOR被定义为0。、</p>
-<p>TARGET_OS_IPHONE的用法也一样。</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
       
       <div class="clearfix"></div>
     </div>

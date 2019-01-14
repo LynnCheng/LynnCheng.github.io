@@ -233,6 +233,66 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-frame" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2018/04/10/frame/" class="article-date">
+      <time datetime="2018-04-10T07:18:57.000Z" itemprop="datePublished">2018-04-10</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/04/10/frame/">frame、bounds</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>frame: 该view在父view坐标系统中的位置和大小。（参照点是，父亲的坐标系统）<br>bounds：该view在本地坐标系统中的位置和大小。（参照点是，本地坐标系统，就相当于ViewB自己的坐标系统，以0,0点为起点）<br>center：该view的中心点在父view坐标系统中的位置和大小。（参照点是父亲的坐标系统）</p>
+<ol>
+<li><p>获取相对于屏幕的frame坐标：<br>selectCell.convert(selectCell.card.frame, to: nil)</p>
+</li>
+<li><p>使用autolayout自动布局后，view的frame就没法直接手动修改了。我们可以认为使用了autolayout的view的frame属性是一个只读的属性。在代码里认为的改动这个view的frame并不能对这个view的frame产生真正的效果。 如在制作动画的时候，去修改子view的frame，不会有任何效果。</p>
+</li>
+</ol>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-RTSP直播延时" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -769,70 +829,6 @@ override func viewWillDisappear(animated: Bool) {
     self.navigationController?.navigationBar.translucent = false
 }
 </code></pre><p>‘’‘’</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-NSTimer" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2017/08/15/NSTimer/" class="article-date">
-      <time datetime="2017-08-15T11:55:35.000Z" itemprop="datePublished">2017-08-15</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/08/15/NSTimer/">NSTimer时应注意避免的坑</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p>title: NSTimer</p>
-<h2 id="tags"><a href="#tags" class="headerlink" title="tags:"></a>tags:</h2><ol>
-<li><p>NSTimer不生效：非主线程中代码中会遇到<br>在我们进行多线程编程时，所有的Source都需要添加到Runloop中才能生效，对于我们的NSTimer当然也需要添加到Runloop中才能生效。如果一个Runloop中没有任何Source的话，会立即退出的。而主线程的Runloop在程序运行时，系统就已经为我们添加了很多Source到Runloop中，所以主线程的Runloop是一直存在。</p>
-</li>
-<li><p>timer = [NSTimer scheduledTimerWithTimeInterval:0.1 // 10ms</p>
-<pre><code>  target:self
-selector:@selector(loop:)
-userInfo:nil
- repeats:YES];
-</code></pre></li>
-</ol>
 
       
     </div>

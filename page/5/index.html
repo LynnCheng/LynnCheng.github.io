@@ -233,6 +233,67 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-如何区分模拟器和真机调试" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/01/22/如何区分模拟器和真机调试/" class="article-date">
+      <time datetime="2017-01-22T09:53:47.000Z" itemprop="datePublished">2017-01-22</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/01/22/如何区分模拟器和真机调试/">如何区分模拟器和真机调试</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>使用TARGET_IPHONE_SIMULATOR和TARGET_OS_IPHONE区分模拟器和真机</p>
+<p>#if TARGET_IPHONE_SIMULATOR  </p>
+<p>#include <net route.h=""></net></p>
+<p>#else  </p>
+<p>#include “route.h” </p>
+<p>#endif  </p>
+<p>注意不要用＃ifdef TARGET_IPHONE_SIMULATOR, 因为在device上， TARGET_IPHONE_SIMULATOR被定义为0。、</p>
+<p>TARGET_OS_IPHONE的用法也一样。</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-framework的实现" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -730,67 +791,6 @@
         <p class="article-more-link">
           <a href="/2016/07/19/duplicate/#more">more >></a>
         </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-ios-app" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/07/14/ios-app/" class="article-date">
-      <time datetime="2016-07-14T11:13:54.000Z" itemprop="datePublished">2016-07-14</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/07/14/ios-app/">ios app 发布时需要的图片资源</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <ol>
-<li><p>APP应用中的 icon 图片：icon29@2x, icon29@3x, icon40@2x, icon40@3x, icon60@2x, icon60@3x</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">iPhone 6s Plus, iPhone 6 Plus	120px by 120px	87px by 87px</span><br><span class="line">iPhone 6s, iPhone 6, iPhone SE	80px by 80px	58px by 58px</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>itunesconnect上需要的icon图片：1024x1024<br>itunesconnect上需要的屏幕截图：<br>5.5  2208 x 1242 pixels for hi-res landscape<br>4.7 1334 x 750 pixels for hi-res landscape<br>4 1136 x 640 pixels for landscape (full screen) minimum<br>3.5 960 x 640 pixels for hi-res landscape (full screen) maximum<br>（要求都是 72 dpi, RGB, flattened, no transparency<br>  High-quality JPEG or PNG image file format）</p>
-</li>
-</ol>
-<p>参考：<br><a href="https://developer.apple.com/ios/human-interface-guidelines/graphics/app-icon/#//apple_ref/doc/uid/TP40006556-CH27-SW1" target="_blank" rel="external">https://developer.apple.com/ios/human-interface-guidelines/graphics/app-icon/#//apple_ref/doc/uid/TP40006556-CH27-SW1</a></p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
       
       <div class="clearfix"></div>
     </div>

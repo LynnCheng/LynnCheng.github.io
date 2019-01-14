@@ -233,6 +233,66 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-Mac上的git-公钥设置" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2019/01/14/Mac上的git-公钥设置/" class="article-date">
+      <time datetime="2019-01-14T10:07:57.000Z" itemprop="datePublished">2019-01-14</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/01/14/Mac上的git-公钥设置/">Mac上的ssh 公钥设置</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <ol>
+<li><p>查看用户目录 ~/.ssh/ 目录下是否有密钥，如果没有则创建：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ cd ~/.ssh</span><br><span class="line">$ ls</span><br><span class="line">id_dsa       known_hosts</span><br><span class="line">config            id_dsa.pub </span><br><span class="line">$ ssh-keygen -t rsa -C &quot;chenglini@163.com&quot;  //然后连按好几个回车就行</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>把公钥添加到ssh的缓存中</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ssh-add ~/.ssh/id_dsa</span><br></pre></td></tr></table></figure></li>
+</ol>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-动画" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -835,67 +895,6 @@
       
         <p class="article-more-link">
           <a href="/2018/08/16/ios踩过的坑/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-从零开始" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2018/08/07/从零开始/" class="article-date">
-      <time datetime="2018-08-07T11:58:00.000Z" itemprop="datePublished">2018-08-07</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/08/07/从零开始/">从零开始学后端开发</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              <ol>
-<li><p><font color=green>✔︎</font> 开发工具：Intellij IDEA、webstorm </p>
-</li>
-<li><p><font color=green>✔︎</font> 常用的代码部署方式有哪些？<br>a. ftp上传代码 +  java -jar xxx.jar<br>b. docker抓取</p>
-          
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-      
-        <p class="article-more-link">
-          <a href="/2018/08/07/从零开始/#more">more >></a>
         </p>
       
       <div class="clearfix"></div>
