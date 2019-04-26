@@ -233,6 +233,352 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-认为增加编译告警" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2019/04/26/认为增加编译告警/" class="article-date">
+      <time datetime="2019-04-26T09:15:57.000Z" itemprop="datePublished">2019-04-26</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/04/26/认为增加编译告警/">xcode人为增加编译告警</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>1、依次选择 TARGETS → Build Phases；<br>2、点击 Build Phases 内左上角的 ‘+’ 号；<br>3、选中 New Run Script Phase 选项；<br>4、输入以下代码即可：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">TAGS=&quot;TODO:|FIXME:|WARNING:&quot;</span><br><span class="line">echo &quot;searching $&#123;SRCROOT&#125; for $&#123;TAGS&#125;&quot;</span><br><span class="line">find &quot;$&#123;SRCROOT&#125;&quot; \( -name &quot;*.swift&quot; \) -print0 | xargs -0 egrep --with-filename --line-number --only-matching &quot;($TAGS).*\$&quot; | perl -p -e &quot;s/($TAGS)/ warning: \$1/&quot;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-静态库的兼容真机和模拟器的问题" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2019/04/02/静态库的兼容真机和模拟器的问题/" class="article-date">
+      <time datetime="2019-04-02T08:27:06.000Z" itemprop="datePublished">2019-04-02</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/04/02/静态库的兼容真机和模拟器的问题/">静态库的兼容真机和模拟器的问题</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>Q: 项目上使用了第三方提供的静态库，但只有真机版本，不含模拟器版本；导致我们的项目在模拟器环境下无法编译通过</p>
+<p>A: </p>
+<ol>
+<li>自己建一个同名的工程, 假如是Goal</li>
+<li>把第三方库的头文件都拷贝进去</li>
+<li>把所有的接口都使用假函数实现一遍，然后编译出模拟器使用的版本</li>
+<li>把第三方的静态库lib1.a和我们编译出来的lib2.a合并：lipo -create lib1.a lib2.a -output libGoal.a</li>
+</ol>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-UITableView" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2019/03/30/UITableView/" class="article-date">
+      <time datetime="2019-03-30T08:28:27.000Z" itemprop="datePublished">2019-03-30</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/03/30/UITableView/">UITableViewController</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>Q:UITableViewController的section header的字体是黑色的，且比较大，怎样才能改小？<br>A:初始化的时候，style设置成.grouped</p>
+<p>q：怎样在表格下方添加按钮<br>a: 把按钮添加到tablefooterview就行</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-如何实现半透明的uiviewcontroller" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2019/03/29/如何实现半透明的uiviewcontroller/" class="article-date">
+      <time datetime="2019-03-29T06:54:59.000Z" itemprop="datePublished">2019-03-29</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/03/29/如何实现半透明的uiviewcontroller/">如何实现半透明的uiviewcontroller</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>目标：通过self.present弹出新窗口，达到半透明的效果；类似uiviewcontroller</p>
+<p>错误的位置：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">override func viewDidLoad() &#123;</span><br><span class="line">    super.viewDidLoad()</span><br><span class="line">    self.modalPresentationStyle = .overCurrentContext</span><br><span class="line">    view.backgroundColor = UIColor.lightGray.withAlphaComponent(0.5)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>正确的位置：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) &#123;</span><br><span class="line">    super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)</span><br><span class="line">    </span><br><span class="line">    self.modalPresentationStyle = .overCurrentContext</span><br><span class="line">    view.backgroundColor = UIColor.lightGray.withAlphaComponent(0.5)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>原因：<br>当新窗口弹出的动画结束后，底层的view其实已经不存在了，所以半透明就看不见他了：<br>After your modal view animates in, it is resized to be equal in size to its parent view. What you can do is inside your viewDidAppear:, take a picture of the parentController’s view, then insert a UIImageView containing the picture of the parent at the back of your own view’s list of subviews:</p>
+<p>但如果在init中设置了alpha值，系统貌似帮我们做了这些事。</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-POSTMAN" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2019/02/01/POSTMAN/" class="article-date">
+      <time datetime="2019-02-01T00:47:00.000Z" itemprop="datePublished">2019-02-01</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/02/01/POSTMAN/">POSTMAN</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>官方文档：<br><a href="https://learning.getpostman.com/docs/postman/scripts/postman_sandbox/" target="_blank" rel="external">https://learning.getpostman.com/docs/postman/scripts/postman_sandbox/</a></p>
+<p>常用语法：<br>// 获取response返回内容<br>var rsb = responseBody; // 是字符串格式</p>
+<p>// 获取环境变量<br>var v = pm.environment.get(“变量名称”);</p>
+<p>// 设置环境变量 只能存储字符串，如果是对象的话则无法在下次运行时获取到内容<br>// 如需要存储JSON数据，可以用JSON.stringify(..)存储，再用JSON.parse(..)转化为对象使用<br>pm.environment.set(“变量名称”, 变量内容);</p>
+<p>// 清除某个环境变量<br>pm.environment.unset(“环境变量名”);</p>
+<p>// 获取全局变量和普通变量<br>var gb = pm.globals.get(“全局变量名”);<br>var nm = pm.variables.get(“普通变量名”);</p>
+<p>// Javascript 获取变量类型<br>console.log( typeof pm.enviroment );</p>
+<p>//反应时间必须少于200毫秒<br>tests[“Response time is less than 200ms”] = responseTime &lt; 200;</p>
+<p>//判断反应代号是否等于某一个指定的代号<br>tests[“Status code name has string”] = responseCode.name.has(“Created”);</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-pod" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2019/01/21/pod/" class="article-date">
+      <time datetime="2019-01-21T05:17:25.000Z" itemprop="datePublished">2019-01-21</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/01/21/pod/">疑问汇总</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>title: pod</p>
+<h2 id="tags"><a href="#tags" class="headerlink" title="tags:"></a>tags:</h2><p>npm手动下载：<br>npm install react-native-baidu-map –save</p>
+<p>pod手动下载：<br>pod install安装非常慢的时候，可以考虑使用手动下载的方式，如下载BaiduMapKit的3.4.4版本：自己去github上查找这个版本的源码下载下来，然后手动拷贝到目录：/Users/lynn/Library/Caches/CocoaPods/Pods/Release/BaiduMapKit/3.4.4-4ac88<br>其中，4ac88为podfile.lock文件中baiduMapKit校验码的前五位</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-Mac上的git-公钥设置" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -464,438 +810,6 @@
       
 
       
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-实时语音通话" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2018/12/28/实时语音通话/" class="article-date">
-      <time datetime="2018-12-28T01:48:39.000Z" itemprop="datePublished">2018-12-28</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/12/28/实时语音通话/">实时语音通话</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p>方案选型：</p>
-<ul>
-<li>linphone：仅适合双方通话</li>
-<li>webrtc</li>
-<li>doubango：适合多方通话，回声消除功能略差</li>
-</ul>
-<p>ios实现客户端：voip push + callkit<br>android实现客户端：android系统自带sip接口<br>sip server: opensips/kamailio + asterisk/freeswitch能够构建超大容量的VOIP平台，</p>
-<p>技术方案：</p>
-<ul>
-<li>voip - sip</li>
-<li>webrtc</li>
-<li>xmpp</li>
-<li>mqtt</li>
-</ul>
-<p>相关开源软件：</p>
-<ul>
-<li>Speex：是一套主要针对语音的开源免费，无专利保护的音频压缩格式。[<a href="http://www.speex.org" target="_blank" rel="external">http://www.speex.org</a>] 目前最新的版本是Speex 1.2rc2 and SpeexDSP 1.2rc3。它的特点有：<ul>
-<li>窄带（8kHz），宽带（16kHz）和超宽带（32kHz）压缩于同一位流。</li>
-<li>强化立体编码</li>
-<li>数据包丢失隐蔽</li>
-<li>可变比特率（VBR）</li>
-<li>语音捕捉（VAD）</li>
-<li>非连续传输（DTX）</li>
-<li>定点运算</li>
-<li>感官回声消除（AEC）</li>
-<li>噪音屏蔽</li>
-</ul>
-</li>
-<li>react-native-webrtc：支持ios/android系统</li>
-<li>Linphone：是一种开源的IP语音电话（或SIP电话），可以通过互联网与人们进行免费的语音，视频和文本即时通讯。它使用SIP协议（互联网电话的开放标准），可以与任何SIP VoIP运营商一起使用，包括一些免费的SIP音频/视频服务<a href="http://www.linphone.org" target="_blank" rel="external">http://www.linphone.org</a>, </li>
-<li>idoubs：doubango for ios基于doubango(Doubango 是一个基于3GPP IMS/RCS 并能用于嵌入式和桌面系统的开源框架。该框架使用ANSCI-C编写，具有很好的可移植性。并且已经被设计成非常轻便且能有效的工作在低内存和低处理能力的嵌入式系统上。苹果系统上的idoubs功能就是基于此框架编写) .音视频编码格式大部分都支持（H264(video)，VP8(video)，iLBC(audio),PCMA,PCMU,G722,G729）。NAT支持ICE（stun+turn）<br>官方网站：<a href="https://github.com/DoubangoTelecom/imsdroid" target="_blank" rel="external">https://github.com/DoubangoTelecom/imsdroid</a>  <a href="http://www.doubango.org/" target="_blank" rel="external">http://www.doubango.org/</a></li>
-<li>imsdroid： doubango for android</li>
-<li>csipsimple </li>
-<li>Openfire：是开源的、基于可拓展通讯和表示协议(XMPP)、采用Java编程语言开发的实时协作服务器。 Openfire安装和使用都非常简单，并利用Web进行管理。单台服务器可支持上万并发用户。</li>
-<li>WebRTC：名称源自网页实时通信（Web Real-Time Communication）的缩写，是一个支持网页浏览器进行实时语音对话或视频对话的技术。现在许多SDK都是使用WebRTC作为框架来实现。<br>官方网站：<a href="https://webrtc.org/" target="_blank" rel="external">https://webrtc.org/</a></li>
-</ul>
-<p>其他可参考第三方商用sdk:<br><a href="http://sdk.anychat.cn/html/price.html" target="_blank" rel="external">http://sdk.anychat.cn/html/price.html</a><br><a href="http://developer.juphoon.com/home/voip" target="_blank" rel="external">http://developer.juphoon.com/home/voip</a><br><a href="https://cloud.tencent.com/product/trtc" target="_blank" rel="external">https://cloud.tencent.com/product/trtc</a><br><a href="https://dev.yunxin.163.com/docs/product/音视频通话/SDK开发集成/Linux开发集成/sdk库文件下载" target="_blank" rel="external">https://dev.yunxin.163.com/docs/product/音视频通话/SDK开发集成/Linux开发集成/sdk库文件下载</a></p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-APP框架" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2018/11/30/APP框架/" class="article-date">
-      <time datetime="2018-11-30T08:29:29.000Z" itemprop="datePublished">2018-11-30</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/11/30/APP框架/">ios app元素</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <ol>
-<li><p>启动页:</p>
-<ul>
-<li>app启动</li>
-<li>app从后台返回前台</li>
-</ul>
-</li>
-<li><p>引导页：可采用图片、文字、音频、视频等多种样式，类型包括：</p>
-<ul>
-<li>功能介绍类：首次安装、版本更新时； 告诉用户咋玩</li>
-<li>使用说明类：</li>
-<li>推广类：广告..</li>
-</ul>
-</li>
-<li><p>数据存储：</p>
-<ul>
-<li>UserDefaults</li>
-<li>KeyChain</li>
-<li>coredata/sqlite</li>
-<li>plist</li>
-</ul>
-</li>
-<li><p>皮肤主题:切换皮肤风格时需要考虑已加载的视图；</p>
-<ul>
-<li>颜色</li>
-<li>图片</li>
-<li>风格？</li>
-</ul>
-</li>
-<li><p>弹窗：</p>
-<ul>
-<li>toast</li>
-<li>alertview</li>
-</ul>
-</li>
-<li><p>社会化分享</p>
-</li>
-<li><p>用户数据分析</p>
-<ul>
-<li>Firebase Analytics 作者是 Google Developers</li>
-<li>友盟</li>
-</ul>
-</li>
-</ol>
-<p>facebook/AsyncDisplayKit - iOS app 的平滑异步用户界面。</p>
-<ul>
-<li>playground</li>
-<li>pod</li>
-<li>埋点</li>
-<li>uibutton: 小红点、执行动作时的菊花</li>
-<li>UI框架：imui、qmui  (阿里的SUI Mobile)</li>
-</ul>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-git迷茫过" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2018/10/09/git迷茫过/" class="article-date">
-      <time datetime="2018-10-09T06:33:30.000Z" itemprop="datePublished">2018-10-09</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/10/09/git迷茫过/">git命令</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <ol>
-<li>放弃本地修改：</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">未使用 git add 缓存代码时:</span><br><span class="line">可以使用 git checkout -- filepathname (比如： git checkout -- readme.md  ，不要忘记中间的 “--” ，不写就成了检出分支了！！)。放弃所有的文件修改可以使用 git checkout .  命令。</span><br><span class="line">此命令用来放弃掉所有还没有加入到缓存区（就是 git add 命令）的修改：内容修改与整个文件删除。但是此命令不会删除掉刚新建的文件。因为刚新建的文件还没已有加入到 git 的管理系统中。所以对于git是未知的。自己手动删除就好了。</span><br><span class="line"></span><br><span class="line">已经使用了  git add 缓存了代码:</span><br><span class="line">可以使用  git reset HEAD filepathname （比如： git reset HEAD readme.md）来放弃指定文件的缓存，放弃所以的缓存可以使用 git reset HEAD . 命令。</span><br><span class="line">此命令用来清除 git  对于文件修改的缓存。相当于撤销 git add 命令所在的工作。在使用本命令后，本地的修改并不会消失，而是回到了如（一）所示的状态。继续用（一）中的操作，就可以放弃本地的修改。</span><br><span class="line"></span><br><span class="line">已经用 git commit  提交了代码:</span><br><span class="line">可以使用 git reset --hard HEAD^ 来回退到上一次commit的状态。此命令可以用来回退到任意版本：git reset --hard  commitid </span><br><span class="line">你可以使用 git log 命令来查看git的提交历史。git log 的输出如下,之一这里可以看到第一行就是 commitid：</span><br></pre></td></tr></table></figure>
-<ol>
-<li>Git合并某个分支的一个commit到另一个分支<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">例如要将A分支的一个commit合并到B分支：</span><br><span class="line">首先切换到A分支git checkout A</span><br><span class="line">git log找出要合并的commit ID :例如0128660c08e325d410cb845616af355c0c19c6fe</span><br><span class="line">然后切换到B分支上git checkout B</span><br><span class="line">git cherry-pick  0128660c08e325d410cb845616af355c0c19c6fe</span><br><span class="line">然后就将A分支的某个commit合并到了B分支了</span><br></pre></td></tr></table></figure></li>
-</ol>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-wxBot" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2018/09/10/wxBot/" class="article-date">
-      <time datetime="2018-09-10T11:44:34.000Z" itemprop="datePublished">2018-09-10</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/09/10/wxBot/">wxBot</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p>itchat</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"># -*- encoding:utf-8 -*-</span><br><span class="line">import requests</span><br><span class="line">import itchat</span><br><span class="line"></span><br><span class="line">KEY = &apos;334c99571f96486683dde04cc998ac56&apos;</span><br><span class="line"></span><br><span class="line">def get_response(msg):</span><br><span class="line">    question = msg.replace(&quot;@毛毛球&quot;, &quot;&quot;)</span><br><span class="line">    apiUrl = &apos;http://www.tuling123.com/openapi/api&apos;</span><br><span class="line">    data = &#123;</span><br><span class="line">        &apos;key&apos;    : KEY,</span><br><span class="line">        &apos;info&apos;   : question,</span><br><span class="line">        &apos;userid&apos; : &apos;wechat-robot&apos;,</span><br><span class="line">    &#125;</span><br><span class="line">    try:</span><br><span class="line">        r = requests.post(apiUrl, data=data).json()</span><br><span class="line">        return r.get(&apos;text&apos;)</span><br><span class="line">    except:</span><br><span class="line">        return &quot;&quot;</span><br><span class="line"></span><br><span class="line">@itchat.msg_register(itchat.content.TEXT, isGroupChat=True)</span><br><span class="line">def group_reply(msg):</span><br><span class="line">    if msg[&apos;isAt&apos;]:</span><br><span class="line">        itchat.send(u&apos;@%s\u2005 %s&apos; % (msg[&apos;ActualNickName&apos;], get_response(msg[&apos;Content&apos;])), msg[&apos;FromUserName&apos;])</span><br><span class="line"></span><br><span class="line">itchat.auto_login(hotReload=True)</span><br><span class="line">itchat.run()</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-大量数据表的优化方案" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2018/09/06/大量数据表的优化方案/" class="article-date">
-      <time datetime="2018-09-06T08:33:22.000Z" itemprop="datePublished">2018-09-06</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/09/06/大量数据表的优化方案/">大量数据表的优化方案</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              <p>1、对查询进行优化，要尽量避免全表扫描，首先应考虑在 where 及 order by 涉及的列上建立索引。</p>
-<p>2、应尽量避免在 where 子句中对字段进行 null 值判断，否则将导致引擎放弃使用索引而进行全表扫描，如：</p>
-<p> select id from t where num is null<br>
-          
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-      
-        <p class="article-more-link">
-          <a href="/2018/09/06/大量数据表的优化方案/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-ios踩过的坑" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2018/08/16/ios踩过的坑/" class="article-date">
-      <time datetime="2018-08-16T08:18:24.000Z" itemprop="datePublished">2018-08-16</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/08/16/ios踩过的坑/">ios踩过的坑</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              <p>title: ios踩过的坑</p>
-<h2 id="tags-ios"><a href="#tags-ios" class="headerlink" title="tags:ios"></a>tags:ios</h2><ol>
-<li>AFNetWorking的HTTP Basic Auth鉴权一直失败：Authorization Error<br>原因： 设置了错误的content-type</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">var params = basicParams()</span><br><span class="line">params[&quot;aa&quot;] = &quot;sel&quot;</span><br><span class="line">params[&quot;bb&quot;] = &quot;some&quot;</span><br><span class="line">        </span><br><span class="line">let array = stream.components(separatedBy: &quot;,&quot;)</span><br><span class="line">var bodyParam = [String : Any]()  </span><br><span class="line">bodyParam[&quot;stream&quot;] = array</span><br><span class="line">let bodyString = jsonString(bodyParam as NSDictionary)</span><br><span class="line">postWithParams(getRequestURL(&quot;api&quot;, ak: self.ak, body: bodyString, params: params), params: bodyParam, complete: complete)</span><br></pre></td></tr></table></figure>
-          
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-      
-        <p class="article-more-link">
-          <a href="/2018/08/16/ios踩过的坑/#more">more >></a>
-        </p>
       
       <div class="clearfix"></div>
     </div>

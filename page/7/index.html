@@ -233,6 +233,289 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-runerror" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/07/08/runerror/" class="article-date">
+      <time datetime="2016-07-08T05:22:59.000Z" itemprop="datePublished">2016-07-08</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/07/08/runerror/">dyld: Library not loaded as image not found</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>APP运行时的错误日志：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">dyld: Library not loaded: @rpath/softCamera.framework/softCamera</span><br><span class="line">  Referenced from: /var/containers/Bundle/Application/7AE9BCCF-E583-4015-85EC-A2D48F5182D1/ZTE.app/ZTE</span><br><span class="line">  Reason: image not found</span><br></pre></td></tr></table></figure></p>
+<p>解决方案：<br>把softcamera framework 添加到“general”－&gt; “Embedded binaries”; 而不是”general”-&gt;”Linked framework and library”</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-makeerror" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/07/07/makeerror/" class="article-date">
+      <time datetime="2016-07-07T11:21:46.000Z" itemprop="datePublished">2016-07-07</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/07/07/makeerror/">&quot;Undefined symbols for architecture armv7&quot;错误</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>xcode编译swift源码的时候，提示” Undefined symbols for architecture armv7 ….”<br>一般是因为某些c库未被引用，入libz等等</p>
+<p>可以在general-&gt;linked framework and static library</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-Mac" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/06/28/Mac/" class="article-date">
+      <time datetime="2016-06-28T12:56:13.000Z" itemprop="datePublished">2016-06-28</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/06/28/Mac/">提取MAC地址OUI对应的厂商信息</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <ol>
+<li><p>到ieee的官网下载oui.txt文件<br><a href="http://standards.ieee.org/develop/regauth/oui/oui.txt" target="_blank" rel="external">http://standards.ieee.org/develop/regauth/oui/oui.txt</a></p>
+</li>
+<li><p>从文件中grep hex 提取 00-00-00 对应的厂商信息</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat oui.txt |grep hex &gt; MAC_original.file</span><br></pre></td></tr></table></figure></li>
+</ol>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-autolayout" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/06/28/autolayout/" class="article-date">
+      <time datetime="2016-06-28T09:07:15.000Z" itemprop="datePublished">2016-06-28</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/06/28/autolayout/">iOS的自动布局问题</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>相关代码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">let deButton = UIButton(frame: CGRect(x: 0, y: 0 , width: 160, height: 100))</span><br><span class="line">      deButton.setTitle(&quot;TL&quot;, forState: .Normal)</span><br><span class="line">      deButton.backgroundColor = UIColor.greenColor()</span><br><span class="line">      self.view.addSubview(deButton)</span><br><span class="line">      </span><br><span class="line">      deButton.snp_makeConstraints &#123; (make) -&gt; Void in</span><br><span class="line">          make.left.equalTo(self.view).offset(20)</span><br><span class="line">          make.top.equalTo(self.view).offset(70)</span><br><span class="line">      &#125;</span><br></pre></td></tr></table></figure></p>
+<p>疑问：这段代码执行后，deButton的长和宽根据title的内容自动调节，而不是预先定义的160x100</p>
+<p>原因：使用autolayout实现自动布局的时候，控件的frame设置将被忽略，所以要在自动布局的时候，把长宽也一同设置。</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-tableview" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/06/18/tableview/" class="article-date">
+      <time datetime="2016-06-18T01:39:00.000Z" itemprop="datePublished">2016-06-18</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/06/18/tableview/">tableview中增加了头视图后，初始位置显示不正常</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+              <p>当为tableview插入头视图后，为了让tableview的起始位置显示正常，需要通过setContentOffset设置tableview的偏移位置：
+          
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+        <p class="article-more-link">
+          <a href="/2016/06/18/tableview/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-buildError" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -268,70 +551,6 @@
 </ol>
 <p>问题分析：<br>从日志上看，出问题的都是实用cocoapods安装的第三方库；从日志看，应该是没有编译armv7对应的内容，修改pods工程的配置：<br>buildsettings-&gt;build active architecture only属性，debug－&gt;NO, release-&gt;NO</p>
 <p>我这样改后，还是报同样的错误；折腾了好久，最后进入pods编译出的静态库存在的目录，把所有第三方静态库全删了，重编一下就好了。</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-pod" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/06/15/pod/" class="article-date">
-      <time datetime="2016-06-15T07:46:11.000Z" itemprop="datePublished">2016-06-15</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/06/15/pod/">CocoaPods的一些常用操作</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <ol>
-<li><p>cocoapods版本升级</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">$ sudo gem update --system // 先更新gem，国内需要切换源</span><br><span class="line">$ gem sources --remove https://rubygems.org/</span><br><span class="line">$ gem sources -a https://ruby.taobao.org/</span><br><span class="line">$ gem sources -l</span><br><span class="line">\*\*\* CURRENT SOURCES \*\*\*</span><br><span class="line">https://ruby.taobao.org/</span><br><span class="line">$ sudo gem install cocoapods // 安装cocoapods</span><br><span class="line">$ pod setup</span><br><span class="line">$ pod --version</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>安装第三方类库：pod install</p>
-</li>
-<li><p>安装第三方类库，并自动更新至最新版本 pod update</p>
-</li>
-<li><p>执行pod install/update的时候会升级CocoaPods的spec仓库，加一个参数可以省略这一步，然后速度就会提升不少。加参数的命令如下：<br>pod install –verbose –no-repo-update<br>pod update –verbose –no-repo-update</p>
-</li>
-</ol>
 
       
     </div>
@@ -550,247 +769,6 @@
           
         <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">按网上的教程实现的时候，开始的时候一直没成功，原因是文件名必须正确</span><br><span class="line">1.app名称的本地化：InfoPlist.strings</span><br><span class="line">2.其它词条的本地化：Localizable.strings</span><br></pre></td></tr></table></figure>
 <p>本地化处理的内容包括：<br>（1）应用程序名称<br>（2）出现在代码中的字符串<br>（3）本地化图片<br>（4）XIB文件<br>（5）其他文件</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-structInit" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/05/12/structInit/" class="article-date">
-      <time datetime="2016-05-12T13:05:19.000Z" itemprop="datePublished">2016-05-12</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/05/12/structInit/">swift 引用c语言结构体时的初始化问题</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              <p>问题场景：<br>swift引用c语言写的静态库，接口文件中有一个结构体，类似：
-          
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-      
-        <p class="article-more-link">
-          <a href="/2016/05/12/structInit/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-ioscode" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/05/09/ioscode/" class="article-date">
-      <time datetime="2016-05-09T00:48:00.000Z" itemprop="datePublished">2016-05-09</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/05/09/ioscode/">ios开发过程中的代码块</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              <p>1.判断邮箱格式是否正确的代码：</p>
-<p>// 利用正则表达式验证 -( BOOL )isValidateEmail:( NSString  <em>)email<br>{<br>NSString  </em>emailRegex =  @”[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}” ;<br>NSPredicate  *emailTest = [ NSPredicate   predicateWithFormat : @”SELF MATCHES%@” ,emailRegex];<br>return  [emailTest  evaluateWithObject :email];<br>}
-          
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-      
-        <p class="article-more-link">
-          <a href="/2016/05/09/ioscode/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-push" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/05/05/push/" class="article-date">
-      <time datetime="2016-05-05T06:13:00.000Z" itemprop="datePublished">2016-05-05</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/05/05/push/">iOS消息推送：如何在调试阶段获取到正式服务器推送的消息</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p>iOS消息推送需要对应发布证书和调试证书，正常情况下调试阶段只能通过沙盒测试。如果希望在调试阶段就对正式服务器进行测试，就需要曲线救国了：</p>
-<ol>
-<li>从app store上下载安装app的正式版本</li>
-<li>开发时，编译一个同样bundleid的app来覆盖已经安装的正式app</li>
-<li>等待奇迹的发生……</li>
-</ol>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-capturepackage" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/05/04/capturepackage/" class="article-date">
-      <time datetime="2016-05-04T00:56:37.000Z" itemprop="datePublished">2016-05-04</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/05/04/capturepackage/">iOS APP抓包方法介绍之tcpdump</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <ol>
-<li>将手机通过usb口连在mac电脑上</li>
-<li>通过xcode查看手机的uuid,如 rvictl -s f7f41359d97aa34487f574a4db2e028dfd4f7aa</li>
-<li><p>打开终端，开启虚拟网口</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$rvictl</span> <span class="_">-s</span> f7f41359d97aa34487f574a4db2e028dfd4f7aa</span><br><span class="line">Starting device f7f41359d97aa34487f574a4db2e028dfd4f7aa [SUCCEEDED] with interface rvi0 (rvi0就是虚拟网口的名字，抓包的时候需要使用)</span><br><span class="line"><span class="variable">$sudo</span> tcpdump -i rvi0 -w trace.pcap</span><br><span class="line">tcpdump: WARNING: rvi0: That device doesn<span class="string">'t support promiscuous mode</span><br><span class="line">(BIOCPROMISC: Operation not supported on socket)</span><br><span class="line">tcpdump: listening on rvi0, link-type PKTAP (Packet Tap), capture size 262144 bytes</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>然后就可以在手机上运行app，执行你想要的操作了。所有报文会存储在trace.pcap文件上</p>
-</li>
-<li>抓包结束后，记得删除虚拟接口<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ rvictl -x f7f41359d97aa34487f574a4db2e028dfd4f7aa</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<p>参考资料：<br><a href="https://developer.apple.com/library/mac/qa/qa1176/_index.html" target="_blank" rel="external">app developer: Getting a Packet Trace</a></p>
 
       
     </div>
