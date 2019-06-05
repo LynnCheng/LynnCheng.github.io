@@ -233,6 +233,325 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-创建pod-私库" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2019/06/05/创建pod-私库/" class="article-date">
+      <time datetime="2019-06-05T02:35:57.000Z" itemprop="datePublished">2019-06-05</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/06/05/创建pod-私库/">创建pod 私库</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <ol>
+<li><p>在服务器上创建一个git工程，</p>
+</li>
+<li><p>使用pod命令创建swift工程，pod将自动帮你完成xcode的很多操作</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pod lib create HubKit</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>修改第一步生成的HubKit.podspec文件，主要包括：<br>s.summary<br>s.homepage<br>s.source   改成第一步路径<br>增加  s.swift_version = ‘4.0’</p>
+</li>
+<li><p>将整个工程上传到第一个创建的git服务器</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">git add .</span><br><span class="line">git commit -a -m &quot;init&quot;</span><br><span class="line">git push</span><br><span class="line">git tag 0.1.0</span><br><span class="line">git push --tag</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>检查pod库</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pod lib lint</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>如果有以下出错提示：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">- ERROR | [iOS] unknown: Encountered an unknown error (Could not find a `ios` simulator (valid values: com.apple.coresimulator.simruntime.ios-12-2, com.apple.coresimulator.simruntime.tvos-12-2, com.apple.coresimulator.simruntime.watchos-5-2). Ensure that Xcode -&gt; Window -&gt; Devices has at least one `ios` simulator listed or otherwise add one.) during validation.</span><br></pre></td></tr></table></figure></p>
+<p>解决方案：更新pod<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo gem install -n /usr/local/bin cocoapods</span><br></pre></td></tr></table></figure></p>
+<ol>
+<li><p>检查spec文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pod spec lint</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>创建私库并上传到私库服务器</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pod repo add HubKit https://git.dev.tencent.com/chenglini/podSpec.git</span><br><span class="line">pod repo push HubKit HubKit.podspec --sources=https://git.dev.tencent.com/chenglini/podSpec.git</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>使用的时候，在podfile文件中加入</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">source &apos;https://git.dev.tencent.com/chenglini/podSpec.git&apos;</span><br><span class="line">...</span><br><span class="line">pod &apos;HubKit&apos;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-ios-远程推送-本地推送" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2019/05/28/ios-远程推送-本地推送/" class="article-date">
+      <time datetime="2019-05-28T03:57:15.000Z" itemprop="datePublished">2019-05-28</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/05/28/ios-远程推送-本地推送/">ios 远程推送/本地推送</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <ol>
+<li><p>Notification Service Extension中，更改推送消息的声音</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bestAttemptContent.sound = UNNotificationSound.init(named: UNNotificationSoundName(&quot;ring.caf&quot;))</span><br></pre></td></tr></table></figure>
+<p>注意：</p>
+<ul>
+<li>ring.caf 需要同时加入app 主target和消息推送的target</li>
+<li>格式为wav、caf、aiff</li>
+<li>mac系统自带转换工具： afconvert Submarine.aiff sub.caf -d ima4 -f caff -v</li>
+<li>avplayer在后台是没法直接使用的</li>
+</ul>
+</li>
+<li></li>
+</ol>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-AudioPlayer播放没有声音" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2019/04/30/AudioPlayer播放没有声音/" class="article-date">
+      <time datetime="2019-04-30T07:33:03.000Z" itemprop="datePublished">2019-04-30</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/04/30/AudioPlayer播放没有声音/">AudioPlayer播放没有声音</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>问题代码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">class CallManager: NSObject &#123;</span><br><span class="line">    static let shared = CallManager()</span><br><span class="line">    ...</span><br><span class="line">    func ring() &#123; //响铃</span><br><span class="line">        let audio = AVAudioSession.sharedInstance()</span><br><span class="line">        do &#123;</span><br><span class="line">            try audio.setCategory(.ambient)</span><br><span class="line">            try audio.setActive(true)</span><br><span class="line">            guard let file = Bundle.main.path(forResource: &quot;shake_sound.mp3&quot;, ofType: nil) else &#123;</span><br><span class="line">                return</span><br><span class="line">            &#125;</span><br><span class="line">            let url = URL(string: file)</span><br><span class="line">            let player = try? AVAudioPlayer(contentsOf: url!)</span><br><span class="line">            player?.volume = 1</span><br><span class="line">            player?.prepareToPlay()</span><br><span class="line">            player?.play()</span><br><span class="line">        &#125; catch &#123;</span><br><span class="line">            print(error)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>解决方案：<br>把player的定义从函数中提出来，定义成全局变量<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">class CallManager: NSObject &#123;</span><br><span class="line">    static let shared = CallManager()</span><br><span class="line">    ...</span><br><span class="line">    var player:AVAudioPlayer? = nil</span><br><span class="line">    func ring() &#123; //响铃</span><br><span class="line">        let audio = AVAudioSession.sharedInstance()</span><br><span class="line">        do &#123;</span><br><span class="line">            ...</span><br><span class="line">            player = try? AVAudioPlayer(contentsOf: url!)</span><br><span class="line">            ...</span><br><span class="line">        &#125; catch &#123;</span><br><span class="line">            print(error)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-present、dismiss问题" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2019/04/30/present、dismiss问题/" class="article-date">
+      <time datetime="2019-04-30T02:33:33.000Z" itemprop="datePublished">2019-04-30</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/04/30/present、dismiss问题/">present、dismiss问题</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>Q：从vc1 present vc2， 从 vc2 present vc3，如何退出vc3和vc2<br>A: 在vc1执行dismiss</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-app开发的一些原则" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2019/04/28/app开发的一些原则/" class="article-date">
+      <time datetime="2019-04-28T01:40:16.000Z" itemprop="datePublished">2019-04-28</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/04/28/app开发的一些原则/">app开发的一些原则</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <ol>
+<li>非用户操作，后台自己进行的操作，如果发生错误不应该有提示语。</li>
+<li>需要注意消息推送证书有效期，提前更新（服务器侧）</li>
+</ol>
+<p>版本发布前的例行检查：</p>
+<ol>
+<li>版本号</li>
+<li>引导页是否正确配置</li>
+<li></li>
+</ol>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-认为增加编译告警" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -523,313 +842,9 @@
 
 
   
-    <article id="post-pod" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2019/01/21/pod/" class="article-date">
-      <time datetime="2019-01-21T05:17:25.000Z" itemprop="datePublished">2019-01-21</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/01/21/pod/">疑问汇总</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p>title: pod</p>
-<h2 id="tags"><a href="#tags" class="headerlink" title="tags:"></a>tags:</h2><p>npm手动下载：<br>npm install react-native-baidu-map –save</p>
-<p>pod手动下载：<br>pod install安装非常慢的时候，可以考虑使用手动下载的方式，如下载BaiduMapKit的3.4.4版本：自己去github上查找这个版本的源码下载下来，然后手动拷贝到目录：/Users/lynn/Library/Caches/CocoaPods/Pods/Release/BaiduMapKit/3.4.4-4ac88<br>其中，4ac88为podfile.lock文件中baiduMapKit校验码的前五位</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-Mac上的git-公钥设置" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2019/01/14/Mac上的git-公钥设置/" class="article-date">
-      <time datetime="2019-01-14T10:07:57.000Z" itemprop="datePublished">2019-01-14</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/01/14/Mac上的git-公钥设置/">Mac上的ssh 公钥设置</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <ol>
-<li><p>查看用户目录 ~/.ssh/ 目录下是否有密钥，如果没有则创建：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ cd ~/.ssh</span><br><span class="line">$ ls</span><br><span class="line">id_dsa       known_hosts</span><br><span class="line">config            id_dsa.pub </span><br><span class="line">$ ssh-keygen -t rsa -C &quot;chenglini@163.com&quot;  //然后连按好几个回车就行</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>把公钥添加到ssh的缓存中</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ssh-add ~/.ssh/id_dsa</span><br></pre></td></tr></table></figure></li>
-</ol>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-动画" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2019/01/10/动画/" class="article-date">
-      <time datetime="2019-01-10T07:17:48.000Z" itemprop="datePublished">2019-01-10</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/01/10/动画/">ui提效工具</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <ol>
-<li><p>pxcook: 作图完成后，自动生成标注</p>
-</li>
-<li><p>lottie（airbnb出品）：制作完动画后，可以直接生成ios、android及react native代码<br>After Effects工具(adobe)<br>bodymovin插件</p>
-</li>
-</ol>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-iconfont" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2019/01/08/iconfont/" class="article-date">
-      <time datetime="2019-01-08T06:47:41.000Z" itemprop="datePublished">2019-01-08</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/01/08/iconfont/">iconfont  vs emoji</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <ol>
-<li><p>在iOS项目中，一般对图片资源要求有@2x，@3x两套，以适配不同分辨率的设备。为了释放开发者、设计者的双手以及给APP“减重”，iconfont被引入到iOS开发中来。在一些公司中同样会使用到iconfont，笔者所在的公司就有使用到。接下来主要讲解一下在iOS移动开发中如何使用iconfont<br>iconfont，让开发者像使用字体一样使用图标。<br>制作/获取iconfont<br>进入<a href="http://www.iconfont.cn，登录账号以官网提供的字体图标为例，选择要使用的图标，添加到购物车" target="_blank" rel="external">http://www.iconfont.cn，登录账号以官网提供的字体图标为例，选择要使用的图标，添加到购物车</a></p>
-</li>
-<li><p>emoji: 等同与文字，可以直接使用；且xcode提供了所有支持的emoji</p>
-</li>
-</ol>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-Kamailio" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2018/12/29/Kamailio/" class="article-date">
-      <time datetime="2018-12-29T07:52:16.000Z" itemprop="datePublished">2018-12-29</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/12/29/Kamailio/">Kamailio</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <h1 id="在centos系统下编译安装"><a href="#在centos系统下编译安装" class="headerlink" title="在centos系统下编译安装"></a>在centos系统下编译安装</h1><ol>
-<li><p>安装编译环境</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo  yum  install  gcc  gcc-c++  flex bison make  openssl  openssl-devel libxml2  libxml2-devel  zlib-devel  ncurses*  e2fsprogs-devel  uuid-devel  libuuid-devel  readline6  readline-devel curl-devel</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>安装mysql</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">wget http://repo.mysql.com/mysql57-community-release-el7-8.noarch.rpm </span><br><span class="line">rpm -ivh mysql57-community-release-el7-8.noarch.rpm </span><br><span class="line">yum -y install mysql-server</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>下载kamailio源码</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">wget http://www.kamailio.org/pub/kamailio/latest/src/kamailio-5.2.0_src.tar.gz</span><br><span class="line">tar xvf kamailio-5.2.0_src.tar.gz</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>编译</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">cd kamailio-5.2.0</span><br><span class="line">make  FLAVOUR=kamailio  cfg</span><br><span class="line">make all</span><br><span class="line">sudo make install</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>配置 &amp;&amp; 运行<br>需要为kamailio配置mysql数据库，…..</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">kamctl  add user1 123456  //添加用户</span><br><span class="line">kamailio start   //启动</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
     </nav>
   
 </div>
