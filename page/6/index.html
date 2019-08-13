@@ -233,6 +233,288 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-swift-framework的注释" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/04/22/swift-framework的注释/" class="article-date">
+      <time datetime="2017-04-22T06:10:42.000Z" itemprop="datePublished">2017-04-22</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/04/22/swift-framework的注释/">swift framework的注释</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>参考链接：<a href="http://swifter.tips/documentation/" target="_blank" rel="external">http://swifter.tips/documentation/</a></p>
+<p> Swift 采用了一套新的文档注释方法，对于一个简单的方法，我们的文档注释看起来应该是这样的：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line">A demo method</span><br><span class="line"></span><br><span class="line">- parameter input: An Int number</span><br><span class="line"></span><br><span class="line">- returns: The string represents the input number</span><br><span class="line">*/</span><br><span class="line">func method(input: Int) -&gt; String &#123;</span><br><span class="line">    return String(input)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>在文档注释的块中 (在这里是被 /<em>*…</em>/ 包围的注释)，我们需要使用 - parameter 紧接输入参数名的形式来表达对输入参数的说明。如果有多个参数的情况下，我们会需要对应着写多组 - parameter 语句。如果返回值不是 Void 的话，我们还需要写 - returns: 来对返回进行说明。</p>
+<p>对于像属性这样的简单的声明，我们直接使用 /// 就可以了：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">///Homecare颜色定义</span><br><span class="line">public class HCColor : UIColor &#123;</span><br><span class="line">    ///APP 主色调，用于导航、按钮及重要的文字提醒等 浅蓝</span><br><span class="line">    public class func HCMainColor(alpha: CGFloat = default) -&gt; UIColor</span><br><span class="line">    </span><br><span class="line">    ....</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-framework-1" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/04/08/framework-1/" class="article-date">
+      <time datetime="2017-04-08T07:42:13.000Z" itemprop="datePublished">2017-04-08</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/04/08/framework-1/">优雅的开发Swift和Objective C混编的Framework</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+              <p>如果你之前没有用Swift和Objective C混合开发，建议看看这篇文档：</p>
+<p>Swift and Objective-C in the Same Project<br>这篇文档很详细的讲解了如何运用Objective C和Swift进行混合开发App和Framework。于是，我们先按照文档来写一个混编的Framework</p>
+<p>按照文档一步一步来
+          
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+        <p class="article-more-link">
+          <a href="/2017/04/08/framework-1/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-framework" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/04/08/framework/" class="article-date">
+      <time datetime="2017-04-08T07:42:00.000Z" itemprop="datePublished">2017-04-08</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/04/08/framework/">不更新xcode的情况下更新支持最新版本ios系统</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>从已经安装了最新版本xcode的机器上找到最新ios系统的支持包，拷贝到目标电脑到相关目录下：Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/DeviceSupport</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-useragent" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/03/22/useragent/" class="article-date">
+      <time datetime="2017-03-22T10:18:03.000Z" itemprop="datePublished">2017-03-22</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/03/22/useragent/">更改 UIWebview 的useragent</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>获取UIWebView的useragent：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">UIWebView* webView = [[UIWebView alloc] initWithFrame:CGRectZero];  </span><br><span class="line">NSString* secretAgent = [webView stringByEvaluatingJavaScriptFromString:@&quot;navigator.userAgent&quot;];</span><br></pre></td></tr></table></figure></p>
+<p>附加自定义字段到 Useragent中<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">NSString *newUagent = [NSString stringWithFormat:@&quot;%@ appname/3.5.2&quot;,secretAgent];  </span><br><span class="line">NSDictionary *dictionary = [[NSDictionary alloc]  </span><br><span class="line">                                initWithObjectsAndKeys:newUagent, @&quot;UserAgent&quot;, nil nil];  </span><br><span class="line">[[NSUserDefaults standardUserDefaults] registerDefaults:dictionary];</span><br></pre></td></tr></table></figure></p>
+<p>但应该注意的事，设置了useragent以后，需要过一段时间才能生效，所以一般是在appdelegate.m中就去改；如果在UIWebViewController初始化的时候再去更改的话，就有会导致有些请求还是原来的useragent</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-ui" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/03/18/ui/" class="article-date">
+      <time datetime="2017-03-18T09:04:47.000Z" itemprop="datePublished">2017-03-18</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/03/18/ui/">ui</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>一、以下先列出作为【开发框架】技术选型的候选：<br>（1）DCloud出品：<a href="http://www.dcloud.io/" target="_blank" rel="external">MUI</a>，<br>（2）阿里出品：<a href="http://m.sui.taobao.org/" target="_blank" rel="external">MSUI</a>（基于大名鼎鼎的<a href="http://framework7.taobao.org/" target="_blank" rel="external">Framework7</a>框架，但MSUI的兼容性更好）；<br>（3）腾讯出品：<a href="http://frozenui.github.io/" target="_blank" rel="external">FrozenUI</a>；<br>（4）百度出品：<a href="http://clouda.baidu.com/blend2" target="_blank" rel="external">Clouda</a>是百度历时两年共同研发的开源App技术框架，基于Node.js，简单易用，完美结合BAE；<br>（5）<a href="http://vycool.com/Jingle/index.html" target="_blank" rel="external">Jingle UI</a>是一个基于html5、css3开发轻量级的移动webapp 框架（支持触摸屏操作、切换效果也不错）基于Zepto开发，依赖了iscroll；<br>(6) AmazeUI <a href="http://t.amazeui.org/kitchen-sink/#/?_k=a1ewns" target="_blank" rel="external">http://t.amazeui.org/kitchen-sink/#/?_k=a1ewns</a><br>二、以下再列出作为【开发集成环境】选型的候选：<br>（1）DCloud出品：<a href="http://www.dcloud.io/" target="_blank" rel="external">HBuilder</a>，<br>（2）正益无线出品：<a href="http://www.appcan.cn/" target="_blank" rel="external">AppCan</a>：国内 [Hybrid混合开发]、[移动平台]、[移动云平台]的倡导者&amp;领导者，我个人觉得他提供的SDK把所有的UI组件都进行了封装，然后通过向导方式进行嵌入开发，很方便，并且有很多很全面视频教学，是一个不错的开发平台之一；<br>（3）烽火星空出品：<a href="http://www.exmobi.cn/" target="_blank" rel="external">ExMobi</a>移动应用平台，技术融合成就完美Hybrid App跨平台开发，和上面的AppCan差不多，有教学视频和很多案例，平台也非常成熟；<br>（4）<a href="http://www.apicloud.com/" target="_blank" rel="external">APICloud IDE</a>：这个我就不说了，抄袭DCloud的技术，不推荐，但是限放在选型列表中吧；<br>（5）9秒团队出品：<a href="http://crossapp.9miao.com/" target="_blank" rel="external">CrossApp</a>是一款完全开源、免费、跨平台的移动应用开发引擎，采用C++开发（即将支持js和lua编写），可直接导出ios和android原生应用，拥有高性能，多控件，开发速度快的优势。</p>
+<p>三、以下再列出作为【在线App开发】网站选型的候选：这里的就比较多了，我只列出我觉得还可以放入选型列表中的，大家可以多多度娘、谷哥一下<br>（1）叮当App自助生产运营平台，这个比较赞，女生应该比较喜欢；<br>（2）简网App工场；<br>（3）金和IU App自助工厂；<br>（4）应用公园Apppark—全球领先APP免费在线制作平台，这个比较赞，女生应该比较喜欢；<br>（5）追信魔盒；</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-trans" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -503,300 +785,6 @@
       
 
       
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-一种规避多线程下全局变量异常的方法" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/08/12/一种规避多线程下全局变量异常的方法/" class="article-date">
-      <time datetime="2016-08-12T07:31:01.000Z" itemprop="datePublished">2016-08-12</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/08/12/一种规避多线程下全局变量异常的方法/">一种规避多线程下全局变量异常的方法</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              <p>问题代码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">//全局变量，可能会在多个线程被赋值</span><br><span class="line">var name:String?</span><br><span class="line">var arr:[NSObject : AnyObject]?</span><br><span class="line"></span><br><span class="line">//某个类的代码片段</span><br><span class="line">if (name == nil || if arr == nil) &#123;</span><br><span class="line">    return</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">if arr[name] == nil &#123;  //有时候，这里会引发crash</span><br><span class="line">    return</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>原因分析：
-          
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-      
-        <p class="article-more-link">
-          <a href="/2016/08/12/一种规避多线程下全局变量异常的方法/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-frameworka" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/07/25/frameworka/" class="article-date">
-      <time datetime="2016-07-25T11:46:00.000Z" itemprop="datePublished">2016-07-25</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/07/25/frameworka/">iOS库 .a与.framework区别</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              <p>一、什么是库？</p>
-<p>库是共享程序代码的方式，一般分为静态库和动态库。
-          
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/ios/">ios</a>
-    </div>
-
-
-      
-      
-        <p class="article-more-link">
-          <a href="/2016/07/25/frameworka/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-页面字体变小" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/07/20/页面字体变小/" class="article-date">
-      <time datetime="2016-07-20T05:23:43.000Z" itemprop="datePublished">2016-07-20</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/07/20/页面字体变小/">页面字体变小</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p>现象：<br>ios 页面整体的字体莫名其妙的变小了</p>
-<p>诱因：<br>设置了启动页</p>
-<p>原因：待查…(启动页格式不对?)</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-duplicateds" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/07/20/duplicateds/" class="article-date">
-      <time datetime="2016-07-20T01:10:30.000Z" itemprop="datePublished">2016-07-20</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/07/20/duplicateds/">ios 引用编译出现duplicate symbol错误的处理</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p>1 头文件中定义了全局变量，因为多个文件引用了该头文件，导致重复定义。错误信息：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">duplicate symbol _kMediaCmdParamVideFileName in:</span><br><span class="line">    /Users/lynn/Library/Developer/Xcode/DerivedData/xxx-dekysmkcblreiyesflewliynaudf/Build/Intermediates/xxx.build/Debug-iphoneos/xxx.build/Objects-normal/arm64/LeftViewController.o</span><br><span class="line">    /Users/lynn/Development/xxx/Framework/RvsViewerUI.framework/RvsViewerUI(UIImageView+YaMaXunCache.o)</span><br></pre></td></tr></table></figure></p>
-<p>问题原因：<br>在a.h中有如下定义<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">NSString *const kMediaCmdParamVideFileName   = @&quot;AVSCIDNumber&quot;;</span><br></pre></td></tr></table></figure></p>
-<p>修改方案：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">static NSString *const kMediaCmdParamVideFileName   = @&quot;AVSCIDNumber&quot;;</span><br></pre></td></tr></table></figure></p>
-<p>2 workspace的多个工程之间，或者引用的framework都引用了同一个第三方库，导致类和方法多次实现。<br>解决方案：如果能拿到源码，只在主工程保留完整的源码，其他工程或者framework直接删掉.m、.swift文件，只留下头文件就可以了</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-duplicate" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/07/19/duplicate/" class="article-date">
-      <time datetime="2016-07-19T12:17:09.000Z" itemprop="datePublished">2016-07-19</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/07/19/duplicate/">How to fix a &quot;Duplicated Symbols&quot; error on binary files</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              <p>Come From:<a href="http://angelolloqui.com/blog/31-How-to-fix-a-Duplicated-Symbols-error-on-binary-files">http://angelolloqui.com/blog/31-How-to-fix-a-Duplicated-Symbols-error-on-binary-files</a></p>
-<p>Introduction
-          
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-      
-        <p class="article-more-link">
-          <a href="/2016/07/19/duplicate/#more">more >></a>
-        </p>
       
       <div class="clearfix"></div>
     </div>

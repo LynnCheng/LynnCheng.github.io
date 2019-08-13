@@ -233,6 +233,245 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-iOS提升" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2019/08/02/iOS提升/" class="article-date">
+      <time datetime="2019-08-02T06:15:48.000Z" itemprop="datePublished">2019-08-02</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/08/02/iOS提升/">iOS开发能力提升</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <ol>
+<li><p>关联对象Associated Object，相关函数</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">objc_getAssociatedObject(id _Nonnull object, const void * _Nonnull key)</span><br><span class="line">objc_setAssociatedObject(id _Nonnull object, const void * _Nonnull key,</span><br><span class="line">                        id _Nullable value, objc_AssociationPolicy policy)</span><br></pre></td></tr></table></figure>
+<p>可能的应用场景：给系统控件增加属性</p>
+</li>
+<li><p>关键字：dynamic 动态属性</p>
+</li>
+<li>runtime<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">appInit() &#123;</span><br><span class="line">        let test = class_getInstanceMethod(UIViewController.self,   #selector(UIViewController.viewDidLoad))</span><br><span class="line">        let test2 = class_getInstanceMethod(UIViewController.self,    #selector(UIViewController.newMethod))</span><br><span class="line">       method_exchangeImplementations(test!, test2!)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">extension UIViewController &#123;</span><br><span class="line">   @objc func newMethod() &#123;</span><br><span class="line">       #if DEBUG</span><br><span class="line">       DLog(&quot;\(type(of: self)) was loaded by \(type(of: self.parent))&quot;)</span><br><span class="line">       #endif</span><br><span class="line"></span><br><span class="line">       self.newMethod()</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ol>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-guzh" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2019/07/17/guzh/" class="article-date">
+      <time datetime="2019-07-17T03:39:20.000Z" itemprop="datePublished">2019-07-17</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/07/17/guzh/">踩坑记录</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h2 id="alamofire验证证书"><a href="#alamofire验证证书" class="headerlink" title="alamofire验证证书"></a>alamofire验证证书</h2><p>故障现象：xcode log日志显示如下错误，并且相关请求出错<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">2019-07-17 11:38:19.396278+0800 Homecare[10181:3941027] CredStore - performQuery - Error copying matching creds.  Error=-25300, query=&#123;</span><br><span class="line">    class = inet;</span><br><span class="line">    &quot;m_Limit&quot; = &quot;m_LimitAll&quot;;</span><br><span class="line">    ptcl = htps;</span><br><span class="line">    &quot;r_Attributes&quot; = 1;</span><br><span class="line">    sdmn = Users;</span><br><span class="line">    srvr = &quot;cloud.demo.cn&quot;;</span><br><span class="line">    sync = syna;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>原因：ios系统验证网站的证书出错 （ps:不过不知道什么原因，这个故障是偶现的^）<br>处理：无条件信任我们自己的服务器，不需要进行证书校验<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">init() &#123;</span><br><span class="line">    //关闭认证</span><br><span class="line">    let configuration = URLSessionConfiguration.default</span><br><span class="line">    configuration.httpAdditionalHeaders = Alamofire.SessionManager.defaultHTTPHeaders</span><br><span class="line">    configuration.urlCredentialStorage = nil</span><br><span class="line">    </span><br><span class="line">    let policies: [String: ServerTrustPolicy] = [</span><br><span class="line">        &quot;cloud.demo.cn&quot;: .disableEvaluation</span><br><span class="line">    ]</span><br><span class="line">    </span><br><span class="line">    super.init(configuration: configuration,serverTrustPolicyManager: ServerTrustPolicyManager(policies: policies))</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="手动添加的自动布局代码不生效"><a href="#手动添加的自动布局代码不生效" class="headerlink" title="手动添加的自动布局代码不生效"></a>手动添加的自动布局代码不生效</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">let subView = UIView()</span><br><span class="line">let left = NSLayoutConstraint(item: videoView, attribute: .left, relatedBy: .equal, toItem: view, attribute: .left, multiplier: 1, constant: 0)</span><br><span class="line">let right = NSLayoutConstraint(item: videoView, attribute: .right, relatedBy: .equal, toItem: view, attribute: .right, multiplier: 1, constant: 0)</span><br><span class="line">let top = NSLayoutConstraint(item: videoView, attribute: .top, relatedBy: .equal, toItem: view, attribute: .top, multiplier: 1, constant: 0)</span><br><span class="line">let bottom = NSLayoutConstraint(item: videoView, attribute: .bottom, relatedBy: .equal, toItem: view, attribute: .bottom, multiplier: 1, constant: 0)</span><br><span class="line">let constraints = [left, right, top, bottom]</span><br><span class="line">NSLayoutConstraint.activate(constraints)</span><br></pre></td></tr></table></figure>
+<p>故障现象：运行的时候发现subview自动生成了midx=0,midy=0,height=0,width=0的约束代码<br>解决方案：关掉自动生成约束代码的功能<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">let subView = UIView()</span><br><span class="line">subview.translatesAutoresizingMaskIntoConstraints = false</span><br><span class="line">.......</span><br></pre></td></tr></table></figure></p>
+<h2 id="ATS报错"><a href="#ATS报错" class="headerlink" title="ATS报错"></a>ATS报错</h2><p>故障现象：<br>app发送<a href="https://cloud.fanmiot.cn/rest/things请求，结果返回ats报错，日志如下：" target="_blank" rel="external">https://cloud.fanmiot.cn/rest/things请求，结果返回ats报错，日志如下：</a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">2019-07-23 09:26:33.044872+0800 Homecare[5571:122357] Task &lt;5547B0FE-DA52-400E-AF8E-D97453C9F2B0&gt;.&lt;1&gt; finished with error - code: -1022</span><br><span class="line">2019-07-23 09:26:33.046236+0800 Homecare[5571:122356] Task &lt;5547B0FE-DA52-400E-AF8E-D97453C9F2B0&gt;.&lt;1&gt; load failed with error Error Domain=NSURLErrorDomain Code=-1022 &quot;The resource could not be loaded because the App Transport Security policy requires the use of a secure connection.&quot; UserInfo=&#123;NSLocalizedDescription=The resource could not be loaded because the App Transport Security policy requires the use of a secure connection., NSErrorFailingURLStringKey=http://undefined/rest/things, NSErrorFailingURLKey=http://undefined/rest/things, _NSURLErrorRelatedURLSessionTaskErrorKey=(</span><br><span class="line">    &quot;LocalDataTask &lt;5547B0FE-DA52-400E-AF8E-D97453C9F2B0&gt;.&lt;1&gt;&quot;</span><br><span class="line">), _NSURLErrorFailingURLSessionTaskErrorKey=LocalDataTask &lt;5547B0FE-DA52-400E-AF8E-D97453C9F2B0&gt;.&lt;1&gt;, NSUnderlyingError=0x600003f18b10 &#123;Error Domain=kCFErrorDomainCFNetwork Code=-1022 &quot;(null)&quot;&#125;&#125; [-1022]</span><br></pre></td></tr></table></figure></p>
+<p>故障原因：<br><a href="https://cloud.fanmiot.cn/rest/things不可达时，服务器端自动跳转到了http://undefined/rest/things页面" target="_blank" rel="external">https://cloud.fanmiot.cn/rest/things不可达时，服务器端自动跳转到了http://undefined/rest/things页面</a>……</p>
+<h2 id="视图不显示"><a href="#视图不显示" class="headerlink" title="视图不显示"></a>视图不显示</h2><p>故障现象：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">class aViewController &#123;</span><br><span class="line">	override func viewDidLoad() &#123;</span><br><span class="line">    	super.viewDidLoad()</span><br><span class="line">        </span><br><span class="line">        let vc = bTabelViewController()</span><br><span class="line">        view.addsubView(vc.view)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>问题原因：<br>vc是函数内的局部变量，函数执行结束就被释放掉了；bTabelViewController的cell是根据数据动态生成的；而这些数据也随着vc的释放而消失了……<br>所以需要将let vc = bTabelViewController() 移到函数外</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-ios-导航栏" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2019/07/05/ios-导航栏/" class="article-date">
+      <time datetime="2019-07-05T03:20:30.000Z" itemprop="datePublished">2019-07-05</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/07/05/ios-导航栏/">ios 导航栏</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>将导航栏设置为透明<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">   //背景设置为空</span><br><span class="line">self.navigationController?.navigationBar.setBackgroundImage(UIImage(), forBarMetrics: .Default)</span><br><span class="line">   //去除横线</span><br><span class="line">   self.navigationController?.navigationBar.shadowImage = UIImage()</span><br><span class="line">   //设置为透明</span><br><span class="line">   self.navigationController?.navigationBar.isTranslucent = true</span><br></pre></td></tr></table></figure></p>
+<p>导航栏的颜色随着滚动条上翻渐渐从透明变成不透明<br>此时注意，一定需要将istranslucent设为true，不然不管怎么改alpha值，导航栏都会有背景色。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">func scrollViewDidScroll(_ scrollView: UIScrollView) &#123;</span><br><span class="line"></span><br><span class="line">    let offset = scrollView.contentOffset.y</span><br><span class="line">    //大标题模式下的数值</span><br><span class="line">    if offset &lt;= -88 &#123;</span><br><span class="line">        naviAlpha = 0</span><br><span class="line">    &#125; else if offset &lt; -22 &#123;</span><br><span class="line">        naviAlpha = (offset+88)/64</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">        naviAlpha = 1</span><br><span class="line">    &#125;</span><br><span class="line">    let image = UIImage.imageWithColor(Colors.naviBackground.withAlphaComponent(naviAlpha))</span><br><span class="line">    navigationController?.navigationBar.setBackgroundImage(image, for: .default)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-iOS动画" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2019/07/01/iOS动画/" class="article-date">
+      <time datetime="2019-07-01T05:39:18.000Z" itemprop="datePublished">2019-07-01</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/07/01/iOS动画/">iOS动画</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <ol>
+<li><p>锚点（参考 <a href="https://www.cnblogs.com/ybw123321/p/5394408.html）" target="_blank" rel="external">https://www.cnblogs.com/ybw123321/p/5394408.html）</a><br>视图的平移、翻转都是以锚点为中心进行，所以希望达到向某个点<br>实例可以参考：<a href="https://github.com/LynnCheng/DropdownMenu" target="_blank" rel="external">https://github.com/LynnCheng/DropdownMenu</a></p>
+</li>
+<li><p>基础动画：<br><a href="https://www.jianshu.com/p/71f2fa270b9c" target="_blank" rel="external">https://www.jianshu.com/p/71f2fa270b9c</a></p>
+</li>
+<li><p>核心动画<br><a href="https://developer.apple.com/library/archive/documentation/Cocoa/Conceptual/CoreAnimation_guide/Introduction/Introduction.html#//apple_ref/doc/uid/TP40004514" target="_blank" rel="external">https://developer.apple.com/library/archive/documentation/Cocoa/Conceptual/CoreAnimation_guide/Introduction/Introduction.html#//apple_ref/doc/uid/TP40004514</a></p>
+</li>
+</ol>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-创建pod-私库" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -581,242 +820,6 @@
           
         <p>1、依次选择 TARGETS → Build Phases；<br>2、点击 Build Phases 内左上角的 ‘+’ 号；<br>3、选中 New Run Script Phase 选项；<br>4、输入以下代码即可：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">TAGS=&quot;TODO:|FIXME:|WARNING:&quot;</span><br><span class="line">echo &quot;searching $&#123;SRCROOT&#125; for $&#123;TAGS&#125;&quot;</span><br><span class="line">find &quot;$&#123;SRCROOT&#125;&quot; \( -name &quot;*.swift&quot; \) -print0 | xargs -0 egrep --with-filename --line-number --only-matching &quot;($TAGS).*\$&quot; | perl -p -e &quot;s/($TAGS)/ warning: \$1/&quot;</span><br></pre></td></tr></table></figure>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-静态库的兼容真机和模拟器的问题" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2019/04/02/静态库的兼容真机和模拟器的问题/" class="article-date">
-      <time datetime="2019-04-02T08:27:06.000Z" itemprop="datePublished">2019-04-02</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/04/02/静态库的兼容真机和模拟器的问题/">静态库的兼容真机和模拟器的问题</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p>Q: 项目上使用了第三方提供的静态库，但只有真机版本，不含模拟器版本；导致我们的项目在模拟器环境下无法编译通过</p>
-<p>A: </p>
-<ol>
-<li>自己建一个同名的工程, 假如是Goal</li>
-<li>把第三方库的头文件都拷贝进去</li>
-<li>把所有的接口都使用假函数实现一遍，然后编译出模拟器使用的版本</li>
-<li>把第三方的静态库lib1.a和我们编译出来的lib2.a合并：lipo -create lib1.a lib2.a -output libGoal.a</li>
-</ol>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-UITableView" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2019/03/30/UITableView/" class="article-date">
-      <time datetime="2019-03-30T08:28:27.000Z" itemprop="datePublished">2019-03-30</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/03/30/UITableView/">UITableViewController</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p>Q:UITableViewController的section header的字体是黑色的，且比较大，怎样才能改小？<br>A:初始化的时候，style设置成.grouped</p>
-<p>q：怎样在表格下方添加按钮<br>a: 把按钮添加到tablefooterview就行</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-如何实现半透明的uiviewcontroller" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2019/03/29/如何实现半透明的uiviewcontroller/" class="article-date">
-      <time datetime="2019-03-29T06:54:59.000Z" itemprop="datePublished">2019-03-29</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/03/29/如何实现半透明的uiviewcontroller/">如何实现半透明的uiviewcontroller</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p>目标：通过self.present弹出新窗口，达到半透明的效果；类似uiviewcontroller</p>
-<p>错误的位置：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">override func viewDidLoad() &#123;</span><br><span class="line">    super.viewDidLoad()</span><br><span class="line">    self.modalPresentationStyle = .overCurrentContext</span><br><span class="line">    view.backgroundColor = UIColor.lightGray.withAlphaComponent(0.5)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>正确的位置：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) &#123;</span><br><span class="line">    super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)</span><br><span class="line">    </span><br><span class="line">    self.modalPresentationStyle = .overCurrentContext</span><br><span class="line">    view.backgroundColor = UIColor.lightGray.withAlphaComponent(0.5)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>原因：<br>当新窗口弹出的动画结束后，底层的view其实已经不存在了，所以半透明就看不见他了：<br>After your modal view animates in, it is resized to be equal in size to its parent view. What you can do is inside your viewDidAppear:, take a picture of the parentController’s view, then insert a UIImageView containing the picture of the parent at the back of your own view’s list of subviews:</p>
-<p>但如果在init中设置了alpha值，系统貌似帮我们做了这些事。</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-POSTMAN" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2019/02/01/POSTMAN/" class="article-date">
-      <time datetime="2019-02-01T00:47:00.000Z" itemprop="datePublished">2019-02-01</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/02/01/POSTMAN/">POSTMAN</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p>官方文档：<br><a href="https://learning.getpostman.com/docs/postman/scripts/postman_sandbox/" target="_blank" rel="external">https://learning.getpostman.com/docs/postman/scripts/postman_sandbox/</a></p>
-<p>常用语法：<br>// 获取response返回内容<br>var rsb = responseBody; // 是字符串格式</p>
-<p>// 获取环境变量<br>var v = pm.environment.get(“变量名称”);</p>
-<p>// 设置环境变量 只能存储字符串，如果是对象的话则无法在下次运行时获取到内容<br>// 如需要存储JSON数据，可以用JSON.stringify(..)存储，再用JSON.parse(..)转化为对象使用<br>pm.environment.set(“变量名称”, 变量内容);</p>
-<p>// 清除某个环境变量<br>pm.environment.unset(“环境变量名”);</p>
-<p>// 获取全局变量和普通变量<br>var gb = pm.globals.get(“全局变量名”);<br>var nm = pm.variables.get(“普通变量名”);</p>
-<p>// Javascript 获取变量类型<br>console.log( typeof pm.enviroment );</p>
-<p>//反应时间必须少于200毫秒<br>tests[“Response time is less than 200ms”] = responseTime &lt; 200;</p>
-<p>//判断反应代号是否等于某一个指定的代号<br>tests[“Status code name has string”] = responseCode.name.has(“Created”);</p>
-
       
     </div>
     
