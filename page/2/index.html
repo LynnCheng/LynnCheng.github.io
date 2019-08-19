@@ -233,6 +233,123 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-app开发的一些原则" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2019/04/28/app开发的一些原则/" class="article-date">
+      <time datetime="2019-04-28T01:40:16.000Z" itemprop="datePublished">2019-04-28</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/04/28/app开发的一些原则/">app开发的一些原则</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <ol>
+<li>非用户操作，后台自己进行的操作，如果发生错误不应该有提示语。</li>
+<li>需要注意消息推送证书有效期，提前更新（服务器侧）</li>
+</ol>
+<p>版本发布前的例行检查：</p>
+<ol>
+<li>版本号</li>
+<li>引导页是否正确配置</li>
+<li></li>
+</ol>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-认为增加编译告警" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2019/04/26/认为增加编译告警/" class="article-date">
+      <time datetime="2019-04-26T09:15:57.000Z" itemprop="datePublished">2019-04-26</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/04/26/认为增加编译告警/">xcode人为增加编译告警</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>1、依次选择 TARGETS → Build Phases；<br>2、点击 Build Phases 内左上角的 ‘+’ 号；<br>3、选中 New Run Script Phase 选项；<br>4、输入以下代码即可：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">TAGS=&quot;TODO:|FIXME:|WARNING:&quot;</span><br><span class="line">echo &quot;searching $&#123;SRCROOT&#125; for $&#123;TAGS&#125;&quot;</span><br><span class="line">find &quot;$&#123;SRCROOT&#125;&quot; \( -name &quot;*.swift&quot; \) -print0 | xargs -0 egrep --with-filename --line-number --only-matching &quot;($TAGS).*\$&quot; | perl -p -e &quot;s/($TAGS)/ warning: \$1/&quot;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-静态库的兼容真机和模拟器的问题" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -682,166 +799,6 @@
 <li><p>emoji: 等同与文字，可以直接使用；且xcode提供了所有支持的emoji</p>
 </li>
 </ol>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-Kamailio" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2018/12/29/Kamailio/" class="article-date">
-      <time datetime="2018-12-29T07:52:16.000Z" itemprop="datePublished">2018-12-29</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/12/29/Kamailio/">Kamailio</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <h1 id="在centos系统下编译安装"><a href="#在centos系统下编译安装" class="headerlink" title="在centos系统下编译安装"></a>在centos系统下编译安装</h1><ol>
-<li><p>安装编译环境</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo  yum  install  gcc  gcc-c++  flex bison make  openssl  openssl-devel libxml2  libxml2-devel  zlib-devel  ncurses*  e2fsprogs-devel  uuid-devel  libuuid-devel  readline6  readline-devel curl-devel</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>安装mysql</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">wget http://repo.mysql.com/mysql57-community-release-el7-8.noarch.rpm </span><br><span class="line">rpm -ivh mysql57-community-release-el7-8.noarch.rpm </span><br><span class="line">yum -y install mysql-server</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>下载kamailio源码</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">wget http://www.kamailio.org/pub/kamailio/latest/src/kamailio-5.2.0_src.tar.gz</span><br><span class="line">tar xvf kamailio-5.2.0_src.tar.gz</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>编译</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">cd kamailio-5.2.0</span><br><span class="line">make  FLAVOUR=kamailio  cfg</span><br><span class="line">make all</span><br><span class="line">sudo make install</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>配置 &amp;&amp; 运行<br>需要为kamailio配置mysql数据库，…..</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">kamctl  add user1 123456  //添加用户</span><br><span class="line">kamailio start   //启动</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-实时语音通话" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2018/12/28/实时语音通话/" class="article-date">
-      <time datetime="2018-12-28T01:48:39.000Z" itemprop="datePublished">2018-12-28</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/12/28/实时语音通话/">实时语音通话</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p>方案选型：</p>
-<ul>
-<li>linphone：仅适合双方通话</li>
-<li>webrtc</li>
-<li>doubango：适合多方通话，回声消除功能略差</li>
-</ul>
-<p>ios实现客户端：voip push + callkit<br>android实现客户端：android系统自带sip接口<br>sip server: opensips/kamailio + asterisk/freeswitch能够构建超大容量的VOIP平台，</p>
-<p>技术方案：</p>
-<ul>
-<li>voip - sip</li>
-<li>webrtc</li>
-<li>xmpp</li>
-<li>mqtt</li>
-</ul>
-<p>相关开源软件：</p>
-<ul>
-<li>Speex：是一套主要针对语音的开源免费，无专利保护的音频压缩格式。[<a href="http://www.speex.org" target="_blank" rel="external">http://www.speex.org</a>] 目前最新的版本是Speex 1.2rc2 and SpeexDSP 1.2rc3。它的特点有：<ul>
-<li>窄带（8kHz），宽带（16kHz）和超宽带（32kHz）压缩于同一位流。</li>
-<li>强化立体编码</li>
-<li>数据包丢失隐蔽</li>
-<li>可变比特率（VBR）</li>
-<li>语音捕捉（VAD）</li>
-<li>非连续传输（DTX）</li>
-<li>定点运算</li>
-<li>感官回声消除（AEC）</li>
-<li>噪音屏蔽</li>
-</ul>
-</li>
-<li>react-native-webrtc：支持ios/android系统</li>
-<li>Linphone：是一种开源的IP语音电话（或SIP电话），可以通过互联网与人们进行免费的语音，视频和文本即时通讯。它使用SIP协议（互联网电话的开放标准），可以与任何SIP VoIP运营商一起使用，包括一些免费的SIP音频/视频服务<a href="http://www.linphone.org" target="_blank" rel="external">http://www.linphone.org</a>, </li>
-<li>idoubs：doubango for ios基于doubango(Doubango 是一个基于3GPP IMS/RCS 并能用于嵌入式和桌面系统的开源框架。该框架使用ANSCI-C编写，具有很好的可移植性。并且已经被设计成非常轻便且能有效的工作在低内存和低处理能力的嵌入式系统上。苹果系统上的idoubs功能就是基于此框架编写) .音视频编码格式大部分都支持（H264(video)，VP8(video)，iLBC(audio),PCMA,PCMU,G722,G729）。NAT支持ICE（stun+turn）<br>官方网站：<a href="https://github.com/DoubangoTelecom/imsdroid" target="_blank" rel="external">https://github.com/DoubangoTelecom/imsdroid</a>  <a href="http://www.doubango.org/" target="_blank" rel="external">http://www.doubango.org/</a></li>
-<li>imsdroid： doubango for android</li>
-<li>csipsimple </li>
-<li>Openfire：是开源的、基于可拓展通讯和表示协议(XMPP)、采用Java编程语言开发的实时协作服务器。 Openfire安装和使用都非常简单，并利用Web进行管理。单台服务器可支持上万并发用户。</li>
-<li>WebRTC：名称源自网页实时通信（Web Real-Time Communication）的缩写，是一个支持网页浏览器进行实时语音对话或视频对话的技术。现在许多SDK都是使用WebRTC作为框架来实现。<br>官方网站：<a href="https://webrtc.org/" target="_blank" rel="external">https://webrtc.org/</a></li>
-</ul>
-<p>其他可参考第三方商用sdk:<br><a href="http://sdk.anychat.cn/html/price.html" target="_blank" rel="external">http://sdk.anychat.cn/html/price.html</a><br><a href="http://developer.juphoon.com/home/voip" target="_blank" rel="external">http://developer.juphoon.com/home/voip</a><br><a href="https://cloud.tencent.com/product/trtc" target="_blank" rel="external">https://cloud.tencent.com/product/trtc</a><br><a href="https://dev.yunxin.163.com/docs/product/音视频通话/SDK开发集成/Linux开发集成/sdk库文件下载" target="_blank" rel="external">https://dev.yunxin.163.com/docs/product/音视频通话/SDK开发集成/Linux开发集成/sdk库文件下载</a></p>
 
       
     </div>
