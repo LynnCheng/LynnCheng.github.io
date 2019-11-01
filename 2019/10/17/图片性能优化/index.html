@@ -3,30 +3,27 @@
 <head>
   <meta charset="utf-8">
   
-  <title>ios踩过的坑 | LynnCheng</title>
+  <title>图片性能优化 | LynnCheng</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="title: ios踩过的坑
-tags:ios
-AFNetWorking的HTTP Basic Auth鉴权一直失败：Authorization Error原因： 设置了错误的content-type
+  <meta name="description" content="使用Image Asset Catalogs管理图片
+init?(named: String) 常用于加载小且常用的 icon，其初始化的图片，占用的缓存只会在程序退出时才清空，即使消除强引用仍会占用缓存。而 init?(contentsOfFile: String) 初始化的图片，在没有强引用时便会自动销毁。
 
-123456789var params = basicParams()params[&amp;quot;aa&amp;quot;] = &amp;quot;sel&amp;quot;params[&amp;quot;bb&amp;quot;]">
+而 init?(contentsOfFile: String) 使用有一些注意点。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="ios踩过的坑">
-<meta property="og:url" content="http://lynncheng.github.io/2018/08/16/ios踩过的坑/index.html">
+<meta property="og:title" content="图片性能优化">
+<meta property="og:url" content="http://lynncheng.github.io/2019/10/17/图片性能优化/index.html">
 <meta property="og:site_name" content="LynnCheng">
-<meta property="og:description" content="title: ios踩过的坑
-tags:ios
-AFNetWorking的HTTP Basic Auth鉴权一直失败：Authorization Error原因： 设置了错误的content-type
+<meta property="og:description" content="使用Image Asset Catalogs管理图片
+init?(named: String) 常用于加载小且常用的 icon，其初始化的图片，占用的缓存只会在程序退出时才清空，即使消除强引用仍会占用缓存。而 init?(contentsOfFile: String) 初始化的图片，在没有强引用时便会自动销毁。
 
-123456789var params = basicParams()params[&amp;quot;aa&amp;quot;] = &amp;quot;sel&amp;quot;params[&amp;quot;bb&amp;quot;]">
-<meta property="og:updated_time" content="2019-04-30T07:32:37.000Z">
+而 init?(contentsOfFile: String) 使用有一些注意点。">
+<meta property="og:updated_time" content="2019-10-18T01:42:01.869Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="ios踩过的坑">
-<meta name="twitter:description" content="title: ios踩过的坑
-tags:ios
-AFNetWorking的HTTP Basic Auth鉴权一直失败：Authorization Error原因： 设置了错误的content-type
+<meta name="twitter:title" content="图片性能优化">
+<meta name="twitter:description" content="使用Image Asset Catalogs管理图片
+init?(named: String) 常用于加载小且常用的 icon，其初始化的图片，占用的缓存只会在程序退出时才清空，即使消除强引用仍会占用缓存。而 init?(contentsOfFile: String) 初始化的图片，在没有强引用时便会自动销毁。
 
-123456789var params = basicParams()params[&amp;quot;aa&amp;quot;] = &amp;quot;sel&amp;quot;params[&amp;quot;bb&amp;quot;]">
+而 init?(contentsOfFile: String) 使用有一些注意点。">
   
     <link rel="alternative" href="/atom.xml" title="LynnCheng" type="application/atom+xml">
   
@@ -239,11 +236,11 @@ AFNetWorking的HTTP Basic Auth鉴权一直失败：Authorization Error原因： 
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
-      <div class="body-wrap"><article id="post-ios踩过的坑" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-图片性能优化" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2018/08/16/ios踩过的坑/" class="article-date">
-      <time datetime="2018-08-16T08:18:24.000Z" itemprop="datePublished">2018-08-16</time>
+      <a href="/2019/10/17/图片性能优化/" class="article-date">
+      <time datetime="2019-10-17T09:40:12.000Z" itemprop="datePublished">2019-10-17</time>
 </a>
     </div>
   
@@ -256,7 +253,7 @@ AFNetWorking的HTTP Basic Auth鉴权一直失败：Authorization Error原因： 
         
   
     <h1 class="article-title" itemprop="name">
-      ios踩过的坑
+      图片性能优化
     </h1>
   
 
@@ -273,31 +270,11 @@ AFNetWorking的HTTP Basic Auth鉴权一直失败：Authorization Error原因： 
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>title: ios踩过的坑</p>
-<h2 id="tags-ios"><a href="#tags-ios" class="headerlink" title="tags:ios"></a>tags:ios</h2><ol>
-<li>AFNetWorking的HTTP Basic Auth鉴权一直失败：Authorization Error<br>原因： 设置了错误的content-type</li>
+        <ol>
+<li>使用Image Asset Catalogs管理图片</li>
+<li>init?(named: String) 常用于加载小且常用的 icon，其初始化的图片，占用的缓存只会在程序退出时才清空，即使消除强引用仍会占用缓存。而 init?(contentsOfFile: String) 初始化的图片，在没有强引用时便会自动销毁。</li>
 </ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">var params = basicParams()</span><br><span class="line">params[&quot;aa&quot;] = &quot;sel&quot;</span><br><span class="line">params[&quot;bb&quot;] = &quot;some&quot;</span><br><span class="line">        </span><br><span class="line">let array = stream.components(separatedBy: &quot;,&quot;)</span><br><span class="line">var bodyParam = [String : Any]()  </span><br><span class="line">bodyParam[&quot;stream&quot;] = array</span><br><span class="line">let bodyString = jsonString(bodyParam as NSDictionary)</span><br><span class="line">postWithParams(getRequestURL(&quot;api&quot;, ak: self.ak, body: bodyString, params: params), params: bodyParam, complete: complete)</span><br></pre></td></tr></table></figure>
-<a id="more"></a>
-<p>其中postwithparams使用的httpsession是系统启动的时候创建的，设置了一些默认配置。导致鉴权失败的代码：<br>httpSession.requestSerializer.setValue(<font color="#A52A2">“text/html; charset=utf-8 </font>, forHTTPHeaderField: “Content-Type”)</p>
-<p>正确的代码(应该需要和服务器端沟通好～)<br>httpSession.requestSerializer.setValue(<font color="#008000">“appliction/json”</font>, forHTTPHeaderField: “Content-Type”)</p>
-<ol>
-<li>NSNull和nil是两个东西<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">if let a = NSNull &#123; //这个判断条件为ture，如果nsnull换成nil，这个判断条件就为false</span><br><span class="line">		print(&quot;NSNull is a instance&quot;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<ol>
-<li>将playgroud添加到demo工程后 import demo，提示“No Such Module ‘demo’”<br>解决方案：<br>想要使用的代码必须是通过 Cocoa (Touch) Framework 以一个单独的 target 的方式进行组织的；</li>
-</ol>
-<p>编译结果的位置需要保持默认位置，即在 Xcode 设置中的 Locations 里 Derived Data 保持默认值；</p>
-<p>如果是 iOS 应用，这个框架必须已经针对 iPhone 5s Simulator 这样的<strong> 64 位的模拟器</strong>作为目标进行过编译；</p>
-<p>iOS 的 Playground 其实是运行在 64 位模拟器上的，因此为了能找到对应的符号和执行文件，框架代码的位置和编译架构都是有所要求的。</p>
-<ol>
-<li>同一个workspace下有多个project时，提示“Unable to find a target named <code>Library</code>,”<br>解决方案：使用project字段注明project所处的路径</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">#source &apos;https://github.com/CocoaPods/Specs.git&apos;</span><br><span class="line">platform :ios, &apos;9.0&apos;</span><br><span class="line">workspace &apos;SmartSpeaker&apos;</span><br><span class="line">use_frameworks!</span><br><span class="line"></span><br><span class="line">target &quot;SmartSpeaker&quot; do</span><br><span class="line">    pod &apos;Alamofire&apos;, &apos;~&gt; 4.7&apos; #http</span><br><span class="line">    pod &apos;SnapKit&apos;  #动态布局</span><br><span class="line">end</span><br><span class="line"></span><br><span class="line">target &quot;Library&quot; do</span><br><span class="line">    project &apos;Library/Library.xcodeproj&apos;   </span><br><span class="line">    pod &apos;SwiftGifOrigin&apos;     #gif播放，使用者：onboard</span><br><span class="line">    pod &apos;ChameleonFramework&apos; #颜色管理，使用者：onboard</span><br><span class="line">end</span><br></pre></td></tr></table></figure>
-<ol>
-<li>消息推送相关问题：针对app的不同状态，需要进行特殊处理<br>a. 当 App 在前台可见的时候，SDK 处于前台活跃状态，此时是使用 SDK 长连接接收消息。<br>b. 当 App 进入后台且在2分钟之内的时候，SDK 处于后台活跃状态，此时是使用 SDK 长连接接收消息(用户根据需要实现本地通知，否则将不会有本地通知提示弹出)。(摘取自环信说明文档)<br>c. 当 App 进入后台超过2分，被系统挂起，此时 SDK 处于不活跃状态，或者是主动把App进程杀死，此时如果有新消息，是通过苹果的 APNs 服务进行提醒的。当 App 再次启动，SDK 会去服务器拉取不活跃期间的消息。</li>
-</ol>
+<p>而 init?(contentsOfFile: String) 使用有一些注意点。该方法的参数是图片的全路径，所以需要通过 Bundle 来获取，而且需要带上后缀名。需要注意的是，如果图片放置在 Assets.xcassets 中，Bundle 是无法获取到的，需要直接复制到项目中。</p>
 
       
     </div>
@@ -306,13 +283,13 @@ AFNetWorking的HTTP Basic Auth鉴权一直失败：Authorization Error原因： 
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2018/08/16/ios踩过的坑/">ios踩过的坑</a></p>
+        <p><span>本文标题:</span><a href="/2019/10/17/图片性能优化/">图片性能优化</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">Lynn Cheng</a></p>
-        <p><span>发布时间:</span>2018-08-16, 16:18:24</p>
-        <p><span>最后更新:</span>2019-04-30, 15:32:37</p>
+        <p><span>发布时间:</span>2019-10-17, 17:40:12</p>
+        <p><span>最后更新:</span>2019-10-18, 09:42:01</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2018/08/16/ios踩过的坑/" title="ios踩过的坑">http://lynncheng.github.io/2018/08/16/ios踩过的坑/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://lynncheng.github.io/2018/08/16/ios踩过的坑/　　作者: Lynn Cheng" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2019/10/17/图片性能优化/" title="图片性能优化">http://lynncheng.github.io/2019/10/17/图片性能优化/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://lynncheng.github.io/2019/10/17/图片性能优化/　　作者: Lynn Cheng" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
@@ -324,16 +301,10 @@ AFNetWorking的HTTP Basic Auth鉴权一直失败：Authorization Error原因： 
 
     <nav id="article-nav">
         
-            <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2018/09/04/ios高手进阶/">
-                    ios开发高手进阶
-                </a>
-            </div>
-        
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2018/08/07/从零开始/">
-                    从零开始学后端开发
+                <a href="/2019/08/19/KVC/">
+                    KVC
                 </a>
             </div>
         
@@ -344,7 +315,7 @@ AFNetWorking的HTTP Basic Auth鉴权一直失败：Authorization Error原因： 
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#tags-ios"><span class="toc-number">1.</span> <span class="toc-text">tags:ios</span></a></li></ol>
+    
 </div>
 <style>
     .left-col .switch-btn {
@@ -401,7 +372,7 @@ AFNetWorking的HTTP Basic Auth鉴权一直失败：Authorization Error原因： 
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"ios踩过的坑　| LynnCheng　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"图片性能优化　| LynnCheng　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -417,7 +388,7 @@ AFNetWorking的HTTP Basic Auth鉴权一直失败：Authorization Error原因： 
     
       <div class="duoshuo" id="comments">
     <!-- 多说评论框 start -->
-    <div class="ds-thread" data-thread-key="2018/08/16/ios踩过的坑/" data-title="ios踩过的坑" data-url="http://lynncheng.github.io/2018/08/16/ios踩过的坑/"></div>
+    <div class="ds-thread" data-thread-key="2019/10/17/图片性能优化/" data-title="图片性能优化" data-url="http://lynncheng.github.io/2019/10/17/图片性能优化/"></div>
     <!-- 多说评论框 end -->
     <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
     <script type="text/javascript">
@@ -441,15 +412,13 @@ AFNetWorking的HTTP Basic Auth鉴权一直失败：Authorization Error原因： 
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2018/09/04/ios高手进阶/" title="上一篇: ios开发高手进阶">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
 
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2018/08/07/从零开始/" title="下一篇: 从零开始学后端开发">
+            <a href="/2019/08/19/KVC/" title="下一篇: KVC">
                 <i class="fa fa-angle-right"></i>
             </a>
         
