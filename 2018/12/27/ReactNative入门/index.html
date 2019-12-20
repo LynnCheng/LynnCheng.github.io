@@ -3,18 +3,21 @@
 <head>
   <meta charset="utf-8">
   
-  <title>在局域网内，无法通过upnp协议发现其它设备 | LynnCheng</title>
+  <title>KVO最佳实践 | LynnCheng</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="问题现象：app无法发现局域网内的dms故障原因：部分路由器默认不在局域网内转发无线侧的组播报文，导致upnp无法发现其它设备解决方案：a. 将upnp组播改成单播        b.修改upnp设备的实现，显式加入组播组">
+  <meta name="description" content="数据源状态机：12345678import Foundationenum ProviderState &amp;#123;    case idle    case loading    case submit    case failed(_ message:String)&amp;#125;
+数据源基类：1234567891011import Foundation@objcMembers class Prov">
 <meta property="og:type" content="article">
-<meta property="og:title" content="在局域网内，无法通过upnp协议发现其它设备">
-<meta property="og:url" content="http://lynncheng.github.io/2016/06/13/upnp/index.html">
+<meta property="og:title" content="KVO最佳实践">
+<meta property="og:url" content="http://lynncheng.github.io/2018/12/27/ReactNative入门/index.html">
 <meta property="og:site_name" content="LynnCheng">
-<meta property="og:description" content="问题现象：app无法发现局域网内的dms故障原因：部分路由器默认不在局域网内转发无线侧的组播报文，导致upnp无法发现其它设备解决方案：a. 将upnp组播改成单播        b.修改upnp设备的实现，显式加入组播组">
-<meta property="og:updated_time" content="2016-06-13T01:09:56.000Z">
+<meta property="og:description" content="数据源状态机：12345678import Foundationenum ProviderState &amp;#123;    case idle    case loading    case submit    case failed(_ message:String)&amp;#125;
+数据源基类：1234567891011import Foundation@objcMembers class Prov">
+<meta property="og:updated_time" content="2019-12-20T07:44:36.450Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="在局域网内，无法通过upnp协议发现其它设备">
-<meta name="twitter:description" content="问题现象：app无法发现局域网内的dms故障原因：部分路由器默认不在局域网内转发无线侧的组播报文，导致upnp无法发现其它设备解决方案：a. 将upnp组播改成单播        b.修改upnp设备的实现，显式加入组播组">
+<meta name="twitter:title" content="KVO最佳实践">
+<meta name="twitter:description" content="数据源状态机：12345678import Foundationenum ProviderState &amp;#123;    case idle    case loading    case submit    case failed(_ message:String)&amp;#125;
+数据源基类：1234567891011import Foundation@objcMembers class Prov">
   
     <link rel="alternative" href="/atom.xml" title="LynnCheng" type="application/atom+xml">
   
@@ -227,11 +230,11 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
-      <div class="body-wrap"><article id="post-upnp" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-ReactNative入门" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/06/13/upnp/" class="article-date">
-      <time datetime="2016-06-13T01:02:48.000Z" itemprop="datePublished">2016-06-13</time>
+      <a href="/2018/12/27/ReactNative入门/" class="article-date">
+      <time datetime="2018-12-27T01:48:02.000Z" itemprop="datePublished">2018-12-27</time>
 </a>
     </div>
   
@@ -244,7 +247,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      在局域网内，无法通过upnp协议发现其它设备
+      KVO最佳实践
     </h1>
   
 
@@ -261,7 +264,15 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>问题现象：app无法发现局域网内的dms<br>故障原因：部分路由器默认不在局域网内转发无线侧的组播报文，导致upnp无法发现其它设备<br>解决方案：a. 将upnp组播改成单播<br>        b.修改upnp设备的实现，显式加入组播组</p>
+        <p>数据源状态机：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">import Foundation</span><br><span class="line"></span><br><span class="line">enum ProviderState &#123;</span><br><span class="line">    case idle</span><br><span class="line">    case loading</span><br><span class="line">    case submit</span><br><span class="line">    case failed(_ message:String)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>数据源基类：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">import Foundation</span><br><span class="line">@objcMembers class ProviderObject: NSObject &#123;</span><br><span class="line">    var state:ProviderState? &#123;</span><br><span class="line">        didSet &#123;</span><br><span class="line">            stateMonitor = !stateMonitor</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    var noMoreData:Bool = false</span><br><span class="line">  </span><br><span class="line">    dynamic var stateMonitor: Bool = false</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>使用方法：监听数据源的stateMonitor属性，如果有改变，则手动去获取实际数据、state状态等；优点：</p>
+<ul>
+<li>可以绕开关联性枚举值无法通过observe监听的问题</li>
+<li>只需要监听一个属性</li>
+</ul>
+<p>测试类：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">class DemoProvider: ProviderObject &#123;</span><br><span class="line">	var dogAges:[Int] = []</span><br><span class="line">    var catAges:[Int] = []</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>KVO实现<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">var ob: NSKeyValueObservation?</span><br><span class="line"></span><br><span class="line">func setupKVO() &#123;</span><br><span class="line">        ob = DemoProvider.observe(\.stateMonitor, changeHandler: &#123; (demo, value) in</span><br><span class="line">            switch demo.state &#123;</span><br><span class="line">             case idle:</span><br><span class="line">             	//reload data</span><br><span class="line">             case loading:</span><br><span class="line">             	//show loading animation</span><br><span class="line">             ....</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;)    &#125;</span><br></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -270,13 +281,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2016/06/13/upnp/">在局域网内，无法通过upnp协议发现其它设备</a></p>
+        <p><span>本文标题:</span><a href="/2018/12/27/ReactNative入门/">KVO最佳实践</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">Lynn Cheng</a></p>
-        <p><span>发布时间:</span>2016-06-13, 09:02:48</p>
-        <p><span>最后更新:</span>2016-06-13, 09:09:56</p>
+        <p><span>发布时间:</span>2018-12-27, 09:48:02</p>
+        <p><span>最后更新:</span>2019-12-20, 15:44:36</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2016/06/13/upnp/" title="在局域网内，无法通过upnp协议发现其它设备">http://lynncheng.github.io/2016/06/13/upnp/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://lynncheng.github.io/2016/06/13/upnp/　　作者: Lynn Cheng" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2018/12/27/ReactNative入门/" title="KVO最佳实践">http://lynncheng.github.io/2018/12/27/ReactNative入门/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://lynncheng.github.io/2018/12/27/ReactNative入门/　　作者: Lynn Cheng" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
@@ -289,15 +300,15 @@
     <nav id="article-nav">
         
             <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2016/06/17/buildError/">
-                    Undefined symbols for architecture armv7的处理
+                <a href="/2018/12/28/实时语音通话/">
+                    实时语音通话
                 </a>
             </div>
         
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2016/06/06/vlctab/">
-                    升级vlc后，播放器的单击事件失效
+                <a href="/2018/11/30/APP框架/">
+                    ios app元素
                 </a>
             </div>
         
@@ -365,7 +376,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"在局域网内，无法通过upnp协议发现其它设备　| LynnCheng　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"KVO最佳实践　| LynnCheng　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -381,7 +392,7 @@
     
       <div class="duoshuo" id="comments">
     <!-- 多说评论框 start -->
-    <div class="ds-thread" data-thread-key="2016/06/13/upnp/" data-title="在局域网内，无法通过upnp协议发现其它设备" data-url="http://lynncheng.github.io/2016/06/13/upnp/"></div>
+    <div class="ds-thread" data-thread-key="2018/12/27/ReactNative入门/" data-title="KVO最佳实践" data-url="http://lynncheng.github.io/2018/12/27/ReactNative入门/"></div>
     <!-- 多说评论框 end -->
     <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
     <script type="text/javascript">
@@ -405,7 +416,7 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2016/06/17/buildError/" title="上一篇: Undefined symbols for architecture armv7的处理">
+            <a href="/2018/12/28/实时语音通话/" title="上一篇: 实时语音通话">
                 <i class="fa fa-angle-left"></i>
             </a>
         
@@ -413,7 +424,7 @@
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2016/06/06/vlctab/" title="下一篇: 升级vlc后，播放器的单击事件失效">
+            <a href="/2018/11/30/APP框架/" title="下一篇: ios app元素">
                 <i class="fa fa-angle-right"></i>
             </a>
         
