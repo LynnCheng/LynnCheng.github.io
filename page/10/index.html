@@ -113,13 +113,13 @@
                 <div class="tips-box hide">
                     <div class="tips-arrow"></div>
                     <ul class="tips-inner">
-                        <li>菜单</li>
-                        <li>标签</li>
+                        <li>Menu</li>
+                        <li>Tags</li>
                         
-                        <li>友情链接</li>
+                        <li>Friends</li>
                         
                         
-                        <li>关于我</li>
+                        <li>About Me</li>
                         
                     </ul>
                 </div>
@@ -229,9 +229,74 @@
             </nav>
         </header>                
     </div>
-    <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
+    <link class="menu-list" tags="Tags" friends="Friends" about="About Me"/>
 </nav>
       <div class="body-wrap">
+  
+    <article id="post-capturepackage" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/05/04/capturepackage/" class="article-date">
+      <time datetime="2016-05-04T00:56:37.000Z" itemprop="datePublished">2016-05-04</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/05/04/capturepackage/">iOS APP抓包方法介绍之tcpdump</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <ol>
+<li>将手机通过usb口连在mac电脑上</li>
+<li>通过xcode查看手机的uuid,如 rvictl -s f7f41359d97aa34487f574a4db2e028dfd4f7aa</li>
+<li><p>打开终端，开启虚拟网口</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$rvictl</span> <span class="_">-s</span> f7f41359d97aa34487f574a4db2e028dfd4f7aa</span><br><span class="line">Starting device f7f41359d97aa34487f574a4db2e028dfd4f7aa [SUCCEEDED] with interface rvi0 (rvi0就是虚拟网口的名字，抓包的时候需要使用)</span><br><span class="line"><span class="variable">$sudo</span> tcpdump -i rvi0 -w trace.pcap</span><br><span class="line">tcpdump: WARNING: rvi0: That device doesn<span class="string">'t support promiscuous mode</span><br><span class="line">(BIOCPROMISC: Operation not supported on socket)</span><br><span class="line">tcpdump: listening on rvi0, link-type PKTAP (Packet Tap), capture size 262144 bytes</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>然后就可以在手机上运行app，执行你想要的操作了。所有报文会存储在trace.pcap文件上</p>
+</li>
+<li>抓包结束后，记得删除虚拟接口<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ rvictl -x f7f41359d97aa34487f574a4db2e028dfd4f7aa</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>参考资料：<br><a href="https://developer.apple.com/library/mac/qa/qa1176/_index.html" target="_blank" rel="external">app developer: Getting a Packet Trace</a></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
   
     <article id="post-rsync" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -489,14 +554,14 @@
                 2016-2019 Lynn Cheng
             </div>
             <div class="footer-right">
-                <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的博客框架">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="简而不减 Hexo 双栏博客主题">Yelee</a> by MOxFIVE <i class="fa fa-heart animated infinite pulse"></i>
+                <a href="http://hexo.io/" target="_blank" title="A fast, simple &amp; powerful blog framework">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="Another simple and elegant theme for Hexo">Yelee</a> by MOxFIVE <i class="fa fa-heart animated infinite pulse"></i>
             </div>
         </div>
         
             <div class="visit">
                 
                     <span id="busuanzi_container_site_pv" style='display:none'>
-                        <span id="site-visit" >本站到访数: 
+                        <span id="site-visit" >Site Visitors: 
                             <span id="busuanzi_value_site_uv"></span>
                         </span>
                     </span>
@@ -506,7 +571,7 @@
                 
                 
                     <span id="busuanzi_container_page_pv" style='display:none'>
-                        <span id="page-visit">本页阅读量: 
+                        <span id="page-visit">Page Hits: 
                             <span id="busuanzi_value_page_pv"></span>
                         </span>
                     </span>
@@ -523,9 +588,9 @@
 
 
 <div class="scroll" id="scroll">
-    <a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
-    <a href="#comments" title="查看评论"><i class="fa fa-comments-o"></i></a>
-    <a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
+    <a href="#" title="Back to Top"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments" title="Comments"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="Go to Bottom"><i class="fa fa-arrow-down"></i></a>
 </div>
 
 <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
