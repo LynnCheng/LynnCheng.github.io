@@ -3,19 +3,19 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Archives: 2018 | LynnCheng</title>
+  <title>Archives: 2018 | Lynn个人领地</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description">
 <meta property="og:type" content="website">
-<meta property="og:title" content="LynnCheng">
+<meta property="og:title" content="Lynn个人领地">
 <meta property="og:url" content="http://lynncheng.github.io/archives/2018/page/3/index.html">
-<meta property="og:site_name" content="LynnCheng">
+<meta property="og:site_name" content="Lynn个人领地">
 <meta property="og:description">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="LynnCheng">
+<meta name="twitter:title" content="Lynn个人领地">
 <meta name="twitter:description">
   
-    <link rel="alternative" href="/atom.xml" title="LynnCheng" type="application/atom+xml">
+    <link rel="alternative" href="/atom.xml" title="Lynn个人领地" type="application/atom+xml">
   
   
     <link rel="icon" href="/favicon.png">
@@ -388,7 +388,7 @@
         <div id="footer-info">
             <div class="footer-left">
                 <i class="fa fa-copyright"></i> 
-                2016-2019 Lynn Cheng
+                2016-2021 Lynn Cheng
             </div>
             <div class="footer-right">
                 <a href="http://hexo.io/" target="_blank" title="A fast, simple &amp; powerful blog framework">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="Another simple and elegant theme for Hexo">Yelee</a> by MOxFIVE <i class="fa fa-heart animated infinite pulse"></i>
@@ -421,6 +421,22 @@
     
 <script data-main="/js/main.js" src="//cdn.bootcss.com/require.js/2.1.22/require.min.js"></script>
 
+    <script>
+        $(document).ready(function() {
+            var iPad = window.navigator.userAgent.indexOf('iPad');
+            if (iPad > -1 || $(".left-col").css("display") === "none") {
+                var bgColorList = ["#9db3f4", "#414141", "#e5a859", "#f5dfc6", "#c084a0", "#847e72", "#cd8390", "#996731"];
+                var bgColor = Math.ceil(Math.random() * (bgColorList.length - 1));
+                $("body").css({"background-color": bgColorList[bgColor], "background-size": "cover"});
+            }
+            else {
+                var backgroundnum = 5;
+                var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+                $("body").css({"background": backgroundimg, "background-attachment": "fixed", "background-size": "cover"});
+            }
+        })
+    </script>
+
 
 
 
@@ -430,7 +446,7 @@
     <a href="#footer" title="Go to Bottom"><i class="fa fa-arrow-down"></i></a>
 </div>
 
-<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+<script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
 </script>
   </div>
 </body>

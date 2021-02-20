@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   
-  <title>静态库的兼容真机和模拟器的问题 | LynnCheng</title>
+  <title>静态库的兼容真机和模拟器的问题 | Lynn个人领地</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="Q: 项目上使用了第三方提供的静态库，但只有真机版本，不含模拟器版本；导致我们的项目在模拟器环境下无法编译通过
 A: 
@@ -15,7 +15,7 @@ A:
 <meta property="og:type" content="article">
 <meta property="og:title" content="静态库的兼容真机和模拟器的问题">
 <meta property="og:url" content="http://lynncheng.github.io/2019/04/02/静态库的兼容真机和模拟器的问题/index.html">
-<meta property="og:site_name" content="LynnCheng">
+<meta property="og:site_name" content="Lynn个人领地">
 <meta property="og:description" content="Q: 项目上使用了第三方提供的静态库，但只有真机版本，不含模拟器版本；导致我们的项目在模拟器环境下无法编译通过
 A: 
 
@@ -34,7 +34,7 @@ A:
 把所有的接口都使用假函数实现一遍，然后编译出模拟器使用的版本
 把第三方的静态库lib1.a和我们编译出来的lib2.a合并：lipo -create lib1.a lib2.a -output libGoal">
   
-    <link rel="alternative" href="/atom.xml" title="LynnCheng" type="application/atom+xml">
+    <link rel="alternative" href="/atom.xml" title="Lynn个人领地" type="application/atom+xml">
   
   
     <link rel="icon" href="/favicon.png">
@@ -390,7 +390,7 @@ A:
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"静态库的兼容真机和模拟器的问题　| LynnCheng　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"静态库的兼容真机和模拟器的问题　| Lynn个人领地　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -402,26 +402,6 @@ A:
 
 
 
-
-    
-      <div class="duoshuo" id="comments">
-    <!-- 多说评论框 start -->
-    <div class="ds-thread" data-thread-key="2019/04/02/静态库的兼容真机和模拟器的问题/" data-title="静态库的兼容真机和模拟器的问题" data-url="http://lynncheng.github.io/2019/04/02/静态库的兼容真机和模拟器的问题/"></div>
-    <!-- 多说评论框 end -->
-    <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
-    <script type="text/javascript">
-    var duoshuoQuery = {short_name:"lynncheng"};
-    (function() {
-        var ds = document.createElement('script');
-        ds.type = 'text/javascript';ds.async = true;
-        ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-        ds.charset = 'UTF-8';
-        (document.getElementsByTagName('head')[0] 
-         || document.getElementsByTagName('body')[0]).appendChild(ds);
-    })();
-    </script>
-    <!-- 多说公共JS代码 end -->
-</div>
 
     
 
@@ -458,7 +438,7 @@ A:
         <div id="footer-info">
             <div class="footer-left">
                 <i class="fa fa-copyright"></i> 
-                2016-2019 Lynn Cheng
+                2016-2021 Lynn Cheng
             </div>
             <div class="footer-right">
                 <a href="http://hexo.io/" target="_blank" title="A fast, simple &amp; powerful blog framework">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="Another simple and elegant theme for Hexo">Yelee</a> by MOxFIVE <i class="fa fa-heart animated infinite pulse"></i>
@@ -491,6 +471,22 @@ A:
     
 <script data-main="/js/main.js" src="//cdn.bootcss.com/require.js/2.1.22/require.min.js"></script>
 
+    <script>
+        $(document).ready(function() {
+            var iPad = window.navigator.userAgent.indexOf('iPad');
+            if (iPad > -1 || $(".left-col").css("display") === "none") {
+                var bgColorList = ["#9db3f4", "#414141", "#e5a859", "#f5dfc6", "#c084a0", "#847e72", "#cd8390", "#996731"];
+                var bgColor = Math.ceil(Math.random() * (bgColorList.length - 1));
+                $("body").css({"background-color": bgColorList[bgColor], "background-size": "cover"});
+            }
+            else {
+                var backgroundnum = 5;
+                var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+                $("body").css({"background": backgroundimg, "background-attachment": "fixed", "background-size": "cover"});
+            }
+        })
+    </script>
+
 
 
 
@@ -500,7 +496,7 @@ A:
     <a href="#footer" title="Go to Bottom"><i class="fa fa-arrow-down"></i></a>
 </div>
 
-<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+<script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
 </script>
   </div>
 </body>

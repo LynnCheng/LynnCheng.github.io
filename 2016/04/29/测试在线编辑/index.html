@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   
-  <title>ssl交互handshake failure故障一则 | LynnCheng</title>
+  <title>ssl交互handshake failure故障一则 | Lynn个人领地</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="现网运行正常的设备，突然有一天连不上服务器。设备维护人员和服务器维护人员都声称近段时间没做任何修改，不应该是自己引入的。 因为设备侧的功能是两年前我开发的，所以项目负责人把交互报文发给我，让我协助分析一下。问题分析：从抓包的结果看，服务器报“handshake failure”错误，导致ssl连接建立失败，还没到应用层交互；所以关注ssl交互就行了，不用关心上层应用。
 
@@ -11,7 +11,7 @@
 <meta property="og:type" content="article">
 <meta property="og:title" content="ssl交互handshake failure故障一则">
 <meta property="og:url" content="http://lynncheng.github.io/2016/04/29/测试在线编辑/index.html">
-<meta property="og:site_name" content="LynnCheng">
+<meta property="og:site_name" content="Lynn个人领地">
 <meta property="og:description" content="现网运行正常的设备，突然有一天连不上服务器。设备维护人员和服务器维护人员都声称近段时间没做任何修改，不应该是自己引入的。 因为设备侧的功能是两年前我开发的，所以项目负责人把交互报文发给我，让我协助分析一下。问题分析：从抓包的结果看，服务器报“handshake failure”错误，导致ssl连接建立失败，还没到应用层交互；所以关注ssl交互就行了，不用关心上层应用。
 
 首先检查证书是否有效－－">
@@ -22,7 +22,7 @@
 
 首先检查证书是否有效－－">
   
-    <link rel="alternative" href="/atom.xml" title="LynnCheng" type="application/atom+xml">
+    <link rel="alternative" href="/atom.xml" title="Lynn个人领地" type="application/atom+xml">
   
   
     <link rel="icon" href="/favicon.png">
@@ -384,7 +384,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"ssl交互handshake failure故障一则　| LynnCheng　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"ssl交互handshake failure故障一则　| Lynn个人领地　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -396,26 +396,6 @@
 
 
 
-
-    
-      <div class="duoshuo" id="comments">
-    <!-- 多说评论框 start -->
-    <div class="ds-thread" data-thread-key="2016/04/29/测试在线编辑/" data-title="ssl交互handshake failure故障一则" data-url="http://lynncheng.github.io/2016/04/29/测试在线编辑/"></div>
-    <!-- 多说评论框 end -->
-    <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
-    <script type="text/javascript">
-    var duoshuoQuery = {short_name:"lynncheng"};
-    (function() {
-        var ds = document.createElement('script');
-        ds.type = 'text/javascript';ds.async = true;
-        ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-        ds.charset = 'UTF-8';
-        (document.getElementsByTagName('head')[0] 
-         || document.getElementsByTagName('body')[0]).appendChild(ds);
-    })();
-    </script>
-    <!-- 多说公共JS代码 end -->
-</div>
 
     
 
@@ -452,7 +432,7 @@
         <div id="footer-info">
             <div class="footer-left">
                 <i class="fa fa-copyright"></i> 
-                2016-2019 Lynn Cheng
+                2016-2021 Lynn Cheng
             </div>
             <div class="footer-right">
                 <a href="http://hexo.io/" target="_blank" title="A fast, simple &amp; powerful blog framework">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="Another simple and elegant theme for Hexo">Yelee</a> by MOxFIVE <i class="fa fa-heart animated infinite pulse"></i>
@@ -485,6 +465,22 @@
     
 <script data-main="/js/main.js" src="//cdn.bootcss.com/require.js/2.1.22/require.min.js"></script>
 
+    <script>
+        $(document).ready(function() {
+            var iPad = window.navigator.userAgent.indexOf('iPad');
+            if (iPad > -1 || $(".left-col").css("display") === "none") {
+                var bgColorList = ["#9db3f4", "#414141", "#e5a859", "#f5dfc6", "#c084a0", "#847e72", "#cd8390", "#996731"];
+                var bgColor = Math.ceil(Math.random() * (bgColorList.length - 1));
+                $("body").css({"background-color": bgColorList[bgColor], "background-size": "cover"});
+            }
+            else {
+                var backgroundnum = 5;
+                var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+                $("body").css({"background": backgroundimg, "background-attachment": "fixed", "background-size": "cover"});
+            }
+        })
+    </script>
+
 
 
 
@@ -494,7 +490,7 @@
     <a href="#footer" title="Go to Bottom"><i class="fa fa-arrow-down"></i></a>
 </div>
 
-<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+<script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
 </script>
   </div>
 </body>
